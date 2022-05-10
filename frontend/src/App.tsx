@@ -1,5 +1,7 @@
 import { useState } from "react";
 
+import "./styles/globals.scss";
+
 export function App() {
   const [counter, setCounter] = useState(0);
 
