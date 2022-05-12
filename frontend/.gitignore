@@ -3,5 +3,5 @@ package-lock.json
 dist/
 
 # TEMP
-colors.css
+colors.scss
 colors.json
