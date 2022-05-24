@@ -1,0 +1,25 @@
+.menuButton {
+  background-color: var(--light-color);
+  min-width: 7.5rem;
+  height: 3rem;
+  border-radius: var(--default-border-radius);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding-inline: 1rem;
+
+  transition: background-color 0.2s ease-in-out;
+
+  &.active {
+    background-color: var(--primary-color);
+    color: var(--light-color);
+
+    pointer-events: none;
+  }
+
+  &:hover {
+    background-color: var(--primary-very-light-color);
+  }
+}

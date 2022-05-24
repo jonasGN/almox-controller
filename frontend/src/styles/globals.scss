@@ -1,0 +1,58 @@
+:root {
+  // colors
+  --light-color: #fff;
+  --dark-color: #231e38;
+
+  --primary-color: #5834ea;
+  --secondary-color: #231e38;
+  --negative-color: #e5404d;
+  --background-color: #f7f6fb;
+
+  --primary-light-color: #a08afa;
+  --primary-very-light-color: #f2effb;
+  --negative-very-light-color: #fceeef;
+
+  --gray-74: #5c586b;
+  --gray-54: #888593;
+  --gray-34: #b4b2bb;
+  --gray-14: #e0dfe3;
+  --gray-08: #eeedef;
+
+  // border-radius
+  --default-border-radius: 0.5rem;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--dark-color);
+}
+
+body,
+input,
+textarea,
+select,
+button {
+  font-family: "Poppins", sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+button {
+  cursor: pointer;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+// img {
+//   display: block;
+//   width: 100%;
+// }

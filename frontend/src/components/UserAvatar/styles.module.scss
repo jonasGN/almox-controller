@@ -1,0 +1,21 @@
+.userAvatar {
+  background-color: var(--primary-light-color);
+  height: 3rem;
+  width: 3rem;
+  border-radius: 3rem;
+
+  cursor: pointer;
+  border: 2px solid var(--primary-light-color);
+
+  transition: box-shadow 0.2s ease-in-out;
+
+  &:hover {
+    box-shadow: 0 0 0.5rem var(--primary-light-color);
+  }
+
+  img {
+    display: block;
+    width: 100%;
+    border-radius: 3rem;
+  }
+}
