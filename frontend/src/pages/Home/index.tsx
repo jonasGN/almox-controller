@@ -6,6 +6,7 @@ import { Item } from "../../@types/entities";
 import { api } from "../../services/api";
 
 import styles from "./styles.module.scss";
+import { SearchBar } from "../../components/SearchBar";
 
 export default function HomePage() {
   const [items, setItems] = useState<Item[]>([]);
@@ -38,6 +39,7 @@ export default function HomePage() {
   return (
     <main className={styles.main}>
       <section className={`${styles.itemsSection} ${focusedSectionClass}`}>
+        <SearchBar />
         {items.map((item) => {
           return (
             <ItemCard

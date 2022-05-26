@@ -1,3 +1,5 @@
+import { AppIcon } from "../AppIcon";
+
 import styles from "./styles.module.scss";
 
 interface IconButtonProps {
@@ -9,7 +11,7 @@ interface IconButtonProps {
 export function IconButton({ icon, onClick, ...props }: IconButtonProps) {
   return (
     <button className={styles.iconContainer} onClick={onClick}>
-      <img src={icon} alt={props.iconAlt} />
+      <AppIcon icon={icon} iconAlt={props.iconAlt} />
     </button>
   );
 }
