@@ -1,0 +1,142 @@
+[
+  {
+    "id": 1,
+    "name": "Nome completo do item em até duas linhas completas",
+    "image": "src/services/miragejs/temp/items/item-01.jpg",
+    "unitPrice": 999,
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.",
+    "amountAvailable": 0,
+    "itemCode": "998877",
+    "location": {
+      "hall": 4,
+      "shelf": 2,
+      "block": 3
+    }
+  },
+  {
+    "id": 2,
+    "name": "Nome completo do item em até duas linhas completas",
+    "image": "src/services/miragejs/temp/items/item-02.jpg",
+    "unitPrice": 999,
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.",
+    "amountAvailable": 99,
+    "itemCode": "998877",
+    "location": {
+      "hall": 4,
+      "shelf": 2,
+      "block": 3
+    }
+  },
+  {
+    "id": 3,
+    "name": "Nome completo do item em até duas linhas completas",
+    "image": "src/services/miragejs/temp/items/item-03.jpg",
+    "unitPrice": 999,
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.",
+    "amountAvailable": 99,
+    "itemCode": "998877",
+    "location": {
+      "hall": 4,
+      "shelf": 2,
+      "block": 3
+    }
+  },
+  {
+    "id": 4,
+    "name": "Nome completo do item em até duas linhas completas",
+    "image": "src/services/miragejs/temp/items/item-04.jpg",
+    "unitPrice": 999,
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.",
+    "amountAvailable": 99,
+    "itemCode": "998877",
+    "location": {
+      "hall": 4,
+      "shelf": 2,
+      "block": 3
+    }
+  },
+  {
+    "id": 5,
+    "name": "Nome completo do item em até duas linhas completas",
+    "image": "src/services/miragejs/temp/items/item-05.jpg",
+    "unitPrice": 999,
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.",
+    "amountAvailable": 99,
+    "itemCode": "998877",
+    "location": {
+      "hall": 4,
+      "shelf": 2,
+      "block": 3
+    }
+  },
+  {
+    "id": 6,
+    "name": "Nome completo do item em até duas linhas completas",
+    "image": "src/services/miragejs/temp/items/item-06.jpg",
+    "unitPrice": 999,
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.",
+    "amountAvailable": 99,
+    "itemCode": "998877",
+    "location": {
+      "hall": 4,
+      "shelf": 2,
+      "block": 3
+    }
+  },
+  {
+    "id": 7,
+    "name": "Nome completo do item em até duas linhas completas",
+    "image": "src/services/miragejs/temp/items/item-07.jpg",
+    "unitPrice": 999,
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.",
+    "amountAvailable": 99,
+    "itemCode": "998877",
+    "location": {
+      "hall": 4,
+      "shelf": 2,
+      "block": 3
+    }
+  },
+  {
+    "id": 8,
+    "name": "Nome completo do item em até duas linhas completas",
+    "image": "src/services/miragejs/temp/items/item-03.jpg",
+    "unitPrice": 999,
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.",
+    "amountAvailable": 99,
+    "itemCode": "998877",
+    "location": {
+      "hall": 4,
+      "shelf": 2,
+      "block": 3
+    }
+  },
+  {
+    "id": 9,
+    "name": "Nome completo do item em até duas linhas completas",
+    "image": "src/services/miragejs/temp/items/item-01.jpg",
+    "unitPrice": 999,
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.",
+    "amountAvailable": 99,
+    "itemCode": "998877",
+    "location": {
+      "hall": 4,
+      "shelf": 2,
+      "block": 3
+    }
+  },
+  {
+    "id": 10,
+    "name": "Nome completo do item em até duas linhas completas",
+    "image": "src/services/miragejs/temp/items/item-07.jpg",
+    "unitPrice": 999,
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.",
+    "amountAvailable": 99,
+    "itemCode": "998877",
+    "location": {
+      "hall": 4,
+      "shelf": 2,
+      "block": 3
+    }
+  }
+]
