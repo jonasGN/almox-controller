@@ -1,12 +1,12 @@
 .container {
   background-color: var(--light-color);
-  padding-inline: 1rem;
   padding-block: 1rem;
 }
 
 .header {
-  max-width: 1000px;
+  max-width: var(--max-width);
   margin: 0 auto;
+  padding-inline: 1rem;
 
   display: flex;
   align-items: center;

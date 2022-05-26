@@ -2,13 +2,15 @@ import { MenuButton } from "../MenuButton";
 import { UserAvatar } from "../UserAvatar";
 import styles from "./styles.module.scss";
 
-import logo from "/public/images/logo.svg";
+import logo from "/images/logo.svg";
 
 export function Header() {
   return (
     <header className={styles.container}>
       <div className={styles.header}>
-        <img src={logo} alt="Almox Controller" />
+        <span>
+          <img src={logo} alt="Almox Controller" />
+        </span>
         <nav className={styles.menu}>
           <ul>
             <li>

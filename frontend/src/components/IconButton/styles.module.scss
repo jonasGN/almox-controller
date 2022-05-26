@@ -1,0 +1,24 @@
+.iconContainer {
+  height: 48px;
+  width: 48px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: none;
+  background-color: transparent;
+  border-radius: var(--default-border-radius);
+  overflow: hidden;
+
+  transition: background-color 0.2s ease-in-out;
+
+  &:hover {
+    background-color: var(--primary-very-light-color);
+  }
+
+  img {
+    height: 24px;
+    width: 24px;
+  }
+}

@@ -1,0 +1,10 @@
+.feedbackTile {
+  background-color: var(--negative-color);
+  color: var(--light-color);
+  padding-inline: 0.25rem;
+  padding-block: 0.5rem;
+  border-radius: var(--small-border-radius);
+
+  text-transform: capitalize;
+  font-size: 0.75rem;
+}
