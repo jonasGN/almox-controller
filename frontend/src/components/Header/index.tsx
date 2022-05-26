@@ -14,17 +14,19 @@ export function Header() {
         <nav className={styles.menu}>
           <ul>
             <li>
-              <MenuButton title="Itens" isActive={false} />
+              <MenuButton title="Itens" isActive={true} />
             </li>
             <li>
-              <MenuButton title="Usuários" isActive={true} />
+              <MenuButton title="Usuários" isActive={false} />
             </li>
             <li>
               <MenuButton title="Ordens" isActive={false} />
             </li>
+            <li>
+              <UserAvatar />
+            </li>
           </ul>
         </nav>
-        <UserAvatar />
       </div>
     </header>
   );

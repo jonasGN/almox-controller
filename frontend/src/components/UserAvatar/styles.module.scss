@@ -1,4 +1,8 @@
 .userAvatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   background-color: var(--primary-light-color);
   height: 3rem;
   width: 3rem;
@@ -18,4 +22,5 @@
 .userInitials {
   font-weight: 600;
   color: var(--light-color);
+  display: block;
 }
