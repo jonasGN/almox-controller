@@ -1,0 +1,101 @@
+.itemDetailsCard {
+  background-color: var(--light-color);
+  padding: 1.5rem;
+  border-radius: var(--default-border-radius);
+
+  display: none;
+  grid-column: 3 / -1;
+  height: fit-content;
+
+  position: sticky;
+  top: 1.5rem;
+
+  animation: show-card 0.2s ease-in-out;
+
+  &.active {
+    display: block;
+  }
+
+  header {
+    margin-bottom: 1.5rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    h2 {
+      font-size: 1.1875rem;
+    }
+  }
+
+  h1 {
+    font-size: 1.1875rem;
+    font-weight: 500;
+    margin-top: 1rem;
+  }
+
+  p {
+    margin-top: 0.75rem;
+    margin-bottom: 1rem;
+    font-size: 0.8125rem;
+    color: var(--gray-74-color);
+    line-height: 1rem;
+  }
+
+  @keyframes show-card {
+    from {
+      opacity: 0;
+      transform: translateX(2rem);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+}
+
+.image {
+  position: relative;
+
+  img {
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: var(--default-border-radius);
+  }
+
+  div[about="feedback-tile"] {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+  }
+}
+
+.price {
+  font-weight: 600;
+  color: var(--primary-color);
+  font-size: 1.1875rem;
+}
+
+.otherInfos {
+  display: flex;
+  gap: 2rem;
+  margin-top: 2rem;
+
+  div > span {
+    display: inline-block;
+    font-size: 0.8125rem;
+    color: var(--gray-74-color);
+    margin-bottom: 0.25rem;
+  }
+
+  p {
+    font-size: 0.9375rem;
+    font-weight: 500;
+    color: inherit;
+    margin: 0;
+  }
+
+  .amountAvailable {
+    color: var(--primary-color);
+  }
+}
