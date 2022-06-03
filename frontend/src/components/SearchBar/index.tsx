@@ -8,7 +8,7 @@ export function SearchBar() {
     <div className={styles.searchContainer}>
       <div className={styles.searchBar}>
         <AppIcon icon={searchIcon} />
-        <input type="text" placeholder="Comece a pesquisar" />
+        <input type="search" placeholder="Comece a pesquisar" />
       </div>
     </div>
   );

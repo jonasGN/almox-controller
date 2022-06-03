@@ -21,7 +21,7 @@ export function ItemCard({ item, ...props }: ItemCardProps) {
   }
 
   return (
-    <button
+    <a
       className={`${styles.card} ${focusedClass} ${unavailableClass}`}
       onClick={props.onClick}
     >
@@ -36,6 +36,6 @@ export function ItemCard({ item, ...props }: ItemCardProps) {
           <span className={styles.code}>{item.itemCode}</span>
         </div>
       </div>
-    </button>
+    </a>
   );
 }

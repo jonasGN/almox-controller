@@ -13,19 +13,23 @@
   justify-content: space-between;
 }
 
-.menu {
+.menuNav {
   display: flex;
 
-  ul {
+  .menuOptions {
     list-style: none;
     display: flex;
 
-    li + li {
-      margin-left: 0.75rem;
-    }
+    .menuOption {
+      position: relative;
 
-    li:last-child {
-      margin-left: 1.5rem;
+      & + li {
+        margin-left: 0.75rem;
+      }
+
+      &:last-child {
+        margin-left: 1.5rem;
+      }
     }
   }
 }

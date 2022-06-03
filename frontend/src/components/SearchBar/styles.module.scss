@@ -29,13 +29,20 @@
     background-color: transparent;
     border-radius: inherit;
 
+    transition: box-shadow 0.2s ease-in-out;
+
     &::placeholder {
       color: var(--gray-74-color);
     }
 
     &:focus {
       outline: 0px solid transparent;
-      box-shadow: 0 0 2px 2px var(--primary-color);
+      box-shadow: 0 0 0.5rem 2px var(--primary-light-color),
+        0 0 0 2px var(--primary-color);
+    }
+
+    &:hover {
+      box-shadow: 0 0 0.5rem 2px var(--primary-light-color);
     }
   }
 }

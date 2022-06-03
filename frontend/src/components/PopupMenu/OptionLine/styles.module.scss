@@ -1,0 +1,25 @@
+.option {
+  a {
+    background-color: transparent;
+    padding-inline: 1.5rem;
+    padding-block: 1rem;
+    width: 100%;
+
+    font-size: 0.8125rem;
+
+    display: block;
+    cursor: pointer;
+
+    transition: background-color 0.2s;
+
+    &:hover {
+      background-color: var(--primary-very-light-color);
+    }
+  }
+
+  &.warning {
+    a {
+      color: var(--negative-color);
+    }
+  }
+}

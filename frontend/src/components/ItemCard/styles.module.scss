@@ -48,9 +48,13 @@
   & > p {
     font-size: 0.9375rem;
     line-height: 1.125rem;
-
-    text-overflow: ellipsis;
     margin-bottom: 0.5rem;
+
+    display: -webkit-box;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
   }
 
   & > div {

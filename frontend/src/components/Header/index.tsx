@@ -1,8 +1,8 @@
 import { MenuButton } from "../MenuButton";
 import { UserAvatar } from "../UserAvatar";
-import styles from "./styles.module.scss";
 
 import logo from "/images/logo.svg";
+import styles from "./styles.module.scss";
 
 export function Header() {
   return (
@@ -11,19 +11,13 @@ export function Header() {
         <span>
           <img src={logo} alt="Almox Controller" />
         </span>
-        <nav className={styles.menu}>
-          <ul>
-            <li>
-              <MenuButton title="Itens" isActive={true} />
+        <nav className={styles.menuNav}>
+          <ul className={styles.menuOptions}>
+            <li className={styles.menuOption}>
+              <MenuButton title="Itens" isActive={true} onClick={() => {}} />
             </li>
-            <li>
-              <MenuButton title="Usuários" isActive={false} />
-            </li>
-            <li>
-              <MenuButton title="Ordens" isActive={false} />
-            </li>
-            <li>
-              <UserAvatar />
+            <li className={styles.menuOption}>
+              <UserAvatar onClick={() => {}} />
             </li>
           </ul>
         </nav>
