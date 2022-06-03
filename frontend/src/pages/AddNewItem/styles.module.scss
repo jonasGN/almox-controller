@@ -1,0 +1,45 @@
+.grid {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding-inline: 1rem;
+  padding-block: 1.5rem;
+
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem 1.5rem;
+}
+
+.formContainer {
+  grid-column: 1 / 3;
+
+  background-color: var(--light-color);
+  border-radius: 0.5rem;
+
+  form {
+    padding-inline: 1.5rem;
+    padding-bottom: 1.5rem;
+
+    display: grid;
+    gap: 1.5rem;
+  }
+}
+
+.splitField {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.sectionDivider {
+  font-size: 1.1875rem;
+  font-weight: 500;
+  padding-top: 1.5rem;
+
+  border-top: 1px solid var(--gray-08-color);
+}
+
+.imageSection {
+  grid-column: 3 / -1;
+
+  background-color: var(--light-color);
+  border-radius: 0.5rem;
+}

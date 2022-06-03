@@ -2,11 +2,12 @@ import { useEffect, useState } from "react";
 
 import { ItemCard } from "../../components/ItemCard";
 import { ItemDetailsCard } from "../../components/ItemDetailsCard";
+import { SearchBar } from "../../components/SearchBar";
+
 import { Item } from "../../@types/entities";
 import { api } from "../../services/api";
 
 import styles from "./styles.module.scss";
-import { SearchBar } from "../../components/SearchBar";
 
 export default function HomePage() {
   const [items, setItems] = useState<Item[]>([]);
@@ -37,7 +38,7 @@ export default function HomePage() {
   const focusedSectionClass = isItemFocused ? styles.shrink : "";
 
   return (
-    <main className={styles.main}>
+    <main className={styles.grid}>
       <section className={`${styles.itemsSection} ${focusedSectionClass}`}>
         <SearchBar />
         {items.map((item) => {

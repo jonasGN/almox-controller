@@ -1,0 +1,10 @@
+.container {
+  grid-column: 1 / -1;
+
+  background-color: var(--light-color);
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+
+  font-size: 1.1875rem;
+  font-weight: 500;
+}
