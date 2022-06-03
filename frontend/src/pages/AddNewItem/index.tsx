@@ -11,17 +11,34 @@ export default function AddNewItemPage() {
       <section className={styles.formContainer}>
         <TitleTile title="Informações básicas" />
         <form action="">
-          <FormField />
-          <FormField useTextArea={true} />
+          <FormField name="name" label="Nome" placeholder="Nome simplificado" />
+          <FormField
+            name="description"
+            label="Descrição"
+            placeholder="Uma simples descrição a respeito do item"
+            useTextArea={true}
+          />
           <div className={styles.spliter}>
-            <FormField />
-            <FormField />
+            <FormField
+              name="price"
+              type="number"
+              label="Preço"
+              placeholder="0,00"
+              prefix="R$"
+            />
+            <FormField
+              name="initialAmount"
+              type="number"
+              label="Quant. Inicial"
+              placeholder="00"
+              prefix="uni"
+            />
           </div>
           <div className={styles.sectionDivider}>Localização</div>
           <div className={styles.spliter}>
-            <FormField />
-            <FormField />
-            <FormField />
+            <FormField name="hall" label="Corredor" placeholder="00" />
+            <FormField name="shelf" label="Prateleira" placeholder="00" />
+            <FormField name="block" label="Bloco" placeholder="00" />
           </div>
           <div className={`${styles.spliter} ${styles.buttonsContainer}`}>
             <MainButton title="Limpar" useAlert={true} />
