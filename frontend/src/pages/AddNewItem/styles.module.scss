@@ -24,7 +24,7 @@
   }
 }
 
-.splitField {
+.spliter {
   display: flex;
   gap: 1.5rem;
 }
@@ -35,6 +35,10 @@
   padding-top: 1.5rem;
 
   border-top: 1px solid var(--gray-08-color);
+}
+
+.buttonsContainer {
+  margin-top: 3.5rem;
 }
 
 .imageSection {
