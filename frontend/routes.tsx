@@ -1,7 +1,7 @@
 import { Route, Routes as Switch } from "react-router-dom";
 
 import AddNewItem from "./src/pages/AddNewItem";
-import Home from "./src/pages/Home";
+import Items from "./src/pages/Items";
 
 export const routes = Object.freeze({
   home: "/",
@@ -14,7 +14,7 @@ export const routes = Object.freeze({
 export function Routes() {
   return (
     <Switch>
-      <Route path={routes.home} element={<Home />} />
+      <Route path={routes.items} element={<Items />} />
       <Route path={routes.newItem} element={<AddNewItem />} />
     </Switch>
   );

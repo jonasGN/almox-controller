@@ -19,7 +19,7 @@ export function Header() {
   return (
     <header className={styles.container}>
       <div className={styles.header}>
-        <Link to={routes.home}>
+        <Link to={routes.items}>
           <img src={logo} alt="Almox Controller" />
         </Link>
         <nav className={styles.menuNav}>

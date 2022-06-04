@@ -9,7 +9,7 @@ import { api } from "../../services/api";
 
 import styles from "./styles.module.scss";
 
-export default function HomePage() {
+export default function ItemsPage() {
   const [items, setItems] = useState<Item[]>([]);
   const [itemFocused, setItemFocused] = useState<Item>({} as Item);
 
