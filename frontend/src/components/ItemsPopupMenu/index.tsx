@@ -1,7 +1,16 @@
+import { useNavigate } from "react-router-dom";
+import { routes } from "../../../routes";
+
 import { PopupMenu } from "../PopupMenu";
 import { OptionLineProps } from "../PopupMenu/OptionLine";
 
-export function ItemsPopupMenu() {
+interface ItemsPopupMenuProps {
+  isVisible: boolean;
+}
+
+export function ItemsPopupMenu({ isVisible }: ItemsPopupMenuProps) {
+  const navigate = useNavigate();
+
   const options: OptionLineProps[] = [
     {
       title: "Catálogo",
@@ -15,10 +24,12 @@ export function ItemsPopupMenu() {
     },
     {
       title: "Adiciona novo item",
-      onClick: () => {},
+      onClick: () => {
+        navigate(routes.newItem);
+      },
       warning: false,
     },
   ];
 
-  return <PopupMenu options={options} isVisible={true} />;
+  return <PopupMenu options={options} isVisible={isVisible} />;
 }
