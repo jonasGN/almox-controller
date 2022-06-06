@@ -2,20 +2,25 @@ import { OptionLine, OptionLineProps } from "./OptionLine";
 
 import styles from "./styles.module.scss";
 
+export type PopupOptions = OptionLineProps;
+
 interface PopupMenuProps {
-  options: OptionLineProps[];
+  options: PopupOptions[];
   isVisible: boolean;
 }
 
 export function PopupMenu({ options, ...props }: PopupMenuProps) {
   if (!props.isVisible) return null;
 
-  const visibleClass = props.isVisible ? styles.visible : "";
+  if (options.length === 0) throw Error("You must pass at least one option.");
 
-  const sorted = options.sort((a, b) => Number(a.warning) - Number(b.warning));
+  // render the warning options last
+  const sorted = [...options].sort(
+    (a, b) => Number(a.warning) - Number(b.warning)
+  );
 
   return (
-    <nav className={`${styles.popupMenu} ${visibleClass}`}>
+    <nav className={styles.popupMenu}>
       <ul className={styles.optionsList}>
         {sorted.map((option) => (
           <OptionLine

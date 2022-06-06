@@ -8,18 +8,34 @@
     font-size: 0.8125rem;
 
     display: block;
-    cursor: pointer;
+    position: relative;
 
-    transition: background-color 0.2s;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+
+    &.warning {
+      color: var(--negative-color);
+    }
 
     &:hover {
       background-color: var(--primary-very-light-color);
     }
+
+    &::after {
+      content: "";
+      display: block;
+      width: calc(100% - (2 * 1.5rem));
+      height: 1px;
+      background-color: var(--gray-08-color);
+
+      position: absolute;
+      bottom: 0;
+    }
   }
 
-  &.warning {
-    a {
-      color: var(--negative-color);
+  &:last-child {
+    a::after {
+      content: none;
     }
   }
 }

@@ -2,16 +2,16 @@ import styles from "./styles.module.scss";
 
 export interface OptionLineProps {
   title: string;
-  onClick: () => void;
+  onClick: React.MouseEventHandler<HTMLAnchorElement>;
   warning?: boolean;
 }
 
 export function OptionLine({ warning = false, ...props }: OptionLineProps) {
-  const warningClass = warning ? styles.warning : "";
-
   return (
-    <li className={`${styles.option} ${warningClass}`}>
-      <a onClick={props.onClick}>{props.title}</a>
+    <li className={styles.option}>
+      <a className={warning ? styles.warning : ""} onClick={props.onClick}>
+        {props.title}
+      </a>
     </li>
   );
 }

@@ -2,7 +2,6 @@
   min-width: 240px;
 
   position: absolute;
-  // bottom: -2rem;
   right: 0;
   z-index: 1;
 
@@ -10,15 +9,24 @@
   border-radius: var(--default-border-radius);
   box-shadow: 0 4px 4px var(--shadow-color);
   border: 1px solid var(--gray-08-color);
-
   margin-top: 0.5rem;
 
   overflow: hidden;
 
-  display: none;
+  display: block;
 
-  &.visible {
-    display: block;
+  animation: show 0.4s ease;
+  transform-origin: 50% 0%;
+
+  @keyframes show {
+    from {
+      opacity: 0;
+      transform: scaleY(0);
+    }
+    to {
+      opacity: 1;
+      transform: scaleY(1);
+    }
   }
 }
 

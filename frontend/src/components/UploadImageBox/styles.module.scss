@@ -1,0 +1,18 @@
+.box {
+  background-color: var(--primary-very-light-color);
+  border: 2px dashed var(--primary-color);
+  border-radius: 0.5rem;
+  padding: 3rem;
+
+  // cursor: pointer;
+
+  // &:hover {
+  //   background-color: var(--primary-light-color);
+  // }
+
+  p {
+    font-size: 0.9375rem;
+    text-align: center;
+    margin-top: 2rem;
+  }
+}

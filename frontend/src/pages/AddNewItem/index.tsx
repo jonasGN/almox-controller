@@ -1,6 +1,7 @@
 import { FormField } from "../../components/FormField";
 import { MainButton } from "../../components/MainButton";
 import { TitleTile } from "../../components/TitleTile";
+import { UploadImageBox } from "../../components/UploadImageBox";
 
 import styles from "./styles.module.scss";
 
@@ -48,6 +49,9 @@ export default function AddNewItemPage() {
       </section>
       <section className={styles.imageSection}>
         <TitleTile title="Imagem" />
+        <div className={styles.imageSectionContent}>
+          <UploadImageBox />
+        </div>
       </section>
     </main>
   );

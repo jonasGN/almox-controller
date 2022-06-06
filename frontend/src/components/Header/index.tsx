@@ -1,20 +1,62 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useRef, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { routes } from "../../../routes";
+import { useOnClickOutside } from "../../hooks/useOnClickOutside";
 
 import { MenuButton } from "../MenuButton";
 import { UserAvatar } from "../UserAvatar";
-import { ItemsPopupMenu } from "../ItemsPopupMenu";
+import { PopupMenu, PopupOptions } from "../PopupMenu";
 
 import logo from "/images/logo.svg";
 import styles from "./styles.module.scss";
 
 export function Header() {
-  const [isItemsPopupVisible, setIsItemsPopupVisible] = useState(false);
+  const [popupActive, setPopupActive] = useState("");
 
-  function handleItemsPopup() {
-    setIsItemsPopupVisible(!isItemsPopupVisible);
+  const menuRef = useRef<HTMLUListElement>(null);
+
+  useOnClickOutside(menuRef, () => {
+    setPopupActive("");
+  });
+
+  const navigate = useNavigate();
+
+  function handleActivePopup(popupName: string): void {
+    setPopupActive(popupName);
   }
+
+  function navigateTo(route: string): void {
+    handleActivePopup("");
+    navigate(route);
+  }
+
+  const itemsOptions: PopupOptions[] = [
+    {
+      title: "Catálogo",
+      onClick: () => {},
+      warning: false,
+    },
+    {
+      title: "Solicitações",
+      onClick: () => {},
+      warning: false,
+    },
+    {
+      title: "Adiciona novo item",
+      onClick: () => {
+        navigateTo(routes.newItem);
+      },
+      warning: false,
+    },
+  ];
+
+  const userOptions: PopupOptions[] = [
+    {
+      title: "Sair",
+      onClick: () => {},
+      warning: true,
+    },
+  ];
 
   return (
     <header className={styles.container}>
@@ -23,17 +65,30 @@ export function Header() {
           <img src={logo} alt="Almox Controller" />
         </Link>
         <nav className={styles.menuNav}>
-          <ul className={styles.menuOptions}>
+          <ul ref={menuRef} className={styles.menuOptions}>
             <li className={styles.menuOption}>
               <MenuButton
                 title="Itens"
-                isActive={false}
-                onClick={handleItemsPopup}
+                isActive={popupActive === "items"}
+                onClick={() => {
+                  handleActivePopup("items");
+                }}
               />
-              <ItemsPopupMenu isVisible={isItemsPopupVisible} />
+              <PopupMenu
+                options={itemsOptions}
+                isVisible={popupActive === "items"}
+              />
             </li>
             <li className={styles.menuOption}>
-              <UserAvatar onClick={() => {}} />
+              <UserAvatar
+                onClick={() => {
+                  handleActivePopup("user");
+                }}
+              />
+              <PopupMenu
+                options={userOptions}
+                isVisible={popupActive === "user"}
+              />
             </li>
           </ul>
         </nav>

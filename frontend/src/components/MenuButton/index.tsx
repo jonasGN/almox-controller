@@ -5,7 +5,7 @@ import styles from "./styles.module.scss";
 interface MenuButtonProps {
   title: string;
   isActive: boolean;
-  onClick: () => void;
+  onClick: React.MouseEventHandler;
 }
 
 export function MenuButton(props: MenuButtonProps) {
@@ -15,7 +15,7 @@ export function MenuButton(props: MenuButtonProps) {
     event.preventDefault();
 
     if (props.isActive) return;
-    props.onClick();
+    props.onClick(event);
   }
 
   return (
