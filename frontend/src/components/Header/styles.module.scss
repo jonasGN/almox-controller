@@ -19,17 +19,29 @@
   .menuOptions {
     list-style: none;
     display: flex;
+  }
+}
 
-    .menuOption {
-      position: relative;
+.menuOption {
+  position: relative;
 
-      & + li {
-        margin-left: 0.75rem;
-      }
+  & + li {
+    margin-left: 0.75rem;
+  }
 
-      &:last-child {
-        margin-left: 1.5rem;
-      }
-    }
+  &:last-child {
+    margin-left: 1.5rem;
+  }
+}
+
+.avatar {
+  border: none;
+  background-color: transparent;
+  border-radius: 50%;
+
+  transition: all 0.2s ease;
+
+  &:hover {
+    box-shadow: 0 0 0.25rem 2px var(--primary-light-color);
   }
 }

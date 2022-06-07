@@ -1,19 +1,24 @@
-import React from "react";
+import { getNameInitials } from "../../utils/formatters";
+
 import styles from "./styles.module.scss";
 
 interface UserAvatarProps {
-  onClick: () => void;
+  avatar?: string;
+  userName?: string;
+  size?: "medium" | "default" | "button";
 }
 
 export function UserAvatar(props: UserAvatarProps) {
-  function handleOnClick(event: React.MouseEvent) {
-    event.preventDefault();
-    props.onClick();
+  if (!props.avatar && !props.userName) {
+    throw Error(`Must be provided at least one: 'avatar' or 'userName'`);
   }
 
+  const sizeClass = styles[props.size ?? "default"];
+
+  // TODO: render image when user have one
   return (
-    <a className={styles.userAvatar} onClick={handleOnClick}>
-      <span className={styles.userInitials}>JG</span>
-    </a>
+    <div className={`${styles.userAvatar} ${sizeClass}`}>
+      <span>{getNameInitials(props.userName ?? "")}</span>
+    </div>
   );
 }

@@ -3,24 +3,33 @@
   align-items: center;
   justify-content: center;
 
-  background-color: var(--primary-light-color);
-  height: 3rem;
-  width: 3rem;
-  border-radius: 3rem;
+  background-color: var(--primary-very-light-color);
+  aspect-ratio: 1;
+  border-radius: 50%;
 
-  cursor: pointer;
   border: 2px solid var(--primary-light-color);
   overflow: hidden;
 
-  transition: box-shadow 0.2s ease-in-out;
-
-  &:hover {
-    box-shadow: 0 0 0.5rem var(--primary-light-color);
+  span {
+    display: block;
+    font-weight: 600;
+    font-size: 0.9375rem;
+    color: var(--primary-color);
   }
 }
 
-.userInitials {
-  font-weight: 600;
-  color: var(--light-color);
-  display: block;
+.medium {
+  height: 1.875rem;
+
+  span {
+    font-size: 0.75rem;
+  }
+}
+
+.default {
+  height: 2.5rem;
+}
+
+.button {
+  height: 3rem;
 }

@@ -82,11 +82,14 @@ export function Header() {
               />
             </li>
             <li className={styles.menuOption}>
-              <UserAvatar
+              <button
+                className={styles.avatar}
                 onClick={() => {
                   handleActivePopup("user");
                 }}
-              />
+              >
+                <UserAvatar userName="Fulano de Tal" size="button" />
+              </button>
               <PopupMenu
                 options={userOptions}
                 isVisible={popupActive === "user"}
