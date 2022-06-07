@@ -4,6 +4,7 @@ import { Routes } from "../routes";
 import { initFakeServer } from "./services/miragejs/fake-server";
 
 import "./styles/globals.scss";
+import "./styles/font-sizes.scss";
 
 initFakeServer();
 

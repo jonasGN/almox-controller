@@ -5,22 +5,31 @@
   padding-block: 1.5rem;
 
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1rem 1.5rem;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+
+  h1 {
+    grid-column: 1 / -1;
+  }
+
+  section {
+    background-color: var(--light-color);
+    border-radius: 0.5rem;
+  }
 }
 
-.formContainer {
-  grid-column: 1 / 3;
-
-  background-color: var(--light-color);
-  border-radius: 0.5rem;
-
+.formSection {
   form {
     padding-inline: 1.5rem;
     padding-bottom: 1.5rem;
 
     display: grid;
     gap: 1.5rem;
+
+    h2 {
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--gray-08-color);
+    }
   }
 }
 
@@ -29,26 +38,14 @@
   gap: 1.5rem;
 }
 
-.sectionDivider {
-  font-size: 1.1875rem;
-  font-weight: 500;
-  padding-top: 1.5rem;
-
-  border-top: 1px solid var(--gray-08-color);
-}
-
 .buttonsContainer {
   margin-top: 3.5rem;
 }
 
 .imageSection {
-  grid-column: 3 / -1;
+  padding: 1.5rem;
 
-  background-color: var(--light-color);
-  border-radius: 0.5rem;
-}
-
-.imageSectionContent {
-  margin-inline: 1.5rem;
-  margin-bottom: 1.5rem;
+  h2 {
+    margin-bottom: 1.5rem;
+  }
 }

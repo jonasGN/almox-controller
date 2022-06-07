@@ -63,6 +63,11 @@ a {
   text-decoration: none;
 }
 
+h1 {
+  font-size: var(--h5-font);
+  font-weight: bold;
+}
+
 img {
   display: block;
   width: 100%;

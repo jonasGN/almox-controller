@@ -7,6 +7,10 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 1.5rem;
+
+  h1 {
+    grid-column: 1 / -1;
+  }
 }
 
 .requestsSection {
@@ -19,5 +23,12 @@
   &.shrink {
     grid-column: 1 / 2;
     grid-template-columns: 1fr;
+  }
+}
+
+.detailsSection {
+  div {
+    position: sticky;
+    top: 1.5rem;
   }
 }

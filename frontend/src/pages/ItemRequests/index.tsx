@@ -3,9 +3,9 @@ import { ItemRequest } from "../../@types/entities";
 import { api } from "../../services/api";
 
 import { ItemRequestCard } from "../../components/ItemRequestCard";
+import { ItemRequestDetailsCard } from "../../components/ItemRequestDetailsCard";
 
 import styles from "./styles.module.scss";
-import { ItemRequestDetailsCard } from "../../components/ItemRequestDetailsCard";
 
 export default function ItemRequestsPage() {
   const [requests, setRequests] = useState<ItemRequest[]>([]);
@@ -47,6 +47,7 @@ export default function ItemRequestsPage() {
 
   return (
     <main className={styles.grid}>
+      <h1>Solicitações de itens</h1>
       <section className={`${styles.requestsSection} ${focusedSectionClass}`}>
         {requests.map((item) => (
           <ItemRequestCard
@@ -61,7 +62,7 @@ export default function ItemRequestsPage() {
       </section>
 
       {hasRequestFocused ? (
-        <section>
+        <section className={styles.detailsSection}>
           <ItemRequestDetailsCard itemRequest={requestFocused} />
         </section>
       ) : null}

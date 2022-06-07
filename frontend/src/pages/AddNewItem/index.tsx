@@ -8,9 +8,9 @@ import styles from "./styles.module.scss";
 export default function AddNewItemPage() {
   return (
     <main className={styles.grid}>
-      <TitleTile title="Adicionar novo item" />
-      <section className={styles.formContainer}>
-        <TitleTile title="Informações básicas" />
+      <h1>Adicionar novo item</h1>
+      <section className={styles.formSection}>
+        <TitleTile title="Informações básicas" useElementPadding={true} />
         <form action="">
           <FormField name="name" label="Nome" placeholder="Nome simplificado" />
           <FormField
@@ -35,7 +35,7 @@ export default function AddNewItemPage() {
               prefix="uni"
             />
           </div>
-          <div className={styles.sectionDivider}>Localização</div>
+          <TitleTile title="Localização" />
           <div className={styles.spliter}>
             <FormField name="hall" label="Corredor" placeholder="00" />
             <FormField name="shelf" label="Prateleira" placeholder="00" />
@@ -47,11 +47,10 @@ export default function AddNewItemPage() {
           </div>
         </form>
       </section>
+
       <section className={styles.imageSection}>
         <TitleTile title="Imagem" />
-        <div className={styles.imageSectionContent}>
-          <UploadImageBox />
-        </div>
+        <UploadImageBox />
       </section>
     </main>
   );
