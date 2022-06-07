@@ -38,7 +38,9 @@ export function Header() {
     },
     {
       title: "Solicitações",
-      onClick: () => {},
+      onClick: () => {
+        navigateTo(routes.itemRequests);
+      },
       warning: false,
     },
     {

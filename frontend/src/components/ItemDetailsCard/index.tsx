@@ -16,6 +16,7 @@ interface ItemDetailsCardProps {
 
 export function ItemDetailsCard({ item, ...props }: ItemDetailsCardProps) {
   console.log(props.isVisible);
+  if (!props.isVisible) return null;
 
   const visibleClass = props.isVisible ? styles.active : "";
 
