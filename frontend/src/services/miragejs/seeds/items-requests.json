@@ -1,0 +1,65 @@
+[
+  {
+    "id": 1,
+    "user": {
+      "id": 1,
+      "name": "Mariana Alcantâra",
+      "companyCode": "88776655"
+    },
+    "requestStatus": {
+      "status": "REFUSED",
+      "responsible": {
+        "id": 2,
+        "name": "Fulano de Tal",
+        "companyCode": "11111111"
+      }
+    },
+    "requestedItem": {
+      "itemCode": "8899776622",
+      "message": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+      "moment": "2022-06-07T08:23:01Z"
+    }
+  },
+  {
+    "id": 2,
+    "user": {
+      "id": 3,
+      "name": "Marcos Antônio",
+      "companyCode": "88776644"
+    },
+    "requestStatus": {
+      "status": "ACCEPTED",
+      "responsible": {
+        "id": 2,
+        "name": "Fulano de Tal",
+        "companyCode": "11111111"
+      }
+    },
+    "requestedItem": {
+      "itemCode": "8899776611",
+      "message": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+      "moment": "2022-06-07T08:27:01Z"
+    }
+  },
+  {
+    "id": 3,
+    "user": {
+      "id": 4,
+      "name": "Patricia Machado",
+      "companyCode": "88779786"
+    },
+    "requestStatus": {
+      "status": "ACCEPTED",
+      "responsible": {
+        "id": 2,
+        "name": "Fulano de Tal",
+        "companyCode": "11111111"
+      }
+    },
+    "requestedItem": {
+      "itemCode": "88991144444",
+      "message": "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+      "moment": "2022-06-07T08:27:01Z"
+    }
+  }
+]
