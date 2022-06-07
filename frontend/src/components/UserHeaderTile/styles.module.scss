@@ -1,0 +1,31 @@
+.userHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+
+  .userInfo {
+    flex: 1;
+
+    display: grid;
+    margin-left: 0.75rem;
+    margin-right: 1rem;
+
+    p {
+      font-size: 0.9375rem;
+      margin-bottom: 0.25rem;
+      color: inherit;
+    }
+
+    strong {
+      font-size: 0.8125rem;
+      color: var(--gray-74-color);
+      font-weight: 400;
+    }
+  }
+
+  .date {
+    font-size: 0.75rem;
+    color: var(--gray-74-color);
+  }
+}
