@@ -1,0 +1,47 @@
+.itemRequestCard {
+  padding: 1.5rem;
+  background-color: var(--light-color);
+  border-radius: 0.5rem;
+  display: flex;
+  flex-direction: column;
+
+  transition: all 0.2s ease;
+
+  p {
+    flex: 1;
+
+    font-size: 0.9375rem;
+    color: var(--gray-74-color);
+    margin-bottom: 1rem;
+
+    display: -webkit-box;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .codeContainer {
+    span {
+      display: block;
+      margin-bottom: 0.25rem;
+
+      font-size: 0.8125rem;
+    }
+
+    strong {
+      display: block;
+      font-size: 0.9375rem;
+      color: var(--primary-color);
+      font-weight: 500;
+    }
+  }
+
+  &:hover {
+    background-color: var(--primary-very-light-color);
+  }
+
+  &.active {
+    box-shadow: 0 0 0 2px var(--primary-color);
+  }
+}
