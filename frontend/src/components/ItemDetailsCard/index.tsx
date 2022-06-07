@@ -1,5 +1,6 @@
 import { Item } from "../../@types/entities";
 import { toCurrency } from "../../utils/formatters";
+
 import { IconButton } from "../IconButton";
 import { ItemUnavailableFeedback } from "../ItemUnavailableFeedback";
 
@@ -7,24 +8,14 @@ import closeIcon from "/icons/close.svg";
 import editIcon from "/icons/edit.svg";
 
 import styles from "./styles.module.scss";
+import { TitleTile } from "../TitleTile";
 
 interface ItemDetailsCardProps {
-  isVisible: boolean;
   item: Item;
   onRequestClose: () => void;
 }
 
 export function ItemDetailsCard({ item, ...props }: ItemDetailsCardProps) {
-  console.log(props.isVisible);
-  if (!props.isVisible) return null;
-
-  const visibleClass = props.isVisible ? styles.active : "";
-
-  function renderUnavailableTite() {
-    if (item.amountAvailable > 1) return null;
-    return <ItemUnavailableFeedback />;
-  }
-
   const getItemLocationInfo = (): string => {
     const hall = item.location?.hall;
     const shelf = item.location?.shelf;
@@ -34,15 +25,15 @@ export function ItemDetailsCard({ item, ...props }: ItemDetailsCardProps) {
   };
 
   return (
-    <section className={`${styles.itemDetailsCard} ${visibleClass}`}>
+    <div className={`${styles.itemDetailsCard} `}>
       <header>
         <IconButton icon={closeIcon} onClick={props.onRequestClose} />
-        <h2>Detalhes do item</h2>
+        <TitleTile title="Detalhes do item" />
         <IconButton icon={editIcon} onClick={() => {}} />
       </header>
       <div className={styles.image}>
         <img src={item.image} alt={item.name} />
-        {renderUnavailableTite()}
+        {item.amountAvailable > 1 ? null : <ItemUnavailableFeedback />}
       </div>
       <h1>{item.name}</h1>
       <p>{item.description}</p>
@@ -50,22 +41,22 @@ export function ItemDetailsCard({ item, ...props }: ItemDetailsCardProps) {
       <div className={styles.otherInfos}>
         <div>
           <span>Quantidade</span>
-          <p>
+          <strong>
             <span className={styles.amountAvailable}>
-              {item.amountAvailable}{" "}
+              {`${item.amountAvailable} `}
             </span>
             {item.amountAvailable > 1 ? "disponíveis" : "disponível"}
-          </p>
+          </strong>
         </div>
         <div>
           <span>Código</span>
-          <p>{item.itemCode}</p>
+          <strong>{item.itemCode}</strong>
         </div>
         <div>
           <span>Localização</span>
-          <p>{getItemLocationInfo()}</p>
+          <strong>{getItemLocationInfo()}</strong>
         </div>
       </div>
-    </section>
+    </div>
   );
 }
