@@ -1,0 +1,35 @@
+.card {
+  background-color: var(--light-color);
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+
+  h2 {
+    font-size: 1.1875rem;
+    font-weight: 500;
+    padding-block: 1.5rem;
+    margin-top: 1rem;
+
+    &:first-child {
+      padding-top: 0;
+      margin-top: 0;
+    }
+  }
+
+  strong {
+    font-size: 0.9375rem;
+    font-weight: 500;
+    color: var(--primary-color);
+  }
+
+  p {
+    font-size: 0.9375rem;
+    color: var(--gray-74-color);
+  }
+}
+
+.buttons {
+  display: flex;
+  gap: 1.5rem;
+
+  margin-top: calc(2rem * 2);
+}
