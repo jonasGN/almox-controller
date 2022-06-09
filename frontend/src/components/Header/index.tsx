@@ -33,21 +33,17 @@ export function Header() {
   const itemsOptions: PopupOptions[] = [
     {
       title: "Catálogo",
-      onClick: () => {},
+      onClick: () => navigateTo(routes.items),
       warning: false,
     },
     {
       title: "Solicitações",
-      onClick: () => {
-        navigateTo(routes.itemRequests);
-      },
+      onClick: () => navigateTo(routes.itemRequests),
       warning: false,
     },
     {
       title: "Adiciona novo item",
-      onClick: () => {
-        navigateTo(routes.newItem);
-      },
+      onClick: () => navigateTo(routes.newItem),
       warning: false,
     },
   ];
@@ -72,9 +68,7 @@ export function Header() {
               <MenuButton
                 title="Itens"
                 isActive={popupActive === "items"}
-                onClick={() => {
-                  handleActivePopup("items");
-                }}
+                onClick={() => handleActivePopup("items")}
               />
               <PopupMenu
                 options={itemsOptions}
@@ -84,9 +78,7 @@ export function Header() {
             <li className={styles.menuOption}>
               <button
                 className={styles.avatar}
-                onClick={() => {
-                  handleActivePopup("user");
-                }}
+                onClick={() => handleActivePopup("user")}
               >
                 <UserAvatar userName="Fulano de Tal" size="button" />
               </button>

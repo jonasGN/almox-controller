@@ -16,7 +16,7 @@ export function ItemRequestCard(props: ItemRequestCardProps) {
 
   return (
     <a
-      href="#"
+      href="#/"
       className={`${styles.itemRequestCard} ${activeClass}`}
       onClick={props.onClick}
     >
