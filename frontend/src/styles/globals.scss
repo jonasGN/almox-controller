@@ -26,6 +26,9 @@
 
   // constraints
   --max-width: calc(1000px - 2rem);
+
+  // animation
+  --dafult-transition: all 0.2s ease;
 }
 
 * {

@@ -3,7 +3,7 @@ import { ItemRequest } from "../../@types/entities";
 import { api } from "../../services/api";
 
 import { ItemRequestCard } from "../../components/ItemRequestCard";
-import { ItemRequestDetailsCard } from "../../components/ItemRequestDetailsCard";
+import { ItemRequestModal } from "../../components/ItemRequestModal";
 
 import styles from "./styles.module.scss";
 
@@ -35,20 +35,17 @@ export default function ItemRequestsPage() {
   function handleOnFocusRequestItem(requestId: number) {
     const request = requests.find((item) => item.id === requestId);
 
-    if (requestFocused.id === request?.id) {
-      setRequestFocused({} as ItemRequest);
-      return;
-    }
-    setRequestFocused(request!);
+    requestFocused.id === request?.id
+      ? setRequestFocused({} as ItemRequest)
+      : setRequestFocused(request!);
   }
 
   const hasRequestFocused = Object.keys(requestFocused).length !== 0;
-  const focusedSectionClass = hasRequestFocused ? styles.shrink : "";
 
   return (
     <main className={styles.grid}>
       <h1>Solicitações de itens</h1>
-      <section className={`${styles.requestsSection} ${focusedSectionClass}`}>
+      <section className={styles.requestsSection}>
         {requests.map((item) => (
           <ItemRequestCard
             key={item.id}
@@ -61,11 +58,11 @@ export default function ItemRequestsPage() {
         ))}
       </section>
 
-      {hasRequestFocused ? (
-        <section className={styles.detailsSection}>
-          <ItemRequestDetailsCard itemRequest={requestFocused} />
-        </section>
-      ) : null}
+      <ItemRequestModal
+        isOpen={hasRequestFocused}
+        itemRequested={requestFocused}
+        onRequestClose={() => setRequestFocused({} as ItemRequest)}
+      />
     </main>
   );
 }

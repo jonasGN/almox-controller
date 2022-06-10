@@ -1,5 +1,4 @@
 import { ItemRequest } from "../../@types/entities";
-
 import { UserHeaderTile } from "../UserHeaderTile";
 
 import styles from "./styles.module.scss";
@@ -11,7 +10,7 @@ interface ItemRequestCardProps {
 }
 
 export function ItemRequestCard(props: ItemRequestCardProps) {
-  const { user, requestedItem: request } = props.item;
+  const { user, requestedItem: item } = props.item;
   const activeClass = props.isFocused ? styles.active : "";
 
   return (
@@ -24,12 +23,12 @@ export function ItemRequestCard(props: ItemRequestCardProps) {
         id={user.id}
         name={user.name}
         companyId={user.companyCode}
-        actionDate={request.moment}
+        actionDate={item.moment}
       />
-      <p>{request.message}</p>
+      <p>{item.message}</p>
       <div className={styles.codeContainer}>
         <span>Código solicitado</span>
-        <strong>{request.itemCode}</strong>
+        <strong>{item.code}</strong>
       </div>
     </a>
   );

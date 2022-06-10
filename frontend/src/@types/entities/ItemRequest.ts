@@ -8,7 +8,8 @@ export interface ItemRequest {
     responsible: User;
   };
   requestedItem: {
-    itemCode: string;
+    code: string;
+    name: string;
     message: string;
     moment: Date;
   };
