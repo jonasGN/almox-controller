@@ -15,10 +15,10 @@ export default function ItemRequestsPage() {
 
   useEffect(() => {
     async function fetchItemRequests() {
-      const response = await api.get<ItemRequest[]>("/item-requests");
-      const data = response.data;
+      const response = await api.get("/item-requests");
+      const requests = response.data.itemRequests as ItemRequest[];
 
-      const formatedData = data.map<ItemRequest>((item) => {
+      const formatedData = requests.map<ItemRequest>((item) => {
         const requestedItem = {
           ...item.requestedItem,
           moment: new Date(item.requestedItem.moment),

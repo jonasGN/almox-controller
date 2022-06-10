@@ -14,13 +14,14 @@ export default function ItemsPage() {
 
   useEffect(() => {
     async function fetchItems() {
-      const response = await api.get<Item[]>("items");
-      const data = response.data.map((item) => ({
+      const response = await api.get("items");
+      const items = response.data.items as Item[];
+      const formatedItems = items.map((item) => ({
         ...item,
         unitPrice: item.unitPrice / 100,
       }));
 
-      setItems(data);
+      setItems(formatedItems);
     }
 
     fetchItems();
