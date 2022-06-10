@@ -1,5 +1,7 @@
+import { useState } from "react";
 import { Item } from "../../@types/entities";
 import { toCurrency } from "../../utils/formatters";
+
 import { ItemUnavailableFeedback } from "../ItemUnavailableFeedback";
 
 import styles from "./styles.module.scss";
@@ -11,13 +13,15 @@ interface ItemCardProps {
 }
 
 export function ItemCard({ item, ...props }: ItemCardProps) {
+  const [imageSrc, setImgSrc] = useState(item.image);
+
   const isItemAvailable = item.amountAvailable > 0;
 
   const focusedClass = props.isFocused ? styles.focused : "";
   const unavailableClass = isItemAvailable ? "" : styles.unavailable;
 
-  function renderUnavailableTile() {
-    return isItemAvailable ? null : <ItemUnavailableFeedback />;
+  function handleOnErrorImage() {
+    setImgSrc("/public/images/default-item-image.png");
   }
 
   return (
@@ -26,15 +30,13 @@ export function ItemCard({ item, ...props }: ItemCardProps) {
       onClick={props.onClick}
     >
       <div className={styles.image}>
-        <img src={item.image} alt={item.name} />
-        {renderUnavailableTile()}
+        <img src={imageSrc} alt={item.name} onError={handleOnErrorImage} />
+        {isItemAvailable ? null : <ItemUnavailableFeedback />}
       </div>
       <div className={styles.content}>
+        <strong>Código: {item.itemCode}</strong>
         <p>{item.name}</p>
-        <div>
-          <span className={styles.price}>{toCurrency(item.unitPrice)}</span>
-          <span className={styles.code}>{item.itemCode}</span>
-        </div>
+        <span>{toCurrency(item.unitPrice)}</span>
       </div>
     </a>
   );

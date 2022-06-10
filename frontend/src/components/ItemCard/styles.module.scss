@@ -1,23 +1,15 @@
 .card {
   background-color: var(--light-color);
   border-radius: var(--default-border-radius);
-  overflow: hidden;
   border: 1px solid var(--gray-08-color);
   text-align: start;
 
   cursor: pointer;
-
+  overflow: hidden;
   transition: box-shadow 0.2s ease-in-out;
 
   &:hover {
-    box-shadow: 0 0 0.5rem var(--gray-14-color);
-  }
-
-  img {
-    background-color: var(--gray-08-color);
-    width: 100%;
-    aspect-ratio: 4 / 3;
-    object-fit: cover;
+    box-shadow: 0 0 0.5rem var(--primary-light-color);
   }
 
   &.unavailable {
@@ -25,15 +17,25 @@
       filter: grayscale(1);
     }
 
+    strong,
     p,
     span {
       color: var(--gray-54-color);
+      font-weight: 400;
     }
   }
 }
 
 .image {
+  background-color: var(--primary-very-light-color);
+
   position: relative;
+
+  img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+  }
 
   div[about="feedback-tile"] {
     position: absolute;
@@ -43,12 +45,19 @@
 }
 
 .content {
+  display: grid;
+  gap: 0.5rem;
   padding: 1rem;
 
-  & > p {
-    font-size: 0.9375rem;
-    line-height: 1.125rem;
-    margin-bottom: 0.5rem;
+  strong {
+    font-size: var(--body-2-font);
+    font-weight: 400;
+    color: var(--gray-74-color);
+  }
+
+  p {
+    font-size: var(--subtitle-1-font);
+    line-height: 1.4;
 
     display: -webkit-box;
     text-overflow: ellipsis;
@@ -57,26 +66,11 @@
     overflow: hidden;
   }
 
-  & > div {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    & span {
-      display: inline-block;
-    }
+  span {
+    font-size: var(--body-1-font);
+    font-weight: 500;
+    color: var(--primary-color);
   }
-}
-
-.price {
-  color: var(--primary-color);
-  font-weight: 500;
-}
-
-.code {
-  font-size: 0.8125rem;
-  font-weight: 500;
-  color: var(--gray-74-color);
 }
 
 .focused {
