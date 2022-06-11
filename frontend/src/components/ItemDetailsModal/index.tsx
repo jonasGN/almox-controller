@@ -1,6 +1,7 @@
 import { Item } from "../../@types/entities";
 import { toCurrency } from "../../utils/formatters";
 import { IconButton } from "../IconButton";
+import { ItemImage } from "../ItemImage";
 import { Modal } from "../Modal";
 import { ItemDetailTile } from "./ItemDetailTile";
 import { LocationCard } from "./LocationCard";
@@ -34,7 +35,7 @@ export function ItemDetailsModal(props: ItemDetailsModalProps) {
       actionSet={renderActionSet()}
     >
       <section className={styles.itemPresentationSection}>
-        <img src={item.image} alt={item.name} />
+        <ItemImage item={item} aspectRatio="standard" />
         <h3>Localização</h3>
         <div className={styles.locationBlock}>
           <LocationCard title={item.location?.column} description="Corredor" />

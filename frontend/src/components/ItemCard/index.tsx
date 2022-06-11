@@ -1,7 +1,6 @@
-import { useState } from "react";
 import { Item } from "../../@types/entities";
 import { toCurrency } from "../../utils/formatters";
-
+import { ItemImage } from "../ItemImage";
 import { ItemUnavailableFeedback } from "../ItemUnavailableFeedback";
 
 import styles from "./styles.module.scss";
@@ -13,16 +12,10 @@ interface ItemCardProps {
 }
 
 export function ItemCard({ item, ...props }: ItemCardProps) {
-  const [imageSrc, setImgSrc] = useState(item.image);
-
   const isItemAvailable = item.status !== "UNAVAILABLE" && item.amountAvailable > 0;
 
   const focusedClass = props.isFocused ? styles.focused : "";
   const unavailableClass = isItemAvailable ? "" : styles.unavailable;
-
-  function handleOnErrorImage() {
-    setImgSrc("/public/images/default-item-image.png");
-  }
 
   return (
     <a
@@ -30,7 +23,7 @@ export function ItemCard({ item, ...props }: ItemCardProps) {
       onClick={props.onClick}
     >
       <div className={styles.image}>
-        <img src={imageSrc} alt={item.name} onError={handleOnErrorImage} />
+        <ItemImage item={item} aspectRatio="standard" />
         {isItemAvailable ? null : <ItemUnavailableFeedback />}
       </div>
       <div className={styles.content}>
