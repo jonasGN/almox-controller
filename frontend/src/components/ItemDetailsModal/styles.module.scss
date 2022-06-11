@@ -1,0 +1,94 @@
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+
+  position: relative;
+}
+
+.itemPresentationSection {
+  img {
+    aspect-ratio: 4 / 3;
+    border-radius: var(--default-border-radius);
+    background-color: var(--primary-very-light-color);
+    object-fit: cover;
+  }
+
+  h3 {
+    font-size: var(--subtitle-1-font);
+    font-weight: 500;
+    text-align: center;
+
+    margin-top: 2rem;
+    padding-bottom: 1rem;
+
+    &::before {
+      content: "";
+      display: block;
+      width: 100%;
+      height: 1px;
+      background-color: var(--gray-08-color);
+      border-radius: 1px;
+      margin-bottom: 1.5rem;
+    }
+  }
+}
+
+.locationBlock {
+  display: flex;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.itemInfoSection {
+  line-height: 1.4;
+  padding-right: 1rem;
+
+  & > strong {
+    font-size: var(--subtitle-1-font);
+    font-weight: 500;
+    color: var(--primary-color);
+  }
+
+  h1 {
+    font-size: var(--h5-font);
+    font-weight: 600;
+    margin-block: 1rem;
+  }
+
+  & > p {
+    font-size: var(--body-1-font);
+    color: var(--gray-74-color);
+    margin-bottom: 2rem;
+  }
+
+  .priceTile {
+    span {
+      display: block;
+      font-size: var(--subtitle-2-font);
+      color: var(--gray-74-color);
+      margin-bottom: 0.25rem;
+    }
+
+    strong {
+      font-size: var(--h6-font);
+      font-weight: 500;
+    }
+
+    &::after {
+      content: "";
+      display: block;
+      width: 100%;
+      height: 1px;
+      border-radius: 1px;
+      background-color: var(--gray-08-color);
+      margin-top: 1.5rem;
+    }
+  }
+}
+
+.itemDetailsBlock {
+  display: flex;
+  gap: 2rem;
+  margin-top: 1.5rem;
+}

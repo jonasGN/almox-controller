@@ -21,6 +21,7 @@ export function ItemRequestModal(props: ItemRequestModalProps) {
       isOpen={props.isOpen}
       onRequestClose={props.onRequestClose}
       className={styles.content}
+      useMaxWidth
     >
       <RequestItemLine
         title="Nome do item"

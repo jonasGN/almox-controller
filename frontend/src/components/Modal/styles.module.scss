@@ -18,8 +18,8 @@
   background-color: var(--light-color);
   border-radius: var(--default-border-radius);
   padding: 1.5rem;
-  max-width: 600px;
 
+  max-width: 1000px;
   position: relative;
 
   h2 {
@@ -28,6 +28,14 @@
     margin-inline: calc(48px + 1rem);
     margin-bottom: 1.5rem;
     text-align: center;
+  }
+
+  &.maxWidthContainer {
+    max-width: 600px;
+  }
+
+  &.actionsHeader {
+    padding-top: calc(48px + 1rem + 0.5rem);
   }
 
   animation: open 0.2s ease;
@@ -44,25 +52,11 @@
   }
 }
 
-.closeButton {
-  --size: 48px;
-  height: var(--size);
-  width: var(--size);
-  border-radius: 50%;
-  border: none;
-  background-color: transparent;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
+.actionsContainer {
   position: absolute;
   top: 0.5rem;
   right: 0.5rem;
 
-  transition: var(--dafult-transition);
-
-  &:hover {
-    background-color: var(--primary-very-light-color);
-  }
+  display: flex;
+  gap: 1rem;
 }

@@ -3,8 +3,8 @@ import { Item } from "../../@types/entities";
 import { api } from "../../services/api";
 
 import { ItemCard } from "../../components/ItemCard";
-import { ItemDetailsCard } from "../../components/ItemDetailsCard";
 import { SearchBar } from "../../components/SearchBar";
+import { ItemDetailsModal } from "../../components/ItemDetailsModal";
 
 import styles from "./styles.module.scss";
 
@@ -27,38 +27,43 @@ export default function ItemsPage() {
     fetchItems();
   }, []);
 
-  function handleCardFocused(itemId: number) {
+  function handleItemFocused(itemId: number) {
     const itemFocused = items.find((item) => item.id === itemId);
 
     if (!itemFocused) return;
     setItemFocused(itemFocused);
   }
 
+  function clearItemFocused() {
+    setItemFocused({} as Item);
+  }
+
+  function handleEditItem() {
+    console.log(`Editing item: ${itemFocused.code}`);
+  }
+
   const hasItemFocused = Object.keys(itemFocused).length !== 0;
-  const focusedSectionClass = hasItemFocused ? styles.shrink : "";
 
   return (
-    <main className={styles.grid}>
-      <section className={`${styles.itemsSection} ${focusedSectionClass}`}>
-        <SearchBar />
+    <main className={styles.container}>
+      <SearchBar />
+      <section className={styles.itemsSection}>
         {items.map((item) => (
           <ItemCard
             key={item.id}
             item={item}
             isFocused={item.id === itemFocused.id}
-            onClick={() => handleCardFocused(item.id)}
+            onClick={() => handleItemFocused(item.id)}
           />
         ))}
       </section>
 
-      {hasItemFocused ? (
-        <section className={styles.itemDetailsSection}>
-          <ItemDetailsCard
-            item={itemFocused}
-            onRequestClose={() => setItemFocused({} as Item)}
-          />
-        </section>
-      ) : null}
+      <ItemDetailsModal
+        isOpen={hasItemFocused}
+        item={itemFocused}
+        onRequestEditItem={handleEditItem}
+        onRequestClose={clearItemFocused}
+      />
     </main>
   );
 }

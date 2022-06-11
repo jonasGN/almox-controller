@@ -15,7 +15,7 @@ interface ItemCardProps {
 export function ItemCard({ item, ...props }: ItemCardProps) {
   const [imageSrc, setImgSrc] = useState(item.image);
 
-  const isItemAvailable = item.amountAvailable > 0;
+  const isItemAvailable = item.status !== "UNAVAILABLE" && item.amountAvailable > 0;
 
   const focusedClass = props.isFocused ? styles.focused : "";
   const unavailableClass = isItemAvailable ? "" : styles.unavailable;
@@ -34,7 +34,7 @@ export function ItemCard({ item, ...props }: ItemCardProps) {
         {isItemAvailable ? null : <ItemUnavailableFeedback />}
       </div>
       <div className={styles.content}>
-        <strong>Código: {item.itemCode}</strong>
+        <strong>Código: {item.code}</strong>
         <p>{item.name}</p>
         <span>{toCurrency(item.unitPrice)}</span>
       </div>

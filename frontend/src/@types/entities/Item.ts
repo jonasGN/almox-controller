@@ -1,14 +1,16 @@
 export interface Item {
   id: number;
   name: string;
-  image: string;
+  code: string;
   unitPrice: number;
-  description: string;
   amountAvailable: number;
-  itemCode: string;
+  description: string;
+  status: string;
+  image: string;
+  category: string;
   location: {
-    hall: number;
-    shelf: number;
-    block: number;
+    hall: string;
+    shelf: string;
+    column: string;
   };
 }
