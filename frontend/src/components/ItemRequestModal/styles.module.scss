@@ -5,33 +5,6 @@
   }
 }
 
-.lineTitle {
-  display: block;
-  margin-top: 1.5rem;
-
-  font-size: var(--subtitle-2-font);
-  font-weight: 400;
-  color: var(--gray-74-color);
-  margin-bottom: 0.5rem;
-
-  &:first-child {
-    margin-top: 0;
-  }
-}
-
-.lineContentInfo {
-  color: var(--dark-color);
-}
-
-.lineHighlight {
-  color: var(--primary-color);
-  font-weight: 600;
-}
-
-.itemCode {
-  color: var(--primary-color);
-}
-
 .actions {
   display: flex;
   gap: 0.75rem;

@@ -15,7 +15,8 @@
       }
     },
     "requestedItem": {
-      "itemCode": "8899776622",
+      "name": "Nome do item solicitado",
+      "code": "8899776622",
       "message": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
       "moment": "2022-06-07T08:23:01Z"
     }
@@ -36,7 +37,8 @@
       }
     },
     "requestedItem": {
-      "itemCode": "8899776611",
+      "name": "Nome do item solicitado",
+      "code": "8899776611",
       "message": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
       "moment": "2022-06-07T08:27:01Z"
     }
@@ -57,7 +59,8 @@
       }
     },
     "requestedItem": {
-      "itemCode": "88991144444",
+      "name": "Nome do item solicitado",
+      "code": "88991144444",
       "message": "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
       "moment": "2022-06-07T08:27:01Z"
     }
@@ -78,7 +81,8 @@
       }
     },
     "requestedItem": {
-      "itemCode": "8899776622",
+      "name": "Nome do item solicitado",
+      "code": "8899776622",
       "message": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
       "moment": "2022-06-07T08:23:01Z"
     }
@@ -99,7 +103,8 @@
       }
     },
     "requestedItem": {
-      "itemCode": "8899776611",
+      "name": "Nome do item solicitado",
+      "code": "8899776611",
       "message": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
       "moment": "2022-06-07T08:27:01Z"
     }
@@ -120,7 +125,8 @@
       }
     },
     "requestedItem": {
-      "itemCode": "88991144444",
+      "name": "Nome do item solicitado",
+      "code": "88991144444",
       "message": "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
       "moment": "2022-06-07T08:27:01Z"
     }
