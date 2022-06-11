@@ -12,7 +12,7 @@
   background-color: var(--primary-color);
   color: var(--light-color);
 
-  transition: all 0.2s ease;
+  transition: var(--default-transition);
 
   &:hover {
     background-color: var(--primary-light-color);

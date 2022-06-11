@@ -31,7 +31,7 @@
   font-size: 0.9375rem;
   border: 1px solid var(--gray-54-color);
 
-  transition: all 0.2s ease;
+  transition: var(--default-transition);
 
   &::placeholder {
     color: var(--gray-74-color);

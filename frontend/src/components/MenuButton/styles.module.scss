@@ -10,7 +10,7 @@
 
   padding-inline: 1rem;
 
-  transition: background-color 0.2s ease-in-out;
+  transition: var(--default-transition);
 
   &.active {
     background-color: var(--primary-color);

@@ -6,7 +6,7 @@
 
   cursor: pointer;
   overflow: hidden;
-  transition: box-shadow 0.2s ease-in-out;
+  transition: var(--default-transition);
 
   &:hover {
     box-shadow: 0 0 0.5rem var(--primary-light-color);
