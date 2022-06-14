@@ -17,4 +17,19 @@
   &:hover {
     background-color: var(--primary-very-light-color);
   }
+
+  &:disabled {
+    background-color: transparent;
+    filter: grayscale(0.8);
+  }
+}
+
+.warning {
+  &:hover {
+    background-color: var(--negative-very-light-color);
+  }
+  &:disabled {
+    background-color: transparent;
+    filter: grayscale(0.8);
+  }
 }

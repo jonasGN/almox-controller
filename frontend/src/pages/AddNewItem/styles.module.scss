@@ -4,48 +4,7 @@
   padding-inline: 1rem;
   padding-block: 1.5rem;
 
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1.5rem;
-
   h1 {
-    grid-column: 1 / -1;
-  }
-
-  section {
-    background-color: var(--light-color);
-    border-radius: 0.5rem;
-  }
-}
-
-.formSection {
-  form {
-    padding-inline: 1.5rem;
-    padding-bottom: 1.5rem;
-
-    display: grid;
-    gap: 1.5rem;
-
-    h2 {
-      padding-top: 1.5rem;
-      border-top: 1px solid var(--gray-08-color);
-    }
-  }
-}
-
-.spliter {
-  display: flex;
-  gap: 1.5rem;
-}
-
-.buttonsContainer {
-  margin-top: 3.5rem;
-}
-
-.imageSection {
-  padding: 1.5rem;
-
-  h2 {
     margin-bottom: 1.5rem;
   }
 }

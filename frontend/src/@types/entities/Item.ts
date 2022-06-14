@@ -1,11 +1,11 @@
 export interface Item {
-  id: number;
+  id?: number;
   name: string;
-  code: string;
+  code?: string;
   unitPrice: number;
   amountAvailable: number;
   description: string;
-  status: string;
+  status?: string;
   image: string;
   category: string;
   location: {
