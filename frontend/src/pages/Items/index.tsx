@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Item } from "../../@types/entities";
 import { api } from "../../services/api";
+import { routes } from "../../../routes";
 
 import { ItemCard } from "../../components/ItemCard";
 import { SearchBar } from "../../components/SearchBar";
@@ -11,6 +13,7 @@ import styles from "./styles.module.scss";
 export default function ItemsPage() {
   const [items, setItems] = useState<Item[]>([]);
   const [itemFocused, setItemFocused] = useState<Item>({} as Item);
+  const navigate = useNavigate();
 
   useEffect(() => {
     async function fetchItems() {
@@ -39,7 +42,8 @@ export default function ItemsPage() {
   }
 
   function handleEditItem() {
-    console.log(`Editing item: ${itemFocused.code}`);
+    clearItemFocused();
+    navigate(routes.editItem);
   }
 
   const hasItemFocused = Object.keys(itemFocused).length !== 0;
@@ -53,7 +57,7 @@ export default function ItemsPage() {
             key={item.id}
             item={item}
             isFocused={item.id === itemFocused.id}
-            onClick={() => handleItemFocused(item.id)}
+            onClick={() => handleItemFocused(item.id!)}
           />
         ))}
       </section>
