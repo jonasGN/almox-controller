@@ -28,8 +28,8 @@ export function ItemRequestModal(props: ItemRequestModalProps) {
       <RequestItemLine title="Código solicitado" contentInfo={item.code} highlight />
       <RequestItemLine title="Mensagem" contentInfo={item.message} />
       <div className={styles.actions}>
-        <MainButton title="Aceitar" />
-        <MainButton title="Recusar" useAlert />
+        <MainButton title="Aceitar" onClick={() => {}} />
+        <MainButton title="Recusar" onClick={() => {}} useAlert />
       </div>
     </Modal>
   );

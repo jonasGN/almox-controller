@@ -12,14 +12,10 @@ import styles from "./styles.module.scss";
 
 export function Header() {
   const [popupActive, setPopupActive] = useState("");
-
   const menuRef = useRef<HTMLUListElement>(null);
-
-  useOnClickOutside(menuRef, () => {
-    setPopupActive("");
-  });
-
   const navigate = useNavigate();
+
+  useOnClickOutside(menuRef, () => setPopupActive(""));
 
   function handleActivePopup(popupName: string): void {
     setPopupActive(popupName);
@@ -70,10 +66,7 @@ export function Header() {
                 isActive={popupActive === "items"}
                 onClick={() => handleActivePopup("items")}
               />
-              <PopupMenu
-                options={itemsOptions}
-                isVisible={popupActive === "items"}
-              />
+              <PopupMenu options={itemsOptions} isVisible={popupActive === "items"} />
             </li>
             <li className={styles.menuOption}>
               <button
@@ -82,10 +75,7 @@ export function Header() {
               >
                 <UserAvatar userName="Fulano de Tal" size="button" />
               </button>
-              <PopupMenu
-                options={userOptions}
-                isVisible={popupActive === "user"}
-              />
+              <PopupMenu options={userOptions} isVisible={popupActive === "user"} />
             </li>
           </ul>
         </nav>

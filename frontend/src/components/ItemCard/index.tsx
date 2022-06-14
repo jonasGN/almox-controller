@@ -1,4 +1,5 @@
 import { Item } from "../../@types/entities";
+import { classNameByCondition } from "../../utils/css-helper";
 import { toCurrency } from "../../utils/formatters";
 import { ItemImage } from "../ItemImage";
 import { ItemUnavailableFeedback } from "../ItemUnavailableFeedback";
@@ -8,20 +9,15 @@ import styles from "./styles.module.scss";
 interface ItemCardProps {
   item: Item;
   isFocused: boolean;
-  onClick: () => void;
+  onClick: React.MouseEventHandler<HTMLAnchorElement>;
 }
 
 export function ItemCard({ item, ...props }: ItemCardProps) {
   const isItemAvailable = item.status !== "UNAVAILABLE" && item.amountAvailable > 0;
-
-  const focusedClass = props.isFocused ? styles.focused : "";
-  const unavailableClass = isItemAvailable ? "" : styles.unavailable;
+  const unavailableClass = classNameByCondition(!isItemAvailable, styles.unavailable);
 
   return (
-    <a
-      className={`${styles.card} ${focusedClass} ${unavailableClass}`}
-      onClick={props.onClick}
-    >
+    <a className={`${styles.card} ${unavailableClass}`} onClick={props.onClick}>
       <div className={styles.image}>
         <ItemImage item={item} aspectRatio="standard" />
         {isItemAvailable ? null : <ItemUnavailableFeedback />}

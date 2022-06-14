@@ -1,22 +1,23 @@
 .itemRequestCard {
   padding: 1.5rem;
   background-color: var(--light-color);
-  border-radius: 0.5rem;
+  border-radius: var(--default-border-radius);
   display: flex;
   flex-direction: column;
 
+  cursor: pointer;
   transition: var(--default-transition);
 
   p {
     flex: 1;
 
-    font-size: 0.9375rem;
+    font-size: var(--body-1-font);
     color: var(--gray-74-color);
     margin-bottom: 1rem;
 
     display: -webkit-box;
     text-overflow: ellipsis;
-    -webkit-line-clamp: 3;
+    -webkit-line-clamp: 4;
     -webkit-box-orient: vertical;
     overflow: hidden;
   }
@@ -26,12 +27,12 @@
       display: block;
       margin-bottom: 0.25rem;
 
-      font-size: 0.8125rem;
+      font-size: var(--subtitle-2-font);
     }
 
     strong {
       display: block;
-      font-size: 0.9375rem;
+      font-size: var(--subtitle-1-font);
       color: var(--primary-color);
       font-weight: 500;
     }
@@ -39,9 +40,5 @@
 
   &:hover {
     background-color: var(--primary-very-light-color);
-  }
-
-  &.active {
-    box-shadow: 0 0 0 2px var(--primary-color);
   }
 }

@@ -42,8 +42,8 @@ export default function AddNewItemPage() {
             <FormField name="block" label="Bloco" placeholder="00" />
           </div>
           <div className={`${styles.spliter} ${styles.buttonsContainer}`}>
-            <MainButton title="Limpar" useAlert={true} />
-            <MainButton title="Adicionar" />
+            <MainButton title="Limpar" onClick={() => {}} useAlert />
+            <MainButton title="Adicionar" onClick={() => {}} />
           </div>
         </form>
       </section>

@@ -13,7 +13,7 @@
   span {
     display: block;
     font-weight: 600;
-    font-size: 0.9375rem;
+    font-size: var(--subtitle-1-font);
     color: var(--primary-color);
   }
 }

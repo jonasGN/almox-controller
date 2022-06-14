@@ -1,3 +1,5 @@
+import { classNameByCondition } from "../../../utils/css-helper";
+
 import styles from "./styles.module.scss";
 
 export interface OptionLineProps {
@@ -7,9 +9,11 @@ export interface OptionLineProps {
 }
 
 export function OptionLine({ warning = false, ...props }: OptionLineProps) {
+  const warningClass = classNameByCondition(warning, styles.warning);
+
   return (
     <li className={styles.option}>
-      <a className={warning ? styles.warning : ""} onClick={props.onClick}>
+      <a className={warningClass} onClick={props.onClick}>
         {props.title}
       </a>
     </li>

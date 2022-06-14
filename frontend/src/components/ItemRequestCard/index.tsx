@@ -11,14 +11,9 @@ interface ItemRequestCardProps {
 
 export function ItemRequestCard(props: ItemRequestCardProps) {
   const { user, requestedItem: item } = props.item;
-  const activeClass = props.isFocused ? styles.active : "";
 
   return (
-    <a
-      href="#/"
-      className={`${styles.itemRequestCard} ${activeClass}`}
-      onClick={props.onClick}
-    >
+    <a className={styles.itemRequestCard} onClick={props.onClick}>
       <UserHeaderTile
         id={user.id}
         name={user.name}

@@ -36,7 +36,7 @@ export function Modal({ children, ...props }: ModalProps) {
           {props.actionSet}
           <IconButton
             icon="/public/icons/close.svg"
-            iconAlt="Close Modal"
+            alt="Close Modal"
             onClick={props.onRequestClose}
           />
         </div>

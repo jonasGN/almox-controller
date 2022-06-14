@@ -45,7 +45,6 @@
 
   p {
     font-size: var(--subtitle-1-font);
-    line-height: 1.4;
 
     display: -webkit-box;
     text-overflow: ellipsis;
@@ -59,10 +58,4 @@
     font-weight: 500;
     color: var(--primary-color);
   }
-}
-
-.focused {
-  box-shadow: 0 0 0 2px var(--primary-color);
-
-  pointer-events: none;
 }

@@ -1,9 +1,9 @@
 .buttonContainer {
   text-transform: uppercase;
-  font-size: 0.8125rem;
+  font-size: var(--button-font);
   font-weight: 500;
   border: none;
-  border-radius: 0.5rem;
+  border-radius: var(--default-border-radius);
 
   display: block;
   width: 100%;

@@ -12,20 +12,21 @@
     margin-right: 1rem;
 
     p {
-      font-size: 0.9375rem;
+      font-size: var(--subtitle-1-font);
+      font-weight: 500;
       margin-bottom: 0.25rem;
       color: inherit;
     }
 
     strong {
-      font-size: 0.8125rem;
+      font-size: var(--body-2-font);
       color: var(--gray-74-color);
       font-weight: 400;
     }
   }
 
   .date {
-    font-size: 0.75rem;
+    font-size: var(--caption-font);
     color: var(--gray-74-color);
   }
 }
