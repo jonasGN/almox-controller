@@ -1,6 +1,6 @@
 import { useRef, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { routes } from "../../../routes";
+import { routes } from "../../routes";
 import { useOnClickOutside } from "../../hooks/useOnClickOutside";
 
 import { MenuButton } from "../MenuButton";

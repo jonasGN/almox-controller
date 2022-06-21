@@ -7,7 +7,7 @@ import { ItemRequestModal } from "../../components/ItemRequestModal";
 
 import styles from "./styles.module.scss";
 
-export default function ItemRequestsPage() {
+export function ItemRequestsPage() {
   const [requests, setRequests] = useState<ItemRequest[]>([]);
   const [requestFocused, setRequestFocused] = useState<ItemRequest>(
     {} as ItemRequest

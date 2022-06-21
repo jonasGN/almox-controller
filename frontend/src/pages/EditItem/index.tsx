@@ -2,7 +2,7 @@ import { ItemForm } from "../../components/ItemForm";
 
 import styles from "./styles.module.scss";
 
-export default function EditItem() {
+export function EditItemPage() {
   const formConfig = { labels: { amount: "Quant. em estoque" } };
 
   function handleSaveItem() {}

@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Item } from "../../@types/entities";
 import { api } from "../../services/api";
-import { routes } from "../../../routes";
+import { routes } from "../../routes";
 
 import { ItemCard } from "../../components/ItemCard";
 import { SearchBar } from "../../components/SearchBar";
@@ -10,7 +10,7 @@ import { ItemDetailsModal } from "../../components/ItemDetailsModal";
 
 import styles from "./styles.module.scss";
 
-export default function ItemsPage() {
+export function ItemsPage() {
   const [items, setItems] = useState<Item[]>([]);
   const [itemFocused, setItemFocused] = useState<Item>({} as Item);
   const navigate = useNavigate();

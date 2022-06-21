@@ -2,7 +2,7 @@ import { ItemForm } from "../../components/ItemForm";
 
 import styles from "./styles.module.scss";
 
-export default function AddNewItemPage() {
+export function AddNewItemPage() {
   function handleSaveItem() {}
 
   return (
