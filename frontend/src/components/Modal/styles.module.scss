@@ -1,9 +1,6 @@
 .fog {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  left: 0;
+  position: fixed;
+  inset: 0;
   background-color: rgba($color: #000, $alpha: 0.54);
 
   display: flex;

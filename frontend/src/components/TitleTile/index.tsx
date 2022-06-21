@@ -4,16 +4,16 @@ import styles from "./styles.module.scss";
 
 interface TitleTileProps {
   title: string;
-  tagElement?: "h1" | "h2";
+  tagElement?: "h1" | "h2" | "h3" | "h4";
   useElementPadding?: boolean;
 }
 
-export function TitleTile({ title, tagElement, ...props }: TitleTileProps) {
+export function TitleTile(props: TitleTileProps) {
+  const { title, tagElement = "h2" } = props;
   const paddingClass = props.useElementPadding ? styles.padding : "";
 
   const attributes = { className: `${styles.title} ${paddingClass}` };
-  const tag = tagElement ?? "h2";
-  const element = React.createElement(tag, attributes, title);
+  const element = React.createElement(tagElement, attributes, title);
 
   return element;
 }

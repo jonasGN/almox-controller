@@ -15,9 +15,7 @@ export function PopupMenu({ options, ...props }: PopupMenuProps) {
   if (options.length === 0) throw Error("You must pass at least one option.");
 
   // render the warning options last
-  const sorted = [...options].sort(
-    (a, b) => Number(a.warning) - Number(b.warning)
-  );
+  const sorted = [...options].sort((a, b) => Number(a.warning) - Number(b.warning));
 
   return (
     <nav className={styles.popupMenu}>

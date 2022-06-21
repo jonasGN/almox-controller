@@ -30,17 +30,14 @@ export function Header() {
     {
       title: "Catálogo",
       onClick: () => navigateTo(routes.items),
-      warning: false,
     },
     {
       title: "Solicitações",
       onClick: () => navigateTo(routes.itemRequests),
-      warning: false,
     },
     {
       title: "Adiciona novo item",
       onClick: () => navigateTo(routes.newItem),
-      warning: false,
     },
   ];
 
