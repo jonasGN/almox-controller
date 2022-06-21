@@ -1,8 +1,8 @@
 import { createServer, Model } from "miragejs";
 
 // seeds
-import itemsSeed from "./seeds/items-seed.json";
-import itemRequestsSeed from "./seeds/items-requests.json";
+import itemsSeed from "./items-seed.json";
+import itemRequestsSeed from "./items-requests.json";
 
 export function initFakeServer() {
   createServer({
