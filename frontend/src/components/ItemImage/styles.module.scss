@@ -1,9 +1,0 @@
-.image {
-  border-radius: var(--default-border-radius);
-  background-color: var(--primary-very-light-color);
-  object-fit: cover;
-
-  &.itemUnavailable {
-    filter: grayscale(1);
-  }
-}
