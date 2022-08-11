@@ -10,7 +10,7 @@ import { PopupMenu, PopupOptions } from "../PopupMenu";
 import logo from "/images/logo.svg";
 import styles from "./styles.module.scss";
 
-export function Header() {
+export const Header = (): JSX.Element => {
   const [popupActive, setPopupActive] = useState("");
   const menuRef = useRef<HTMLUListElement>(null);
   const navigate = useNavigate();
@@ -55,6 +55,7 @@ export function Header() {
         <Link to={routes.items}>
           <img src={logo} alt="Almox Controller" />
         </Link>
+
         <nav className={styles.menuNav}>
           <ul ref={menuRef} className={styles.menuOptions}>
             <li className={styles.menuOption}>
@@ -65,11 +66,9 @@ export function Header() {
               />
               <PopupMenu options={itemsOptions} isVisible={popupActive === "items"} />
             </li>
+
             <li className={styles.menuOption}>
-              <button
-                className={styles.avatar}
-                onClick={() => handleActivePopup("user")}
-              >
+              <button className={styles.avatar} onClick={() => handleActivePopup("user")}>
                 <UserAvatar userName="Fulano de Tal" size="button" />
               </button>
               <PopupMenu options={userOptions} isVisible={popupActive === "user"} />
@@ -79,4 +78,4 @@ export function Header() {
       </div>
     </header>
   );
-}
+};

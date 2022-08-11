@@ -1,4 +1,4 @@
-import { classNameByCondition } from "../../utils/css-helper";
+import { classNameWhen, multipleClasses } from "../../utils/styles-helper";
 import { AppIcon } from "../AppIcon";
 
 import styles from "./styles.module.scss";
@@ -11,16 +11,15 @@ interface IconButtonProps {
   disabled?: boolean;
 }
 
-export function IconButton({ icon, onClick, ...props }: IconButtonProps) {
-  const warningClass = classNameByCondition(props.useWarning!, styles.warning);
+export const IconButton = (props: IconButtonProps): JSX.Element => {
+  const { icon, onClick, alt, disabled, useWarning } = props;
+
+  const warningClass = classNameWhen(useWarning!, styles.warning);
+  const className = multipleClasses(styles.iconContainer, warningClass);
 
   return (
-    <button
-      className={`${styles.iconContainer} ${warningClass}`}
-      onClick={onClick}
-      disabled={props.disabled}
-    >
-      <AppIcon icon={icon} iconAlt={props.alt} />
+    <button className={className} onClick={onClick} disabled={disabled}>
+      <AppIcon icon={icon} iconAlt={alt} />
     </button>
   );
-}
+};

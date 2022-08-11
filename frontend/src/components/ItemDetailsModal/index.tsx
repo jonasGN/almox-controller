@@ -1,5 +1,6 @@
 import { Item } from "../../@types/entities";
 import { toCurrency } from "../../utils/formatters";
+
 import { IconButton } from "../IconButton";
 import { ItemImage } from "../ItemImage";
 import { Modal } from "../Modal";
@@ -10,27 +11,26 @@ import styles from "./styles.module.scss";
 
 interface ItemDetailsModalProps {
   isOpen: boolean;
+  item: Item;
   onRequestClose: () => void;
   onRequestEditItem: () => void;
-  item: Item;
 }
 
-export function ItemDetailsModal(props: ItemDetailsModalProps) {
-  const item = props.item;
+export const ItemDetailsModal = (props: ItemDetailsModalProps): JSX.Element | null => {
+  const { item, isOpen, onRequestClose, onRequestEditItem } = props;
+
   if (!item) return null;
 
   const isAvailable = item.status !== "UNAVAILABLE" && item.amountAvailable > 0;
 
   function renderActionSet() {
-    return (
-      <IconButton icon={"/public/icons/edit.svg"} onClick={props.onRequestEditItem} />
-    );
+    return <IconButton icon={"/public/icons/edit.svg"} onClick={onRequestEditItem} />;
   }
 
   return (
     <Modal
-      isOpen={props.isOpen}
-      onRequestClose={props.onRequestClose}
+      isOpen={isOpen}
+      onRequestClose={onRequestClose}
       className={styles.grid}
       actionSet={renderActionSet()}
     >
@@ -68,4 +68,4 @@ export function ItemDetailsModal(props: ItemDetailsModalProps) {
       </section>
     </Modal>
   );
-}
+};

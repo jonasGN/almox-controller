@@ -1,3 +1,5 @@
+import { ShowWhen } from "../../ShowWhen";
+
 import styles from "./styles.module.scss";
 
 interface ItemDetailTileProps {
@@ -6,14 +8,18 @@ interface ItemDetailTileProps {
   highlightInfo?: string;
 }
 
-export function ItemDetailTile(props: ItemDetailTileProps) {
+export const ItemDetailTile = (props: ItemDetailTileProps): JSX.Element => {
+  const { info, title, highlightInfo } = props;
+
   return (
     <div className={styles.itemDetailTile}>
-      <span>{props.title}</span>
+      <span>{title}</span>
       <strong>
-        {props.info}
-        {props.highlightInfo ? <span>{props.highlightInfo}</span> : null}
+        {info}
+        <ShowWhen condition={!!highlightInfo}>
+          <span>{highlightInfo}</span>
+        </ShowWhen>
       </strong>
     </div>
   );
-}
+};

@@ -5,11 +5,13 @@ interface LocationCardProps {
   description: string;
 }
 
-export function LocationCard(props: LocationCardProps) {
+export const LocationCard = (props: LocationCardProps): JSX.Element => {
+  const { description, title } = props;
+
   return (
     <div className={styles.locationCard}>
-      <strong>{props.title}</strong>
-      <p>{props.description}</p>
+      <strong>{title}</strong>
+      <p>{description}</p>
     </div>
   );
-}
+};

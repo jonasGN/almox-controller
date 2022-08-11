@@ -5,6 +5,6 @@ interface AppIconProps {
   iconAlt?: string;
 }
 
-export function AppIcon({ icon, ...props }: AppIconProps) {
-  return <img className={styles.icon} src={icon} alt={props.iconAlt} />;
-}
+export const AppIcon = ({ icon, ...rest }: AppIconProps): JSX.Element => {
+  return <img className={styles.icon} src={icon} alt={rest.iconAlt} />;
+};

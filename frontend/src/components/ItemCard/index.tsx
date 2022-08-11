@@ -1,26 +1,34 @@
+import { MouseEventHandler } from "react";
 import { Item } from "../../@types/entities";
-import { classNameByCondition } from "../../utils/css-helper";
 import { toCurrency } from "../../utils/formatters";
+import { classNameWhen, multipleClasses } from "../../utils/styles-helper";
+
 import { ItemImage } from "../ItemImage";
 import { ItemUnavailableFeedback } from "../ItemUnavailableFeedback";
+import { ShowWhen } from "../ShowWhen";
 
 import styles from "./styles.module.scss";
 
 interface ItemCardProps {
   item: Item;
-  isFocused: boolean;
-  onClick: React.MouseEventHandler<HTMLAnchorElement>;
+  onClick: MouseEventHandler<HTMLAnchorElement>;
 }
 
-export function ItemCard({ item, ...props }: ItemCardProps) {
+export const ItemCard = (props: ItemCardProps): JSX.Element => {
+  const { item, onClick } = props;
+
   const isItemAvailable = item.status !== "UNAVAILABLE" && item.amountAvailable > 0;
-  const unavailableClass = classNameByCondition(!isItemAvailable, styles.unavailable);
+
+  const unavailableClass = classNameWhen(!isItemAvailable, styles.unavailable);
+  const className = multipleClasses(styles.card, unavailableClass);
 
   return (
-    <a className={`${styles.card} ${unavailableClass}`} onClick={props.onClick}>
+    <a className={className} onClick={onClick}>
       <div className={styles.image}>
         <ItemImage item={item} aspectRatio="standard" />
-        {isItemAvailable ? null : <ItemUnavailableFeedback />}
+        <ShowWhen condition={!isItemAvailable}>
+          <ItemUnavailableFeedback />
+        </ShowWhen>
       </div>
       <div className={styles.content}>
         <strong>Código: {item.code}</strong>
@@ -29,4 +37,4 @@ export function ItemCard({ item, ...props }: ItemCardProps) {
       </div>
     </a>
   );
-}
+};

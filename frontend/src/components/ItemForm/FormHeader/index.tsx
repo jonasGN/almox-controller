@@ -1,43 +1,35 @@
+import { MouseEventHandler } from "react";
+
 import { IconButton } from "../../IconButton";
 import { TitleTile } from "../../TitleTile";
+import { DeleteButton } from "./DeleteButton";
 
 import styles from "./styles.module.scss";
 
-type ButtonEventHandler = React.MouseEventHandler<HTMLButtonElement>;
+type ButtonEventHandler = MouseEventHandler<HTMLButtonElement>;
 
 interface FormHeaderProps {
-  onSaveItem: ButtonEventHandler;
-  onDeleteItem?: ButtonEventHandler;
   disableSave?: boolean;
   disableDelete?: boolean;
+  onSaveItem: ButtonEventHandler;
+  onDeleteItem?: ButtonEventHandler;
 }
 
-export function FormHeader(props: FormHeaderProps) {
-  function renderDeleteButton() {
-    if (!props.onDeleteItem) return null;
-    return (
-      <IconButton
-        icon="/public/icons/delete.svg"
-        onClick={props.onDeleteItem}
-        alt="Deletar item"
-        useWarning
-        disabled={props.disableDelete}
-      />
-    );
-  }
+export const FormHeader = (props: FormHeaderProps): JSX.Element => {
+  const { onSaveItem, disableDelete, disableSave, onDeleteItem } = props;
 
   return (
     <header className={styles.header}>
       <TitleTile title="Informações básicas" />
       <div className={styles.actionContainer}>
-        {renderDeleteButton()}
+        <DeleteButton disableDelete={disableDelete} onDeleteItem={onDeleteItem} />
         <IconButton
           icon="/public/icons/save.svg"
-          onClick={props.onSaveItem}
+          onClick={onSaveItem}
           alt="Salvar item"
-          disabled={props.disableSave}
+          disabled={disableSave}
         />
       </div>
     </header>
   );
-}
+};

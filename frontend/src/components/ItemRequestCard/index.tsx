@@ -6,14 +6,14 @@ import styles from "./styles.module.scss";
 interface ItemRequestCardProps {
   item: ItemRequest;
   onClick?: React.MouseEventHandler<HTMLAnchorElement>;
-  isFocused?: boolean;
 }
 
-export function ItemRequestCard(props: ItemRequestCardProps) {
-  const { user, requestedItem: item } = props.item;
+export const ItemRequestCard = (props: ItemRequestCardProps): JSX.Element => {
+  const { item: itemProps, onClick } = props;
+  const { user, requestedItem: item } = itemProps;
 
   return (
-    <a className={styles.itemRequestCard} onClick={props.onClick}>
+    <a className={styles.itemRequestCard} onClick={onClick}>
       <UserHeaderTile
         id={user.id}
         name={user.name}
@@ -27,4 +27,4 @@ export function ItemRequestCard(props: ItemRequestCardProps) {
       </div>
     </a>
   );
-}
+};
