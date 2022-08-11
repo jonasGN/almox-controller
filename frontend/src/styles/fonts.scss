@@ -1,0 +1,63 @@
+$regular-weight: 400;
+$medium-weight: 500;
+$semiBold-weight: 600;
+
+@mixin heading-4($weight: $regular-weight) {
+  font-size: 2.125rem;
+  font-weight: $weight;
+  letter-spacing: 0.25px;
+}
+
+@mixin heading-5($weight: $regular-weight) {
+  font-size: 1.5rem;
+  font-weight: $weight;
+  letter-spacing: 0;
+}
+
+@mixin heading-6($weight: $medium-weight) {
+  font-size: 1.25rem;
+  font-weight: $weight;
+  letter-spacing: 0.15px;
+}
+
+@mixin subtitle-1($weight: $regular-weight) {
+  font-size: 1rem;
+  font-weight: $weight;
+  letter-spacing: 0.15px;
+}
+
+@mixin subtitle-2($weight: $medium-weight) {
+  font-size: 0.875rem;
+  font-weight: $weight;
+  letter-spacing: 0.1px;
+}
+
+@mixin body-1($weight: $regular-weight) {
+  font-size: 1rem;
+  font-weight: $weight;
+  letter-spacing: 0.5px;
+}
+
+@mixin body-2($weight: $regular-weight) {
+  font-size: 0.875rem;
+  font-weight: $weight;
+  letter-spacing: 0.25px;
+}
+
+@mixin button-font($weight: $medium-weight) {
+  font-size: 0.875rem;
+  font-weight: $weight;
+  letter-spacing: 1.25px;
+}
+
+@mixin caption-font($weight: $regular-weight) {
+  font-size: 0.75rem;
+  font-weight: $weight;
+  letter-spacing: 0.4px;
+}
+
+@mixin overline-font($weight: $regular-weight) {
+  font-size: 0.75rem;
+  font-weight: $weight;
+  letter-spacing: 0.625rem;
+}
