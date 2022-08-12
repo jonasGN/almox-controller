@@ -1,0 +1,26 @@
+@import "../../../styles/fonts.scss";
+
+$default-size: 3rem; // 48px
+$medium-size: 2.5rem; // 40px
+
+.button {
+  @include button-font($semiBold-weight);
+
+  height: $default-size;
+  width: 100%;
+
+  background-color: var(--primary-color);
+  color: var(--heading-color);
+  border: none;
+  border-radius: var(--dft-radius);
+
+  transition: var(--dft-transition);
+
+  &:hover {
+    filter: brightness(0.8);
+  }
+
+  &[data-size="medium"] {
+    height: $medium-size;
+  }
+}

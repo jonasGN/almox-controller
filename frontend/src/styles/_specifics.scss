@@ -1,0 +1,14 @@
+// Change the selected text color
+$selectedTextBg-color: var(--primary-color);
+$selectedText-color: var(--heading-color);
+
+// Code for Firefox
+::-moz-selection {
+  color: $selectedText-color;
+  background: $selectedTextBg-color;
+}
+
+::selection {
+  color: $selectedText-color;
+  background: $selectedTextBg-color;
+}

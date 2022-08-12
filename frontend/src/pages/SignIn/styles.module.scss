@@ -1,0 +1,28 @@
+@import "../../styles/fonts.scss";
+
+.container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  h1 {
+    @include heading-4($bold-weight);
+  }
+
+  form {
+    min-width: 300px;
+    margin-top: var(--dftdb-inset);
+
+    div {
+      & + div {
+        margin-top: var(--section-inset);
+      }
+    }
+
+    button {
+      margin-top: calc(var(--dftdb-inset) * 2);
+    }
+  }
+}

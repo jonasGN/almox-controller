@@ -1,6 +1,7 @@
 $regular-weight: 400;
 $medium-weight: 500;
 $semiBold-weight: 600;
+$bold-weight: 700;
 
 @mixin heading-4($weight: $regular-weight) {
   font-size: 2.125rem;

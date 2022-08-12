@@ -1,0 +1,29 @@
+@import "../../../styles/fonts.scss";
+
+.container {
+  label {
+    @include subtitle-1($medium-weight);
+    display: block;
+
+    margin-bottom: var(--smdb-inset);
+    margin-left: var(--dft-inset);
+  }
+
+  input {
+    display: block;
+    height: 3rem;
+    width: 100%;
+
+    border-radius: var(--dft-radius);
+    background-color: var(--secondary-color);
+    border: none;
+    padding: var(--dft-inset);
+
+    @include body-1;
+    color: var(--body-color);
+
+    &:focus {
+      background-color: transparent;
+    }
+  }
+}

@@ -1,3 +1,14 @@
-::root {
-  --border-radius: 0.5rem; // 8px
+// uses `db` when it is a double of something
+
+:root {
+  --dft-radius: 0.5rem; // 8px
+
+  // paddings and margins
+  --sm-inset: 0.25rem; // 4px
+  --smdb-inset: 0.5rem; // 8px (double of small)
+  --horizontal-inset: 0.75rem; // 12px
+  --dft-inset: 1rem; // 16px (default)
+  --section-inset: 1.5rem; // 24px
+  --dftdb-inset: 2rem; // 32px (double of default)
+  --big-inset: 3rem; // 48px
 }

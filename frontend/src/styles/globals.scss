@@ -1,17 +1,24 @@
+// specifc code for browsers and fixes
+@use "specifics";
+
 // color pallete
 @import "colors.scss";
 
-// font styles config
-@import "fonts.scss";
-
 // metrics like border-radius styles config
 @import "metrics.scss";
+
+:root {
+  --dft-transition: all 0.2s ease;
+}
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   line-height: 1.4;
+
+  // outline-width: 2px;
+  // outline-color: var(--primary-color);
 }
 
 html {
@@ -21,10 +28,6 @@ html {
 body {
   background-color: var(--background-color);
   color: var(--heading-color);
-
-  // reset some default styles
-  padding: 0;
-  margin: 0;
 }
 
 // nothing is perfect
