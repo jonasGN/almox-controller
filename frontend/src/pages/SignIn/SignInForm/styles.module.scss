@@ -1,0 +1,19 @@
+@import "../../../styles/fonts";
+
+.forgotPassword {
+  color: var(--primary-color);
+  filter: brightness(0.8);
+
+  @include subtitle-2;
+  text-decoration: none;
+
+  display: inline-block;
+  margin-top: var(--dft-inset);
+  padding-block: var(--sm-inset);
+
+  transition: var(--dft-transition);
+
+  &:hover {
+    filter: none;
+  }
+}

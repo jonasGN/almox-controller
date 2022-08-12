@@ -1,18 +1,22 @@
-@import "../../styles/fonts.scss";
+@import "../../styles/fonts";
 
 .container {
   height: 100vh;
+  position: relative;
+
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+
+  padding-block: var(--dftdb-inset);
 
   h1 {
     @include heading-4($bold-weight);
   }
 
   form {
-    min-width: 300px;
+    min-width: 320px;
     margin-top: var(--dftdb-inset);
 
     div {

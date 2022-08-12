@@ -1,0 +1,10 @@
+.textButton {
+  width: fit-content;
+  background-color: transparent;
+
+  padding-inline: var(--dft-inset);
+
+  &:disabled {
+    background-color: transparent;
+  }
+}

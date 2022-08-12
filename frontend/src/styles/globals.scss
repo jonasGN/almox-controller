@@ -1,11 +1,11 @@
 // specifc code for browsers and fixes
 @use "specifics";
 
-// color pallete
-@import "colors.scss";
-
 // metrics like border-radius styles config
-@import "metrics.scss";
+@use "metrics";
+
+// color pallete
+@use "colors";
 
 :root {
   --dft-transition: all 0.2s ease;

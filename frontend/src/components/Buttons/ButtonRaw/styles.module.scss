@@ -1,4 +1,4 @@
-@import "../../../styles/fonts.scss";
+@import "../../../styles/fonts";
 
 $default-size: 3rem; // 48px
 $medium-size: 2.5rem; // 40px
@@ -18,6 +18,12 @@ $medium-size: 2.5rem; // 40px
 
   &:hover {
     filter: brightness(0.8);
+  }
+
+  &:disabled {
+    background-color: var(--disabled-color);
+    color: var(--disabled-body-color);
+    filter: none;
   }
 
   &[data-size="medium"] {

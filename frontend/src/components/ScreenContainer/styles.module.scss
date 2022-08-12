@@ -1,0 +1,12 @@
+.container {
+  max-width: 1364px;
+  margin: 0 auto;
+
+  &[data-size="small"] {
+    max-width: 998px;
+  }
+
+  &[data-inline-padding] {
+    padding-inline: var(--dft-inset);
+  }
+}

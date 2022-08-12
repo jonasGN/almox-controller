@@ -3,12 +3,17 @@ import { useState } from "react";
 import { MainButton } from "../../../components/Buttons";
 import { TextField } from "../../../components/Inputs";
 
+import styles from "./styles.module.scss";
+
 export const SignInForm = (): JSX.Element => {
   const [companyCode, setCompanyCode] = useState("");
   const [password, setPassword] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleSignIn = (e: React.FormEvent) => {
+    setIsLoading(true);
     e.preventDefault();
+    setTimeout(() => setIsLoading(false), 700);
   };
 
   return (
@@ -26,7 +31,11 @@ export const SignInForm = (): JSX.Element => {
         onChange={(e) => setPassword(e.target.value)}
       />
 
-      <MainButton type="submit" title="entrar" />
+      <a href="/forgot" className={styles.forgotPassword}>
+        Esqueci minha senha
+      </a>
+
+      <MainButton type="submit" title="entrar" isLoading={isLoading} />
     </form>
   );
 };
