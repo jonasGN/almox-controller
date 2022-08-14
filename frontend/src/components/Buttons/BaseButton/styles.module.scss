@@ -1,0 +1,15 @@
+@import "../../../styles/fonts";
+
+$default-size: 3rem; // 48px
+$medium-size: 2.5rem; // 40px
+
+.baseButton {
+  @include button-font($semiBold-weight);
+
+  height: $default-size;
+  width: 100%;
+
+  &[data-size="medium"] {
+    height: $medium-size;
+  }
+}

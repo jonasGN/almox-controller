@@ -1,11 +1,11 @@
-import { ReactChildrenElements } from "../../@types/elements";
+import { ReactChildrenElement } from "../../@types/elements";
 
 import { classNames } from "../../utils/styles-helper";
 
 import styles from "./styles.module.scss";
 
 interface ScreenContainerProps {
-  children: ReactChildrenElements;
+  children: ReactChildrenElement;
   size?: "default" | "small";
   className?: string;
   useInlinePadding?: boolean;

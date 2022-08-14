@@ -1,16 +1,7 @@
-@import "../../../styles/fonts";
-
-$default-size: 3rem; // 48px
-$medium-size: 2.5rem; // 40px
-
-.button {
-  @include button-font($semiBold-weight);
-
-  height: $default-size;
-  width: 100%;
-
+.rawButton {
   background-color: var(--primary-color);
   color: var(--heading-color);
+
   border: none;
   border-radius: var(--dft-radius);
 
@@ -24,9 +15,5 @@ $medium-size: 2.5rem; // 40px
     background-color: var(--disabled-color);
     color: var(--disabled-body-color);
     filter: none;
-  }
-
-  &[data-size="medium"] {
-    height: $medium-size;
   }
 }
