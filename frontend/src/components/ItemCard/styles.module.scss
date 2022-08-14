@@ -1,0 +1,54 @@
+@import "../../styles/fonts";
+
+.itemCardContainer {
+  display: inline-block;
+  background-color: var(--card-color);
+  border-radius: var(--dft-radius);
+  overflow: hidden;
+
+  transition: var(--dft-transition);
+
+  &:hover {
+    filter: brightness(0.9);
+  }
+}
+
+.itemImageContainer {
+  background-color: var(--secondary-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  aspect-ratio: 4 / 3;
+
+  img {
+    max-width: 3rem;
+  }
+}
+
+.itemDetailsContainer {
+  padding: var(--dft-inset);
+
+  span {
+    @include body-2;
+    color: var(--heading-2-color);
+  }
+
+  p {
+    @include body-1;
+
+    margin-block: var(--smdb-inset);
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; // number of lines to show
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+  }
+
+  strong {
+    @include subtitle-1($semiBold-weight);
+    color: var(--primary-color);
+  }
+}

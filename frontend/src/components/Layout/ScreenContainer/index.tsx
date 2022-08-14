@@ -1,6 +1,6 @@
-import { ReactChildrenElement } from "../../@types/elements";
+import { ReactChildrenElement } from "../../../@types/elements";
 
-import { classNames } from "../../utils/styles-helper";
+import { classNames } from "../../../utils/styles-helper";
 
 import styles from "./styles.module.scss";
 
@@ -14,7 +14,7 @@ interface ScreenContainerProps {
 export const ScreenContainer = (props: ScreenContainerProps): JSX.Element => {
   const { children, size, className, useInlinePadding = true } = props;
 
-  const classes = classNames(styles.container, className!);
+  const classes = classNames(styles.screenContainer, className!);
 
   return (
     <div className={classes} data-size={size} data-inline-padding={useInlinePadding}>

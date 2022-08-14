@@ -1,0 +1,13 @@
+$padding: var(--dft-inset);
+
+.screenContainer {
+  max-width: calc(1364px + $padding);
+
+  &[data-size="small"] {
+    max-width: calc(998px + $padding);
+  }
+
+  &[data-inline-padding] {
+    padding-inline: var(--dft-inset);
+  }
+}
