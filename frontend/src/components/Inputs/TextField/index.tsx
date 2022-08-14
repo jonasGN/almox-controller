@@ -3,7 +3,7 @@ import { ReactInputElement } from "../../../@types/elements";
 
 import { Icons } from "../../Icons";
 import { IconButton } from "../../Buttons";
-import { ShowWhen } from "../../ShowWhen";
+import { ShowWhen } from "../../Layout";
 
 import styles from "./styles.module.scss";
 
