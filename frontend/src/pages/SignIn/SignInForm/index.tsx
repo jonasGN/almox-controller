@@ -1,7 +1,9 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 import { MainButton } from "../../../components/Buttons";
 import { TextField } from "../../../components/Inputs";
+import { Paths } from "../../../routes";
 
 import styles from "./styles.module.scss";
 
@@ -10,10 +12,13 @@ export const SignInForm = (): JSX.Element => {
   const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
+  const navigate = useNavigate();
+
   const handleSignIn = (e: React.FormEvent) => {
     setIsLoading(true);
     e.preventDefault();
     setTimeout(() => setIsLoading(false), 700);
+    navigate(Paths.ITEMS);
   };
 
   return (

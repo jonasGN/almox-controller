@@ -12,7 +12,7 @@ interface ScreenContainerProps {
 }
 
 export const ScreenContainer = (props: ScreenContainerProps): JSX.Element => {
-  const { children, size, className, useInlinePadding } = props;
+  const { children, size, className, useInlinePadding = true } = props;
 
   const classes = classNames(styles.container, className!);
 

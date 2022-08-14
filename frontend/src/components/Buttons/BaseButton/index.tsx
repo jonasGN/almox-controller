@@ -25,7 +25,7 @@ export const BaseButton = (props: BaseButtonProps): JSX.Element => {
   const className = classNames(styles.baseButton, customClassName!);
 
   return (
-    <RawButton customClassName={className} data-size={size}>
+    <RawButton customClassName={className} data-size={size} {...rest}>
       {title?.toUpperCase()}
     </RawButton>
   );
