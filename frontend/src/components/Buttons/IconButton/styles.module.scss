@@ -1,0 +1,11 @@
+.iconButton {
+  background-color: transparent;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &[data-size="button"] {
+    height: var(--side-button-size);
+  }
+}
