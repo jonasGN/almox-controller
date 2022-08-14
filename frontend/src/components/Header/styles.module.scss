@@ -4,8 +4,11 @@
 .headerContainer {
   @include content-columns;
 
+  height: var(--header-size);
+
   display: flex;
   justify-content: end;
+  align-items: center;
 
   padding-block: var(--dft-inset);
 }
