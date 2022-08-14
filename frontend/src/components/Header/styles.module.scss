@@ -1,0 +1,45 @@
+@import "../../styles/layouts/grids";
+@import "../../styles/fonts";
+
+.headerContainer {
+  @include content-columns;
+
+  display: flex;
+  justify-content: end;
+
+  padding-block: var(--dft-inset);
+}
+
+.headerAvatarContainer {
+  display: flex;
+  align-items: center;
+
+  .userInfo {
+    margin-right: var(--dft-inset);
+
+    strong,
+    span {
+      display: block;
+    }
+
+    strong {
+      @include subtitle-1;
+    }
+
+    span {
+      @include body-2;
+      color: var(--heading-2-color);
+      margin-top: var(--sm-inset);
+    }
+  }
+
+  &::before {
+    content: "";
+    display: block;
+    height: 2.5rem;
+    width: 1px;
+
+    margin-right: calc(var(--dft-inset) + var(--sm-inset));
+    background-color: var(--card-color);
+  }
+}
