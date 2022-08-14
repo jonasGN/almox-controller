@@ -1,0 +1,11 @@
+@import "../../../styles/fonts";
+
+.sideBarSectionContainer {
+  strong {
+    @include subtitle-2;
+    color: var(--heading-2-color);
+
+    display: block;
+    margin-bottom: var(--dft-inset);
+  }
+}

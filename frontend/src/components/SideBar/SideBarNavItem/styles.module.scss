@@ -1,0 +1,19 @@
+@import "../../../styles/fonts";
+
+.sideBarNavItemContainer {
+  display: block;
+
+  & + li {
+    margin-top: var(--dft-inset);
+  }
+
+  a {
+    @include subtitle-1($medium-weight);
+
+    transition: var(--dft-transition);
+
+    &:hover {
+      filter: brightness(0.8);
+    }
+  }
+}

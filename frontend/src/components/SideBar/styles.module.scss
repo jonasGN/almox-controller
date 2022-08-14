@@ -1,0 +1,19 @@
+.sideBarContainer {
+  grid-column: 1 / 3;
+  grid-row: 1 / 3;
+
+  header {
+    height: var(--header-size);
+
+    display: flex;
+    align-items: center;
+
+    margin-bottom: var(--section-inset);
+  }
+
+  > div {
+    & + div {
+      margin-top: var(--big-inset);
+    }
+  }
+}
