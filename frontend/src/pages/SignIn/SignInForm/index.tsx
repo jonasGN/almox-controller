@@ -17,7 +17,7 @@ export const SignInForm = (): JSX.Element => {
   };
 
   return (
-    <form onSubmit={handleSignIn}>
+    <form onSubmit={handleSignIn} className={styles.signInFormContainer}>
       <TextField
         label="Código interno"
         name="email"
@@ -27,6 +27,7 @@ export const SignInForm = (): JSX.Element => {
       <TextField
         label="Senha"
         name="password"
+        type="password"
         value={password}
         onChange={(e) => setPassword(e.target.value)}
       />

@@ -1,5 +1,20 @@
 @import "../../../styles/fonts";
 
+.signInFormContainer {
+  min-width: 320px;
+  margin-top: var(--dftdb-inset);
+
+  & > div {
+    & + div {
+      margin-top: var(--section-inset);
+    }
+  }
+
+  & > button {
+    margin-top: calc(var(--dftdb-inset) * 2);
+  }
+}
+
 .forgotPassword {
   color: var(--primary-color);
   filter: brightness(0.8);
