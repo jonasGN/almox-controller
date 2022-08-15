@@ -1,8 +1,12 @@
+import { Link } from "react-router-dom";
+import { Paths } from "../../routes";
+
 import { Logo } from "../Logo";
 import { SideBarNavItem } from "./SideBarNavItem";
 import { SideBarSection } from "./SideBarSection";
 
 import styles from "./styles.module.scss";
+import config from "../../../package.json";
 
 interface SideBarProps {}
 
@@ -12,18 +16,24 @@ export const SideBar = (props: SideBarProps): JSX.Element => {
   return (
     <nav className={styles.sideBarContainer}>
       <header>
-        <Logo />
+        <Link to={Paths.ITEMS}>
+          <Logo />
+        </Link>
       </header>
 
-      <SideBarSection title="Itens">
-        <SideBarNavItem title="Catálogo" />
-        <SideBarNavItem title="Solicitações" />
-      </SideBarSection>
+      <aside>
+        <SideBarSection title="Itens">
+          <SideBarNavItem title="Catálogo" />
+          <SideBarNavItem title="Solicitações" />
+        </SideBarSection>
 
-      <SideBarSection title="Usuários">
-        <SideBarNavItem title="Catálogo" />
-        <SideBarNavItem title="Solicitações" />
-      </SideBarSection>
+        <SideBarSection title="Usuários">
+          <SideBarNavItem title="Catálogo" />
+          <SideBarNavItem title="Solicitações" />
+        </SideBarSection>
+      </aside>
+
+      <footer>v {config.version}</footer>
     </nav>
   );
 };

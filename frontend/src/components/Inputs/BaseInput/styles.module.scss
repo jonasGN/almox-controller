@@ -1,0 +1,50 @@
+@import "../../../styles/fonts";
+
+.baseInputContainer {
+  display: flex;
+  align-items: center;
+  height: var(--input-height);
+
+  border-radius: var(--dft-radius);
+  background-color: var(--secondary-color);
+
+  transition: var(--dft-transition);
+
+  &:focus-within {
+    --border-sz: var(--dft-border-size);
+    background-color: transparent;
+    box-shadow: inset 0 0 0 var(--border-sz) var(--primary-color);
+  }
+
+  input {
+    width: 100%;
+    height: inherit;
+    display: block;
+
+    border-radius: inherit;
+    background-color: inherit;
+    border: none;
+    padding-inline: var(--dft-inset);
+
+    outline: none;
+
+    @include body-1;
+    color: var(--body-color);
+  }
+}
+
+.leading {
+  padding-left: var(--horizontal-inset);
+
+  input {
+    padding-left: inherit;
+  }
+}
+
+.trailing {
+  padding-right: var(--horizontal-inset);
+
+  input {
+    padding-right: inherit;
+  }
+}

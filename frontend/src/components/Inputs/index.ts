@@ -1,3 +1,4 @@
 import { TextField } from "./TextField";
+import { SearchBar } from "./SearchBar";
 
-export { TextField };
+export { TextField, SearchBar };
