@@ -1,0 +1,20 @@
+$danger-color: var(--negative-color);
+$dft-color: var(--primary-color);
+
+.optionButtonContainer {
+  background-color: $dft-color;
+  color: var(--heading-color);
+
+  &.danger {
+    background-color: $danger-color;
+  }
+}
+
+.noBg {
+  background-color: transparent;
+  color: $dft-color;
+
+  &.danger {
+    color: $danger-color;
+  }
+}
