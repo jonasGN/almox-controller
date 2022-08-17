@@ -13,15 +13,18 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "axios": "^0.27.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "6"
   },
   "devDependencies": {
+    "@faker-js/faker": "^7.4.0",
     "@types/node": "^18.7.3",
     "@types/react": "^18.0.17",
     "@types/react-dom": "^18.0.6",
     "@vitejs/plugin-react": "^2.0.1",
+    "miragejs": "^0.1.45",
     "sass": "^1.54.4",
     "typescript": "^4.6.4",
     "vite": "^3.0.6"

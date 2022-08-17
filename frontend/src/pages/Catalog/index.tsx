@@ -1,17 +1,24 @@
+import { useEffect, useState } from "react";
+import { Item } from "../../@types/entities";
+import { fetchItems } from "../../repositories/items";
+
 import { OptionButton } from "../../components/Buttons";
 import { Icons } from "../../components/Icons";
 import { SearchBar } from "../../components/Inputs";
 import { ItemCard } from "../../components/ItemCard";
 import { PageTitle } from "../../components/PageTitle";
 import { PageContainer } from "../../components/PageContainer";
+import { ShowWhen } from "../../components/Layout";
 
 import styles from "./styles.module.scss";
 
-const items = new Array(40).map((item) => {
-  return "item";
-});
-
 export const CatalogPage = (): JSX.Element => {
+  const [items, setItems] = useState<Item[]>([]);
+
+  useEffect(() => {
+    fetchItems().then((data) => setItems(data));
+  }, []);
+
   return (
     <PageContainer contentClassName={styles.container}>
       <div className={styles.headerContainer}>
@@ -24,18 +31,13 @@ export const CatalogPage = (): JSX.Element => {
       </div>
 
       <div className={styles.contentContainer}>
-        {items.map((item) => {
-          return (
-            <ItemCard
-              item={{
-                code: "9988776655",
-                name: "item A",
-                price: 99,
-                image: "item image",
-              }}
-            />
-          );
-        })}
+        <ShowWhen condition={items.length === 0}>
+          <span>Carregando...</span>
+        </ShowWhen>
+
+        {items.map((item) => (
+          <ItemCard key={item.id} item={item} />
+        ))}
       </div>
     </PageContainer>
   );

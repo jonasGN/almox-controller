@@ -21,8 +21,16 @@
 
   aspect-ratio: 4 / 3;
 
+  position: relative;
+
   img {
     max-width: 3rem;
+  }
+
+  span {
+    position: absolute;
+    bottom: var(--horizontal-inset);
+    right: var(--horizontal-inset);
   }
 }
 
@@ -50,5 +58,13 @@
   strong {
     @include subtitle-1($semiBold-weight);
     color: var(--primary-color);
+  }
+
+  &.unvailable {
+    span,
+    p,
+    strong {
+      color: var(--disabled-body-color);
+    }
   }
 }

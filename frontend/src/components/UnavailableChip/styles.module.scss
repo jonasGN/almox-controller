@@ -1,0 +1,12 @@
+@import "../../styles/fonts";
+
+.unvailableChipContainer {
+  background-color: var(--negative-color);
+  color: var(--heading-color);
+
+  padding-inline: var(--smdb-inset);
+  padding-block: var(--sm-inset);
+  border-radius: var(--dft-radius);
+
+  @include caption-font;
+}
