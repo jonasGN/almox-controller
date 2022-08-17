@@ -38,8 +38,9 @@ export const SearchBar = (props: SearchBarProps): JSX.Element => {
       value={searchTerm}
       onChange={changeSearchTerm}
       leadingIcon={leadingIcon}
-      trailingIcon={trailingIcon}
+      trailingIcon={searchTerm && trailingIcon}
       onKeyDown={handleSearch}
+      customClassName={styles.searchBarContainer}
     />
   );
 };

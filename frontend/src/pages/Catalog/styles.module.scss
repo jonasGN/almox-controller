@@ -1,0 +1,24 @@
+@import "../../styles/layouts/grids";
+
+// .container {
+// }
+
+.headerContainer {
+  display: flex;
+  justify-content: space-between;
+
+  margin-bottom: var(--section-inset);
+}
+
+.actionsContainer {
+  display: flex;
+  align-items: center;
+
+  & > button {
+    margin-right: var(--section-inset);
+  }
+}
+
+.contentContainer {
+  @include content-columns;
+}

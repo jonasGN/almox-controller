@@ -1,0 +1,31 @@
+@import "../../styles/layouts/grids";
+
+$padding: var(--dft-inset);
+
+.pageContainer {
+  max-width: calc(1364px + $padding);
+
+  @include grid-layout;
+  grid-template-rows: auto 1fr;
+  row-gap: 0;
+
+  padding-inline: $padding;
+
+  & > header {
+    grid-column: 3 / -1;
+    grid-row: 1;
+  }
+
+  & > aside {
+    grid-column: 1 / 3;
+    grid-row: 1 / -1;
+  }
+}
+
+.contentContainer {
+  grid-column: 3 / -1;
+  grid-row: 2 / -1;
+
+  margin-top: var(--section-inset);
+  margin-bottom: var(--dftdb-inset);
+}

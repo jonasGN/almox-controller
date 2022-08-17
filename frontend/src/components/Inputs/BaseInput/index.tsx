@@ -9,13 +9,15 @@ interface BaseInputProps extends ReactInputElement {
   name: string;
   leadingIcon?: React.ReactElement | string;
   trailingIcon?: React.ReactElement | string;
+  customClassName?: string;
 }
 
 export const BaseInput = (props: BaseInputProps): JSX.Element => {
-  const { name, leadingIcon, trailingIcon, ...rest } = props;
+  const { name, leadingIcon, trailingIcon, customClassName, ...rest } = props;
 
   const classes = classNames(
     styles.baseInputContainer,
+    customClassName!,
     leadingIcon! && styles.leading,
     trailingIcon! && styles.trailing
   );

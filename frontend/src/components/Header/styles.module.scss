@@ -1,9 +1,6 @@
-@import "../../styles/layouts/grids";
 @import "../../styles/fonts";
 
 .headerContainer {
-  @include content-columns;
-
   height: var(--header-size);
 
   display: flex;

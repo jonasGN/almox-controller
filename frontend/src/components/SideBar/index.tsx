@@ -14,14 +14,14 @@ export const SideBar = (props: SideBarProps): JSX.Element => {
   const {} = props;
 
   return (
-    <nav className={styles.sideBarContainer}>
+    <aside className={styles.sideBarContainer}>
       <header>
         <Link to={Paths.ITEMS}>
           <Logo />
         </Link>
       </header>
 
-      <aside>
+      <nav>
         <SideBarSection title="Itens">
           <SideBarNavItem title="Catálogo" />
           <SideBarNavItem title="Solicitações" />
@@ -31,9 +31,9 @@ export const SideBar = (props: SideBarProps): JSX.Element => {
           <SideBarNavItem title="Catálogo" />
           <SideBarNavItem title="Solicitações" />
         </SideBarSection>
-      </aside>
+      </nav>
 
       <footer>v {config.version}</footer>
-    </nav>
+    </aside>
   );
 };
