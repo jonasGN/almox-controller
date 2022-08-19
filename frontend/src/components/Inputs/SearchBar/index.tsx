@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 
-import { Icon } from "../../Icon";
-import { Icons } from "../../Icons";
+import { SearchIcon, CloseIcon } from "../../Icons";
 import { BaseInput } from "../BaseInput";
 import { IconButton } from "../../Buttons";
 
@@ -28,8 +27,8 @@ export const SearchBar = (props: SearchBarProps): JSX.Element => {
     onSearch(searchTerm);
   };
 
-  const leadingIcon = <Icon icon={Icons.search} />;
-  const trailingIcon = <IconButton icon={Icons.close} onClick={clearSearch} />;
+  const leadingIcon = <SearchIcon styleType="primary" />;
+  const trailingIcon = <IconButton icon={<CloseIcon />} onClick={clearSearch} />;
 
   return (
     <BaseInput

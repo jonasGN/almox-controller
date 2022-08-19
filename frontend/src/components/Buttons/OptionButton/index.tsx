@@ -2,14 +2,14 @@ import { classNames } from "../../../utils/styles-helper";
 
 import { RawButtonProps } from "../RawButton";
 import { IconButton } from "../IconButton";
-import { Icons } from "../../Icons";
+import { Icon } from "../../Icons";
 
 import styles from "./styles.module.scss";
 
 type ButtonStyle = "default" | "danger" | "no-bg-default" | "no-bg-danger";
 
 interface OptionButtonProps extends RawButtonProps {
-  icon: Icons;
+  icon: Icon;
   styleType?: ButtonStyle;
 }
 

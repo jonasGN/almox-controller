@@ -3,7 +3,7 @@ import { Item } from "../../@types/entities";
 import { fetchItems } from "../../repositories/items";
 
 import { OptionButton } from "../../components/Buttons";
-import { Icons } from "../../components/Icons";
+import { AddIcon } from "../../components/Icons";
 import { SearchBar } from "../../components/Inputs";
 import { ItemCard } from "../../components/ItemCard";
 import { PageTitle } from "../../components/PageTitle";
@@ -25,7 +25,7 @@ export const CatalogPage = (): JSX.Element => {
         <PageTitle title="Catálago" />
 
         <div className={styles.actionsContainer}>
-          <OptionButton icon={Icons.add} />
+          <OptionButton icon={<AddIcon />} />
           <SearchBar onSearch={(term) => {}} />
         </div>
       </div>

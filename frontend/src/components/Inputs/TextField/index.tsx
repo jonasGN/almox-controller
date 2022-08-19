@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { ReactInputElement } from "../../../@types/elements";
 
-import { Icons } from "../../Icons";
+import { Icon, VisibilityIcon, VisibilityOffIcon } from "../../Icons";
 import { IconButton } from "../../Buttons";
 import { ShowWhen } from "../../Layout";
 
@@ -12,7 +12,7 @@ type MouseEvent = React.MouseEvent;
 interface TextFieldProps extends ReactInputElement {
   name: string;
   label: string;
-  icon?: Icons;
+  icon?: Icon;
   onClickIcon?: (e: MouseEvent) => void;
 }
 
@@ -43,13 +43,13 @@ export const TextField = (props: TextFieldProps): JSX.Element => {
         </ShowWhen>
 
         <ShowWhen condition={rest.type !== "password" && !!icon}>
-          <IconButton icon={icon} onClick={onClickIcon} />
+          <IconButton icon={icon!} onClick={onClickIcon} />
         </ShowWhen>
 
         <ShowWhen condition={rest.type === "password" && !icon}>
           <ShowWhen condition={rest.value !== ""}>
             <IconButton
-              icon={isPasswordVisible ? Icons.visibilityOff : Icons.visibility}
+              icon={isPasswordVisible ? <VisibilityOffIcon /> : <VisibilityIcon />}
               onClick={handlePasswordVisibility}
             />
           </ShowWhen>

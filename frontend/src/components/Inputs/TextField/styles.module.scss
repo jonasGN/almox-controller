@@ -20,12 +20,6 @@
 
   transition: var(--dft-transition);
 
-  &:focus-within {
-    --border-sz: var(--dft-border-size);
-    background-color: transparent;
-    box-shadow: inset 0 0 0 var(--border-sz) var(--primary-color);
-  }
-
   input {
     width: 100%;
     height: inherit;
@@ -44,5 +38,15 @@
 
   button {
     margin-inline: var(--horizontal-inset);
+  }
+
+  svg {
+    fill: var(--body-color);
+  }
+
+  &:focus-within {
+    --border-sz: var(--dft-border-size);
+    background-color: transparent;
+    box-shadow: inset 0 0 0 var(--border-sz) var(--primary-color);
   }
 }
