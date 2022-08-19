@@ -28,7 +28,9 @@ export const SearchBar = (props: SearchBarProps): JSX.Element => {
   };
 
   const leadingIcon = <SearchIcon styleType="primary" />;
-  const trailingIcon = <IconButton icon={<CloseIcon />} onClick={clearSearch} />;
+  const trailingIcon = (
+    <IconButton icon={<CloseIcon className={styles.clearIcon} />} onClick={clearSearch} />
+  );
 
   return (
     <BaseInput

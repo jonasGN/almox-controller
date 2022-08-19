@@ -16,7 +16,7 @@ export const SideBar = (props: SideBarProps): JSX.Element => {
   return (
     <aside className={styles.sideBarContainer}>
       <header>
-        <Link to={Paths.ITEMS}>
+        <Link to={Paths.DASHBOARD}>
           <Logo />
         </Link>
       </header>

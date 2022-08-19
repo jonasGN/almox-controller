@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
+import { Paths } from "../../routes";
 import { classNames } from "../../utils/styles-helper";
 
 import { UnavailableChip } from "../UnavailableChip";
@@ -6,8 +8,9 @@ import { UnavailableChip } from "../UnavailableChip";
 import styles from "./styles.module.scss";
 
 interface Item {
-  code: string;
+  id: number;
   name: string;
+  code: string;
   priceFormatted: string;
   image: string;
   status: string;
@@ -17,7 +20,7 @@ interface ItemCardProps {
   item: Item;
 }
 
-const errorImage = "images/image-error.svg";
+const errorImage = "/images/image-error.svg";
 
 export const ItemCard = (props: ItemCardProps): JSX.Element => {
   const { item } = props;
@@ -32,7 +35,7 @@ export const ItemCard = (props: ItemCardProps): JSX.Element => {
   );
 
   return (
-    <a href="" className={styles.itemCardContainer}>
+    <Link to={`${Paths.ITEMS}/${item.id}`} className={styles.itemCardContainer}>
       <div className={styles.itemImageContainer}>
         <img src={itemImage} alt={item.name} onError={() => setItemImage(errorImage)} />
         <UnavailableChip isUnavailable={isUnavailable} />
@@ -43,6 +46,6 @@ export const ItemCard = (props: ItemCardProps): JSX.Element => {
         <p>{item.name}</p>
         <strong>{item.priceFormatted}</strong>
       </div>
-    </a>
+    </Link>
   );
 };

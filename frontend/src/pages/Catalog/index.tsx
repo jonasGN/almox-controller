@@ -7,7 +7,6 @@ import { AddIcon } from "../../components/Icons";
 import { SearchBar } from "../../components/Inputs";
 import { ItemCard } from "../../components/ItemCard";
 import { PageTitle } from "../../components/PageTitle";
-import { PageContainer } from "../../components/PageContainer";
 import { ShowWhen } from "../../components/Layout";
 
 import styles from "./styles.module.scss";
@@ -20,7 +19,7 @@ export const CatalogPage = (): JSX.Element => {
   }, []);
 
   return (
-    <PageContainer contentClassName={styles.container}>
+    <>
       <div className={styles.headerContainer}>
         <PageTitle title="Catálago" />
 
@@ -39,6 +38,6 @@ export const CatalogPage = (): JSX.Element => {
           <ItemCard key={item.id} item={item} />
         ))}
       </div>
-    </PageContainer>
+    </>
   );
 };
