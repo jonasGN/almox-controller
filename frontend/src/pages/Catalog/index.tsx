@@ -7,7 +7,7 @@ import { AddIcon } from "../../components/Icons";
 import { SearchBar } from "../../components/Inputs";
 import { ItemCard } from "../../components/ItemCard";
 import { PageTitle } from "../../components/PageTitle";
-import { ShowWhen } from "../../components/Layout";
+import { ShowWhen } from "../../layout";
 
 import styles from "./styles.module.scss";
 

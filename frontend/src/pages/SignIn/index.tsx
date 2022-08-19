@@ -1,5 +1,5 @@
 import { SignInForm } from "./SignInForm";
-import { ScreenContainer } from "../../components/Layout";
+import { ScreenContainer } from "../../layout";
 import { Logo } from "../../components/Logo";
 
 import styles from "./styles.module.scss";

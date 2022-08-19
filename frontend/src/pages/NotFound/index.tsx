@@ -1,4 +1,4 @@
-import { ScreenContainer } from "../../components/Layout";
+import { ScreenContainer } from "../../layout";
 
 import styles from "./styles.module.scss";
 

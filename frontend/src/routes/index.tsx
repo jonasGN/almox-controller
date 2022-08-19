@@ -1,11 +1,13 @@
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 import { Paths } from "./paths";
 
+import { PageContainer } from "../layout";
+
+// pages
 import { SignInPage } from "../pages/SignIn";
 import { NotFoundPage } from "../pages/NotFound";
 import { CatalogPage } from "../pages/Catalog";
 import { ItemDetailsPage } from "../pages/ItemDetails";
-import { PageContainer } from "../layout/PageContainer";
 
 export { BrowserRouter, Paths };
 

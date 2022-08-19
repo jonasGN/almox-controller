@@ -1,7 +1,7 @@
 import { ReactInputElement } from "../../../@types/elements";
 import { classNames } from "../../../utils/styles-helper";
 
-import { ShowWhen } from "../../Layout";
+import { ShowWhen } from "../../../layout";
 
 import styles from "./styles.module.scss";
 
