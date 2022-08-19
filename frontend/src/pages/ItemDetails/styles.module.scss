@@ -1,0 +1,17 @@
+.headerContainer {
+  display: flex;
+  justify-content: space-between;
+
+  margin-bottom: var(--section-inset);
+}
+
+.actionsContainer {
+  display: flex;
+  align-items: center;
+
+  & > button {
+    & + button {
+      margin-left: var(--section-inset);
+    }
+  }
+}

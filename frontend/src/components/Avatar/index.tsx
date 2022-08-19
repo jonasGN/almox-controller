@@ -4,6 +4,7 @@ import { initialsOf } from "../../utils/formatters";
 import { classNames } from "../../utils/styles-helper";
 
 import { RawButton } from "../Buttons";
+import { Image } from "../Image";
 
 import styles from "./styles.module.scss";
 
@@ -27,7 +28,7 @@ export const Avatar = (props: AvatarProps): JSX.Element => {
   const initials = userName && initialsOf(userName);
 
   const content = image ? (
-    <img src={image} alt={userName} onError={() => setImage("")} />
+    <Image src={image} alt={userName} onError={() => setImage("")} />
   ) : (
     <span>{initials}</span>
   );

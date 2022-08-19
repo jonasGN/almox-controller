@@ -1,0 +1,13 @@
+.imageContainer {
+  &.standard {
+    aspect-ratio: 4 / 3;
+  }
+
+  &.square {
+    aspect-ratio: 1;
+  }
+
+  &.widescreen {
+    aspect-ratio: 16 / 9;
+  }
+}
