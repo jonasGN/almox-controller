@@ -1,0 +1,26 @@
+.imageGaleryContainer {
+  img {
+    background-color: var(--secondary-color);
+    border-radius: var(--dft-radius);
+  }
+}
+
+.focusedImage {
+  position: relative;
+
+  img {
+    margin-bottom: var(--dft-inset);
+  }
+
+  button {
+    position: absolute;
+    top: var(--smdb-inset);
+    right: var(--smdb-inset);
+  }
+}
+
+.otherImages {
+  display: flex;
+  gap: var(--dft-inset);
+  align-items: flex-start;
+}

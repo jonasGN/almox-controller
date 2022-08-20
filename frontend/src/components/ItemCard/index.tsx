@@ -33,7 +33,7 @@ export const ItemCard = (props: ItemCardProps): JSX.Element => {
   return (
     <Link to={`${Paths.ITEMS}/${item.id}`} className={styles.itemCardContainer}>
       <div className={styles.itemImageContainer}>
-        <Image src={item.image} alt={item.name} aspectRatio="square" />
+        <Image src={item.image} alt={item.name} aspectRatio="standard" />
         <UnavailableChip isUnavailable={isUnavailable} />
       </div>
 

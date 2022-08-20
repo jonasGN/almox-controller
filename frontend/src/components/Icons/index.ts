@@ -7,6 +7,7 @@ import { VisibilityIcon } from "./VisibilityIcon";
 import { VisibilityOffIcon } from "./VisibilityOffIcon";
 import { DeleteIcon } from "./DeleteIcon";
 import { EditIcon } from "./EditIcon";
+import { ExpandImageIcon } from "./ExpandImageIcon";
 
 type Icon = React.ReactElement<SVGAElement>;
 
@@ -19,4 +20,5 @@ export {
   VisibilityOffIcon,
   DeleteIcon,
   EditIcon,
+  ExpandImageIcon,
 };

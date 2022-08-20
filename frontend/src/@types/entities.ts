@@ -11,8 +11,10 @@ export interface Item {
   price: number;
   priceFormatted: string;
   amount: number;
+  amountFormatted: string;
   description: string;
   status: string;
+  isAvailable: boolean;
   image: string;
   category: string;
   location: Location;

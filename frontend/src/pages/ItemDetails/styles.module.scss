@@ -1,3 +1,5 @@
+@import "../../styles/fonts";
+
 .headerContainer {
   display: flex;
   justify-content: space-between;
@@ -13,5 +15,45 @@
     & + button {
       margin-left: var(--section-inset);
     }
+  }
+}
+
+.contentContainer {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: var(--dft-inset);
+}
+
+.galery {
+  grid-column: 1 / 4;
+}
+
+.details {
+  grid-column: 4/ 7;
+
+  & > span {
+    display: block;
+
+    @include subtitle-1($medium-weight);
+    color: var(--primary-color);
+    margin-bottom: var(--dft-inset);
+  }
+
+  h2 {
+    @include heading-5($semiBold-weight);
+    margin-bottom: var(--dft-inset);
+  }
+
+  p {
+    @include body-1;
+    color: var(--body-color);
+  }
+}
+
+.price {
+  margin-top: var(--section-inset);
+
+  strong {
+    @include heading-6($semiBold-weight);
   }
 }

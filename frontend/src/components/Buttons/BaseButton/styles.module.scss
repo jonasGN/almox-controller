@@ -4,6 +4,7 @@ $default-size: 3rem; // 48px
 $medium-size: 2.5rem; // 40px
 
 .baseButton {
+  background-color: var(--primary-color);
   @include button-font($semiBold-weight);
 
   height: $default-size;

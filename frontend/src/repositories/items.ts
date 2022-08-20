@@ -2,7 +2,7 @@ import { ItemResponse } from "../@types/apiResponse";
 import { Item } from "../@types/entities";
 
 import { apiClient } from "../services/apiClient";
-import { toCurrency } from "../utils/formatters";
+import { leadingZeroOn, toCurrency } from "../utils/formatters";
 
 const path = "/api/items";
 
@@ -15,8 +15,10 @@ export const fetchItems = async (): Promise<Item[]> => {
 
     return {
       amount: item.amountAvailable,
+      amountFormatted: `${leadingZeroOn(item.amountAvailable)} uni`,
       price: price,
       priceFormatted: toCurrency(price),
+      isAvailable: item.status === "AVAILABLE",
       ...item,
     };
   });
@@ -26,14 +28,16 @@ export const fetchItems = async (): Promise<Item[]> => {
 
 export const fetchItemById = async (id: number): Promise<Item> => {
   const response = await apiClient.get(`${path}/${id}`);
-  const item = response.data as ItemResponse;
+  const item = response.data.item as ItemResponse;
 
   const price = item.unitPrice / 100;
 
   return {
     amount: item.amountAvailable,
+    amountFormatted: `${leadingZeroOn(item.amountAvailable)} uni`,
     price: price,
     priceFormatted: toCurrency(price),
+    isAvailable: item.status === "AVAILABLE",
     ...item,
   };
 };

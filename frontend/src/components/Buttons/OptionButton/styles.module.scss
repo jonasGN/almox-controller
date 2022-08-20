@@ -3,7 +3,10 @@ $dft-color: var(--primary-color);
 
 .optionButtonContainer {
   background-color: $dft-color;
-  color: var(--heading-color);
+
+  svg {
+    fill: var(--heading-color);
+  }
 
   &.danger {
     background-color: $danger-color;
@@ -12,9 +15,14 @@ $dft-color: var(--primary-color);
 
 .noBg {
   background-color: transparent;
-  color: $dft-color;
+
+  svg {
+    fill: $dft-color;
+  }
 
   &.danger {
-    color: $danger-color;
+    svg {
+      fill: $danger-color;
+    }
   }
 }

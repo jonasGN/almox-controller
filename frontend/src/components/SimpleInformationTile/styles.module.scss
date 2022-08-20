@@ -1,0 +1,18 @@
+@import "../../styles/fonts";
+
+.infoTileContainer {
+  display: flex;
+  flex-direction: column;
+
+  span {
+    @include subtitle-2;
+    color: var(--heading-2-color);
+    text-transform: uppercase;
+
+    margin-bottom: var(--sm-inset);
+  }
+
+  strong {
+    @include subtitle-1;
+  }
+}

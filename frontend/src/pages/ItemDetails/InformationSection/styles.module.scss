@@ -1,0 +1,26 @@
+@import "../../../styles/fonts";
+
+.infoSection {
+  &::before {
+    content: "";
+    width: 100%;
+    height: 1px;
+
+    display: block;
+    background-color: var(--card-color);
+
+    margin-top: var(--big-inset);
+    margin-bottom: var(--dft-inset);
+  }
+
+  h3 {
+    @include heading-6($semiBold-weight);
+  }
+}
+
+.infoContainer {
+  margin-top: var(--dft-inset);
+
+  display: flex;
+  gap: var(--big-inset);
+}
