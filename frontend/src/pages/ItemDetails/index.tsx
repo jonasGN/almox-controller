@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Item } from "../../@types/entities";
 import { fetchItemById } from "../../repositories/items";
-import { useModal } from "../../contexts/ModalContext";
+import { ModalProvider, useModal } from "../../contexts/ModalContext";
 
 import { OptionButton } from "../../components/Buttons";
 import { DeleteIcon, EditIcon } from "../../components/Icons";
@@ -37,7 +37,9 @@ export const ItemDetailsPage = (): JSX.Element => {
       </div>
 
       <div className={styles.contentContainer}>
-        <ImageGalery image={""} className={styles.galery} />
+        <ModalProvider>
+          <ImageGalery image={""} className={styles.galery} />
+        </ModalProvider>
 
         <section className={styles.details}>
           <span>CÓDIGO: {item.code}</span>
