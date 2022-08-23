@@ -20,3 +20,11 @@ export const leadingZeroOn = (number: number): string => {
   if (number < 10) return `0${number}`;
   return String(number);
 };
+
+export const toFormattedDate = (date: Date): string => {
+  return Intl.DateTimeFormat("pt-BR", {
+    day: "2-digit",
+    month: "short",
+    year: "numeric",
+  }).format(date);
+};

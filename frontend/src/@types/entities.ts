@@ -28,3 +28,15 @@ interface User {
   avatar: string;
   permissions: string[];
 }
+
+export interface ItemsRequests {
+  id: number;
+  item: {
+    name: string;
+    code: string;
+    message: string;
+  };
+  user: User;
+  requestedAt: Date;
+  requestedAtFormatted: string;
+}

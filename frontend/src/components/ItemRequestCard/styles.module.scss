@@ -1,0 +1,70 @@
+@import "../../styles/fonts";
+
+.itemRequestCard {
+  background-color: var(--card-color);
+  border-radius: var(--dft-radius);
+
+  padding: var(--section-inset);
+
+  display: flex;
+  flex-direction: column;
+
+  > p {
+    flex: 1;
+
+    @include body-1;
+    color: var(--body-color);
+    margin-top: var(--dft-inset);
+  }
+
+  transition: var(--dft-transition);
+
+  &:hover {
+    filter: brightness(0.9);
+  }
+}
+
+.userContainer {
+  display: flex;
+  align-items: flex-start;
+
+  .userInfo {
+    flex: 1;
+    margin-inline: var(--horizontal-inset);
+
+    strong {
+      display: block;
+      margin-bottom: var(--sm-inset);
+
+      @include subtitle-1($medium-weight);
+    }
+
+    span {
+      @include subtitle-2($regular-weight);
+      color: var(--heading-2-color);
+    }
+  }
+
+  > span {
+    @include body-2;
+    color: var(--body-color);
+  }
+}
+
+.codeContainer {
+  margin-top: var(--section-inset);
+
+  span {
+    @include subtitle-2($regular-weight);
+    text-transform: uppercase;
+    color: var(--heading-2-color);
+  }
+
+  strong {
+    @include subtitle-1($semiBold-weight);
+    display: block;
+    color: var(--primary-color);
+
+    margin-top: var(--sm-inset);
+  }
+}
