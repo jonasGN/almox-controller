@@ -8,6 +8,7 @@ import { SignInPage } from "../pages/SignIn";
 import { NotFoundPage } from "../pages/NotFound";
 import { CatalogPage } from "../pages/Catalog";
 import { ItemDetailsPage } from "../pages/ItemDetails";
+import { ItemsRequestsPage } from "../pages/ItemsRequests";
 
 export { BrowserRouter, Paths };
 
@@ -18,6 +19,7 @@ export const AppRoutes = (): JSX.Element => {
 
       <Route path={Paths.DASHBOARD} element={<PageContainer />}>
         <Route path={Paths.ITEMS} element={<CatalogPage />} />
+        <Route path={Paths.ITEMS_REQUESTS} element={<ItemsRequestsPage />} />
         <Route path={`${Paths.ITEMS}/:itemId`} element={<ItemDetailsPage />} />
       </Route>
 

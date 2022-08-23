@@ -23,8 +23,8 @@ export const SideBar = (props: SideBarProps): JSX.Element => {
 
       <nav>
         <SideBarSection title="Itens">
-          <SideBarNavItem title="Catálogo" />
-          <SideBarNavItem title="Solicitações" />
+          <SideBarNavItem title="Catálogo" navigateTo={Paths.ITEMS} />
+          <SideBarNavItem title="Solicitações" navigateTo={Paths.ITEMS_REQUESTS} />
         </SideBarSection>
 
         <SideBarSection title="Usuários">

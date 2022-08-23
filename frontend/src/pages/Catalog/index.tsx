@@ -6,7 +6,7 @@ import { OptionButton } from "../../components/Buttons";
 import { AddIcon } from "../../components/Icons";
 import { SearchBar } from "../../components/Inputs";
 import { ItemCard } from "../../components/ItemCard";
-import { PageTitle } from "../../components/PageTitle";
+import { PageHeader } from "../../components/PageHeader";
 import { ShowWhen } from "../../layout";
 
 import styles from "./styles.module.scss";
@@ -20,14 +20,10 @@ export const CatalogPage = (): JSX.Element => {
 
   return (
     <>
-      <div className={styles.headerContainer}>
-        <PageTitle title="Catálago" />
-
-        <div className={styles.actionsContainer}>
-          <OptionButton icon={<AddIcon />} />
-          <SearchBar onSearch={(term) => {}} />
-        </div>
-      </div>
+      <PageHeader title="Catálogo">
+        <OptionButton icon={<AddIcon />} />
+        <SearchBar onSearch={(term) => {}} />
+      </PageHeader>
 
       <div className={styles.contentContainer}>
         <ShowWhen condition={items.length === 0}>

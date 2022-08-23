@@ -6,9 +6,9 @@ import { ModalProvider, useModal } from "../../contexts/ModalContext";
 
 import { OptionButton } from "../../components/Buttons";
 import { DeleteIcon, EditIcon } from "../../components/Icons";
-import { PageTitle } from "../../components/PageTitle";
 import { SimpleInformationTile } from "../../components/SimpleInformationTile";
 import { AlertDialog } from "../../components/Modals";
+import { PageHeader } from "../../components/PageHeader";
 import { ImageGalery } from "./ImageGalery";
 import { InformationSection } from "./InformationSection";
 
@@ -27,14 +27,10 @@ export const ItemDetailsPage = (): JSX.Element => {
 
   return (
     <>
-      <div className={styles.headerContainer}>
-        <PageTitle title="Detalhes do item" />
-
-        <div className={styles.actionsContainer}>
-          <OptionButton icon={<DeleteIcon />} styleType="danger" onClick={onOpenModal} />
-          <OptionButton icon={<EditIcon />} />
-        </div>
-      </div>
+      <PageHeader title="Detalhes do item">
+        <OptionButton icon={<DeleteIcon />} styleType="danger" onClick={onOpenModal} />
+        <OptionButton icon={<EditIcon />} />
+      </PageHeader>
 
       <div className={styles.contentContainer}>
         <ModalProvider>

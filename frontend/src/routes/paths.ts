@@ -6,4 +6,5 @@ export enum Paths {
 
   DASHBOARD = "/dashboard",
   ITEMS = "/dashboard/items",
+  ITEMS_REQUESTS = "/dashboard/items/requests",
 }

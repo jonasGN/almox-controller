@@ -1,0 +1,18 @@
+@import "../../styles/fonts";
+
+.pageHeader {
+  display: flex;
+  justify-content: space-between;
+
+  margin-bottom: var(--section-inset);
+
+  h1 {
+    @include heading-5($medium-weight);
+  }
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: var(--section-inset);
+}
