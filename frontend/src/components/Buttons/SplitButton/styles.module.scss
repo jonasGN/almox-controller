@@ -1,0 +1,18 @@
+.splitContainer {
+  display: flex;
+  gap: var(--dft-inset);
+
+  width: 100%;
+
+  button {
+    flex: 1;
+  }
+}
+
+.cancel {
+  background-color: var(--indiferent-color);
+}
+
+.danger {
+  background-color: var(--negative-color);
+}

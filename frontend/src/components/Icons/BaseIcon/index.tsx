@@ -1,7 +1,7 @@
 import styles from "./styles.module.scss";
 
 export interface BaseIconProps extends React.SVGProps<SVGSVGElement> {
-  size?: "default" | "small";
+  size?: "default" | "small" | "big";
   styleType?: "default" | "primary" | "danger";
   children?: React.ReactElement;
 }
@@ -13,6 +13,8 @@ export const BaseIcon = (props: BaseIconProps): JSX.Element => {
     switch (size) {
       case "small":
         return 20;
+      case "big":
+        return 48;
       default:
         return 24;
     }

@@ -2,11 +2,13 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Item } from "../../@types/entities";
 import { fetchItemById } from "../../repositories/items";
+import { useModal } from "../../contexts/ModalContext";
 
 import { OptionButton } from "../../components/Buttons";
 import { DeleteIcon, EditIcon } from "../../components/Icons";
 import { PageTitle } from "../../components/PageTitle";
 import { SimpleInformationTile } from "../../components/SimpleInformationTile";
+import { AlertDialog } from "../../components/Modals";
 import { ImageGalery } from "./ImageGalery";
 import { InformationSection } from "./InformationSection";
 
@@ -16,6 +18,8 @@ export const ItemDetailsPage = (): JSX.Element => {
   const [item, setItem] = useState<Item>({} as Item);
 
   const params = useParams();
+
+  const { isOpen, modalRef, onCloseModal, onOpenModal } = useModal();
 
   useEffect(() => {
     fetchItemById(Number(params.itemId)).then((data) => setItem(data));
@@ -27,7 +31,7 @@ export const ItemDetailsPage = (): JSX.Element => {
         <PageTitle title="Detalhes do item" />
 
         <div className={styles.actionsContainer}>
-          <OptionButton icon={<DeleteIcon />} styleType="danger" />
+          <OptionButton icon={<DeleteIcon />} styleType="danger" onClick={onOpenModal} />
           <OptionButton icon={<EditIcon />} />
         </div>
       </div>
@@ -62,6 +66,20 @@ export const ItemDetailsPage = (): JSX.Element => {
           </InformationSection>
         </section>
       </div>
+
+      <AlertDialog
+        modalRef={modalRef}
+        title="Excluir item"
+        description="Ao confirmar essa operação, o item será excluído da base de dados permanentemente. Tem certeza que deseja continuar?"
+        icon={<DeleteIcon />}
+        isOpen={isOpen}
+        onCloseModal={onCloseModal}
+        leftTitle="Excluir"
+        rightTitle="Cancelar"
+        leftButtonStyle="danger"
+        rightButtonStyle="cancel"
+        onClickLeft={() => console.log("EXCLUIR ITEM")}
+      />
     </>
   );
 };
