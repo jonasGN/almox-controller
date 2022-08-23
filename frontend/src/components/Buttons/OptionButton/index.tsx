@@ -14,9 +14,9 @@ interface OptionButtonProps extends RawButtonProps {
 }
 
 export const OptionButton = (props: OptionButtonProps): JSX.Element => {
-  const { icon, styleType = "default" } = props;
+  const { icon, styleType, ...rest } = props;
 
-  const classes = (): string => {
+  const styleTypeClassName = (): string => {
     const withBg = styles.optionButtonContainer;
     const withoutBg = styles.noBg;
 
@@ -32,5 +32,7 @@ export const OptionButton = (props: OptionButtonProps): JSX.Element => {
     }
   };
 
-  return <IconButton icon={icon} size="button" className={classes()} />;
+  const classes = classNames(styleTypeClassName());
+
+  return <IconButton icon={icon} size="button" className={classes} {...rest} />;
 };

@@ -1,0 +1,35 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: var(--shadow-color);
+}
+
+.modal {
+  background-color: var(--card-color);
+  border-radius: var(--dft-radius);
+  padding: var(--section-inset);
+
+  position: relative;
+
+  animation: show 0.2s ease;
+
+  @keyframes show {
+    0% {
+      transform: scale(0);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+}
+
+.closeButton {
+  position: absolute;
+  top: var(--smdb-inset);
+  right: var(--smdb-inset);
+}
