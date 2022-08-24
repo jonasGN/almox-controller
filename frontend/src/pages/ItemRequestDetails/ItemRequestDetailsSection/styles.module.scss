@@ -1,0 +1,9 @@
+@import "../../../styles/fonts";
+
+.sectionContainer {
+  h2 {
+    @include heading-6;
+
+    margin-bottom: var(--dft-inset);
+  }
+}

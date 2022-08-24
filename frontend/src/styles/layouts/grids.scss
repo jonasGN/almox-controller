@@ -14,7 +14,7 @@
   margin: 0 auto;
 }
 
-@mixin default-grid($templateColumns: repeat(2, 1fr)) {
+@mixin standard-grid($templateColumns: repeat(2, 1fr)) {
   display: grid;
   grid-template-columns: $templateColumns;
   gap: var(--dft-inset);

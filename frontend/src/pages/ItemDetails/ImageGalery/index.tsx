@@ -41,7 +41,7 @@ export const ImageGalery = (props: ImageGaleryProps): JSX.Element => {
       <ImageModal
         src={image}
         isOpen={isOpen}
-        modalRef={modalRef}
+        ref={modalRef}
         onCloseModal={onCloseModal}
       />
     </>

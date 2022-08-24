@@ -64,16 +64,13 @@ export const ItemDetailsPage = (): JSX.Element => {
       </div>
 
       <AlertDialog
-        modalRef={modalRef}
+        ref={modalRef}
         isOpen={isOpen}
         onCloseModal={onCloseModal}
         icon={<DeleteIcon />}
         title="Excluir item"
         description="Ao confirmar essa operação, o item será excluído da base de dados permanentemente. Tem certeza que deseja continuar?"
         leftTitle="Excluir"
-        rightTitle="Cancelar"
-        leftButtonStyle="danger"
-        rightButtonStyle="cancel"
         onClickLeft={() => console.log("EXCLUIR ITEM")}
       />
     </>

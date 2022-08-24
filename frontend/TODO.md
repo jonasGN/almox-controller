@@ -33,3 +33,5 @@
 - [x] Adicionar hook que permita ao clicar em esc sair do modal
 
 - [ ] Evitar redimensionamento de imagens quando página carrega (acontece muito rapidamente)
+
+- [ ] Concertar bug que fecha o modal ao clicar dentro do mesmo

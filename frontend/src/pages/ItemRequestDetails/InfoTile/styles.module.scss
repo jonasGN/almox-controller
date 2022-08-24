@@ -1,0 +1,34 @@
+@import "../../../styles/fonts";
+
+.infoTile {
+  display: flex;
+  align-items: center;
+}
+
+.info {
+  margin-right: var(--big-inset);
+
+  span {
+    @include subtitle-2;
+    color: var(--heading-2-color);
+    text-transform: uppercase;
+  }
+
+  p {
+    @include body-1;
+    color: var(--body-color);
+
+    margin-top: var(--sm-inset);
+  }
+
+  &.highlight {
+    p {
+      font-weight: $semiBold-weight;
+      color: var(--primary-color);
+    }
+  }
+}
+
+.content {
+  margin-left: var(--horizontal-inset);
+}

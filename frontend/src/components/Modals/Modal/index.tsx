@@ -11,7 +11,7 @@ type VoidCallback = () => void;
 export interface BaseModalProps {
   isOpen: boolean;
   onCloseModal: VoidCallback;
-  modalRef: React.RefObject<HTMLDivElement>;
+  ref: React.RefObject<HTMLDivElement>;
 }
 
 interface ModalProps extends BaseModalProps {
@@ -22,13 +22,13 @@ interface ModalProps extends BaseModalProps {
 const modalNode = document.getElementById("modal");
 
 export const Modal = (props: ModalProps): JSX.Element | null => {
-  const { isOpen, onCloseModal, modalRef, className, children } = props;
+  const { isOpen, onCloseModal, ref, className, children } = props;
 
   if (!isOpen) return null;
 
   return ReactDOM.createPortal(
     <div className={styles.overlay} role="dialog" aria-modal>
-      <div ref={modalRef} className={styles.modal}>
+      <div ref={ref} className={styles.modal}>
         <div className={styles.closeButton}>
           <OptionButton
             icon={<CloseIcon />}

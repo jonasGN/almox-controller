@@ -13,7 +13,7 @@ export function useModal() {
   const modalRef = createRef<HTMLDivElement>();
   useOnClickOutside(modalRef, onCloseModal);
   useOnPressKey(onCloseModal);
-  useTrapFocus(modalRef);
+  // useTrapFocus(modalRef);
 
   return { isOpen, onCloseModal, onOpenModal, modalRef };
 }

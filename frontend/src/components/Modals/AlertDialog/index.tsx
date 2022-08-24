@@ -51,9 +51,9 @@ export const AlertDialog = (props: AlertDialogProps): JSX.Element => {
 
       <SplitButton
         leftTitle={leftTitle}
-        rightTitle={rightTitle}
-        leftButtonStyle={leftButtonStyle}
-        rightButtonStyle={rightButtonStyle}
+        rightTitle={rightTitle ?? "Cancelar"}
+        leftButtonStyle={leftButtonStyle ?? "danger"}
+        rightButtonStyle={rightButtonStyle ?? "cancel"}
         onClickLeft={onClickLeft ?? rest.onCloseModal}
         onClickRight={onClickRight ?? rest.onCloseModal}
         containerClassName={styles.actionContainer}

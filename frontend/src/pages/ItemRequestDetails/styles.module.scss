@@ -1,0 +1,22 @@
+@import "../../styles/layouts/grids";
+
+.content {
+  @include standard-grid;
+
+  section {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.list {
+  flex: 1;
+
+  li + li {
+    margin-top: var(--section-inset);
+  }
+}
+
+.actionContainer {
+  margin-top: var(--big-inset);
+}
