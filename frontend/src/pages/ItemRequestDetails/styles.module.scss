@@ -3,6 +3,8 @@
 .content {
   @include standard-grid;
 
+  flex: 1;
+
   section {
     display: flex;
     flex-direction: column;

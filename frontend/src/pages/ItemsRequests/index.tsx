@@ -1,18 +1,21 @@
 import { useEffect, useState } from "react";
-import { ItemsRequests } from "../../@types/entities";
-import { fetchItemsRequests } from "../../repositories/itemsRequests";
+import { ItemRequest } from "../../@types/entities";
+import { fetchItemRequests } from "../../repositories/itemsRequests";
 
 import { ItemRequestCard } from "../../components/ItemRequestCard";
 import { PageHeader } from "../../components/PageHeader";
+import { Loading } from "../../components/Loading";
 
 import styles from "./styles.module.scss";
 
 export const ItemsRequestsPage = (): JSX.Element => {
-  const [itemsRequests, setItemsRequests] = useState<ItemsRequests[]>([]);
+  const [itemsRequests, setItemsRequests] = useState<ItemRequest[]>([]);
 
   useEffect(() => {
-    fetchItemsRequests().then((data) => setItemsRequests(data));
+    fetchItemRequests().then((data) => setItemsRequests(data));
   }, []);
+
+  if (itemsRequests.length === 0) return <Loading />;
 
   return (
     <>

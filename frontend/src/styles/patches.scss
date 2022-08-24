@@ -1,0 +1,8 @@
+@mixin text-max-lines($maxLines: 2) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: $maxLines; // number of lines to show
+  line-clamp: $maxLines;
+  -webkit-box-orient: vertical;
+}

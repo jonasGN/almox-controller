@@ -3,12 +3,14 @@ import { useParams } from "react-router-dom";
 import { Item } from "../../@types/entities";
 import { fetchItemById } from "../../repositories/items";
 import { useModal } from "../../hooks";
+import { isObjectEmpty } from "../../utils/helpers";
 
 import { OptionButton } from "../../components/Buttons";
 import { DeleteIcon, EditIcon } from "../../components/Icons";
 import { SimpleInformationTile } from "../../components/SimpleInformationTile";
 import { AlertDialog } from "../../components/Modals";
 import { PageHeader } from "../../components/PageHeader";
+import { Loading } from "../../components/Loading";
 import { ImageGalery } from "./ImageGalery";
 import { InformationSection } from "./InformationSection";
 
@@ -24,6 +26,8 @@ export const ItemDetailsPage = (): JSX.Element => {
   useEffect(() => {
     fetchItemById(Number(params.itemId)).then((data) => setItem(data));
   }, []);
+
+  if (isObjectEmpty(item)) return <Loading />;
 
   return (
     <>
@@ -56,15 +60,15 @@ export const ItemDetailsPage = (): JSX.Element => {
           </InformationSection>
 
           <InformationSection title="Localização">
-            <SimpleInformationTile title="Corredor" info={item.location?.hall} />
-            <SimpleInformationTile title="Prateleira" info={item.location?.shelf} />
-            <SimpleInformationTile title="Coluna" info={item.location?.column} />
+            <SimpleInformationTile title="Corredor" info={item.location.hall} />
+            <SimpleInformationTile title="Prateleira" info={item.location.shelf} />
+            <SimpleInformationTile title="Coluna" info={item.location.column} />
           </InformationSection>
         </section>
       </div>
 
       <AlertDialog
-        ref={modalRef}
+        modalRef={modalRef}
         isOpen={isOpen}
         onCloseModal={onCloseModal}
         icon={<DeleteIcon />}

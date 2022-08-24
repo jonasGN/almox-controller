@@ -1,14 +1,14 @@
 import { ItemRequestResponse } from "../@types/apiResponse";
-import { ItemsRequests } from "../@types/entities";
+import { ItemRequest } from "../@types/entities";
 
 import { apiClient } from "../services/apiClient";
 import { toFormattedDate } from "../utils/formatters";
 
-export const fetchItemsRequests = async (): Promise<ItemsRequests[]> => {
+export const fetchItemRequests = async (): Promise<ItemRequest[]> => {
   const response = await apiClient.get("api/items/requests");
-  const data = response.data.itemsRequests as ItemRequestResponse[];
+  const data = response.data.itemRequests as ItemRequestResponse[];
 
-  const requests: ItemsRequests[] = data.map((item) => {
+  const requests: ItemRequest[] = data.map((item) => {
     const date = new Date(item.requestedAt);
 
     return {
@@ -21,6 +21,20 @@ export const fetchItemsRequests = async (): Promise<ItemsRequests[]> => {
   return requests;
 };
 
-export const fetchItemRequestById = async (id: number): Promise<ItemsRequests> => {
-  throw new Error("Unimplemented method");
+export const fetchItemRequestById = async (id: number): Promise<ItemRequest> => {
+  const response = await apiClient.get(`api/items/requests/${id}`);
+  const itemRequest = response.data.itemRequest as ItemRequestResponse;
+
+  console.log(itemRequest);
+
+  const date = new Date(itemRequest.requestedAt);
+  return {
+    ...itemRequest,
+    requestedAt: date,
+    requestedAtFormatted: toFormattedDate(date, {
+      day: "2-digit",
+      month: "long",
+      year: "numeric",
+    }),
+  };
 };

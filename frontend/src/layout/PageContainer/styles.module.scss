@@ -28,4 +28,7 @@ $padding: var(--dft-inset);
 
   margin-top: var(--section-inset);
   margin-bottom: var(--dftdb-inset);
+
+  display: flex;
+  flex-direction: column;
 }

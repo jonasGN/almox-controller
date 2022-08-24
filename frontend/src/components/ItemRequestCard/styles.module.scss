@@ -1,4 +1,5 @@
 @import "../../styles/fonts";
+@import "../../styles/patches";
 
 .itemRequestCard {
   background-color: var(--card-color);
@@ -11,10 +12,11 @@
 
   > p {
     flex: 1;
-
-    @include body-1;
     color: var(--body-color);
     margin-top: var(--dft-inset);
+
+    @include body-1;
+    @include text-max-lines(5);
   }
 
   transition: var(--dft-transition);

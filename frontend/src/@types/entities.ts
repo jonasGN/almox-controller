@@ -29,7 +29,7 @@ interface User {
   permissions: string[];
 }
 
-export interface ItemsRequests {
+export interface ItemRequest {
   id: number;
   item: {
     name: string;

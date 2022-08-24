@@ -34,4 +34,4 @@
 
 - [ ] Evitar redimensionamento de imagens quando página carrega (acontece muito rapidamente)
 
-- [ ] Concertar bug que fecha o modal ao clicar dentro do mesmo
+- [x] Concertar bug que fecha o modal ao clicar dentro do mesmo

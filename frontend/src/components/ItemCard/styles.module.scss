@@ -1,4 +1,5 @@
 @import "../../styles/fonts";
+@import "../../styles/patches";
 
 .itemCardContainer {
   display: flex;
@@ -45,17 +46,10 @@
 
   p {
     flex: 1;
-
-    @include body-1;
-
     margin-block: var(--smdb-inset);
 
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-line-clamp: 2; // number of lines to show
-    line-clamp: 2;
-    -webkit-box-orient: vertical;
+    @include body-1;
+    @include text-max-lines;
   }
 
   strong {

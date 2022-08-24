@@ -8,13 +8,13 @@ export const createFakeServer = function () {
   createServer({
     models: {
       item: Model,
-      itemsRequests: Model,
+      itemRequest: Model,
     },
 
     seeds(server) {
       server.db.loadData({
         items: items,
-        itemsRequests: itemsRequests,
+        itemRequests: itemsRequests,
       });
     },
 
@@ -25,8 +25,10 @@ export const createFakeServer = function () {
       this.get("/items", (schema, req) => schema.all("item"));
       this.get("/items/:id");
 
-      this.get("/items/requests", (schema, req) => schema.all("itemsRequests"));
-      this.get("/items/requests/:id");
+      this.get("/items/requests", (schema, req) => schema.all("itemRequest"));
+      this.get("/items/requests/:id", (schema, req) => {
+        return schema.find("itemRequest", req.params.id);
+      });
     },
   });
 };

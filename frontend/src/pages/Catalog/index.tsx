@@ -7,7 +7,7 @@ import { AddIcon } from "../../components/Icons";
 import { SearchBar } from "../../components/Inputs";
 import { ItemCard } from "../../components/ItemCard";
 import { PageHeader } from "../../components/PageHeader";
-import { ShowWhen } from "../../layout";
+import { Loading } from "../../components/Loading";
 
 import styles from "./styles.module.scss";
 
@@ -18,6 +18,8 @@ export const CatalogPage = (): JSX.Element => {
     fetchItems().then((data) => setItems(data));
   }, []);
 
+  if (items.length === 0) return <Loading />;
+
   return (
     <>
       <PageHeader title="Catálogo">
@@ -26,10 +28,6 @@ export const CatalogPage = (): JSX.Element => {
       </PageHeader>
 
       <div className={styles.contentContainer}>
-        <ShowWhen condition={items.length === 0}>
-          <span>Carregando...</span>
-        </ShowWhen>
-
         {items.map((item) => (
           <ItemCard key={item.id} item={item} />
         ))}
