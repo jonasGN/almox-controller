@@ -1,5 +1,5 @@
 import { classNames } from "../../../utils/styles-helper";
-import { useModal } from "../../../contexts/ModalContext";
+import { useModal } from "../../../hooks";
 
 import { Image } from "../../../components/Image";
 import { OptionButton } from "../../../components/Buttons";

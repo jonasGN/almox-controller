@@ -1,5 +1,4 @@
 import { Outlet } from "react-router-dom";
-import { ModalProvider } from "../../contexts/ModalContext";
 import { classNames } from "../../utils/styles-helper";
 
 import { Header } from "../../components/Header";
@@ -17,15 +16,13 @@ export const PageContainer = (props: PageContainerProps): JSX.Element => {
   const contentClasses = classNames(styles.contentContainer, contentClassName!);
 
   return (
-    <ModalProvider>
-      <main className={styles.pageContainer}>
-        <Header />
-        <SideBar />
+    <main className={styles.pageContainer}>
+      <Header />
+      <SideBar />
 
-        <section className={contentClasses}>
-          <Outlet />
-        </section>
-      </main>
-    </ModalProvider>
+      <section className={contentClasses}>
+        <Outlet />
+      </section>
+    </main>
   );
 };

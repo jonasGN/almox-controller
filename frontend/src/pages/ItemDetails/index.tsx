@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Item } from "../../@types/entities";
 import { fetchItemById } from "../../repositories/items";
-import { ModalProvider, useModal } from "../../contexts/ModalContext";
+import { useModal } from "../../hooks";
 
 import { OptionButton } from "../../components/Buttons";
 import { DeleteIcon, EditIcon } from "../../components/Icons";
@@ -33,9 +33,7 @@ export const ItemDetailsPage = (): JSX.Element => {
       </PageHeader>
 
       <div className={styles.contentContainer}>
-        <ModalProvider>
-          <ImageGalery image={""} className={styles.galery} />
-        </ModalProvider>
+        <ImageGalery image={""} className={styles.galery} />
 
         <section className={styles.details}>
           <span>CÓDIGO: {item.code}</span>
@@ -67,11 +65,11 @@ export const ItemDetailsPage = (): JSX.Element => {
 
       <AlertDialog
         modalRef={modalRef}
-        title="Excluir item"
-        description="Ao confirmar essa operação, o item será excluído da base de dados permanentemente. Tem certeza que deseja continuar?"
-        icon={<DeleteIcon />}
         isOpen={isOpen}
         onCloseModal={onCloseModal}
+        icon={<DeleteIcon />}
+        title="Excluir item"
+        description="Ao confirmar essa operação, o item será excluído da base de dados permanentemente. Tem certeza que deseja continuar?"
         leftTitle="Excluir"
         rightTitle="Cancelar"
         leftButtonStyle="danger"

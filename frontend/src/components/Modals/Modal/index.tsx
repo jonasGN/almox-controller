@@ -27,7 +27,7 @@ export const Modal = (props: ModalProps): JSX.Element | null => {
   if (!isOpen) return null;
 
   return ReactDOM.createPortal(
-    <div className={styles.overlay}>
+    <div className={styles.overlay} role="dialog" aria-modal>
       <div ref={modalRef} className={styles.modal}>
         <div className={styles.closeButton}>
           <OptionButton
