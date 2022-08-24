@@ -9,16 +9,16 @@ Array.from({ length: 20 }).forEach((item, index) => {
     id: index + 1,
     name: faker.commerce.productName(),
     code: faker.random.numeric(12),
-    unitPrice: Math.floor(800 + index * 7),
-    amountAvailable: 9,
+    unitPrice: faker.datatype.number({ min: 99, max: 10000 }),
+    amountAvailable: faker.datatype.number({ max: 100 }),
     description: faker.commerce.productDescription(),
-    status: "AVAILABLE",
+    status: faker.helpers.arrayElement(["AVAILABLE", "UNAVAILABLE"]),
     image: "",
-    category: "Parafusos",
+    category: faker.helpers.arrayElement(["Parafusos", "Roscas", "Diversos", "Máquinas"]),
     location: {
-      column: "COLU01",
-      hall: "CORR01",
-      shelf: "PRAT01",
+      column: faker.helpers.arrayElement(["COLU01", "COLU02", "COLU03", "COLU04"]),
+      hall: faker.helpers.arrayElement(["CORR01", "CORR02", "CORR03", "CORR04"]),
+      shelf: faker.helpers.arrayElement(["PRAT01", "PRAT02", "PRAT03", "PRAT04"]),
     },
   });
 });

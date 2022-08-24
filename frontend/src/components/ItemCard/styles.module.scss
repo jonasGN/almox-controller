@@ -1,7 +1,9 @@
 @import "../../styles/fonts";
 
 .itemCardContainer {
-  display: inline-block;
+  display: flex;
+  flex-direction: column;
+
   background-color: var(--card-color);
   border-radius: var(--dft-radius);
   overflow: hidden;
@@ -14,10 +16,11 @@
 }
 
 .itemImageContainer {
-  background-color: var(--secondary-color);
   display: flex;
   justify-content: center;
   align-items: center;
+
+  background-color: var(--secondary-color);
 
   position: relative;
 
@@ -29,6 +32,10 @@
 }
 
 .itemDetailsContainer {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+
   padding: var(--dft-inset);
 
   span {
@@ -37,6 +44,8 @@
   }
 
   p {
+    flex: 1;
+
     @include body-1;
 
     margin-block: var(--smdb-inset);

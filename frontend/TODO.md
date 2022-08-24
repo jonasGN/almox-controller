@@ -6,7 +6,7 @@
 
 - [ ] Criar página Not Found
 
-- [ ] Arrumar bug visual dos detalhes do item card quando há itens com nomes com quantidade de linhas diferentes
+- [x] Arrumar bug visual dos detalhes do item card quando há itens com nomes com quantidade de linhas diferentes
 
 - [ ] Configurar eslint
 
@@ -16,7 +16,7 @@
 
 - [ ] Adicionar componente de carregamento (design e código)
 
-- [ ] Concertar o estilo da fonte do preço na página de detalhes do item
+- [x] Concertar o estilo da fonte do preço na página de detalhes do item
 
 - [ ] Concertar bug que impede que o ícone fique do tamanho desejado
 
@@ -30,4 +30,6 @@
 
 - [ ] Adicionar hook para travar foco quando no modal
 
-- [ ] Adicionar hook que permita ao clicar em esc sair do modal
+- [x] Adicionar hook que permita ao clicar em esc sair do modal
+
+- [ ] Evitar redimensionamento de imagens quando página carrega (acontece muito rapidamente)
