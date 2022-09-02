@@ -36,7 +36,6 @@ export const SignInForm = (): JSX.Element => {
         avatar: response.user.avatar,
         roles: response.roles,
       });
-      console.log(response);
       navigate(Paths.DASHBOARD);
     } catch (e) {
       setErrMessage((e as Error).message + " Por favor, tente novamente.");

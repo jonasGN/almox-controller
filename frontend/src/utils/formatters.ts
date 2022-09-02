@@ -1,3 +1,6 @@
+/**
+ * Retrive the initials of a given name
+ */
 export const initialsOf = (name: string): string => {
   const arr = name.split(" ").filter((n) => n.length > 2);
   const firstName = arr[0];
@@ -27,4 +30,15 @@ export const toFormattedDate = (date: Date, options?: DateOptions): string => {
     "pt-BR",
     options ?? { day: "2-digit", month: "short", year: "numeric" }
   ).format(date);
+};
+
+/**
+ * Reduce a user name to firt and last name only
+ */
+export const toShortName = (name: string): string => {
+  const arr = name.split(" ").filter((n) => n.length > 2);
+  const first = arr[0];
+  const last = arr[arr.length - 1];
+
+  return `${first} ${last}`;
 };

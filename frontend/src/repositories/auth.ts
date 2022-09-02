@@ -7,6 +7,7 @@ import {
   UnauthorizedException,
 } from "../exceptions";
 import { apiClient } from "../services/apiClient";
+import { toShortName } from "../utils/formatters";
 
 interface Credentials {
   internalCode: string;
@@ -24,7 +25,16 @@ export const signIn = async (credentials: Credentials): Promise<AuthData> => {
     });
     const data = response.data as AuthResponse;
 
-    return { ...data };
+    return {
+      accessToken: data.accessToken,
+      refreshToken: data.refreshToken,
+      roles: data.roles,
+      user: {
+        name: toShortName(data.user.name),
+        internalCode: data.user.internalCode,
+        avatar: data.user.avatar,
+      },
+    };
   } catch (e) {
     const error = e as AxiosError;
 
