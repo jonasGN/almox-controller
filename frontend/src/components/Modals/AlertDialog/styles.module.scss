@@ -31,4 +31,13 @@
 
 .actionContainer {
   margin-top: var(--big-inset);
+
+  &.single {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    button {
+      grid-column: 2 / -1;
+    }
+  }
 }

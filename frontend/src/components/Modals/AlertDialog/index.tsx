@@ -1,4 +1,5 @@
 import { ReactChildrenElement } from "../../../@types/elements";
+import { classNames } from "../../../utils/styles-helper";
 
 import { ShowWhen } from "../../../layout";
 import { SplitButton } from "../../Buttons";
@@ -20,6 +21,7 @@ interface AlertDialogProps extends BaseModalProps {
   rightButtonStyle?: ButtonStyle;
   onClickLeft?: VoidCallback;
   onClickRight?: VoidCallback;
+  useSingleButton?: boolean;
   children?: ReactChildrenElement;
 }
 
@@ -34,9 +36,15 @@ export const AlertDialog = (props: AlertDialogProps): JSX.Element => {
     rightButtonStyle,
     onClickLeft,
     onClickRight,
+    useSingleButton = false,
     children,
     ...rest
   } = props;
+
+  const actionContainerClasses = classNames(
+    styles.actionContainer,
+    useSingleButton ? styles.single : ""
+  );
 
   return (
     <Modal className={styles.dialogContainer} {...rest}>
@@ -51,12 +59,13 @@ export const AlertDialog = (props: AlertDialogProps): JSX.Element => {
 
       <SplitButton
         leftTitle={leftTitle}
-        rightTitle={rightTitle ?? "Cancelar"}
+        rightTitle={rightTitle ?? (useSingleButton ? "Ok" : "Cancelar")}
         leftButtonStyle={leftButtonStyle ?? "danger"}
         rightButtonStyle={rightButtonStyle ?? "cancel"}
         onClickLeft={onClickLeft ?? rest.onCloseModal}
         onClickRight={onClickRight ?? rest.onCloseModal}
-        containerClassName={styles.actionContainer}
+        useSingleButton={useSingleButton}
+        containerClassName={actionContainerClasses}
       />
     </Modal>
   );

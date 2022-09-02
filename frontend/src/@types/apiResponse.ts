@@ -39,3 +39,17 @@ export interface ItemRequestResponse {
   user: UserResponse;
   requestedAt: string;
 }
+
+export interface MeResponse {
+  id: number;
+  name: string;
+  email: string;
+  companyCode: string;
+  avatar: string;
+  permissions: string[];
+}
+
+export interface AuthResponse {
+  token: string;
+  refreshToken: string;
+}

@@ -40,3 +40,8 @@ export interface ItemRequest {
   requestedAt: Date;
   requestedAtFormatted: string;
 }
+
+export interface AuthData {
+  token: string;
+  refreshToken: string;
+}

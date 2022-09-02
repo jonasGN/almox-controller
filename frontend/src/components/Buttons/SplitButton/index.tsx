@@ -1,6 +1,7 @@
 import React from "react";
-
 import { classNames } from "../../../utils/styles-helper";
+
+import { ShowWhen } from "../../../layout";
 import { BaseButton } from "../BaseButton";
 
 import styles from "./styles.module.scss";
@@ -15,6 +16,7 @@ interface SplitButtonProps {
   onClickRight?: ClickCallback;
   leftButtonStyle?: ButtonStyle;
   rightButtonStyle?: ButtonStyle;
+  useSingleButton?: boolean;
   containerClassName?: string;
 }
 
@@ -26,6 +28,7 @@ export const SplitButton = (props: SplitButtonProps): JSX.Element => {
     onClickRight,
     leftButtonStyle,
     rightButtonStyle,
+    useSingleButton = false,
     containerClassName,
   } = props;
 
@@ -44,12 +47,14 @@ export const SplitButton = (props: SplitButtonProps): JSX.Element => {
 
   return (
     <div className={classes}>
-      <BaseButton
-        size="medium"
-        title={leftTitle ?? "cancelar"}
-        onClick={onClickLeft}
-        customClassName={buttonStyle(leftButtonStyle ?? "cancel")}
-      />
+      <ShowWhen condition={!useSingleButton}>
+        <BaseButton
+          size="medium"
+          title={leftTitle ?? "cancelar"}
+          onClick={onClickLeft}
+          customClassName={buttonStyle(leftButtonStyle ?? "cancel")}
+        />
+      </ShowWhen>
       <BaseButton
         size="medium"
         title={rightTitle ?? "ok"}
