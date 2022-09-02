@@ -7,5 +7,5 @@ export const me: MeResponse = {
   email: faker.internet.email(),
   companyCode: faker.random.numeric(10),
   avatar: faker.internet.avatar(),
-  permissions: faker.helpers.arrayElements(["ADMIN", "OPERATOR", "COMMON"], 1),
+  permissions: faker.helpers.arrayElements(["ADMIN", "OPERATOR", "STANDARD"], 1),
 };

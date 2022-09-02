@@ -35,3 +35,5 @@
 - [ ] Evitar redimensionamento de imagens quando página carrega (acontece muito rapidamente)
 
 - [x] Concertar bug que fecha o modal ao clicar dentro do mesmo
+
+- [ ] Criar componente de Formulário base e capturar o foco para o mesmo

@@ -42,6 +42,12 @@ export interface ItemRequest {
 }
 
 export interface AuthData {
-  token: string;
+  accessToken: string;
   refreshToken: string;
+  roles: string[];
+  user: {
+    name: string;
+    internalCode: string;
+    avatar: string;
+  };
 }
