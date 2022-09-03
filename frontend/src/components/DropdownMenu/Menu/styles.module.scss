@@ -1,0 +1,12 @@
+.menuContainer {
+  // position: absolute;
+  overflow: hidden;
+
+  min-width: 240px;
+
+  background-color: var(--card-color);
+  border-radius: var(--dft-radius);
+
+  padding-block: var(--dft-inset);
+  margin-top: var(--smdb-inset);
+}

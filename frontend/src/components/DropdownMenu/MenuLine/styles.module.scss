@@ -1,0 +1,28 @@
+@import "../../../styles/fonts";
+
+.menuLineContainer {
+  @include subtitle-2($regular-weight);
+
+  display: flex;
+  align-items: center;
+
+  padding-block: var(--smdb-inset);
+  margin-inline: var(--section-inset);
+
+  position: relative;
+
+  & + li::after {
+    content: " ";
+    position: absolute;
+    top: 0;
+
+    display: block;
+    height: 1px;
+    width: 100%;
+    background-color: var(--indiferent-color);
+  }
+
+  svg {
+    margin-right: var(--horizontal-inset);
+  }
+}
