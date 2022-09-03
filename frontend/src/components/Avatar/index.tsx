@@ -36,7 +36,12 @@ export const Avatar = (props: AvatarProps): JSX.Element => {
   const buttonClasses = classNames(styles.avatarContainer, styles.avatarButton);
   if (onClick) {
     return (
-      <RawButton customClassName={buttonClasses} data-size={size} data-radius={radius}>
+      <RawButton
+        customClassName={buttonClasses}
+        data-size={size}
+        data-radius={radius}
+        onClick={onClick}
+      >
         {content}
       </RawButton>
     );

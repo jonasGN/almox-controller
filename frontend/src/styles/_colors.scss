@@ -4,13 +4,18 @@
   --secondary-color: #1a191f;
   --negative-color: #e5404d;
 
+  // main variants
   --primary-light-color: #a08afa;
 
+  // other colors
   --background-color: #212028;
   --card-color: #2b2933;
   --indiferent-color: #433d5c;
   --disabled-color: #3c3a45;
-  --shadow-color: #1a191f8f;
+
+  // shadow and overlay colors
+  --overlay-color: #1a191f8f;
+  --shadow-color: #231e381a;
 
   // text color
   --heading-color: #fff;

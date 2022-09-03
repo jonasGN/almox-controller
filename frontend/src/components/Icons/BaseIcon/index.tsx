@@ -27,7 +27,7 @@ export const BaseIcon = (props: BaseIconProps): JSX.Element => {
       case "danger":
         return styles.danger;
       default:
-        return styles.default;
+        return "";
     }
   };
 

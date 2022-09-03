@@ -1,15 +1,13 @@
 @import "../../../styles/fonts";
 
 .menuLineContainer {
-  @include subtitle-2($regular-weight);
-
-  display: flex;
-  align-items: center;
-
-  padding-block: var(--smdb-inset);
-  margin-inline: var(--section-inset);
+  padding-block: var(--horizontal-inset);
+  padding-inline: var(--section-inset);
+  background-color: var(--card-color);
 
   position: relative;
+  cursor: pointer;
+  transition: var(--dft-transition);
 
   & + li::after {
     content: " ";
@@ -18,11 +16,37 @@
 
     display: block;
     height: 1px;
-    width: 100%;
+    width: calc(100% - calc(var(--section-inset) * 2));
+
     background-color: var(--indiferent-color);
+  }
+
+  &.danger {
+    color: var(--negative-color);
+
+    svg {
+      fill: var(--negative-color);
+    }
+  }
+
+  &:hover {
+    filter: brightness(0.8);
   }
 
   svg {
     margin-right: var(--horizontal-inset);
+  }
+
+  a,
+  button {
+    @include subtitle-2($regular-weight);
+
+    color: inherit;
+    display: flex;
+    align-items: center;
+
+    &:hover {
+      filter: none;
+    }
   }
 }

@@ -1,3 +1,35 @@
 .dropdownContainer {
   position: relative;
+
+  display: flex;
+  align-items: center;
+
+  .menu {
+    position: absolute;
+    right: 0;
+    top: calc(100% + var(--smdb-inset));
+
+    overflow: hidden;
+    min-width: 240px;
+
+    background-color: var(--card-color);
+    border-radius: var(--dft-radius);
+
+    padding-block: var(--dft-inset);
+    box-shadow: 0 4px 4px var(--shadow-color);
+
+    animation: show 0.2s ease;
+    transform-origin: right top;
+
+    @keyframes show {
+      0% {
+        opacity: 0;
+        transform: scale(0);
+      }
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+  }
 }

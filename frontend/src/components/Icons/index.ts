@@ -9,6 +9,8 @@ import { DeleteIcon } from "./DeleteIcon";
 import { EditIcon } from "./EditIcon";
 import { ExpandImageIcon } from "./ExpandImageIcon";
 import { WarningIcon } from "./WarningIcon";
+import { PersonIcon } from "./PersonIcon";
+import { LogoutIcon } from "./LogoutIcon";
 
 type Icon = React.ReactElement<SVGAElement>;
 
@@ -23,4 +25,6 @@ export {
   EditIcon,
   ExpandImageIcon,
   WarningIcon,
+  PersonIcon,
+  LogoutIcon,
 };
