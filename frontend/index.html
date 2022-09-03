@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" data-js>
 
 <head>
   <!-- fonts -->
@@ -11,10 +11,23 @@
   <link rel="icon" type="image/png" href="/images/favicon.png" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+  <!-- no script -->
+  <link rel="stylesheet" href="./src/styles/no-script.css">
+
   <title>Almox Controller</title>
+  <meta name="description" content="Ferramenta de controle de almoxarifado interno">
 </head>
 
 <body>
+  <noscript>
+    <div class="no-script">
+      <img width="400" height="284" src="/public/illustrations/no-script.svg" alt="Script desabilitado">
+      <h1>Scripts desabilitados</h1>
+      <p>É necessário ativar o JavaScript para poder utilizar essa aplicação.
+        Para ativá-lo, abra as ferramentas do seu navegador e procure pela opção que habilita os scripts.</p>
+    </div>
+  </noscript>
+
   <div id="root"></div>
   <div id="modal"></div>
 
