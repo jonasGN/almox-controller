@@ -1,5 +1,5 @@
-import { PageContainer } from "./PageContainer";
+import { AppLayout } from "./AppLayout";
 import { ScreenContainer } from "./ScreenContainer";
 import { ShowWhen } from "./ShowWhen";
 
-export { PageContainer, ScreenContainer, ShowWhen };
+export { AppLayout, ScreenContainer, ShowWhen };

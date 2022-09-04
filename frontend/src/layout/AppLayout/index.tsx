@@ -6,17 +6,17 @@ import { SideBar } from "../../components/SideBar";
 
 import styles from "./styles.module.scss";
 
-interface PageContainerProps {
+interface AppLayoutProps {
   contentClassName?: string;
 }
 
-export const PageContainer = (props: PageContainerProps): JSX.Element => {
+export const AppLayout = (props: AppLayoutProps): JSX.Element => {
   const { contentClassName } = props;
 
   const contentClasses = classNames(styles.contentContainer, contentClassName!);
 
   return (
-    <main className={styles.pageContainer}>
+    <main className={styles.appLayout}>
       <Header />
       <SideBar />
 

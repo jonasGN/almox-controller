@@ -2,7 +2,7 @@
 
 $padding: var(--dft-inset);
 
-.pageContainer {
+.appLayout {
   max-width: calc(1364px + $padding);
 
   @include grid-layout;

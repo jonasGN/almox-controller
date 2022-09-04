@@ -1,3 +1,4 @@
+import { AuthProvider } from "./context/AuthProvider";
 import { AppRoutes, BrowserRouter } from "./routes";
 import { createFakeServer } from "./services/miragejs";
 
@@ -9,7 +10,9 @@ if (import.meta.env.DEV) createFakeServer();
 function App() {
   return (
     <BrowserRouter>
-      <AppRoutes />
+      <AuthProvider>
+        <AppRoutes />
+      </AuthProvider>
     </BrowserRouter>
   );
 }
