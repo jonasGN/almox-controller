@@ -1,4 +1,4 @@
-import { ElementException } from "./ElementException";
+import { ElementException } from "./htmlElementsExceptions";
 import {
   UnauthorizedException,
   ServerException,

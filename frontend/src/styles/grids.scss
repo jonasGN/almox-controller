@@ -1,0 +1,17 @@
+$gap: var(--dft-inset);
+
+@mixin standard-grid($templateColumns: repeat(2, 1fr), $columnGap: $gap, $rowGap: $gap) {
+  display: grid;
+  grid-template-columns: $templateColumns;
+  column-gap: $columnGap;
+  row-gap: $rowGap;
+}
+
+@mixin dashboard-grid($templateColumns: repeat(10, 1fr), $templateRows: auto 1fr) {
+  @include standard-grid($templateColumns, $gap, 0);
+  grid-template-rows: $templateRows;
+}
+
+@mixin content-grid($column: #{3 / -1}) {
+  @include standard-grid(repeat(4, 1fr));
+}

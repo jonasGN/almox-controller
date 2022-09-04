@@ -1,5 +1,5 @@
 import { AppLayout } from "./AppLayout";
-import { ScreenContainer } from "./ScreenContainer";
+import { ScreenSizeLayout } from "./ScreenSizeLayout";
 import { ShowWhen } from "./ShowWhen";
 
-export { AppLayout, ScreenContainer, ShowWhen };
+export { AppLayout, ScreenSizeLayout, ShowWhen };

@@ -1,15 +1,7 @@
-@import "../../styles/layouts/grids";
+@import "../../styles/grids";
 
-$padding: var(--dft-inset);
-
-.appLayout {
-  max-width: calc(1364px + $padding);
-
-  @include grid-layout;
-  grid-template-rows: auto 1fr;
-  row-gap: 0;
-
-  padding-inline: $padding;
+.mainContainer {
+  @include dashboard-grid;
 
   & > header {
     grid-column: 3 / -1;

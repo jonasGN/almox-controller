@@ -11,11 +11,11 @@ export const Logo = (props: LogoProps): JSX.Element => {
   const { type = "horizontal" } = props;
 
   return (
-    <div className={styles.logoContainer}>
+    <span className={styles.logoContainer}>
       <img
         src={type === "horizontal" ? horizontal : vertical}
         alt="Almox Controller logo"
       />
-    </div>
+    </span>
   );
 };

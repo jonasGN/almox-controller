@@ -1,5 +1,5 @@
-@import "../../styles/layouts/grids";
+@import "../../styles/grids";
 
 .contentContainer {
-  @include content-columns;
+  @include content-grid;
 }

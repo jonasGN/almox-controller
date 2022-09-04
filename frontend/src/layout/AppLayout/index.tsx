@@ -1,6 +1,7 @@
 import { Outlet } from "react-router-dom";
 import { classNames } from "../../utils/styles-helper";
 
+import { ScreenSizeLayout } from "../ScreenSizeLayout";
 import { Header } from "../../components/Header";
 import { SideBar } from "../../components/SideBar";
 
@@ -16,13 +17,13 @@ export const AppLayout = (props: AppLayoutProps): JSX.Element => {
   const contentClasses = classNames(styles.contentContainer, contentClassName!);
 
   return (
-    <main className={styles.appLayout}>
+    <ScreenSizeLayout className={styles.mainContainer}>
       <Header />
       <SideBar />
 
       <section className={contentClasses}>
         <Outlet />
       </section>
-    </main>
+    </ScreenSizeLayout>
   );
 };

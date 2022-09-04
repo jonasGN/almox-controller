@@ -1,0 +1,16 @@
+$padding: var(--dft-inset);
+
+@mixin screenSize($size: 1364px) {
+  max-width: calc($size + $padding);
+}
+
+.screen {
+  @include screenSize;
+
+  padding-inline: var(--dft-inset);
+  margin-inline: auto;
+
+  &.medium {
+    @include screenSize(1000px);
+  }
+}
