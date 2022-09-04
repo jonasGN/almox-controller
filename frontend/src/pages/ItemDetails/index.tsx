@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Item } from "../../@types/entities";
 import { fetchItemById } from "../../repositories/items";
-import { useModal } from "../../hooks";
+import { useOverlayElement } from "../../hooks";
 import { isObjectEmpty } from "../../utils/helpers";
 
 import { OptionButton } from "../../components/Buttons";
@@ -21,7 +21,7 @@ export const ItemDetailsPage = (): JSX.Element => {
 
   const params = useParams();
 
-  const { isOpen, modalRef, onCloseModal, onOpenModal } = useModal();
+  const { isVisible, elementRef, onOpenElement, onCloseElement } = useOverlayElement();
 
   useEffect(() => {
     fetchItemById(Number(params.itemId)).then((data) => setItem(data));
@@ -32,7 +32,7 @@ export const ItemDetailsPage = (): JSX.Element => {
   return (
     <>
       <PageHeader title="Detalhes do item">
-        <OptionButton icon={<DeleteIcon />} styleType="danger" onClick={onOpenModal} />
+        <OptionButton icon={<DeleteIcon />} styleType="danger" onClick={onOpenElement} />
         <OptionButton icon={<EditIcon />} />
       </PageHeader>
 
@@ -68,9 +68,9 @@ export const ItemDetailsPage = (): JSX.Element => {
       </div>
 
       <AlertDialog
-        modalRef={modalRef}
-        isOpen={isOpen}
-        onCloseModal={onCloseModal}
+        modalRef={elementRef}
+        isOpen={isVisible}
+        onCloseModal={onCloseElement}
         icon={<DeleteIcon />}
         title="Excluir item"
         description="Ao confirmar essa operação, o item será excluído da base de dados permanentemente. Tem certeza que deseja continuar?"

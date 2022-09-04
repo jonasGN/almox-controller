@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useModal } from "../../../hooks";
+import { useOverlayElement } from "../../../hooks";
 import { signIn } from "../../../repositories/auth";
 import { Paths } from "../../../routes";
 import { useAuth } from "../../../context/AuthProvider";
@@ -21,7 +21,7 @@ export const SignInForm = (): JSX.Element => {
 
   const { setUser } = useAuth();
   const navigate = useNavigate();
-  const { modalRef, isOpen, onCloseModal, onOpenModal } = useModal();
+  const { isVisible, elementRef, onOpenElement, onCloseElement } = useOverlayElement();
 
   const handleSignIn = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -39,7 +39,7 @@ export const SignInForm = (): JSX.Element => {
       navigate(Paths.DASHBOARD);
     } catch (e) {
       setErrMessage((e as Error).message + " Por favor, tente novamente.");
-      onOpenModal();
+      onOpenElement();
     } finally {
       setIsLoading(false);
       setInternalCode("");
@@ -80,12 +80,12 @@ export const SignInForm = (): JSX.Element => {
       </form>
 
       <AlertDialog
-        modalRef={modalRef}
-        isOpen={isOpen}
+        modalRef={elementRef}
+        isOpen={isVisible}
         icon={<WarningIcon />}
         title="Erro durante login"
         description={errMessage}
-        onCloseModal={onCloseModal}
+        onCloseModal={onCloseElement}
         useSingleButton={true}
       />
     </>

@@ -1,5 +1,5 @@
 import { classNames } from "../../../utils/styles-helper";
-import { useModal } from "../../../hooks";
+import { useOverlayElement } from "../../../hooks";
 
 import { Image } from "../../../components/Image";
 import { OptionButton } from "../../../components/Buttons";
@@ -16,7 +16,7 @@ interface ImageGaleryProps {
 export const ImageGalery = (props: ImageGaleryProps): JSX.Element => {
   const { image, className } = props;
 
-  const { isOpen, modalRef, onCloseModal, onOpenModal } = useModal();
+  const { isVisible, elementRef, onOpenElement, onCloseElement } = useOverlayElement();
 
   const classes = classNames(styles.imageGaleryContainer, className!);
 
@@ -28,7 +28,7 @@ export const ImageGalery = (props: ImageGaleryProps): JSX.Element => {
           <OptionButton
             icon={<ExpandImageIcon />}
             styleType="no-bg-default"
-            onClick={onOpenModal}
+            onClick={onOpenElement}
           />
         </div>
 
@@ -40,9 +40,9 @@ export const ImageGalery = (props: ImageGaleryProps): JSX.Element => {
 
       <ImageModal
         src={image}
-        isOpen={isOpen}
-        modalRef={modalRef}
-        onCloseModal={onCloseModal}
+        isOpen={isVisible}
+        modalRef={elementRef}
+        onCloseModal={onCloseElement}
       />
     </>
   );

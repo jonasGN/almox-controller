@@ -1,3 +1,3 @@
-import { useModal } from "./useModal";
+import { useOverlayElement } from "./useOverlayElement";
 
-export { useModal };
+export { useOverlayElement };

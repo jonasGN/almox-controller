@@ -1,5 +1,5 @@
 import { useAuth } from "../../context/AuthProvider";
-import { useModal } from "../../hooks";
+import { useOverlayElement } from "../../hooks";
 
 import { Avatar } from "../Avatar";
 import { DropdownMenu, MenuItem } from "../DropdownMenu";
@@ -9,7 +9,7 @@ import styles from "./styles.module.scss";
 
 export const Header = (): JSX.Element => {
   const { user } = useAuth();
-  const { isOpen, modalRef, onOpenModal } = useModal<HTMLMenuElement>();
+  const { isVisible, elementRef, onOpenElement } = useOverlayElement<HTMLMenuElement>();
 
   const options: MenuItem[] = [
     {
@@ -33,11 +33,11 @@ export const Header = (): JSX.Element => {
           <span>{user.internalCode}</span>
         </div>
 
-        <DropdownMenu ref={modalRef} isVisible={isOpen} items={options}>
+        <DropdownMenu ref={elementRef} isVisible={isVisible} items={options}>
           <Avatar
             userName={user.name}
             userImage={user.avatar}
-            onClick={isOpen ? undefined : onOpenModal}
+            onClick={isVisible ? undefined : onOpenElement}
           />
         </DropdownMenu>
       </div>

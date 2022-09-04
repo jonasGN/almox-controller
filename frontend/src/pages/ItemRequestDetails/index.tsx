@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { useModal } from "../../hooks";
+import { useOverlayElement } from "../../hooks";
 import { ItemRequest } from "../../@types/entities";
 import { fetchItemRequestById } from "../../repositories/itemsRequests";
 import { isObjectEmpty } from "../../utils/helpers";
@@ -19,7 +19,7 @@ import styles from "./styles.module.scss";
 export const ItemRequestDetailsPage = () => {
   const [request, setRequest] = useState<ItemRequest>({} as ItemRequest);
 
-  const { isOpen, modalRef, onCloseModal, onOpenModal } = useModal();
+  const { isVisible, elementRef, onOpenElement, onCloseElement } = useOverlayElement();
 
   const params = useParams();
 
@@ -48,7 +48,7 @@ export const ItemRequestDetailsPage = () => {
               rightTitle="Aceitar"
               leftButtonStyle="danger"
               rightButtonStyle="confirm"
-              onClickLeft={onOpenModal}
+              onClickLeft={onOpenElement}
             />
           </div>
         </ItemRequestDetailsSection>
@@ -68,9 +68,9 @@ export const ItemRequestDetailsPage = () => {
       </div>
 
       <AlertDialog
-        modalRef={modalRef}
-        isOpen={isOpen}
-        onCloseModal={onCloseModal}
+        modalRef={elementRef}
+        isOpen={isVisible}
+        onCloseModal={onCloseElement}
         icon={<WarningIcon />}
         title="Recusar solicitação"
         description="Ao recusar essa solicitação, a mesma não poderá ser visualizada novamente. Tem certeza que deseja recusá-la?"
