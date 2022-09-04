@@ -1,3 +1,3 @@
-import { useOverlayElement } from "./useOverlayElement";
+import { useAuth } from "./useAuth";
 
-export { useOverlayElement };
+export { useAuth };

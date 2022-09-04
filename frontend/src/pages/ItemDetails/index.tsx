@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Item } from "../../@types/entities";
 import { fetchItemById } from "../../repositories/items";
-import { useOverlayElement } from "../../hooks";
+import { useOverlayElement } from "../../hooks/element";
 import { isObjectEmpty } from "../../utils/helpers";
 
 import { OptionButton } from "../../components/Buttons";

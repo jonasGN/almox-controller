@@ -1,5 +1,5 @@
-import { useAuth } from "../../context/AuthProvider";
-import { useOverlayElement } from "../../hooks";
+import { useAuth } from "../../hooks";
+import { useOverlayElement } from "../../hooks/element";
 
 import { Avatar } from "../Avatar";
 import { DropdownMenu, MenuItem } from "../DropdownMenu";

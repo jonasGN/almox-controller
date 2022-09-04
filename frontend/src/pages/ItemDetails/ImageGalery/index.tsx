@@ -1,5 +1,5 @@
 import { classNames } from "../../../utils/styles-helper";
-import { useOverlayElement } from "../../../hooks";
+import { useOverlayElement } from "../../../hooks/element";
 
 import { Image } from "../../../components/Image";
 import { OptionButton } from "../../../components/Buttons";

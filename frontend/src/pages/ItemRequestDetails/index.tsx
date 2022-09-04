@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { useOverlayElement } from "../../hooks";
+import { useOverlayElement } from "../../hooks/element";
 import { ItemRequest } from "../../@types/entities";
 import { fetchItemRequestById } from "../../repositories/itemsRequests";
 import { isObjectEmpty } from "../../utils/helpers";

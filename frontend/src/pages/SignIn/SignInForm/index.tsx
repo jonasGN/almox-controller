@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useOverlayElement } from "../../../hooks";
+import { useAuth } from "../../../hooks";
+import { useOverlayElement } from "../../../hooks/element";
 import { signIn } from "../../../repositories/auth";
 import { Paths } from "../../../routes";
-import { useAuth } from "../../../context/AuthProvider";
 
 import { MainButton } from "../../../components/Buttons";
 import { WarningIcon } from "../../../components/Icons";

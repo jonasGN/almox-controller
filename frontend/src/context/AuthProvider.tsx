@@ -18,7 +18,7 @@ interface AuthProviderProps {
   children: ReactChildrenElement;
 }
 
-const AuthContext = createContext<AuthContextData>({} as AuthContextData);
+export const AuthContext = createContext<AuthContextData>({} as AuthContextData);
 
 export const AuthProvider = ({ children }: AuthProviderProps): JSX.Element => {
   const [auth, setAuth] = useState<UserContextData>({} as UserContextData);
@@ -29,5 +29,3 @@ export const AuthProvider = ({ children }: AuthProviderProps): JSX.Element => {
     </AuthContext.Provider>
   );
 };
-
-export const useAuth = () => useContext(AuthContext);
