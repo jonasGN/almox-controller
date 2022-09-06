@@ -1,11 +1,12 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useState } from "react";
+import { UserRoles } from "../@types/common";
 import { ReactChildrenElement } from "../@types/elements";
 
 interface UserContextData {
   name: string;
   avatar: string;
   internalCode: string;
-  roles: string[];
+  roles: Array<UserRoles>;
   accessToken: string;
 }
 

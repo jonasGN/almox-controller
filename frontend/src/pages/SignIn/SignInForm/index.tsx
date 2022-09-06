@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useAuth } from "../../../hooks";
 import { useOverlayElement } from "../../../hooks/element";
 import { signIn } from "../../../repositories/auth";
@@ -13,14 +13,18 @@ import { AlertDialog } from "../../../components/Modals";
 import styles from "./styles.module.scss";
 
 export const SignInForm = (): JSX.Element => {
+  const { setUser } = useAuth();
+
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = ((location.state as any)?.from?.pathname as string) || Paths.DASHBOARD;
+
   const [internalCode, setInternalCode] = useState("");
   const [password, setPassword] = useState("");
 
   const [errMessage, setErrMessage] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
-  const { setUser } = useAuth();
-  const navigate = useNavigate();
   const { isVisible, elementRef, onOpenElement, onCloseElement } = useOverlayElement();
 
   const handleSignIn = async (e: React.FormEvent) => {
@@ -36,7 +40,7 @@ export const SignInForm = (): JSX.Element => {
         avatar: response.user.avatar,
         roles: response.roles,
       });
-      navigate(Paths.DASHBOARD);
+      navigate(from, { replace: true });
     } catch (e) {
       setErrMessage((e as Error).message + " Por favor, tente novamente.");
       onOpenElement();

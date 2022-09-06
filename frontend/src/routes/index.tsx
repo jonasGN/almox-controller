@@ -1,5 +1,7 @@
 import { Routes, Route, BrowserRouter } from "react-router-dom";
+
 import { Paths } from "./paths";
+import { ProtectedRoutes } from "./ProtectedRoutes";
 
 // layouts
 import { AppLayout } from "../layout";
@@ -19,14 +21,16 @@ export const AppRoutes = (): JSX.Element => {
     <Routes>
       <Route index element={<SignInPage />} />
 
-      <Route path={Paths.DASHBOARD} element={<AppLayout />}>
-        <Route path={Paths.ITEMS} element={<CatalogPage />} />
-        <Route path={Paths.ITEMS_REQUESTS} element={<ItemsRequestsPage />} />
-        <Route
-          path={`${Paths.ITEMS_REQUESTS}/:requestId`}
-          element={<ItemRequestDetailsPage />}
-        />
-        <Route path={`${Paths.ITEMS}/:itemId`} element={<ItemDetailsPage />} />
+      <Route element={<ProtectedRoutes />}>
+        <Route path={Paths.DASHBOARD} element={<AppLayout />}>
+          <Route path={Paths.ITEMS} element={<CatalogPage />} />
+          <Route path={Paths.ITEMS_REQUESTS} element={<ItemsRequestsPage />} />
+          <Route
+            path={`${Paths.ITEMS_REQUESTS}/:requestId`}
+            element={<ItemRequestDetailsPage />}
+          />
+          <Route path={`${Paths.ITEMS}/:itemId`} element={<ItemDetailsPage />} />
+        </Route>
       </Route>
 
       <Route path="*" element={<NotFoundPage />} />

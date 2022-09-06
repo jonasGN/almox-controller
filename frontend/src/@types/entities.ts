@@ -1,3 +1,5 @@
+import { UserRoles } from "./common";
+
 type Location = {
   hall: string;
   shelf: string;
@@ -44,7 +46,7 @@ export interface ItemRequest {
 export interface AuthData {
   accessToken: string;
   refreshToken: string;
-  roles: string[];
+  roles: Array<UserRoles>;
   user: {
     name: string;
     internalCode: string;

@@ -1,5 +1,6 @@
 import { AxiosError } from "axios";
 import { AuthResponse } from "../@types/apiResponse";
+import { UserRoles } from "../@types/common";
 import { AuthData } from "../@types/entities";
 import {
   BadRequestException,
@@ -13,6 +14,17 @@ interface Credentials {
   internalCode: string;
   password: string;
 }
+
+const convertUserRoles = (roles: string[]): Array<UserRoles> => {
+  const formattedRoles: UserRoles[] = roles.map((role) => {
+    if (role === "ADMIN") return "admin";
+    if (role === "OPERATOR") return "operator";
+    if (role === "STANDARD") return "standard";
+    throw Error("Invalid given user role");
+  });
+
+  return formattedRoles;
+};
 
 export const signIn = async (credentials: Credentials): Promise<AuthData> => {
   const { internalCode, password } = credentials;
@@ -28,7 +40,7 @@ export const signIn = async (credentials: Credentials): Promise<AuthData> => {
     return {
       accessToken: data.accessToken,
       refreshToken: data.refreshToken,
-      roles: data.roles,
+      roles: convertUserRoles(data.roles),
       user: {
         name: toShortName(data.user.name),
         internalCode: data.user.internalCode,
