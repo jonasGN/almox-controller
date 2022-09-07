@@ -1,7 +1,7 @@
 import { UserRoles } from "../@types/common";
 import { useLocation, Outlet, Navigate } from "react-router-dom";
 import { useAuth } from "../hooks/auth";
-import { isObjectEmpty } from "../utils/helpers";
+import { isObjectEmpty } from "../utils/common";
 
 interface ProtectedRoutesProps {
   allowedRoutes?: Array<UserRoles>;

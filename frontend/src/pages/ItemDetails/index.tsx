@@ -2,7 +2,7 @@ import { useParams } from "react-router-dom";
 import { ItemResponse } from "../../@types/responses";
 import { useOverlayElement } from "../../hooks/element";
 import { useLoadItem } from "../../hooks/common";
-import { isObjectEmpty } from "../../utils/helpers";
+import { isObjectEmpty } from "../../utils/common";
 import { itemResponseToItem } from "../../utils/converters";
 
 import { OptionButton } from "../../components/Buttons";

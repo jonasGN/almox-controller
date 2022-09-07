@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { useOverlayElement } from "../../hooks/element";
 import { ItemRequest } from "../../@types/entities";
 import { fetchItemRequestById } from "../../repositories/itemsRequests";
-import { isObjectEmpty } from "../../utils/helpers";
+import { isObjectEmpty } from "../../utils/common";
 
 import { Avatar } from "../../components/Avatar";
 import { SplitButton } from "../../components/Buttons";
