@@ -1,4 +1,4 @@
-import { ItemRequestResponse } from "../@types/apiResponse";
+import { ItemRequestResponse } from "../@types/responses";
 import { ItemRequest } from "../@types/entities";
 
 import { apiClient } from "../services/apiClient";

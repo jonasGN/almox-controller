@@ -1,5 +1,5 @@
 import { faker } from "@faker-js/faker";
-import { MeResponse } from "../../../@types/apiResponse";
+import { MeResponse } from "../../../@types/responses";
 
 export const me: MeResponse = {
   id: faker.datatype.number({ min: 1, max: 1000 }),
