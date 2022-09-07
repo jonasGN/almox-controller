@@ -1,6 +1,6 @@
 import React, { ForwardRefRenderFunction, useState } from "react";
 import { ReactInputElement } from "../../../@types/elements";
-import { classNames } from "../../../utils/styles-helper";
+import { classNames } from "../../../utils/styles";
 
 import { Icon, VisibilityIcon, VisibilityOffIcon } from "../../Icons";
 import { IconButton } from "../../Buttons";

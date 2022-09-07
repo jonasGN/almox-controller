@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Paths } from "../../routes";
-import { classNames } from "../../utils/styles-helper";
+import { classNames } from "../../utils/styles";
 
 import { Image } from "../Image";
 import { UnavailableChip } from "../UnavailableChip";

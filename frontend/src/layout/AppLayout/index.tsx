@@ -1,5 +1,5 @@
 import { Outlet } from "react-router-dom";
-import { classNames } from "../../utils/styles-helper";
+import { classNames } from "../../utils/styles";
 
 import { ScreenSizeLayout } from "../ScreenSizeLayout";
 import { Header } from "../../components/Header";

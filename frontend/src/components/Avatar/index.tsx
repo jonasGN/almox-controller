@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { ElementException } from "../../exceptions";
 import { initialsOf } from "../../utils/formatters";
-import { classNames } from "../../utils/styles-helper";
+import { classNames } from "../../utils/styles";
 
 import { RawButton } from "../Buttons";
 import { Image } from "../Image";

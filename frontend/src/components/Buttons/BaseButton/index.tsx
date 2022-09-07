@@ -1,7 +1,7 @@
 import type { ReactButtonElement, ReactChildrenElement } from "../../../@types/elements";
 
 import { ElementException } from "../../../exceptions";
-import { classNames } from "../../../utils/styles-helper";
+import { classNames } from "../../../utils/styles";
 import { RawButton } from "../RawButton";
 
 import styles from "./styles.module.scss";

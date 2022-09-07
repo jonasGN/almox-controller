@@ -1,5 +1,5 @@
 import { ReactChildrenElement } from "../../../@types/elements";
-import { classNames } from "../../../utils/styles-helper";
+import { classNames } from "../../../utils/styles";
 
 import { ShowWhen } from "../../../layout";
 import { SplitButton } from "../../Buttons";

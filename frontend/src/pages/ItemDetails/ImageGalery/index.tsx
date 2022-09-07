@@ -1,4 +1,4 @@
-import { classNames } from "../../../utils/styles-helper";
+import { classNames } from "../../../utils/styles";
 import { useOverlayElement } from "../../../hooks/element";
 
 import { Image } from "../../../components/Image";

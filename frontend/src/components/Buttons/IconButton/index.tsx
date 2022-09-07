@@ -1,4 +1,4 @@
-import { classNames } from "../../../utils/styles-helper";
+import { classNames } from "../../../utils/styles";
 
 import { Icon } from "../../Icons";
 import { RawButton, RawButtonProps } from "../RawButton";

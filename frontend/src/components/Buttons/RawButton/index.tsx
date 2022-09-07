@@ -1,6 +1,6 @@
 import type { ReactButtonElement } from "../../../@types/elements";
 
-import { classNames } from "../../../utils/styles-helper";
+import { classNames } from "../../../utils/styles";
 
 import styles from "./styles.module.scss";
 
