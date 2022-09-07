@@ -1,18 +1,7 @@
 import { createServer, Model, Response } from "miragejs";
-import { auth } from "./auth";
 
-// seeds
-import { items } from "./items";
-import { itemsRequests } from "./itemsRequests";
-
-const unauthorizedError = new Response(401, undefined, {
-  token: null,
-  refreshToken: null,
-  error: {
-    statusCode: 401,
-    message: "Invalid credentials",
-  },
-});
+import { auth, refreshToken, items, itemsRequests } from "./seeds";
+import { hasNoTokenError, unauthorizedError } from "./errors";
 
 export const createFakeServer = function () {
   createServer({
@@ -34,20 +23,42 @@ export const createFakeServer = function () {
 
       this.post("/signin", (_, req) => {
         const body = JSON.parse(req.requestBody);
-
         if (body.internalCode !== "12345678" || body.password !== "12345678") {
           return unauthorizedError;
         }
-
         return new Response(200, undefined, auth);
       });
 
-      this.get("/items", (schema, _) => schema.all("item"));
-      this.get("/items/:id");
+      this.get("/refresh", (_, __) => {
+        return new Response(200, undefined, refreshToken);
+      });
 
-      this.get("/items/requests", (schema, _) => schema.all("itemRequest"));
+      this.get("/items", (schema, req) => {
+        const { Authorization } = req.requestHeaders;
+        if (!Authorization) return hasNoTokenError;
+        return schema.all("item");
+      });
+
+      this.get("/items/:id", (schema, req) => {
+        const { Authorization } = req.requestHeaders;
+        if (!Authorization) return hasNoTokenError;
+
+        const params = req.params;
+        const item = schema.findBy("item", { id: params.id });
+        return item;
+      });
+
+      this.get("/items/requests", (schema, req) => {
+        const { Authorization } = req.requestHeaders;
+        if (!Authorization) return hasNoTokenError;
+        return schema.all("itemRequest");
+      });
+
       this.get("/items/requests/:id", (schema, req) => {
-        return schema.find("itemRequest", req.params.id);
+        const { Authorization } = req.requestHeaders;
+        if (!Authorization) return hasNoTokenError;
+        return schema.findBy("itemRequest", { id: req.params.id });
+        // return schema.find("itemRequest", req.params.id);
       });
     },
   });

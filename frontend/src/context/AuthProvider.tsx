@@ -1,8 +1,9 @@
 import { createContext, useState } from "react";
+import { ReactState } from "../@types/aliases";
 import { UserRoles } from "../@types/common";
 import { ReactChildrenElement } from "../@types/elements";
 
-interface UserContextData {
+export interface UserContextData {
   name: string;
   avatar: string;
   internalCode: string;
@@ -12,7 +13,7 @@ interface UserContextData {
 
 interface AuthContextData {
   user: UserContextData;
-  setUser: (user: UserContextData) => void;
+  setUser: ReactState<UserContextData>;
 }
 
 interface AuthProviderProps {

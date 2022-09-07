@@ -1,4 +1,4 @@
-import { CatalogItemsList } from "./ItemsList";
+import { CatalogItemList } from "./CatalogItemList";
 import { OptionButton } from "../../components/Buttons";
 import { AddIcon } from "../../components/Icons";
 import { SearchBar } from "../../components/Inputs";
@@ -16,7 +16,7 @@ export const CatalogPage = (): JSX.Element => {
         <SearchBar onSearch={(term) => {}} />
       </PageHeader>
 
-      <CatalogItemsList />
+      <CatalogItemList />
     </>
   );
 };

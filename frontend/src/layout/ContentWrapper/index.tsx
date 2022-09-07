@@ -1,22 +1,20 @@
 import { Loading } from "../../components/Loading";
 
 interface ContentWrapperProps {
-  isLoading?: boolean;
-  hasError?: boolean;
+  isLoading: boolean;
+  hasError: boolean;
+  children: React.ReactNode;
 }
 
-// This component should wrapper the page to handle errors and loading for mainly pages
+/**
+ * This component wrappers main pages to handle errors and loading
+ */
 export const ContentWrapper = (props: ContentWrapperProps): JSX.Element => {
-  throw new Error("Unimplemented component");
-  const { isLoading, hasError } = props;
-
-  if (isLoading) return <Loading />;
+  const { isLoading, hasError, children } = props;
 
   if (hasError) return <span>Create error component</span>;
 
-  return (
-    <>
-      <span> actual component</span>
-    </>
-  );
+  if (isLoading) return <Loading />;
+
+  return <>{children}</>;
 };

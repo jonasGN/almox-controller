@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import { useAuth } from "../../../hooks";
+import { useAuth } from "../../../hooks/auth";
 import { useOverlayElement } from "../../../hooks/element";
 import { signIn } from "../../../repositories/auth";
 import { Paths } from "../../../routes";

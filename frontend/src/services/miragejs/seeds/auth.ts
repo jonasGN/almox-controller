@@ -1,5 +1,5 @@
 import { faker } from "@faker-js/faker";
-import { AuthResponse } from "../../@types/apiResponse";
+import { AuthResponse, RefreshTokenResponse } from "../../../@types/responses";
 
 export const auth: AuthResponse = {
   accessToken: faker.datatype.uuid(),
@@ -13,4 +13,9 @@ export const auth: AuthResponse = {
     internalCode: faker.random.numeric(10),
     avatar: faker.internet.avatar(),
   },
+};
+
+export const refreshToken: RefreshTokenResponse = {
+  accessToken: faker.datatype.uuid(),
+  refreshToken: faker.datatype.uuid(),
 };

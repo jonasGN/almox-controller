@@ -1,6 +1,6 @@
 import { faker } from "@faker-js/faker";
 
-import { ItemRequestResponse } from "../../@types/apiResponse";
+import { ItemRequestResponse } from "../../../@types/apiResponse";
 
 const requests: ItemRequestResponse[] = [];
 

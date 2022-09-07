@@ -1,33 +1,31 @@
-import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { Item } from "../../@types/entities";
-import { fetchItemById } from "../../repositories/items";
+import { ItemResponse } from "../../@types/responses";
 import { useOverlayElement } from "../../hooks/element";
+import { useLoadItem } from "../../hooks/common";
 import { isObjectEmpty } from "../../utils/helpers";
+import { itemResponseToItem } from "../../utils/converters";
 
 import { OptionButton } from "../../components/Buttons";
 import { DeleteIcon, EditIcon } from "../../components/Icons";
 import { SimpleInformationTile } from "../../components/SimpleInformationTile";
 import { AlertDialog } from "../../components/Modals";
 import { PageHeader } from "../../components/PageHeader";
-import { Loading } from "../../components/Loading";
 import { ImageGalery } from "./ImageGalery";
 import { InformationSection } from "./InformationSection";
+import { ContentWrapper } from "../../layout";
 
 import styles from "./styles.module.scss";
 
 export const ItemDetailsPage = (): JSX.Element => {
-  const [item, setItem] = useState<Item>({} as Item);
-
   const params = useParams();
-
   const { isVisible, elementRef, onOpenElement, onCloseElement } = useOverlayElement();
 
-  useEffect(() => {
-    fetchItemById(Number(params.itemId)).then((data) => setItem(data));
-  }, []);
+  const { item, hasError } = useLoadItem<ItemResponse>({
+    url: `/api/items/${params.itemId}`,
+    key: "item",
+  });
 
-  if (isObjectEmpty(item)) return <Loading />;
+  const itemFormatted = itemResponseToItem(item);
 
   return (
     <>
@@ -36,36 +34,50 @@ export const ItemDetailsPage = (): JSX.Element => {
         <OptionButton icon={<EditIcon />} />
       </PageHeader>
 
-      <div className={styles.contentContainer}>
-        <ImageGalery image={""} className={styles.galery} />
+      <ContentWrapper isLoading={isObjectEmpty(item)} hasError={hasError}>
+        <div className={styles.contentContainer}>
+          <ImageGalery image={""} className={styles.galery} />
 
-        <section className={styles.details}>
-          <span>CÓDIGO: {item.code}</span>
-          <h2>{item.name}</h2>
-          <p>{item.description}</p>
+          <section className={styles.details}>
+            <span>CÓDIGO: {itemFormatted.code}</span>
+            <h2>{itemFormatted.name}</h2>
+            <p>{itemFormatted.description}</p>
 
-          <SimpleInformationTile
-            title="Preço"
-            info={item.priceFormatted}
-            className={styles.price}
-          />
-
-          <InformationSection title="Informações">
-            <SimpleInformationTile title="Quantidade" info={item.amountFormatted} />
-            <SimpleInformationTile title="Categoria" info={item.category} />
             <SimpleInformationTile
-              title="Disponibilidade"
-              info={item.isAvailable ? "Disponível" : "Indisponível"}
+              title="Preço"
+              info={itemFormatted.priceFormatted}
+              className={styles.price}
             />
-          </InformationSection>
 
-          <InformationSection title="Localização">
-            <SimpleInformationTile title="Corredor" info={item.location.hall} />
-            <SimpleInformationTile title="Prateleira" info={item.location.shelf} />
-            <SimpleInformationTile title="Coluna" info={item.location.column} />
-          </InformationSection>
-        </section>
-      </div>
+            <InformationSection title="Informações">
+              <SimpleInformationTile
+                title="Quantidade"
+                info={itemFormatted.amountFormatted}
+              />
+              <SimpleInformationTile title="Categoria" info={itemFormatted.category} />
+              <SimpleInformationTile
+                title="Disponibilidade"
+                info={itemFormatted.isAvailable ? "Disponível" : "Indisponível"}
+              />
+            </InformationSection>
+
+            <InformationSection title="Localização">
+              <SimpleInformationTile
+                title="Corredor"
+                info={itemFormatted.location?.hall}
+              />
+              <SimpleInformationTile
+                title="Prateleira"
+                info={itemFormatted.location?.shelf}
+              />
+              <SimpleInformationTile
+                title="Coluna"
+                info={itemFormatted.location?.column}
+              />
+            </InformationSection>
+          </section>
+        </div>
+      </ContentWrapper>
 
       <AlertDialog
         modalRef={elementRef}

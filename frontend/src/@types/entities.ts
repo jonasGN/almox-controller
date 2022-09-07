@@ -53,3 +53,8 @@ export interface AuthData {
     avatar: string;
   };
 }
+
+export interface RefreshTokenData {
+  accessToken: string;
+  refreshToken: string;
+}

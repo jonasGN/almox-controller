@@ -37,3 +37,5 @@
 - [x] Concertar bug que fecha o modal ao clicar dentro do mesmo
 
 - [ ] Criar componente de Formulário base e capturar o foco para o mesmo
+
+- [ ] Verificar se as respostas da API em produção possuem um prefixo em **data**. Por exemlpo: **data.dados** ou se possuem **dados** diretamente 

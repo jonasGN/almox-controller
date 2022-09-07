@@ -1,4 +1,4 @@
-import { useAuth } from "../../hooks";
+import { useAuth } from "../../hooks/auth";
 import { useOverlayElement } from "../../hooks/element";
 
 import { Avatar } from "../Avatar";

@@ -1,7 +1,7 @@
 import { AxiosError } from "axios";
-import { AuthResponse } from "../@types/apiResponse";
+import { AuthResponse, RefreshTokenResponse } from "../@types/responses";
 import { UserRoles } from "../@types/common";
-import { AuthData } from "../@types/entities";
+import { AuthData, RefreshTokenData } from "../@types/entities";
 import {
   BadRequestException,
   ServerException,
@@ -68,4 +68,13 @@ export const signIn = async (credentials: Credentials): Promise<AuthData> => {
         throw new Error("Erro desconhecido durante o login.");
     }
   }
+};
+
+export const refreshToken = async (): Promise<RefreshTokenData> => {
+  const response = await apiClient.get("/api/refresh", {
+    withCredentials: true,
+  });
+  const data = response.data as RefreshTokenResponse;
+
+  return { ...data };
 };

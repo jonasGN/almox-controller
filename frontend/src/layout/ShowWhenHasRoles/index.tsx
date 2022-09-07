@@ -1,5 +1,5 @@
 import { UserRoles } from "../../@types/common";
-import { useAuth } from "../../hooks";
+import { useAuth } from "../../hooks/auth";
 
 interface ShowWhenHasRolesProps {
   allowedRoles: Array<UserRoles>;

@@ -1,25 +1,3 @@
-type Location = {
-  hall: string;
-  shelf: string;
-  column: string;
-};
-
-/**
- * Item response from `/items`
- */
-export interface ItemResponse {
-  id: number;
-  name: string;
-  code: string;
-  unitPrice: number;
-  amountAvailable: number;
-  description: string;
-  status: string;
-  image: string;
-  category: string;
-  location: Location;
-}
-
 interface UserResponse {
   id: number;
   companyCode: string;
@@ -47,15 +25,4 @@ export interface MeResponse {
   companyCode: string;
   avatar: string;
   permissions: string[];
-}
-
-export interface AuthResponse {
-  accessToken: string;
-  refreshToken: string;
-  roles: string[];
-  user: {
-    name: string;
-    internalCode: string;
-    avatar: string;
-  };
 }
