@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import { ItemRequestResponse } from "../../@types/responses";
 import { useOverlayElement } from "../../hooks/element";
-import { useLoadItem } from "../../hooks/common";
+import { useFetchData } from "../../hooks/common";
 import { isObjectEmpty } from "../../utils/common";
 import { itemRequestResponseToItemRequest } from "../../utils/converters";
 
@@ -20,20 +20,21 @@ export const ItemRequestDetailsPage = () => {
   const params = useParams();
   const { isVisible, elementRef, onOpenElement, onCloseElement } = useOverlayElement();
 
-  const { item, hasError } = useLoadItem<ItemRequestResponse>({
+  const { content, hasError } = useFetchData<ItemRequestResponse>({
     url: `/api/items/requests/${params.requestId}`,
     key: "itemRequest",
+    initialContentValue: {} as ItemRequestResponse,
   });
 
-  if (isObjectEmpty(item)) return <span>WTF</span>;
+  if (isObjectEmpty(content)) return <span>WTF</span>;
 
-  const request = itemRequestResponseToItemRequest(item, { dateFormat: "long" });
+  const request = itemRequestResponseToItemRequest(content, { dateFormat: "long" });
 
   return (
     <>
       <PageHeader title="Detalhes da solicitação" />
 
-      <ContentWrapper isLoading={isObjectEmpty(item)} hasError={hasError}>
+      <ContentWrapper isLoading={isObjectEmpty(content)} hasError={hasError}>
         <div className={styles.content}>
           <ItemRequestDetailsSection title="Informações" className={styles.info}>
             <ul className={styles.list}>

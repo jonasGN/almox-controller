@@ -1,5 +1,5 @@
 import { ItemRequestResponse } from "../../../@types/responses";
-import { useLoadItemList } from "../../../hooks/common";
+import { useFetchData } from "../../../hooks/common";
 import { itemRequestResponseToItemRequest } from "../../../utils/converters";
 
 import { ContentWrapper } from "../../../layout";
@@ -8,17 +8,18 @@ import { ItemRequestCard } from "../../../components/ItemRequestCard";
 import styles from "./styles.module.scss";
 
 export const ItemRequestsList = (): JSX.Element => {
-  const { items, hasError } = useLoadItemList<ItemRequestResponse>({
+  const { content, hasError } = useFetchData<ItemRequestResponse[]>({
     url: "/api/items/requests",
     key: "itemRequests",
+    initialContentValue: [],
   });
 
-  const itemsRequests = items.map((request) => itemRequestResponseToItemRequest(request));
+  const requests = content.map((request) => itemRequestResponseToItemRequest(request));
 
   return (
-    <ContentWrapper isLoading={items.length === 0} hasError={hasError}>
+    <ContentWrapper isLoading={requests.length === 0} hasError={hasError}>
       <div className={styles.content}>
-        {itemsRequests.map((request) => (
+        {requests.map((request) => (
           <ItemRequestCard key={request.id} itemRequest={request} />
         ))}
       </div>

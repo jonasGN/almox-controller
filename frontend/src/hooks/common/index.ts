@@ -1,4 +1,3 @@
-import { useLoadItemList } from "./useLoadItemList";
-import { useLoadItem } from "./useLoadItem";
+import { useFetchData } from "./useFetchData";
 
-export { useLoadItemList, useLoadItem };
+export { useFetchData };

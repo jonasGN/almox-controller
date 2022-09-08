@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import { ItemResponse } from "../../@types/responses";
 import { useOverlayElement } from "../../hooks/element";
-import { useLoadItem } from "../../hooks/common";
+import { useFetchData } from "../../hooks/common";
 import { isObjectEmpty } from "../../utils/common";
 import { itemResponseToItem } from "../../utils/converters";
 
@@ -20,12 +20,13 @@ export const ItemDetailsPage = (): JSX.Element => {
   const params = useParams();
   const { isVisible, elementRef, onOpenElement, onCloseElement } = useOverlayElement();
 
-  const { item, hasError } = useLoadItem<ItemResponse>({
+  const { content, hasError } = useFetchData<ItemResponse>({
     url: `/api/items/${params.itemId}`,
     key: "item",
+    initialContentValue: {} as ItemResponse,
   });
 
-  const itemFormatted = itemResponseToItem(item);
+  const itemFormatted = itemResponseToItem(content);
 
   return (
     <>
@@ -34,7 +35,7 @@ export const ItemDetailsPage = (): JSX.Element => {
         <OptionButton icon={<EditIcon />} />
       </PageHeader>
 
-      <ContentWrapper isLoading={isObjectEmpty(item)} hasError={hasError}>
+      <ContentWrapper isLoading={isObjectEmpty(content)} hasError={hasError}>
         <div className={styles.contentContainer}>
           <ImageGalery image={""} className={styles.galery} />
 

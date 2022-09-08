@@ -1,21 +1,24 @@
 import { useEffect, useState } from "react";
 import { usePrivateApi } from "../auth";
 
-interface LoadItemProps {
+interface FetchDataParams {
   url: string;
   /**
    * @deprecated The `key` property will be deprecated in future
    */
   key: string;
+  initialContentValue: any;
 }
 
-interface LoadItemHook<T> {
-  item: T;
+interface FetchData<T> {
+  content: T;
   hasError: boolean;
 }
 
-export const useLoadItem = <T>(data: LoadItemProps): LoadItemHook<T> => {
-  const [item, setItem] = useState<T>({} as T);
+export const useFetchData = <T>(params: FetchDataParams): FetchData<T> => {
+  const { url, key, initialContentValue } = params;
+
+  const [content, setContent] = useState<T>(initialContentValue);
   const [hasError, setHasError] = useState(false);
 
   const api = usePrivateApi();
@@ -24,20 +27,20 @@ export const useLoadItem = <T>(data: LoadItemProps): LoadItemHook<T> => {
     let isMounted = true;
     const controller = new AbortController();
 
-    const fetchItem = async () => {
+    const fetchData = async () => {
       try {
-        const response = await api.get(data.url, { signal: controller.signal });
-        const item = response.data[data.key] as T;
+        const response = await api.get(url, { signal: controller.signal });
+        const data = response.data[key] as T;
 
+        isMounted && setContent(data);
         setHasError(false);
-        isMounted && setItem(item);
       } catch (e) {
         setHasError(true);
-        console.error("LOAD ITEM ERROR:", e);
+        console.error("FETCH DATA ERROR:", e);
       }
     };
 
-    fetchItem();
+    fetchData();
 
     return () => {
       isMounted = false;
@@ -45,5 +48,5 @@ export const useLoadItem = <T>(data: LoadItemProps): LoadItemHook<T> => {
     };
   }, []);
 
-  return { item, hasError };
+  return { content, hasError };
 };
