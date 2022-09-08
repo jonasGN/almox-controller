@@ -57,8 +57,10 @@ export const createFakeServer = function () {
       this.get("/items/requests/:id", (schema, req) => {
         const { Authorization } = req.requestHeaders;
         if (!Authorization) return hasNoTokenError;
-        return schema.findBy("itemRequest", { id: req.params.id });
-        // return schema.find("itemRequest", req.params.id);
+
+        const params = req.params;
+        const itemRequest = schema.findBy("itemRequest", { id: params.id });
+        return itemRequest;
       });
     },
   });
