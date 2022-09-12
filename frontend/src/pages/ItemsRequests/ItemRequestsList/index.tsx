@@ -2,8 +2,8 @@ import { ItemRequestResponse } from "../../../@types/responses";
 import { useFetchData } from "../../../hooks/common";
 import { itemRequestResponseToItemRequest } from "../../../utils/converters";
 
-import { ContentWrapper } from "../../../layout";
 import { ItemRequestCard } from "../../../components/ItemRequestCard";
+import { ContentHelper } from "../../../components/ContentHelper";
 
 import styles from "./styles.module.scss";
 
@@ -14,15 +14,18 @@ export const ItemRequestsList = (): JSX.Element => {
     initialContentValue: [],
   });
 
+  const isLoading = content.length === 0;
+  if (isLoading || hasError) {
+    return <ContentHelper isLoading={isLoading} hasError={hasError} />;
+  }
+
   const requests = content.map((request) => itemRequestResponseToItemRequest(request));
 
   return (
-    <ContentWrapper isLoading={requests.length === 0} hasError={hasError}>
-      <div className={styles.content}>
-        {requests.map((request) => (
-          <ItemRequestCard key={request.id} itemRequest={request} />
-        ))}
-      </div>
-    </ContentWrapper>
+    <div className={styles.content}>
+      {requests.map((request) => (
+        <ItemRequestCard key={request.id} itemRequest={request} />
+      ))}
+    </div>
   );
 };

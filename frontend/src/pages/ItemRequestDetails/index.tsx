@@ -10,7 +10,7 @@ import { SplitButton } from "../../components/Buttons";
 import { AlertDialog } from "../../components/Modals";
 import { PageHeader } from "../../components/PageHeader";
 import { WarningIcon } from "../../components/Icons";
-import { ContentWrapper } from "../../layout";
+import { ContentHelper } from "../../components/ContentHelper";
 import { InfoTile } from "./InfoTile";
 import { ItemRequestDetailsSection } from "./ItemRequestDetailsSection";
 
@@ -26,7 +26,10 @@ export const ItemRequestDetailsPage = () => {
     initialContentValue: {} as ItemRequestResponse,
   });
 
-  if (isObjectEmpty(content)) return <span>WTF</span>;
+  const isLoading = isObjectEmpty(content);
+  if (isLoading || hasError) {
+    return <ContentHelper isLoading={isLoading} hasError={hasError} />;
+  }
 
   const request = itemRequestResponseToItemRequest(content, { dateFormat: "long" });
 
@@ -34,41 +37,39 @@ export const ItemRequestDetailsPage = () => {
     <>
       <PageHeader title="Detalhes da solicitação" />
 
-      <ContentWrapper isLoading={isObjectEmpty(content)} hasError={hasError}>
-        <div className={styles.content}>
-          <ItemRequestDetailsSection title="Informações" className={styles.info}>
-            <ul className={styles.list}>
-              <InfoTile title="Código do item" info={request.item?.code} highlightInfo />
-              <InfoTile title="Nome do item" info={request.item?.name} />
-              <InfoTile title="Motivo da solicitação" info={request.item?.message} />
-              <InfoTile title="Data da solicitação" info={request.requestedAtFormatted} />
-            </ul>
+      <div className={styles.content}>
+        <ItemRequestDetailsSection title="Informações" className={styles.info}>
+          <ul className={styles.list}>
+            <InfoTile title="Código do item" info={request.item?.code} highlightInfo />
+            <InfoTile title="Nome do item" info={request.item?.name} />
+            <InfoTile title="Motivo da solicitação" info={request.item?.message} />
+            <InfoTile title="Data da solicitação" info={request.requestedAtFormatted} />
+          </ul>
 
-            <div className={styles.actionContainer}>
-              <SplitButton
-                leftTitle="Recusar"
-                rightTitle="Aceitar"
-                leftButtonStyle="danger"
-                rightButtonStyle="confirm"
-                onClickLeft={onOpenElement}
+          <div className={styles.actionContainer}>
+            <SplitButton
+              leftTitle="Recusar"
+              rightTitle="Aceitar"
+              leftButtonStyle="danger"
+              rightButtonStyle="confirm"
+              onClickLeft={onOpenElement}
+            />
+          </div>
+        </ItemRequestDetailsSection>
+
+        <ItemRequestDetailsSection title="Solicitado por" className={styles.user}>
+          <ul className={styles.list}>
+            <InfoTile title="Nome" info={request.user?.name}>
+              <Avatar
+                userName={request.user?.name ?? "asas"}
+                userImage={request.user?.avatar}
+                radius="square"
               />
-            </div>
-          </ItemRequestDetailsSection>
-
-          <ItemRequestDetailsSection title="Solicitado por" className={styles.user}>
-            <ul className={styles.list}>
-              <InfoTile title="Nome" info={request.user?.name}>
-                <Avatar
-                  userName={request.user?.name ?? "asas"}
-                  userImage={request.user?.avatar}
-                  radius="square"
-                />
-              </InfoTile>
-              <InfoTile title="Código do usuário" info={request.user?.companyCode} />
-            </ul>
-          </ItemRequestDetailsSection>
-        </div>
-      </ContentWrapper>
+            </InfoTile>
+            <InfoTile title="Código do usuário" info={request.user?.companyCode} />
+          </ul>
+        </ItemRequestDetailsSection>
+      </div>
 
       <AlertDialog
         modalRef={elementRef}
