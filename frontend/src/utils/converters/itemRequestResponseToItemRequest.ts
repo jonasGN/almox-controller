@@ -1,7 +1,7 @@
 import { ItemRequest } from "../../@types/entities";
 import { ItemRequestResponse } from "../../@types/responses";
 
-import { toFormattedDate } from "../formatters";
+import { toFormattedDate, toShortName } from "../formatters";
 
 type DateFormat = "default" | "long";
 
@@ -24,6 +24,10 @@ export const itemRequestResponseToItemRequest = (
   return {
     ...itemRequestResponse,
     requestedAt: date,
+    user: {
+      ...itemRequestResponse.user,
+      name: toShortName(itemRequestResponse.user.name),
+    },
     requestedAtFormatted: toFormattedDate(
       date,
       options?.dateFormat !== "default" ? dateLongFormat : undefined

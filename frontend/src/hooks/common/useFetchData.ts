@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 import { usePrivateApi } from "../auth";
 
 interface FetchDataParams {
@@ -15,6 +16,8 @@ interface FetchData<T> {
   hasError: boolean;
 }
 
+const isDevelopmentMode = import.meta.env.DEV;
+
 export const useFetchData = <T>(params: FetchDataParams): FetchData<T> => {
   const { url, key, initialContentValue } = params;
 
@@ -22,6 +25,12 @@ export const useFetchData = <T>(params: FetchDataParams): FetchData<T> => {
   const [hasError, setHasError] = useState(false);
 
   const api = usePrivateApi();
+
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  // prevent React.StrictMode to recall the `fetchData` function and get an error
+  const firstRun = useRef(false);
 
   useEffect(() => {
     let isMounted = true;
@@ -37,14 +46,20 @@ export const useFetchData = <T>(params: FetchDataParams): FetchData<T> => {
       } catch (e) {
         setHasError(true);
         console.error("FETCH DATA ERROR:", e);
+        navigate("/", { state: { from: location }, replace: true });
       }
     };
 
-    fetchData();
+    if (isDevelopmentMode) {
+      if (firstRun.current) fetchData();
+    } else {
+      fetchData();
+    }
 
     return () => {
       isMounted = false;
       controller.abort();
+      firstRun.current = true;
     };
   }, []);
 

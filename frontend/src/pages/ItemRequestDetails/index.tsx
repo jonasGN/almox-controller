@@ -61,7 +61,7 @@ export const ItemRequestDetailsPage = () => {
           <ul className={styles.list}>
             <InfoTile title="Nome" info={request.user?.name}>
               <Avatar
-                userName={request.user?.name ?? "asas"}
+                userName={request.user?.name}
                 userImage={request.user?.avatar}
                 radius="square"
               />
