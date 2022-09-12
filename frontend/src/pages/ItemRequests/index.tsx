@@ -1,7 +1,7 @@
 import { PageHeader } from "../../components/PageHeader";
 import { ItemRequestsList } from "./ItemRequestsList";
 
-export const ItemsRequestsPage = (): JSX.Element => {
+export const ItemRequestsPage = (): JSX.Element => {
   return (
     <>
       <PageHeader title="Solicitações" />

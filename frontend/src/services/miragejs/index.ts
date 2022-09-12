@@ -3,7 +3,7 @@ import { createServer, Model, Response } from "miragejs";
 import { auth, refreshToken, items, itemsRequests } from "./seeds";
 import { hasNoTokenError, unauthorizedError } from "./errors";
 
-export const createFakeServer = function () {
+const createFakeServer = function () {
   createServer({
     models: {
       item: Model,
@@ -64,4 +64,8 @@ export const createFakeServer = function () {
       });
     },
   });
+};
+
+export const initFakeServer = (): void => {
+  if (import.meta.env.DEV) createFakeServer();
 };

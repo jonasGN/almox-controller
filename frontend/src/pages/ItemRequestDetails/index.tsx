@@ -2,7 +2,6 @@ import { useParams } from "react-router-dom";
 import { ItemRequestResponse } from "../../@types/responses";
 import { useOverlayElement } from "../../hooks/element";
 import { useFetchData } from "../../hooks/common";
-import { isObjectEmpty } from "../../utils/common";
 import { itemRequestResponseToItemRequest } from "../../utils/converters";
 
 import { Avatar } from "../../components/Avatar";
@@ -20,18 +19,17 @@ export const ItemRequestDetailsPage = () => {
   const params = useParams();
   const { isVisible, elementRef, onOpenElement, onCloseElement } = useOverlayElement();
 
-  const { content, hasError } = useFetchData<ItemRequestResponse>({
-    url: `/api/items/requests/${params.requestId}`,
-    key: "itemRequest",
-    initialContentValue: {} as ItemRequestResponse,
+  const requestId = params.requestId!;
+  const { content, hasError, isLoading } = useFetchData<ItemRequestResponse>({
+    url: `/api/items/requests/${requestId}`,
+    queryKey: ["itemRequest", requestId],
   });
 
-  const isLoading = isObjectEmpty(content);
   if (isLoading || hasError) {
     return <ContentHelper isLoading={isLoading} hasError={hasError} />;
   }
 
-  const request = itemRequestResponseToItemRequest(content, { dateFormat: "long" });
+  const request = itemRequestResponseToItemRequest(content!, { dateFormat: "long" });
 
   return (
     <>

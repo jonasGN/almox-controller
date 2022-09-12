@@ -1,18 +1,21 @@
 import { AuthProvider } from "./context/AuthProvider";
+import { QueryProvider } from "./context/QueryProvider";
 import { AppRoutes, BrowserRouter } from "./routes";
-import { createFakeServer } from "./services/miragejs";
+import { initFakeServer } from "./services/miragejs";
 
 import "./styles/globals.scss";
 
 // init fake api
-if (import.meta.env.DEV) createFakeServer();
+initFakeServer();
 
 function App() {
   return (
     <BrowserRouter>
-      <AuthProvider>
-        <AppRoutes />
-      </AuthProvider>
+      <QueryProvider>
+        <AuthProvider>
+          <AppRoutes />
+        </AuthProvider>
+      </QueryProvider>
     </BrowserRouter>
   );
 }

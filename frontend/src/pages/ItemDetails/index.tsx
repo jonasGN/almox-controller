@@ -3,7 +3,6 @@ import { ItemResponse } from "../../@types/responses";
 import { useOverlayElement } from "../../hooks/element";
 import { useFetchData } from "../../hooks/common";
 import { itemResponseToItem } from "../../utils/converters";
-import { isObjectEmpty } from "../../utils/common";
 
 import { OptionButton } from "../../components/Buttons";
 import { DeleteIcon, EditIcon } from "../../components/Icons";
@@ -20,18 +19,18 @@ export const ItemDetailsPage = (): JSX.Element => {
   const params = useParams();
   const { isVisible, elementRef, onOpenElement, onCloseElement } = useOverlayElement();
 
-  const { content, hasError } = useFetchData<ItemResponse>({
-    url: `/api/items/${params.itemId}`,
-    key: "item",
-    initialContentValue: {} as ItemResponse,
+  const itemId = params.itemId!;
+
+  const { content, hasError, isLoading } = useFetchData<ItemResponse>({
+    url: `/api/items/${itemId}`,
+    queryKey: ["item", itemId],
   });
 
-  const isLoading = isObjectEmpty(content);
   if (isLoading || hasError) {
     return <ContentHelper isLoading={isLoading} hasError={hasError} />;
   }
 
-  const itemFormatted = itemResponseToItem(content);
+  const itemFormatted = itemResponseToItem(content!);
 
   return (
     <>
