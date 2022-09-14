@@ -33,6 +33,11 @@ const createFakeServer = function () {
         return new Response(200, undefined, refreshToken);
       });
 
+      this.get("/signout", (schema, __) => {
+        schema.db.dump();
+        return new Response(204);
+      });
+
       this.get("/items", (schema, req) => {
         const { Authorization } = req.requestHeaders;
         if (!Authorization) return hasNoTokenError;

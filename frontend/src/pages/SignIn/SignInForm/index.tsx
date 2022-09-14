@@ -4,6 +4,7 @@ import { useAuth } from "../../../hooks/auth";
 import { useOverlayElement } from "../../../hooks/element";
 import { signIn } from "../../../repositories/auth";
 import { Paths } from "../../../routes";
+import { persistData } from "../../../services/localStorage";
 
 import { MainButton } from "../../../components/Buttons";
 import { WarningIcon } from "../../../components/Icons";
@@ -33,13 +34,15 @@ export const SignInForm = (): JSX.Element => {
 
     try {
       const response = await signIn({ internalCode, password });
+      const user = response.user;
+
       setUser({
+        ...user,
         accessToken: response.accessToken,
-        name: response.user.name,
-        internalCode: response.user.internalCode,
-        avatar: response.user.avatar,
         roles: response.roles,
       });
+
+      persistData("user", user);
       navigate(from, { replace: true });
     } catch (e) {
       setErrMessage((e as Error).message + " Por favor, tente novamente.");

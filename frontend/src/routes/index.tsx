@@ -13,6 +13,7 @@ import { CatalogPage } from "../pages/Catalog";
 import { ItemDetailsPage } from "../pages/ItemDetails";
 import { ItemRequestsPage } from "../pages/ItemRequests";
 import { ItemRequestDetailsPage } from "../pages/ItemRequestDetails";
+import { PersistLogin } from "./PersistLogin";
 
 export { BrowserRouter, Paths };
 
@@ -21,15 +22,17 @@ export const AppRoutes = (): JSX.Element => {
     <Routes>
       <Route index element={<SignInPage />} />
 
-      <Route element={<ProtectedRoutes />}>
-        <Route path={Paths.DASHBOARD} element={<AppLayout />}>
-          <Route path={Paths.ITEMS} element={<CatalogPage />} />
-          <Route path={Paths.ITEMS_REQUESTS} element={<ItemRequestsPage />} />
-          <Route
-            path={`${Paths.ITEMS_REQUESTS}/:requestId`}
-            element={<ItemRequestDetailsPage />}
-          />
-          <Route path={`${Paths.ITEMS}/:itemId`} element={<ItemDetailsPage />} />
+      <Route element={<PersistLogin />}>
+        <Route element={<ProtectedRoutes />}>
+          <Route path={Paths.DASHBOARD} element={<AppLayout />}>
+            <Route path={Paths.ITEMS} element={<CatalogPage />} />
+            <Route path={Paths.ITEMS_REQUESTS} element={<ItemRequestsPage />} />
+            <Route
+              path={`${Paths.ITEMS_REQUESTS}/:requestId`}
+              element={<ItemRequestDetailsPage />}
+            />
+            <Route path={`${Paths.ITEMS}/:itemId`} element={<ItemDetailsPage />} />
+          </Route>
         </Route>
       </Route>
 

@@ -1,6 +1,5 @@
 import { AxiosError } from "axios";
 import { AuthResponse, RefreshTokenResponse } from "../@types/responses";
-import { UserRoles } from "../@types/common";
 import { AuthData, RefreshTokenData } from "../@types/entities";
 import {
   BadRequestException,
@@ -9,22 +8,12 @@ import {
 } from "../exceptions";
 import { apiClient } from "../services/apiClient";
 import { toShortName } from "../utils/formatters";
+import { rolesToUserRoles } from "../utils/converters";
 
 interface Credentials {
   internalCode: string;
   password: string;
 }
-
-const convertUserRoles = (roles: string[]): Array<UserRoles> => {
-  const formattedRoles: UserRoles[] = roles.map((role) => {
-    if (role === "ADMIN") return "admin";
-    if (role === "OPERATOR") return "operator";
-    if (role === "STANDARD") return "standard";
-    throw Error("Invalid given user role");
-  });
-
-  return formattedRoles;
-};
 
 export const signIn = async (credentials: Credentials): Promise<AuthData> => {
   const { internalCode, password } = credentials;
@@ -40,7 +29,7 @@ export const signIn = async (credentials: Credentials): Promise<AuthData> => {
     return {
       accessToken: data.accessToken,
       refreshToken: data.refreshToken,
-      roles: convertUserRoles(data.roles),
+      roles: rolesToUserRoles(data.roles),
       user: {
         name: toShortName(data.user.name),
         internalCode: data.user.internalCode,
@@ -77,4 +66,12 @@ export const refreshToken = async (): Promise<RefreshTokenData> => {
   const data = response.data as RefreshTokenResponse;
 
   return { ...data };
+};
+
+export const signOut = async (): Promise<void> => {
+  try {
+    await apiClient.get("/api/signout", { withCredentials: true });
+  } catch (e) {
+    throw e;
+  }
 };

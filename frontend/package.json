@@ -26,10 +26,12 @@
   "devDependencies": {
     "@faker-js/faker": "^7.4.0",
     "@svgr/cli": "^6.3.1",
+    "@types/crypto-js": "^4.1.1",
     "@types/node": "^18.7.3",
     "@types/react": "^18.0.17",
     "@types/react-dom": "^18.0.6",
     "@vitejs/plugin-react": "^2.0.1",
+    "crypto-js": "^4.1.1",
     "miragejs": "^0.1.45",
     "sass": "^1.54.4",
     "typescript": "^4.6.4",

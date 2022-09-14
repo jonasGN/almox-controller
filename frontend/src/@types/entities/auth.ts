@@ -14,4 +14,10 @@ export interface AuthData {
 export interface RefreshTokenData {
   accessToken: string;
   refreshToken: string;
+  roles: string[];
+  user: {
+    name: string;
+    internalCode: string;
+    avatar: string;
+  };
 }

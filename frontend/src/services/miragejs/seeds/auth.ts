@@ -1,21 +1,35 @@
 import { faker } from "@faker-js/faker";
+import { generateTokens } from "../../cryptoJS";
 import { AuthResponse, RefreshTokenResponse } from "../../../@types/responses";
 
+const roles = faker.helpers.arrayElements(
+  ["ADMIN", "OPERATOR", "STANDARD"],
+  faker.datatype.number({ min: 1, max: 3 })
+);
+
+const user = {
+  name: faker.name.fullName(),
+  internalCode: faker.random.numeric(10),
+  avatar: faker.internet.avatar(),
+};
+
+const jwtTokens = generateTokens("chave-de-teste", { roles, user });
+
+const tokens = {
+  accessToken: jwtTokens.accessToken,
+  refreshToken: jwtTokens.refreshToken,
+};
+
 export const auth: AuthResponse = {
-  accessToken: faker.datatype.uuid(),
-  refreshToken: faker.datatype.uuid(),
-  roles: faker.helpers.arrayElements(
-    ["ADMIN", "OPERATOR", "STANDARD"],
-    faker.datatype.number({ min: 1, max: 3 })
-  ),
-  user: {
-    name: faker.name.fullName(),
-    internalCode: faker.random.numeric(10),
-    avatar: faker.internet.avatar(),
-  },
+  accessToken: tokens.accessToken,
+  refreshToken: tokens.refreshToken,
+  roles: roles,
+  user: user,
 };
 
 export const refreshToken: RefreshTokenResponse = {
-  accessToken: faker.datatype.uuid(),
-  refreshToken: faker.datatype.uuid(),
+  accessToken: tokens.accessToken,
+  refreshToken: tokens.refreshToken,
+  roles: roles,
+  user: user,
 };
