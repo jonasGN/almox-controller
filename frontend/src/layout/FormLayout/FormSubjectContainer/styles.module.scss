@@ -1,0 +1,7 @@
+.formSubject {
+  & > * {
+    & + * {
+      margin-top: var(--big-inset);
+    }
+  }
+}

@@ -1,0 +1,15 @@
+@import "../../styles/grids";
+
+.form {
+  @include form-grid;
+
+  & > div {
+    &:first-child {
+      grid-column: 1 / 4;
+    }
+
+    &:last-child {
+      grid-column: 4 / 7;
+    }
+  }
+}

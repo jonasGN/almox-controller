@@ -15,3 +15,7 @@ $gap: var(--dft-inset);
 @mixin content-grid($column: #{3 / -1}) {
   @include standard-grid(repeat(4, 1fr));
 }
+
+@mixin form-grid() {
+  @include standard-grid(repeat(7, 1fr));
+}
