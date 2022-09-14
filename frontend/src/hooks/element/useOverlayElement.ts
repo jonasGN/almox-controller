@@ -22,8 +22,13 @@ export const useOverlayElement = <
   const onCloseElement = (): void => setIsVisible(false);
 
   const elementRef = createRef<T>();
-  useOnClickOutside(elementRef, onCloseElement);
-  useOnPressKey(onCloseElement);
+
+  useOnClickOutside(onCloseElement, {
+    ref: elementRef,
+    isMounted: isVisible,
+  });
+
+  useOnPressKey(onCloseElement, { isMounted: isVisible });
   // useTrapFocus(modalRef);
 
   return { isVisible, onOpenElement, onCloseElement, elementRef };

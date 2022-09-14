@@ -16,7 +16,7 @@ const ImageModalBase: ForwardRefRender = (props, ref): JSX.Element => {
   const { src, alt, ...rest } = props;
 
   return (
-    <BaseModal modalClassName={styles.imageModal} {...rest}>
+    <BaseModal ref={ref} modalClassName={styles.imageModal} {...rest}>
       <Image src={src} alt={alt} aspectRatio="standard" />
     </BaseModal>
   );
