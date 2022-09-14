@@ -77,7 +77,7 @@ export const ItemDetailsPage = (): JSX.Element => {
       </div>
 
       <AlertDialog
-        modalRef={elementRef}
+        ref={elementRef}
         isOpen={isVisible}
         onCloseModal={onCloseElement}
         icon={<DeleteIcon />}

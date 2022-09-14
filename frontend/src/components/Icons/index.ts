@@ -11,6 +11,7 @@ import { ExpandImageIcon } from "./ExpandImageIcon";
 import { WarningIcon } from "./WarningIcon";
 import { PersonIcon } from "./PersonIcon";
 import { LogoutIcon } from "./LogoutIcon";
+import { HourglassTopIcon } from "./HourglassTop";
 
 type Icon = React.ReactElement<SVGAElement>;
 
@@ -27,4 +28,5 @@ export {
   WarningIcon,
   PersonIcon,
   LogoutIcon,
+  HourglassTopIcon,
 };

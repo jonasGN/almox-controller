@@ -1,5 +1,7 @@
+import { forwardRef, ForwardRefRenderFunction } from "react";
+
 import { Image } from "../../Image";
-import { BaseModalProps, Modal } from "../Modal";
+import { BaseModal, BaseModalProps } from "../BaseModal";
 
 import styles from "./styles.module.scss";
 
@@ -8,12 +10,16 @@ interface ImageModalProps extends BaseModalProps {
   alt?: string;
 }
 
-export const ImageModal = (props: ImageModalProps): JSX.Element => {
+type ForwardRefRender = ForwardRefRenderFunction<HTMLDivElement, ImageModalProps>;
+
+const ImageModalBase: ForwardRefRender = (props, ref): JSX.Element => {
   const { src, alt, ...rest } = props;
 
   return (
-    <Modal className={styles.imageModalContainer} {...rest}>
+    <BaseModal modalClassName={styles.imageModal} {...rest}>
       <Image src={src} alt={alt} aspectRatio="standard" />
-    </Modal>
+    </BaseModal>
   );
 };
+
+export const ImageModal = forwardRef(ImageModalBase);

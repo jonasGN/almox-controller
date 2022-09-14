@@ -70,7 +70,7 @@ export const ItemRequestDetailsPage = () => {
       </div>
 
       <AlertDialog
-        modalRef={elementRef}
+        ref={elementRef}
         isOpen={isVisible}
         onCloseModal={onCloseElement}
         icon={<WarningIcon />}

@@ -87,7 +87,7 @@ export const SignInForm = (): JSX.Element => {
       </form>
 
       <AlertDialog
-        modalRef={elementRef}
+        ref={elementRef}
         isOpen={isVisible}
         icon={<WarningIcon />}
         title="Erro durante login"

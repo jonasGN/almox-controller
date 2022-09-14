@@ -1,31 +1,4 @@
-@import "../../../styles/fonts";
-
-.dialogContainer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  max-width: 488px;
-
-  svg {
-    margin-bottom: var(--dft-inset);
-  }
-
-  strong {
-    display: block;
-
-    @include heading-6;
-    margin-bottom: var(--dft-inset);
-  }
-
-  p {
-    @include body-1;
-    color: var(--body-color);
-    text-align: center;
-  }
-}
-
-.contentContainer {
+.extraContent {
   margin-top: var(--dft-inset);
 }
 

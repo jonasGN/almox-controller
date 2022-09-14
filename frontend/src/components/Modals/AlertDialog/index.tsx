@@ -1,20 +1,17 @@
+import { forwardRef, ForwardRefRenderFunction } from "react";
 import { ReactChildrenElement } from "../../../@types/elements";
 import { classNames } from "../../../utils/styles";
 
-import { ShowWhen } from "../../../layout";
+import { DefaultBaseModalProps, DefaultModal } from "../DefaultModal";
 import { SplitButton } from "../../Buttons";
-import { Icon } from "../../Icons";
-import { BaseModalProps, Modal } from "../Modal";
+import { ShowWhen } from "../../../layout";
 
 import styles from "./styles.module.scss";
 
 type VoidCallback = () => void;
 type ButtonStyle = "confirm" | "danger" | "cancel";
 
-interface AlertDialogProps extends BaseModalProps {
-  icon: Icon;
-  title: string;
-  description: string;
+interface AlertDialogProps extends DefaultBaseModalProps {
   leftTitle?: string;
   rightTitle?: string;
   leftButtonStyle?: ButtonStyle;
@@ -25,7 +22,9 @@ interface AlertDialogProps extends BaseModalProps {
   children?: ReactChildrenElement;
 }
 
-export const AlertDialog = (props: AlertDialogProps): JSX.Element => {
+type ForwardRefRender = ForwardRefRenderFunction<HTMLDivElement, AlertDialogProps>;
+
+const AlertDialogBase: ForwardRefRender = (props, ref): JSX.Element => {
   const {
     icon,
     title,
@@ -47,14 +46,9 @@ export const AlertDialog = (props: AlertDialogProps): JSX.Element => {
   );
 
   return (
-    <Modal className={styles.dialogContainer} {...rest}>
-      {/* {React.cloneElement(icon, )} */}
-      {icon}
-      <strong>{title}</strong>
-      <p>{description}</p>
-
+    <DefaultModal ref={ref} icon={icon} title={title} description={description} {...rest}>
       <ShowWhen condition={!!children}>
-        <div className={styles.contentContainer}>{children}</div>
+        <div className={styles.extraContent}>{children}</div>
       </ShowWhen>
 
       <SplitButton
@@ -67,6 +61,8 @@ export const AlertDialog = (props: AlertDialogProps): JSX.Element => {
         useSingleButton={useSingleButton}
         containerClassName={actionContainerClasses}
       />
-    </Modal>
+    </DefaultModal>
   );
 };
+
+export const AlertDialog = forwardRef(AlertDialogBase);
