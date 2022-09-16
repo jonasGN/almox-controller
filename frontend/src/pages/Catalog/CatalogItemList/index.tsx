@@ -1,9 +1,9 @@
-import { ItemResponse } from "../../../@types/responses";
-import { useFetchData } from "../../../hooks/common";
-import { itemResponseToItem } from "../../../utils/converters";
+import { ItemResponse } from "@Types/responses";
+import { useFetchData } from "@/hooks/common";
+import { itemResponseToItem } from "@/utils/converters";
 
-import { ItemCard } from "../../../components/ItemCard";
-import { ContentHelper } from "../../../components/ContentHelper";
+import { ItemCard } from "@/components/ItemCard";
+import { ContentHelper } from "@/components/ContentHelper";
 
 import styles from "./styles.module.scss";
 

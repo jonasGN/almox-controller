@@ -1,15 +1,15 @@
 import { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import { useAuth } from "../../../hooks/auth";
-import { useOverlayElement } from "../../../hooks/element";
-import { signIn } from "../../../repositories/auth";
-import { Paths } from "../../../routes";
-import { persistData } from "../../../services/localStorage";
+import { useAuth } from "@/hooks/auth";
+import { useOverlayElement } from "@/hooks/element";
+import { signIn } from "@/repositories/auth";
+import { Paths } from "@/routes";
+import { persistData } from "@/services/localStorage";
 
-import { MainButton } from "../../../components/Buttons";
-import { WarningIcon } from "../../../components/Icons";
-import { TextField } from "../../../components/Inputs";
-import { AlertDialog } from "../../../components/Modals";
+import { MainButton } from "@/components/Buttons";
+import { WarningIcon } from "@/components/Icons";
+import { TextField } from "@/components/Inputs";
+import { AlertDialog } from "@/components/Modals";
 
 import styles from "./styles.module.scss";
 

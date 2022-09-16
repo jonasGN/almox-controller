@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useAuth } from "./useAuth";
 import { useRefreshToken } from "./useRefreshToken";
-import { apiClientPrivate } from "../../services/apiClient";
+import { apiClientPrivate } from "@/services/apiClient";
 
 export const usePrivateApi = () => {
   const refresh = useRefreshToken();

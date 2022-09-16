@@ -1,9 +1,9 @@
 import { Outlet } from "react-router-dom";
-import { classNames } from "../../utils/styles";
+import { classNames } from "@/utils/styles";
 
 import { ScreenSizeLayout } from "../ScreenSizeLayout";
-import { Header } from "../../components/Header";
-import { SideBar } from "../../components/SideBar";
+import { Header } from "@/components/Header";
+import { SideBar } from "@/components/SideBar";
 
 import styles from "./styles.module.scss";
 

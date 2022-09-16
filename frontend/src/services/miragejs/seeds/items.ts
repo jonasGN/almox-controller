@@ -1,6 +1,5 @@
 import { faker } from "@faker-js/faker";
-
-import { ItemResponse } from "../../../@types/responses";
+import { ItemResponse } from "@Types/responses";
 
 const _items: ItemResponse[] = [];
 

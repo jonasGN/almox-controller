@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { AuthContext, UserContextData } from "../../context/AuthProvider";
+import { AuthContext, UserContextData } from "@/context/AuthProvider";
 
 export type { UserContextData };
 

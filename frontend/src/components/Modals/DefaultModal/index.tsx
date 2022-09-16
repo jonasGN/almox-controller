@@ -1,5 +1,6 @@
 import { forwardRef, ForwardRefRenderFunction } from "react";
-import { classNames } from "../../../utils/styles";
+import { classNames } from "@/utils/styles";
+
 import { Icon } from "../../Icons";
 import { BaseModal, BaseModalProps } from "../BaseModal";
 

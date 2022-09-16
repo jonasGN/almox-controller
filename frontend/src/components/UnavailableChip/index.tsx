@@ -1,4 +1,4 @@
-import { ShowWhen } from "../../layout";
+import { ShowWhen } from "@/layout";
 
 import styles from "./styles.module.scss";
 

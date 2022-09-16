@@ -1,14 +1,14 @@
 import { AxiosError } from "axios";
-import { AuthResponse, RefreshTokenResponse } from "../@types/responses";
-import { AuthData, RefreshTokenData } from "../@types/entities";
+import { AuthResponse, RefreshTokenResponse } from "@Types/responses";
+import { AuthData, RefreshTokenData } from "@Types/entities";
 import {
   BadRequestException,
   ServerException,
   UnauthorizedException,
-} from "../exceptions";
-import { apiClient } from "../services/apiClient";
-import { toShortName } from "../utils/formatters";
-import { rolesToUserRoles } from "../utils/converters";
+} from "@/exceptions";
+import { apiClient } from "@/services/apiClient";
+import { toShortName } from "@/utils/formatters";
+import { rolesToUserRoles } from "@/utils/converters";
 
 interface Credentials {
   internalCode: string;

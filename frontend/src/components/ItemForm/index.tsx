@@ -1,5 +1,4 @@
-import { FormSubjectContainer } from "../../layout/FormLayout";
-import { SplitButton } from "../Buttons";
+import { FormSubjectContainer } from "@/layout/FormLayout";
 import { ItemFormBasicInformation } from "./ItemFormBasicInformation";
 import { ItemFormImage } from "./ItemFormImage";
 import { ItemFormLocation } from "./ItemFormLocation";
@@ -18,8 +17,6 @@ export const ItemForm = (props: ItemFormProps): JSX.Element => {
         <ItemFormLocation />
         <ItemFormImage />
       </FormSubjectContainer>
-
-      {/* <SplitButton /> */}
     </form>
   );
 };

@@ -1,5 +1,5 @@
-import { ItemResponse } from "../../@types/responses";
-import { Item } from "../../@types/entities";
+import { ItemResponse } from "@Types/responses";
+import { Item } from "@Types/entities";
 
 import { leadingZeroOn, toCurrency } from "../formatters";
 

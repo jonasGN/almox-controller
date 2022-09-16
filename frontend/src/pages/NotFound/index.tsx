@@ -1,4 +1,4 @@
-import { ScreenSizeLayout } from "../../layout";
+import { ScreenSizeLayout } from "@/layout";
 
 import styles from "./styles.module.scss";
 

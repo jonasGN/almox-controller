@@ -1,7 +1,5 @@
 import { BaseButton, BaseButtonProps } from "../BaseButton";
 
-import styles from "./styles.module.scss";
-
 interface MainButtonProps extends BaseButtonProps {
   title: string;
   isLoading?: boolean;
@@ -14,7 +12,6 @@ export const MainButton = (props: MainButtonProps): JSX.Element => {
   return (
     <BaseButton
       title={isLoading ? "carregando..." : title}
-      customClassName={styles.mainButton}
       disabled={isLoading || isDisabled}
       {...rest}
     ></BaseButton>

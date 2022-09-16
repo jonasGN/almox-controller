@@ -1,7 +1,7 @@
 import { useAuth } from "./useAuth";
-import { refreshToken } from "../../repositories/auth";
-import { rolesToUserRoles } from "../../utils/converters";
-import { toShortName } from "../../utils/formatters";
+import { refreshToken } from "@/repositories/auth";
+import { rolesToUserRoles } from "@/utils/converters";
+import { toShortName } from "@/utils/formatters";
 
 type RefreshTokenHook = () => Promise<string>;
 

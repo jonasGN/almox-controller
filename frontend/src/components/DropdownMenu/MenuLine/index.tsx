@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { classNames } from "../../../utils/styles";
+import { classNames } from "@/utils/styles";
 
 import { RawButton } from "../../Buttons";
 import { MenuItem } from "../MenuItem";

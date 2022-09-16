@@ -1,10 +1,10 @@
 import { forwardRef, ForwardRefRenderFunction } from "react";
-import { ReactChildrenElement } from "../../../@types/elements";
-import { classNames } from "../../../utils/styles";
+import { ReactChildrenElement } from "@Types/elements";
+import { classNames } from "@/utils/styles";
 
+import { ShowWhen } from "@/layout";
 import { DefaultBaseModalProps, DefaultModal } from "../DefaultModal";
 import { SplitButton } from "../../Buttons";
-import { ShowWhen } from "../../../layout";
 
 import styles from "./styles.module.scss";
 

@@ -1,7 +1,7 @@
-import { ReactChildrenElement } from "../../../@types/elements";
-import { classNames } from "../../../utils/styles";
+import { ReactChildrenElement } from "@Types/elements";
+import { classNames } from "@/utils/styles";
 
-import { ShowWhen } from "../../../layout";
+import { ShowWhen } from "@/layout";
 
 import styles from "./styles.module.scss";
 

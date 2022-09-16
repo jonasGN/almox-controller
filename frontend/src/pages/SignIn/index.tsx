@@ -1,6 +1,6 @@
 import { SignInForm } from "./SignInForm";
-import { ScreenSizeLayout } from "../../layout";
-import { Logo } from "../../components/Logo";
+import { ScreenSizeLayout } from "@/layout";
+import { Logo } from "@/components/Logo";
 
 import styles from "./styles.module.scss";
 

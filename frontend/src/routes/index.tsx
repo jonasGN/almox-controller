@@ -5,16 +5,16 @@ import { ProtectedRoutes } from "./ProtectedRoutes";
 import { PersistLogin } from "./PersistLogin";
 
 // layouts
-import { AppLayout } from "../layout";
+import { AppLayout } from "@/layout";
 
 // pages
-import { SignInPage } from "../pages/SignIn";
-import { NotFoundPage } from "../pages/NotFound";
-import { CatalogPage } from "../pages/Catalog";
-import { ItemDetailsPage } from "../pages/ItemDetails";
-import { ItemRequestsPage } from "../pages/ItemRequests";
-import { ItemRequestDetailsPage } from "../pages/ItemRequestDetails";
-import { AddItemPage } from "../pages/AddItem";
+import { SignInPage } from "@/pages/SignIn";
+import { NotFoundPage } from "@/pages/NotFound";
+import { CatalogPage } from "@/pages/Catalog";
+import { ItemDetailsPage } from "@/pages/ItemDetails";
+import { ItemRequestsPage } from "@/pages/ItemRequests";
+import { ItemRequestDetailsPage } from "@/pages/ItemRequestDetails";
+import { AddItemPage } from "@/pages/AddItem";
 
 export { BrowserRouter, Paths };
 

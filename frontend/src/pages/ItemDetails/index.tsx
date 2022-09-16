@@ -1,17 +1,17 @@
 import { useParams } from "react-router-dom";
-import { ItemResponse } from "../../@types/responses";
-import { useOverlayElement } from "../../hooks/element";
-import { useFetchData } from "../../hooks/common";
-import { itemResponseToItem } from "../../utils/converters";
+import { ItemResponse } from "@Types/responses";
+import { useOverlayElement } from "@/hooks/element";
+import { useFetchData } from "@/hooks/common";
+import { itemResponseToItem } from "@/utils/converters";
 
-import { OptionButton } from "../../components/Buttons";
-import { DeleteIcon, EditIcon } from "../../components/Icons";
-import { SimpleInformationTile } from "../../components/SimpleInformationTile";
-import { AlertDialog } from "../../components/Modals";
-import { PageHeader } from "../../components/PageHeader";
-import { ContentHelper } from "../../components/ContentHelper";
 import { ImageGalery } from "./ImageGalery";
 import { InformationSection } from "./InformationSection";
+import { OptionButton } from "@/components/Buttons";
+import { DeleteIcon, EditIcon } from "@/components/Icons";
+import { SimpleInformationTile } from "@/components/SimpleInformationTile";
+import { AlertDialog } from "@/components/Modals";
+import { PageHeader } from "@/components/PageHeader";
+import { ContentHelper } from "@/components/ContentHelper";
 
 import styles from "./styles.module.scss";
 

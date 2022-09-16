@@ -1,10 +1,10 @@
 import React, { ForwardRefRenderFunction, useState } from "react";
-import { ReactInputElement } from "../../../@types/elements";
+import { ReactInputElement } from "@Types/elements";
 
+import { ShowWhen } from "@/layout";
 import { BaseInput } from "../BaseInput";
 import { VisibilityIcon, VisibilityOffIcon } from "../../Icons";
 import { IconButton } from "../../Buttons";
-import { ShowWhen } from "../../../layout";
 
 import styles from "./styles.module.scss";
 

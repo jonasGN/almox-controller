@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { useSignOut } from "../../hooks/auth";
-import { useOverlayElement } from "../../hooks/element";
-import { retriveData } from "../../services/localStorage";
+import { useSignOut } from "@/hooks/auth";
+import { useOverlayElement } from "@/hooks/element";
+import { retriveData } from "@/services/localStorage";
 
 import { Avatar } from "../Avatar";
 import { DropdownMenu, MenuItem } from "../DropdownMenu";

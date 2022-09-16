@@ -1,5 +1,5 @@
-import { ItemRequest } from "../../@types/entities";
-import { ItemRequestResponse } from "../../@types/responses";
+import { ItemRequest } from "@Types/entities";
+import { ItemRequestResponse } from "@Types/responses";
 
 import { toFormattedDate, toShortName } from "../formatters";
 

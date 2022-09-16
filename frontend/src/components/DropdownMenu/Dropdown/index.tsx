@@ -1,8 +1,8 @@
 import { forwardRef, ForwardRefRenderFunction } from "react";
 
+import { ShowWhen } from "@/layout";
 import { MenuItem } from "../MenuItem";
 import { MenuLine } from "../MenuLine";
-import { ShowWhen } from "../../../layout";
 
 import styles from "./styles.module.scss";
 

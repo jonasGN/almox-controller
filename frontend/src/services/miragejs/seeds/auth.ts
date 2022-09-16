@@ -1,6 +1,6 @@
 import { faker } from "@faker-js/faker";
+import { AuthResponse, RefreshTokenResponse } from "@Types/responses";
 import { generateTokens } from "../../cryptoJS";
-import { AuthResponse, RefreshTokenResponse } from "../../../@types/responses";
 
 const roles = faker.helpers.arrayElements(
   ["ADMIN", "OPERATOR", "STANDARD"],

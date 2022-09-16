@@ -1,9 +1,9 @@
-import { ItemRequestResponse } from "../../../@types/responses";
-import { useFetchData } from "../../../hooks/common";
-import { itemRequestResponseToItemRequest } from "../../../utils/converters";
+import { ItemRequestResponse } from "@Types/responses";
+import { useFetchData } from "@/hooks/common";
+import { itemRequestResponseToItemRequest } from "@/utils/converters";
 
-import { ItemRequestCard } from "../../../components/ItemRequestCard";
-import { ContentHelper } from "../../../components/ContentHelper";
+import { ItemRequestCard } from "@/components/ItemRequestCard";
+import { ContentHelper } from "@/components/ContentHelper";
 
 import styles from "./styles.module.scss";
 

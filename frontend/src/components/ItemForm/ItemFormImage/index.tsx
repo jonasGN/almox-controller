@@ -1,8 +1,6 @@
-import { FormInputsContainer } from "../../../layout/FormLayout";
+import { FormInputsContainer } from "@/layout/FormLayout";
 import { ImageInput } from "../../Inputs";
 import { ItemFormHeader } from "../ItemFormHeader";
-
-import styles from "./styles.module.scss";
 
 interface ItemFormImageProps {}
 

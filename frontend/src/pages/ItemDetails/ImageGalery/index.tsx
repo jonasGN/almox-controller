@@ -1,10 +1,10 @@
-import { classNames } from "../../../utils/styles";
-import { useOverlayElement } from "../../../hooks/element";
+import { classNames } from "@/utils/styles";
+import { useOverlayElement } from "@/hooks/element";
 
-import { Image } from "../../../components/Image";
-import { OptionButton } from "../../../components/Buttons";
-import { ExpandImageIcon } from "../../../components/Icons";
-import { ImageModal } from "../../../components/Modals";
+import { Image } from "@/components/Image";
+import { OptionButton } from "@/components/Buttons";
+import { ExpandImageIcon } from "@/components/Icons";
+import { ImageModal } from "@/components/Modals";
 
 import styles from "./styles.module.scss";
 

@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { useAuth, UserContextData } from "./useAuth";
-import { signOut } from "../../repositories/auth";
-import { deleteData } from "../../services/localStorage";
+import { signOut } from "@/repositories/auth";
+import { deleteData } from "@/services/localStorage";
 
 type SignOutHook = () => Promise<void>;
 

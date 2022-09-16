@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Paths } from "../../routes";
+import { Paths } from "@/routes";
 
 import { Avatar } from "../Avatar";
 

@@ -1,5 +1,5 @@
-import { PageHeader } from "../../components/PageHeader";
-import { ItemForm } from "../../components/ItemForm";
+import { PageHeader } from "@/components/PageHeader";
+import { ItemForm } from "@/components/ItemForm";
 
 import styles from "./styles.module.scss";
 

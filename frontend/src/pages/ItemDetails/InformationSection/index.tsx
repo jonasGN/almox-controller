@@ -1,4 +1,4 @@
-import { ReactChildrenElement } from "../../../@types/elements";
+import { ReactChildrenElement } from "@Types/elements";
 
 import styles from "./styles.module.scss";
 

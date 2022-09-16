@@ -1,8 +1,6 @@
-import { FormInputsContainer, FormSpliter } from "../../../layout/FormLayout";
+import { FormInputsContainer, FormSpliter } from "@/layout/FormLayout";
 import { TextField } from "../../Inputs";
 import { ItemFormHeader } from "../ItemFormHeader";
-
-import styles from "./styles.module.scss";
 
 interface ItemFormLocationProps {}
 

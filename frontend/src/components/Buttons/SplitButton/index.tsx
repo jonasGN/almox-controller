@@ -1,7 +1,7 @@
 import React from "react";
-import { classNames } from "../../../utils/styles";
+import { classNames } from "@/utils/styles";
 
-import { ShowWhen } from "../../../layout";
+import { ShowWhen } from "@/layout";
 import { BaseButton } from "../BaseButton";
 
 import styles from "./styles.module.scss";

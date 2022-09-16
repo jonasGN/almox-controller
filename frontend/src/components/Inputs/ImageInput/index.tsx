@@ -1,4 +1,5 @@
-import { ReactFileInputElement } from "../../../@types/elements";
+import { ReactFileInputElement } from "@Types/elements";
+
 import { AddIcon } from "../../Icons";
 
 import styles from "./styles.module.scss";

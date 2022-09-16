@@ -1,5 +1,5 @@
 import { forwardRef, ForwardRefRenderFunction } from "react";
-import { ReactTextAreaElement } from "../../../@types/elements";
+import { ReactTextAreaElement } from "@Types/elements";
 
 import { BaseInput } from "../BaseInput";
 

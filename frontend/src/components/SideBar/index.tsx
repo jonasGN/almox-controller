@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom";
-import { Paths } from "../../routes";
+import { Paths } from "@/routes";
 
 import { Logo } from "../Logo";
 import { SideBarNavItem } from "./SideBarNavItem";
 import { SideBarSection } from "./SideBarSection";
 
-import styles from "./styles.module.scss";
 import config from "../../../package.json";
+import styles from "./styles.module.scss";
 
 interface SideBarProps {}
 

@@ -1,17 +1,17 @@
 import { useParams } from "react-router-dom";
-import { ItemRequestResponse } from "../../@types/responses";
-import { useOverlayElement } from "../../hooks/element";
-import { useFetchData } from "../../hooks/common";
-import { itemRequestResponseToItemRequest } from "../../utils/converters";
+import { ItemRequestResponse } from "@Types/responses";
+import { useOverlayElement } from "@/hooks/element";
+import { useFetchData } from "@/hooks/common";
+import { itemRequestResponseToItemRequest } from "@/utils/converters";
 
-import { Avatar } from "../../components/Avatar";
-import { SplitButton } from "../../components/Buttons";
-import { AlertDialog } from "../../components/Modals";
-import { PageHeader } from "../../components/PageHeader";
-import { WarningIcon } from "../../components/Icons";
-import { ContentHelper } from "../../components/ContentHelper";
 import { InfoTile } from "./InfoTile";
 import { ItemRequestDetailsSection } from "./ItemRequestDetailsSection";
+import { Avatar } from "@/components/Avatar";
+import { SplitButton } from "@/components/Buttons";
+import { AlertDialog } from "@/components/Modals";
+import { PageHeader } from "@/components/PageHeader";
+import { WarningIcon } from "@/components/Icons";
+import { ContentHelper } from "@/components/ContentHelper";
 
 import styles from "./styles.module.scss";
 

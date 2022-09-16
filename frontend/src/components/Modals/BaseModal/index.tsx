@@ -1,8 +1,8 @@
 import { forwardRef, ForwardRefRenderFunction } from "react";
 import ReactDOM from "react-dom";
+import { classNames } from "@/utils/styles";
 
-import { ShowWhen } from "../../../layout";
-import { classNames } from "../../../utils/styles";
+import { ShowWhen } from "@/layout";
 import { OptionButton } from "../../Buttons";
 import { CloseIcon } from "../../Icons";
 
