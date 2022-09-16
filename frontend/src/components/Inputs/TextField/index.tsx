@@ -1,88 +1,72 @@
 import React, { ForwardRefRenderFunction, useState } from "react";
 import { ReactInputElement } from "../../../@types/elements";
-import { classNames } from "../../../utils/styles";
 
-import { Icon, VisibilityIcon, VisibilityOffIcon } from "../../Icons";
+import { BaseInput } from "../BaseInput";
+import { VisibilityIcon, VisibilityOffIcon } from "../../Icons";
 import { IconButton } from "../../Buttons";
 import { ShowWhen } from "../../../layout";
 
 import styles from "./styles.module.scss";
 
-type MouseEvent = React.MouseEvent;
-
-type ForwardRefRenderInput = ForwardRefRenderFunction<HTMLInputElement, TextFieldProps>;
-
 interface TextFieldProps extends ReactInputElement {
   name: string;
   label: string;
-  trailingIcon?: Icon;
-  assertiveText?: string;
-  hasError?: boolean;
-  inputType?: React.HTMLInputTypeAttribute;
-  onClickTrailingIcon?: (e: MouseEvent) => void;
+  leadingIcon?: React.ReactElement | string;
+  trailingIcon?: React.ReactElement | string;
+  isPassword?: boolean;
+  helperText?: string;
 }
 
-const TextFieldBase: ForwardRefRenderInput = (props, ref): JSX.Element => {
+type ForwardRefFunction = ForwardRefRenderFunction<HTMLInputElement, TextFieldProps>;
+
+const TextFieldBase: ForwardRefFunction = (props, ref): JSX.Element => {
   const {
     name,
     label,
+    leadingIcon,
     trailingIcon,
-    assertiveText,
-    hasError = false,
-    inputType = "text",
-    onClickTrailingIcon,
+    isPassword = false,
+    helperText,
     ...rest
   } = props;
 
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
 
-  const handlePasswordVisibility = (e: MouseEvent) => {
-    setIsPasswordVisible(!isPasswordVisible);
+  const handlePasswordVisibility = () => setIsPasswordVisible(!isPasswordVisible);
+
+  const togglePasswordButton = (): JSX.Element => {
+    return (
+      <ShowWhen condition={rest.value !== ""}>
+        <IconButton
+          icon={isPasswordVisible ? <VisibilityOffIcon /> : <VisibilityIcon />}
+          onClick={handlePasswordVisibility}
+        />
+      </ShowWhen>
+    );
   };
 
-  const inputContainerClasses = classNames(
-    styles.inputContainer,
-    hasError ? styles.error : ""
-  );
-
   return (
-    <div className={styles.textFieldContainer}>
-      <label htmlFor={name}>{label}</label>
-      <span className={inputContainerClasses}>
-        <ShowWhen condition={inputType === "password"}>
-          <input
-            ref={ref}
-            type={isPasswordVisible ? "text" : "password"}
-            id={name}
-            name={name}
-            {...rest}
-          />
-        </ShowWhen>
-
-        <ShowWhen condition={inputType !== "password"}>
-          <input ref={ref} type={inputType} id={name} name={name} {...rest} />
-        </ShowWhen>
-
-        <ShowWhen condition={inputType !== "password" && !!trailingIcon}>
-          <IconButton icon={trailingIcon!} onClick={onClickTrailingIcon} />
-        </ShowWhen>
-
-        <ShowWhen condition={inputType === "password" && !trailingIcon}>
-          <ShowWhen condition={rest.value !== ""}>
-            <IconButton
-              icon={isPasswordVisible ? <VisibilityOffIcon /> : <VisibilityIcon />}
-              onClick={handlePasswordVisibility}
-            />
-          </ShowWhen>
-        </ShowWhen>
-      </span>
-
-      <ShowWhen condition={hasError}>
-        <p className={styles.errMsg} aria-live="assertive">
-          {assertiveText}
-        </p>
+    <BaseInput
+      name={name}
+      label={label}
+      leadingIcon={leadingIcon}
+      trailingIcon={isPassword ? togglePasswordButton() : trailingIcon}
+      helperText={helperText}
+    >
+      <ShowWhen condition={isPassword}>
+        <input
+          ref={ref}
+          type={!isPasswordVisible ? "password" : "text"}
+          id={name}
+          name={name}
+          {...rest}
+        />
       </ShowWhen>
-    </div>
+
+      <ShowWhen condition={!isPassword}>
+        <input ref={ref} id={name} name={name} {...rest} />
+      </ShowWhen>
+    </BaseInput>
   );
 };
 

@@ -1,5 +1,5 @@
 import { FormInputsContainer, FormSpliter } from "../../../layout/FormLayout";
-import { TextField } from "../../Inputs";
+import { TextArea, TextField } from "../../Inputs";
 import { ItemFormHeader } from "../ItemFormHeader";
 
 import styles from "./styles.module.scss";
@@ -20,7 +20,7 @@ export const ItemFormBasicInformation = (
 
       <FormInputsContainer>
         <TextField name="name" label="Nome" />
-        <TextField name="description" label="Descrição" />
+        <TextArea name="description" label="Descrição" />
 
         <FormSpliter>
           <TextField name="price" label="Preço" />

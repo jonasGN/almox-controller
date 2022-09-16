@@ -14,6 +14,16 @@ export type ReactInputElement = React.DetailedHTMLProps<
   HTMLInputElement
 >;
 
+export type ReactFileInputElement = React.DetailedHTMLProps<
+  React.InputHTMLAttributes<HTMLInputElement>,
+  HTMLInputElement
+>;
+
+export type ReactTextAreaElement = React.DetailedHTMLProps<
+  React.TextareaHTMLAttributes<HTMLTextAreaElement>,
+  HTMLTextAreaElement
+>;
+
 export type ReactDivElement = React.DetailedHTMLProps<
   React.HTMLAttributes<HTMLDivElement>,
   HTMLDivElement

@@ -1,3 +1,5 @@
+// This file inclues styles for tricks
+
 @mixin text-max-lines($maxLines: 2) {
   overflow: hidden;
   text-overflow: ellipsis;

@@ -2,15 +2,15 @@
 }
 
 .standard {
-  aspect-ratio: 4 / 3;
+  aspect-ratio: var(--standard-aspect-ratio);
 }
 
 .square {
-  aspect-ratio: 1;
+  aspect-ratio: var(--square-aspect-ratio);
 }
 
 .widescreen {
-  aspect-ratio: 16 / 9;
+  aspect-ratio: var(--widescreen-aspect-ratio);
 }
 
 .errorImage {

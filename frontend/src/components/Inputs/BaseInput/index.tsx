@@ -1,34 +1,69 @@
-import { ReactInputElement } from "../../../@types/elements";
 import { classNames } from "../../../utils/styles";
 
 import { ShowWhen } from "../../../layout";
 
 import styles from "./styles.module.scss";
 
-interface BaseInputProps extends ReactInputElement {
+export interface BasicInputProps {
   name: string;
+  label?: string;
   leadingIcon?: React.ReactElement | string;
+  leadingIconClassName?: string;
   trailingIcon?: React.ReactElement | string;
+  trailingIconClassName?: string;
+  helperText?: string;
   customClassName?: string;
 }
 
+interface BaseInputProps extends BasicInputProps {
+  children?: React.ReactNode;
+}
+
 export const BaseInput = (props: BaseInputProps): JSX.Element => {
-  const { name, leadingIcon, trailingIcon, customClassName, ...rest } = props;
+  const {
+    name,
+    label,
+    leadingIcon,
+    trailingIcon,
+    leadingIconClassName,
+    trailingIconClassName,
+    helperText,
+    customClassName,
+    children,
+  } = props;
+
+  const leadingIconClasses = leadingIcon
+    ? classNames(styles.leading, leadingIconClassName!)
+    : "";
+
+  const trailingIconClasses = trailingIcon
+    ? classNames(styles.trailing, trailingIconClassName!)
+    : "";
 
   const classes = classNames(
-    styles.baseInputContainer,
+    styles.inputContainer,
     customClassName!,
-    leadingIcon! && styles.leading,
-    trailingIcon! && styles.trailing
+    leadingIconClasses,
+    trailingIconClasses
   );
 
   return (
-    <span className={classes}>
-      <ShowWhen condition={!!leadingIcon}>{leadingIcon}</ShowWhen>
+    <span className={styles.field}>
+      <ShowWhen condition={!!label}>
+        <label htmlFor={name}>{label}</label>
+      </ShowWhen>
 
-      <input id={name} name={name} type={rest.type ?? "text"} {...rest} />
+      <span className={classes}>
+        <ShowWhen condition={!!leadingIcon}>{leadingIcon}</ShowWhen>
+        {children}
+        <ShowWhen condition={!!trailingIcon}>{trailingIcon}</ShowWhen>
+      </span>
 
-      <ShowWhen condition={!!trailingIcon}>{trailingIcon}</ShowWhen>
+      <ShowWhen condition={!!helperText}>
+        <p className={styles.helperText} aria-live="assertive">
+          {helperText}
+        </p>
+      </ShowWhen>
     </span>
   );
 };

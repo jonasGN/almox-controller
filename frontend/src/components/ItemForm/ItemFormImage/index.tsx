@@ -1,4 +1,5 @@
 import { FormInputsContainer } from "../../../layout/FormLayout";
+import { ImageInput } from "../../Inputs";
 import { ItemFormHeader } from "../ItemFormHeader";
 
 import styles from "./styles.module.scss";
@@ -16,7 +17,7 @@ export const ItemFormImage = (props: ItemFormImageProps): JSX.Element => {
       />
 
       <FormInputsContainer>
-        <input type="file" name="image" id="image" />
+        <ImageInput name="itemImage" />
       </FormInputsContainer>
     </div>
   );

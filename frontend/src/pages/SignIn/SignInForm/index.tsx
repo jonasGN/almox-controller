@@ -68,7 +68,7 @@ export const SignInForm = (): JSX.Element => {
         <TextField
           label="Senha"
           name="password"
-          inputType="password"
+          isPassword
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           required

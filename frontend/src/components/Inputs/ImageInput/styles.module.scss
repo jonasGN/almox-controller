@@ -1,0 +1,24 @@
+.imageInput {
+  width: 100%;
+  aspect-ratio: var(--standard-aspect-ratio);
+
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: var(--dft-transition);
+
+  &:hover {
+    filter: brightness(0.8);
+  }
+
+  background-color: var(--secondary-color);
+  border-radius: var(--dft-radius);
+  border: 1px dashed var(--primary-light-color);
+
+  input[type="file"] {
+    display: none;
+  }
+}

@@ -1,11 +1,11 @@
 @import "../../../styles/fonts";
 
 .signInFormContainer {
-  min-width: 320px;
+  max-width: 320px;
   margin-top: var(--dftdb-inset);
 
-  & > div {
-    & + div {
+  & > span {
+    & + span {
       margin-top: var(--section-inset);
     }
   }

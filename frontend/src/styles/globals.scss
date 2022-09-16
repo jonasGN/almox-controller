@@ -1,17 +1,13 @@
 // specifc code for browsers and fixes
-@use "specifics";
+@use "others/browser-specifics";
 
-// metrics like border-radius styles config
-@use "metrics";
+// style variables to put inside :root selector
+@import "variables";
 
-// color pallete
-@use "colors";
-
-:root {
-  --dft-transition: all 0.2s ease;
-}
-
-* {
+// resets
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -27,6 +23,11 @@ html {
 body {
   background-color: var(--background-color);
   color: var(--heading-color);
+}
+
+input,
+textarea {
+  font-family: inherit;
 }
 
 // nothing is perfect

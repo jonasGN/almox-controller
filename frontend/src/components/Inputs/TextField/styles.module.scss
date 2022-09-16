@@ -1,52 +1,8 @@
 @import "../../../styles/fonts";
 
-.textFieldContainer {
-  label {
-    @include subtitle-1($medium-weight);
-    display: block;
-
-    margin-bottom: var(--smdb-inset);
-    margin-left: var(--dft-inset);
-  }
-}
-
 .inputContainer {
-  display: flex;
-  align-items: center;
-  height: var(--input-height);
-
-  border-radius: var(--dft-radius);
-  background-color: var(--secondary-color);
-
-  transition: var(--dft-transition);
-
-  input {
-    width: 100%;
-    height: inherit;
-    display: block;
-
-    border-radius: inherit;
-    background-color: inherit;
-    border: none;
-    padding: var(--dft-inset);
-
-    outline: none;
-
-    @include body-1;
-    color: var(--body-color);
-  }
-
   button {
     margin-inline: var(--horizontal-inset);
-  }
-
-  svg {
-    fill: var(--body-color);
-  }
-
-  &:focus-within {
-    background-color: transparent;
-    box-shadow: inset 0 0 0 var(--dft-border-size) var(--primary-color);
   }
 
   &.error {
@@ -56,27 +12,6 @@
 
     &:focus-within {
       box-shadow: inset 0 0 0 var(--dft-border-size) var(--negative-color);
-    }
-  }
-}
-
-.errMsg {
-  @include body-2;
-  color: var(--negative-color);
-
-  margin-top: var(--smdb-inset);
-  margin-left: var(--dft-inset);
-
-  animation: show 0.2s ease;
-
-  @keyframes show {
-    0% {
-      opacity: 0;
-      transform: translateY(-20px);
-    }
-    100% {
-      opacity: 1;
-      transform: translateY(0);
     }
   }
 }
