@@ -1,7 +1,7 @@
 .primary {
-  fill: var(--primary-color);
+  fill: var(--primary-color) !important;
 }
 
 .danger {
-  fill: var(--negative-color);
+  fill: var(--negative-color) !important;
 }

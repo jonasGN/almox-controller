@@ -1,3 +1,5 @@
+@import "@/styles/animations";
+
 .overlay {
   position: fixed;
   inset: 0;
@@ -21,16 +23,7 @@
 
   position: relative;
 
-  animation: show 0.2s ease;
-
-  @keyframes show {
-    0% {
-      transform: scale(0);
-    }
-    100% {
-      transform: scale(1);
-    }
-  }
+  @include scale-animation;
 }
 
 .closeButton {
