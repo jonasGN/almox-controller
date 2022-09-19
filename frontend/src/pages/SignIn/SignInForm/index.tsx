@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
 import { useAuth } from "@/hooks/auth";
 import { useOverlayElement } from "@/hooks/element";
+import { useNavigation } from "@/hooks/common";
 import { signIn } from "@/repositories/auth";
 import { Paths } from "@/routes";
 import { persistData } from "@/services/localStorage";
@@ -15,10 +15,7 @@ import styles from "./styles.module.scss";
 
 export const SignInForm = (): JSX.Element => {
   const { setUser } = useAuth();
-
-  const navigate = useNavigate();
-  const location = useLocation();
-  const from = ((location.state as any)?.from?.pathname as string) || Paths.DASHBOARD;
+  const { navigateTo } = useNavigation();
 
   const [internalCode, setInternalCode] = useState("");
   const [password, setPassword] = useState("");
@@ -43,7 +40,7 @@ export const SignInForm = (): JSX.Element => {
       });
 
       persistData("user", user);
-      navigate(from, { replace: true });
+      navigateTo(Paths.DASHBOARD, { useFrom: true, replace: true });
     } catch (e) {
       setErrMessage((e as Error).message + " Por favor, tente novamente.");
       onOpenElement();

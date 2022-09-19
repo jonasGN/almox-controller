@@ -1,5 +1,6 @@
-import { useNavigate } from "react-router-dom";
 import { useAuth, UserContextData } from "./useAuth";
+import { useNavigation } from "../common";
+
 import { signOut } from "@/repositories/auth";
 import { deleteData } from "@/services/localStorage";
 
@@ -7,7 +8,7 @@ type SignOutHook = () => Promise<void>;
 
 export const useSignOut = (): SignOutHook => {
   const { setUser } = useAuth();
-  const navigate = useNavigate();
+  const { navigateTo } = useNavigation();
 
   const logOut = async () => {
     try {
@@ -17,7 +18,7 @@ export const useSignOut = (): SignOutHook => {
     } finally {
       setUser({} as UserContextData);
       deleteData("user");
-      navigate("/");
+      navigateTo("/");
     }
   };
 

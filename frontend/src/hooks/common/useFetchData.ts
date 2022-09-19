@@ -1,6 +1,7 @@
 import { useQuery } from "react-query";
-import { useNavigate, useLocation } from "react-router-dom";
+
 import { usePrivateApi } from "../auth";
+import { useNavigation } from "./useNavigation";
 
 interface FetchDataParams {
   url: string;
@@ -17,9 +18,7 @@ export const useFetchData = <T>(params: FetchDataParams): FetchData<T> => {
   const { url, queryKey } = params;
 
   const api = usePrivateApi();
-
-  const navigate = useNavigate();
-  const location = useLocation();
+  const { navigateTo, location } = useNavigation();
 
   const fetchData = async () => {
     try {
@@ -28,7 +27,7 @@ export const useFetchData = <T>(params: FetchDataParams): FetchData<T> => {
       return data;
     } catch (e) {
       console.error("FETCH DATA ERROR:", e);
-      navigate("/", { state: { from: location }, replace: true });
+      navigateTo("/", { state: { from: location }, replace: true });
       throw e;
     }
   };
