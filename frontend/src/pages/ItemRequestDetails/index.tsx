@@ -7,7 +7,7 @@ import { itemRequestResponseToItemRequest } from "@/utils/converters";
 import { InfoTile } from "./InfoTile";
 import { ItemRequestDetailsSection } from "./ItemRequestDetailsSection";
 import { Avatar } from "@/components/Avatar";
-import { SplitButton } from "@/components/Buttons";
+import { SplitButton, SplitButtonContainer } from "@/components/Buttons";
 import { AlertDialog } from "@/components/Modals";
 import { PageHeader } from "@/components/PageHeader";
 import { WarningIcon } from "@/components/Icons";
@@ -44,15 +44,10 @@ export const ItemRequestDetailsPage = () => {
             <InfoTile title="Data da solicitação" info={request.requestedAtFormatted} />
           </ul>
 
-          <div className={styles.actionContainer}>
-            <SplitButton
-              leftTitle="Recusar"
-              rightTitle="Aceitar"
-              leftButtonStyle="danger"
-              rightButtonStyle="confirm"
-              onClickLeft={onOpenElement}
-            />
-          </div>
+          <SplitButtonContainer className={styles.actionContainer}>
+            <SplitButton title="Recusar" buttonStyle="danger" onClick={onOpenElement} />
+            <SplitButton title="Aceitar" />
+          </SplitButtonContainer>
         </ItemRequestDetailsSection>
 
         <ItemRequestDetailsSection title="Solicitado por" className={styles.user}>

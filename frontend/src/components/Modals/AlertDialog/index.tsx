@@ -1,10 +1,9 @@
 import { forwardRef, ForwardRefRenderFunction } from "react";
 import { ReactChildrenElement } from "@Types/elements";
-import { classNames } from "@/utils/styles";
 
 import { ShowWhen } from "@/layout";
 import { DefaultBaseModalProps, DefaultModal } from "../DefaultModal";
-import { SplitButton } from "../../Buttons";
+import { SplitButtonContainer, SplitButton } from "../../Buttons";
 
 import styles from "./styles.module.scss";
 
@@ -24,7 +23,7 @@ interface AlertDialogProps extends DefaultBaseModalProps {
 
 type ForwardRefRender = ForwardRefRenderFunction<HTMLDivElement, AlertDialogProps>;
 
-const AlertDialogBase: ForwardRefRender = (props, ref): JSX.Element => {
+const AlertDialogBase: ForwardRefRender = (props, ref): JSX.Element | null => {
   const {
     icon,
     title,
@@ -40,27 +39,26 @@ const AlertDialogBase: ForwardRefRender = (props, ref): JSX.Element => {
     ...rest
   } = props;
 
-  const actionContainerClasses = classNames(
-    styles.actionContainer,
-    useSingleButton ? styles.single : ""
-  );
-
   return (
     <DefaultModal ref={ref} icon={icon} title={title} description={description} {...rest}>
       <ShowWhen condition={!!children}>
         <div className={styles.extraContent}>{children}</div>
       </ShowWhen>
 
-      <SplitButton
-        leftTitle={leftTitle}
-        rightTitle={rightTitle ?? (useSingleButton ? "Ok" : "Cancelar")}
-        leftButtonStyle={leftButtonStyle ?? "danger"}
-        rightButtonStyle={rightButtonStyle ?? "cancel"}
-        onClickLeft={onClickLeft ?? rest.onCloseModal}
-        onClickRight={onClickRight ?? rest.onCloseModal}
-        useSingleButton={useSingleButton}
-        containerClassName={actionContainerClasses}
-      />
+      <SplitButtonContainer className={styles.actionContainer}>
+        <SplitButton
+          title={leftTitle}
+          buttonStyle={leftButtonStyle ?? "danger"}
+          onClick={onClickLeft ?? rest.onCloseModal}
+        />
+        <ShowWhen condition={!useSingleButton}>
+          <SplitButton
+            title={rightTitle ?? (useSingleButton ? "ok" : "Cancelar")}
+            buttonStyle={rightButtonStyle ?? "cancel"}
+            onClick={onClickRight ?? rest.onCloseModal}
+          />
+        </ShowWhen>
+      </SplitButtonContainer>
     </DefaultModal>
   );
 };

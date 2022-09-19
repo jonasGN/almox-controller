@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom";
 import { Paths } from "@/routes";
+import { config } from "@/config";
 
 import { Logo } from "../Logo";
 import { SideBarNavItem } from "./SideBarNavItem";
 import { SideBarSection } from "./SideBarSection";
 
-import config from "../../../package.json";
 import styles from "./styles.module.scss";
 
 interface SideBarProps {}
@@ -33,7 +33,7 @@ export const SideBar = (props: SideBarProps): JSX.Element => {
         </SideBarSection>
       </nav>
 
-      <footer>v {config.version}</footer>
+      <footer>v {config.appVersion}</footer>
     </aside>
   );
 };

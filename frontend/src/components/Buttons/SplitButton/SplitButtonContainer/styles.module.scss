@@ -1,0 +1,11 @@
+.splitButton {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--dft-inset);
+
+  width: 100%;
+
+  button:only-child {
+    grid-column: 2 / -1;
+  }
+}
