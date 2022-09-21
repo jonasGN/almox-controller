@@ -1,4 +1,4 @@
-import { forwardRef, ForwardRefRenderFunction } from "react";
+import { forwardRef, ForwardRefRenderFunction, useState } from "react";
 import { ReactTextAreaElement } from "@Types/elements";
 
 import { BaseInput } from "../BaseInput";
@@ -15,9 +15,27 @@ type ForwardRefFunction = ForwardRefRenderFunction<HTMLTextAreaElement, TextArea
 const TextAreaBase: ForwardRefFunction = (props, ref): JSX.Element => {
   const { name, label, ...rest } = props;
 
+  const [count, setCount] = useState(0);
+
+  const onChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    setCount(e.target.value.length);
+    // TODO: call rest.onChange function too
+  };
+
+  const counterElement = (
+    <span className={styles.counter}>
+      {count}/{rest.maxLength}
+    </span>
+  );
+
   return (
-    <BaseInput name={name} label={label} customClassName={styles.textArea}>
-      <textarea ref={ref} name={name} id={name} {...rest} />
+    <BaseInput
+      name={name}
+      label={label}
+      customClassName={styles.input}
+      textCounterElement={rest.maxLength ? counterElement : undefined}
+    >
+      <textarea {...rest} ref={ref} name={name} id={name} onChange={onChange} />
     </BaseInput>
   );
 };

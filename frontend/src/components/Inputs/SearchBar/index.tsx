@@ -33,9 +33,9 @@ const SearchBarBase: ForwardRefFunction = (props, ref): JSX.Element => {
 
   return (
     <BaseInput
-      name="search-items"
-      leadingIcon={leadingIcon}
-      trailingIcon={searchTerm && trailingIcon}
+      name={name}
+      leadingElement={leadingIcon}
+      trailingElement={searchTerm ? trailingIcon : undefined}
     >
       <input
         ref={ref}

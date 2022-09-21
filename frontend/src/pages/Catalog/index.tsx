@@ -1,24 +1,24 @@
-import { useNavigate } from "react-router-dom";
-import { Paths } from "../../routes";
+import { Paths } from "@/routes";
+import { useNavigation } from "@/hooks/common";
 
+import { ShowWhenHasRoles } from "@/layout";
 import { CatalogItemList } from "./CatalogItemList";
-import { OptionButton } from "../../components/Buttons";
-import { AddIcon } from "../../components/Icons";
-import { SearchBar } from "../../components/Inputs";
-import { PageHeader } from "../../components/PageHeader";
-import { ShowWhenHasRoles } from "../../layout";
+import { OptionButton } from "@/components/Buttons";
+import { AddIcon } from "@/components/Icons";
+import { SearchBar } from "@/components/Inputs";
+import { PageHeader } from "@/components/PageHeader";
 
 export const CatalogPage = (): JSX.Element => {
-  const navigate = useNavigate();
+  const { navigateTo } = useNavigation();
 
   return (
     <>
       <PageHeader title="Catálogo">
         {/* <ShowWhenHasRoles allowedRoles={["admin"]}> */}
-        <OptionButton icon={<AddIcon />} onClick={() => navigate(Paths.ITEMS_ADD)} />
+        <OptionButton icon={<AddIcon />} onClick={() => navigateTo(Paths.ITEMS_ADD)} />
         {/* </ShowWhenHasRoles> */}
 
-        <SearchBar onSearch={(term) => {}} />
+        <SearchBar name="searchItems" onSearch={(term) => {}} />
       </PageHeader>
 
       <CatalogItemList />

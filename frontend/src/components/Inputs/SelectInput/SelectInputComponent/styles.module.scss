@@ -1,0 +1,9 @@
+.select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  & > option {
+    background-color: var(--card-color);
+  }
+}

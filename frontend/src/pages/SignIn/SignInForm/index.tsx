@@ -8,7 +8,7 @@ import { persistData } from "@/services/localStorage";
 
 import { MainButton } from "@/components/Buttons";
 import { WarningIcon } from "@/components/Icons";
-import { TextField } from "@/components/Inputs";
+import { HideTextField, TextField } from "@/components/Inputs";
 import { AlertDialog } from "@/components/Modals";
 
 import styles from "./styles.module.scss";
@@ -56,16 +56,15 @@ export const SignInForm = (): JSX.Element => {
       <form onSubmit={handleSignIn} className={styles.signInFormContainer}>
         <TextField
           autoFocus
+          name="internalCode"
           label="Código interno"
-          name="email"
           value={internalCode}
           onChange={(e) => setInternalCode(e.target.value)}
           required
         />
-        <TextField
-          label="Senha"
+        <HideTextField
           name="password"
-          isPassword
+          label="Senha"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           required

@@ -23,10 +23,8 @@ export const useNavigation = (): NavigationData => {
   const fromState = (location.state as any)?.from?.pathname as string;
 
   const navigateTo = (to: string, options?: NavigateOptions) => {
-    const { replace, state, useFrom = false } = options!;
-
-    const targetRoute = useFrom ? fromState ?? to : to;
-    navigate(targetRoute, { state, replace });
+    const targetRoute = options?.useFrom ? fromState ?? to : to;
+    navigate(targetRoute, { state: options?.state, replace: options?.replace });
   };
 
   return { navigateTo, location };

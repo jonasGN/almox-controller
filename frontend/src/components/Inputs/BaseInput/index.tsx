@@ -1,18 +1,18 @@
-import { classNames } from "@/utils/styles";
-
 import { ShowWhen } from "@/layout";
+import { classNames } from "@/utils/styles";
 
 import styles from "./styles.module.scss";
 
 export interface BasicInputProps {
   name: string;
   label?: string;
-  leadingIcon?: React.ReactElement | string;
-  leadingIconClassName?: string;
-  trailingIcon?: React.ReactElement | string;
-  trailingIconClassName?: string;
+  leadingElement?: React.ReactElement;
+  leadingElementClassName?: string;
+  trailingElement?: React.ReactElement;
+  trailingElementClassName?: string;
   helperText?: string;
   customClassName?: string;
+  textCounterElement?: React.ReactNode;
 }
 
 interface BaseInputProps extends BasicInputProps {
@@ -23,40 +23,42 @@ export const BaseInput = (props: BaseInputProps): JSX.Element => {
   const {
     name,
     label,
-    leadingIcon,
-    trailingIcon,
-    leadingIconClassName,
-    trailingIconClassName,
+    leadingElement,
+    leadingElementClassName,
+    trailingElement,
+    trailingElementClassName,
     helperText,
     customClassName,
+    textCounterElement,
     children,
   } = props;
 
-  const leadingIconClasses = leadingIcon
-    ? classNames(styles.leading, leadingIconClassName!)
+  const leadingElementClasses = leadingElement
+    ? classNames(styles.leading, leadingElementClassName!)
     : "";
 
-  const trailingIconClasses = trailingIcon
-    ? classNames(styles.trailing, trailingIconClassName!)
+  const trailingElementClasses = trailingElement
+    ? classNames(styles.trailing, trailingElementClassName!)
     : "";
 
-  const classes = classNames(
-    styles.inputContainer,
+  const inputClasses = classNames(
+    styles.input,
     customClassName!,
-    leadingIconClasses,
-    trailingIconClasses
+    leadingElementClasses,
+    trailingElementClasses
   );
 
   return (
-    <span className={styles.field}>
+    <label htmlFor={name} className={styles.inputContainer}>
       <ShowWhen condition={!!label}>
-        <label htmlFor={name}>{label}</label>
+        <span className={styles.label}>{label}</span>
       </ShowWhen>
 
-      <span className={classes}>
-        <ShowWhen condition={!!leadingIcon}>{leadingIcon}</ShowWhen>
+      <span className={inputClasses}>
+        <ShowWhen condition={!!leadingElement}>{leadingElement}</ShowWhen>
         {children}
-        <ShowWhen condition={!!trailingIcon}>{trailingIcon}</ShowWhen>
+        <ShowWhen condition={!!trailingElement}>{trailingElement}</ShowWhen>
+        <span className={styles.container} />
       </span>
 
       <ShowWhen condition={!!helperText}>
@@ -64,6 +66,8 @@ export const BaseInput = (props: BaseInputProps): JSX.Element => {
           {helperText}
         </p>
       </ShowWhen>
-    </span>
+
+      <ShowWhen condition={!!textCounterElement}>{textCounterElement}</ShowWhen>
+    </label>
   );
 };

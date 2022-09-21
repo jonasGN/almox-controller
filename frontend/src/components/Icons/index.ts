@@ -12,6 +12,7 @@ import { WarningIcon } from "./WarningIcon";
 import { PersonIcon } from "./PersonIcon";
 import { LogoutIcon } from "./LogoutIcon";
 import { HourglassTopIcon } from "./HourglassTop";
+import { ArrowDropDownIcon } from "./ArrowDropDownIcon";
 
 type Icon = React.ReactElement<SVGAElement>;
 
@@ -29,4 +30,5 @@ export {
   PersonIcon,
   LogoutIcon,
   HourglassTopIcon,
+  ArrowDropDownIcon,
 };

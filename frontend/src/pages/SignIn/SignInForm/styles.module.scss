@@ -4,8 +4,8 @@
   max-width: 320px;
   margin-top: var(--dftdb-inset);
 
-  & > span {
-    & + span {
+  & > label {
+    & + label {
       margin-top: var(--section-inset);
     }
   }

@@ -1,3 +1,7 @@
+@mixin transition($element) {
+  transition: $element 0.2s ease;
+}
+
 @mixin scale-animation {
   animation: scale 0.2s ease;
 
