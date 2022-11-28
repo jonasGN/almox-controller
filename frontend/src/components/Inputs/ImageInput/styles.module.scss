@@ -22,3 +22,16 @@
     display: none;
   }
 }
+
+.image {
+  border-radius: var(--dft-radius);
+  overflow: hidden;
+
+  position: relative;
+
+  & > div {
+    position: absolute;
+    top: var(--smdb-inset);
+    right: var(--smdb-inset);
+  }
+}

@@ -4,6 +4,7 @@ import { ItemFormHeader } from "../ItemFormHeader";
 
 interface ItemFormLocationProps {}
 
+// TODO: review this component
 export const ItemFormLocation = (props: ItemFormLocationProps): JSX.Element => {
   const {} = props;
 
@@ -16,12 +17,12 @@ export const ItemFormLocation = (props: ItemFormLocationProps): JSX.Element => {
 
       <FormInputsContainer>
         <FormSpliter>
-          <TextField name="hall" label="Corredor" />
-          <TextField name="shelf" label="Prateleira" />
+          <TextField name="hall" label="Corredor" required defaultValue="CORR02" />
+          <TextField name="shelf" label="Prateleira" required defaultValue="PRAT02" />
         </FormSpliter>
 
         <FormSpliter>
-          <TextField name="column" label="Coluna" />
+          <TextField name="column" label="Coluna" required defaultValue="COLU02" />
         </FormSpliter>
       </FormInputsContainer>
     </div>

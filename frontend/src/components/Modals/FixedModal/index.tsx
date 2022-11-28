@@ -3,10 +3,12 @@ import { DefaultBaseModalProps, DefaultModal } from "../DefaultModal";
 
 import styles from "./styles.module.scss";
 
-interface FixedModalProps extends DefaultBaseModalProps {}
+interface FixedModalProps extends DefaultBaseModalProps {
+  children?: React.ReactNode;
+}
 
 export const FixedModal = (props: FixedModalProps): JSX.Element => {
-  const { icon, title, description, ...rest } = props;
+  const { icon, title, description, children, ...rest } = props;
 
   const ref = createRef<HTMLDivElement>();
 
@@ -19,6 +21,8 @@ export const FixedModal = (props: FixedModalProps): JSX.Element => {
       modalClassName={styles.fixed}
       hasOnCloseButton={false}
       {...rest}
-    />
+    >
+      {children}
+    </DefaultModal>
   );
 };

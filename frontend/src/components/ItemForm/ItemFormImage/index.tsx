@@ -15,7 +15,7 @@ export const ItemFormImage = (props: ItemFormImageProps): JSX.Element => {
       />
 
       <FormInputsContainer>
-        <ImageInput name="itemImage" />
+        <ImageInput name="image" required />
       </FormInputsContainer>
     </div>
   );

@@ -1,18 +1,20 @@
+import type { ItemResponse } from "@Types/responses";
 import { createServer, Model, Response } from "miragejs";
 
 import { auth, refreshToken, items, itemsRequests } from "./seeds";
 import { hasNoTokenError, unauthorizedError } from "./errors";
 
+// TODO: review this service
 const createFakeServer = function () {
   createServer({
     models: {
-      item: Model,
+      item: Model.extend<Partial<ItemResponse>>({}),
       itemRequest: Model,
     },
 
     seeds(server) {
       server.db.loadData({
-        items: items,
+        items: items.content,
         itemRequests: itemsRequests,
       });
     },
@@ -42,6 +44,15 @@ const createFakeServer = function () {
         const { Authorization } = req.requestHeaders;
         if (!Authorization) return hasNoTokenError;
         return schema.all("item");
+      });
+
+      this.post("/items", (schema, req) => {
+        const id = schema.all("item").length + 1;
+
+        const item = items.create(id, req.requestBody);
+        schema.create("item", item);
+
+        return item;
       });
 
       this.get("/items/:id", (schema, req) => {

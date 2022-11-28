@@ -15,6 +15,7 @@ export const TextFieldBase = (props: TextFieldBaseProps): JSX.Element => {
   return (
     <BaseInput
       {...rest}
+      customClassName={styles.textField}
       leadingElement={prefix ? prefixElement : leadingElement}
       leadingElementClassName={prefix ? styles.prefix : undefined}
     >

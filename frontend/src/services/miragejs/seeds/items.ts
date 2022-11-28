@@ -1,11 +1,13 @@
+import type { ItemResponse } from "@Types/responses";
+import type { ItemPost } from "@Types/post";
+
 import { faker } from "@faker-js/faker";
-import { ItemResponse } from "@Types/responses";
 
 const _items: ItemResponse[] = [];
 
-Array.from({ length: 20 }).forEach((item, index) => {
+for (let i = 0; i < 20; i++) {
   _items.push({
-    id: index + 1,
+    id: i + 1,
     name: faker.commerce.productName(),
     code: faker.random.numeric(12),
     unitPrice: faker.datatype.number({ min: 99, max: 10000 }),
@@ -20,6 +22,27 @@ Array.from({ length: 20 }).forEach((item, index) => {
       shelf: faker.helpers.arrayElement(["PRAT01", "PRAT02", "PRAT03", "PRAT04"]),
     },
   });
-});
+}
 
-export const items = _items;
+const createNewItem = (id: number, body: any) => {
+  const data = JSON.parse(body) as ItemPost;
+  const newItem = {
+    id: id.toString(),
+    name: data.name,
+    code: faker.random.numeric(12),
+    unitPrice: data.price * 100,
+    description: data.description,
+    amountAvailable: data.initialQuantity,
+    category: data.category,
+    image: data.image,
+    status: "AVAILABLE",
+    location: data.location,
+  };
+
+  return newItem;
+};
+
+export const items = {
+  content: _items,
+  create: createNewItem,
+};

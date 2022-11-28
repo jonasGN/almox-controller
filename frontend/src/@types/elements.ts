@@ -24,6 +24,11 @@ export type ReactTextAreaElement = React.DetailedHTMLProps<
   HTMLTextAreaElement
 >;
 
+export type ReactSelectInputElement = React.DetailedHTMLProps<
+  React.SelectHTMLAttributes<HTMLSelectElement>,
+  HTMLSelectElement
+>;
+
 export type ReactDivElement = React.DetailedHTMLProps<
   React.HTMLAttributes<HTMLDivElement>,
   HTMLDivElement

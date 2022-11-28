@@ -1,9 +1,10 @@
+import type { ReactSelectInputElement } from "@Types/elements";
 import { ArrowDropDownIcon } from "@/components/Icons";
 import { BaseInput } from "../../BaseInput";
 
 import styles from "./styles.module.scss";
 
-interface SelectInputProps {
+interface SelectInputProps extends ReactSelectInputElement {
   name: string;
   label: string;
   children: React.ReactNode;
