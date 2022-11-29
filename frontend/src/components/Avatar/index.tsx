@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { ElementException } from "@/exceptions";
-import { initialsOf } from "@/utils/formatters";
+import { formatter } from "@/utils/formatters";
 import { classNames } from "@/utils/styles";
 
 import { RawButton } from "../Buttons";
@@ -25,7 +25,7 @@ export const Avatar = (props: AvatarProps): JSX.Element => {
     throw new ElementException("Must be given at least one of: userImage or userName");
   }
 
-  const initials = userName && initialsOf(userName);
+  const initials = userName && formatter.initialsOf(userName);
 
   const content = image ? (
     <Image src={image} alt={userName} onError={() => setImage("")} />

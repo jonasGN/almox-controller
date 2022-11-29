@@ -7,8 +7,8 @@ import {
   UnauthorizedException,
 } from "@/exceptions";
 import { apiClient } from "@/services/apiClient";
-import { toShortName } from "@/utils/formatters";
-import { rolesToUserRoles } from "@/utils/converters";
+import { formatter } from "@/utils/formatters";
+import { convert } from "@/utils/converters";
 
 interface Credentials {
   internalCode: string;
@@ -29,9 +29,9 @@ export const signIn = async (credentials: Credentials): Promise<AuthData> => {
     return {
       accessToken: data.accessToken,
       refreshToken: data.refreshToken,
-      roles: rolesToUserRoles(data.roles),
+      roles: convert.rolesToUserRoles(data.roles),
       user: {
-        name: toShortName(data.user.name),
+        name: formatter.toShortName(data.user.name),
         internalCode: data.user.internalCode,
         avatar: data.user.avatar,
       },

@@ -2,7 +2,7 @@ import { useParams } from "react-router-dom";
 import { ItemResponse } from "@Types/responses";
 import { useOverlayElement } from "@/hooks/element";
 import { useFetchData } from "@/hooks/common";
-import { itemResponseToItem } from "@/utils/converters";
+import { convert } from "@/utils/converters";
 
 import { ImageGalery } from "./ImageGalery";
 import { InformationSection } from "./InformationSection";
@@ -30,7 +30,7 @@ export const ItemDetailsPage = (): JSX.Element => {
     return <ContentHelper isLoading={isLoading} hasError={hasError} />;
   }
 
-  const itemFormatted = itemResponseToItem(content!);
+  const itemFormatted = convert.itemResponseToItem(content!);
 
   return (
     <>

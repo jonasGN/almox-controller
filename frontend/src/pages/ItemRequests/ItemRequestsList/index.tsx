@@ -1,6 +1,6 @@
 import { ItemRequestResponse } from "@Types/responses";
 import { useFetchData } from "@/hooks/common";
-import { itemRequestResponseToItemRequest } from "@/utils/converters";
+import { convert } from "@/utils/converters";
 
 import { ItemRequestCard } from "@/components/ItemRequestCard";
 import { ContentHelper } from "@/components/ContentHelper";
@@ -17,7 +17,9 @@ export const ItemRequestsList = (): JSX.Element => {
     return <ContentHelper isLoading={isLoading} hasError={hasError} />;
   }
 
-  const requests = content?.map((request) => itemRequestResponseToItemRequest(request));
+  const requests = content?.map((request) =>
+    convert.itemRequestResponseToItemRequest(request)
+  );
 
   return (
     <div className={styles.content}>

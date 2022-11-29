@@ -2,7 +2,7 @@ import { useParams } from "react-router-dom";
 import { ItemRequestResponse } from "@Types/responses";
 import { useOverlayElement } from "@/hooks/element";
 import { useFetchData } from "@/hooks/common";
-import { itemRequestResponseToItemRequest } from "@/utils/converters";
+import { convert } from "@/utils/converters";
 
 import { InfoTile } from "./InfoTile";
 import { ItemRequestDetailsSection } from "./ItemRequestDetailsSection";
@@ -29,7 +29,9 @@ export const ItemRequestDetailsPage = () => {
     return <ContentHelper isLoading={isLoading} hasError={hasError} />;
   }
 
-  const request = itemRequestResponseToItemRequest(content!, { dateFormat: "long" });
+  const request = convert.itemRequestResponseToItemRequest(content!, {
+    dateFormat: "long",
+  });
 
   return (
     <>

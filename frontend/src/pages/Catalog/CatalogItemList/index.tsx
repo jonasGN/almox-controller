@@ -1,6 +1,6 @@
 import { ItemResponse } from "@Types/responses";
 import { useFetchData } from "@/hooks/common";
-import { itemResponseToItem } from "@/utils/converters";
+import { convert } from "@/utils/converters";
 
 import { ItemCard } from "@/components/ItemCard";
 import { ContentHelper } from "@/components/ContentHelper";
@@ -17,7 +17,7 @@ export const CatalogItemList = (): JSX.Element => {
     return <ContentHelper isLoading={isLoading} hasError={hasError} />;
   }
 
-  const items = content?.map((item) => itemResponseToItem(item));
+  const items = content?.map((item) => convert.itemResponseToItem(item));
 
   return (
     <div className={styles.contentContainer}>

@@ -1,7 +1,7 @@
 import { useAuth } from "./useAuth";
 import { refreshToken } from "@/repositories/auth";
-import { rolesToUserRoles } from "@/utils/converters";
-import { toShortName } from "@/utils/formatters";
+import { convert } from "@/utils/converters";
+import { formatter } from "@/utils/formatters";
 
 type RefreshTokenHook = () => Promise<string>;
 
@@ -11,7 +11,7 @@ export const useRefreshToken = (): RefreshTokenHook => {
   const refresh = async () => {
     const data = await refreshToken();
     const accessToken = data.accessToken;
-    const roles = rolesToUserRoles(data.roles);
+    const roles = convert.rolesToUserRoles(data.roles);
     const user = data.user;
 
     setUser((prev) => {
@@ -22,7 +22,7 @@ export const useRefreshToken = (): RefreshTokenHook => {
         roles,
         accessToken,
         ...user,
-        name: toShortName(user.name),
+        name: formatter.toShortName(user.name),
       };
     });
 
