@@ -1,0 +1,12 @@
+version: "3.9"
+services:
+  frontend:
+    container_name: almox-fe
+    image: almox-fe
+    build:
+      context: frontend
+      target: development
+    ports:
+      - 5173:5173
+    volumes:
+      - ./frontend:/app/
