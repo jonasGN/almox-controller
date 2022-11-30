@@ -1,8 +1,8 @@
+import type { MenuItem } from "../MenuItem";
 import { Link } from "@/wrappers/navigation";
 import { classNames } from "@/utils/styles";
 
 import { RawButton } from "../../Buttons";
-import { MenuItem } from "../MenuItem";
 
 import styles from "./styles.module.scss";
 

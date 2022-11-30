@@ -1,5 +1,6 @@
+import type { DefaultBaseModalProps } from "../DefaultModal";
 import { createRef } from "react";
-import { DefaultBaseModalProps, DefaultModal } from "../DefaultModal";
+import { DefaultModal } from "../DefaultModal";
 
 import styles from "./styles.module.scss";
 

@@ -1,7 +1,7 @@
+import type { ReactState } from "@Types/aliases";
+import type { UserRoles } from "@Types/common";
+import type { ReactChildrenElement } from "@Types/elements";
 import { createContext, useState } from "react";
-import { ReactState } from "@Types/aliases";
-import { UserRoles } from "@Types/common";
-import { ReactChildrenElement } from "@Types/elements";
 
 export interface UserContextData {
   name: string;

@@ -1,5 +1,5 @@
+import type { ReactInputElement } from "@Types/elements";
 import { ForwardRefRenderFunction } from "react";
-import { ReactInputElement } from "@Types/elements";
 
 export interface TextFieldProps extends ReactInputElement {
   name: string;

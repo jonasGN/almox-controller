@@ -1,4 +1,4 @@
-import { UserRoles } from "../common";
+import type { UserRoles } from "../common";
 
 export interface AuthData {
   accessToken: string;

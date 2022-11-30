@@ -1,8 +1,9 @@
+import type { Icon } from "../../Icons";
+import type { BaseModalProps } from "../BaseModal";
 import { forwardRef, ForwardRefRenderFunction } from "react";
 import { classNames } from "@/utils/styles";
 
-import { Icon } from "../../Icons";
-import { BaseModal, BaseModalProps } from "../BaseModal";
+import { BaseModal } from "../BaseModal";
 
 import styles from "./styles.module.scss";
 

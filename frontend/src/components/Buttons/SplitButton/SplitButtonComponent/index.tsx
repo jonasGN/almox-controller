@@ -1,4 +1,4 @@
-import { ReactButtonElement } from "@/@types/elements";
+import type { ReactButtonElement } from "@Types/elements";
 import { BaseButton } from "../../BaseButton";
 
 import styles from "./styles.module.scss";

@@ -1,4 +1,4 @@
-import { UserRoles } from "@Types/common";
+import type { UserRoles } from "@Types/common";
 
 export const rolesToUserRoles = (roles: string[]): Array<UserRoles> => {
   const formattedRoles: UserRoles[] = roles.map((role) => {

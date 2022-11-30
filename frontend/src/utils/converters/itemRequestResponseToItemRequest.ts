@@ -1,5 +1,5 @@
-import { ItemRequest } from "@Types/entities";
-import { ItemRequestResponse } from "@Types/responses";
+import type { ItemRequest } from "@Types/entities";
+import type { ItemRequestResponse } from "@Types/responses";
 
 import { formatter } from "../formatters";
 

@@ -1,9 +1,8 @@
-import {
-  useNavigate,
-  useLocation,
+import type {
   NavigateOptions as ReactRouterDomNavOptions,
   Location as ReactRouterDomLocation,
 } from "@/wrappers/navigation";
+import { useNavigate, useLocation } from "@/wrappers/navigation";
 
 interface NavigateOptions extends ReactRouterDomNavOptions {
   useFrom?: boolean;

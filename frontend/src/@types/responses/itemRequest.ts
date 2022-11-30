@@ -1,4 +1,4 @@
-import { UserResponse } from "./user";
+import type { UserResponse } from "./user";
 
 export interface ItemRequestResponse {
   id: number;

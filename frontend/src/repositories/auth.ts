@@ -1,6 +1,6 @@
+import type { AuthResponse, RefreshTokenResponse } from "@Types/responses";
+import type { AuthData, RefreshTokenData } from "@Types/entities";
 import { AxiosError } from "axios";
-import { AuthResponse, RefreshTokenResponse } from "@Types/responses";
-import { AuthData, RefreshTokenData } from "@Types/entities";
 import {
   BadRequestException,
   ServerException,

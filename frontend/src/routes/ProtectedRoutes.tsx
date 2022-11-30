@@ -1,5 +1,5 @@
+import type { UserRoles } from "@Types/common";
 import { useLocation, Outlet, Navigate } from "@/wrappers/navigation";
-import { UserRoles } from "@Types/common";
 import { useAuth } from "@/hooks/auth";
 import { isObjectEmpty } from "@/utils/common";
 

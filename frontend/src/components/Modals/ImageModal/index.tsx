@@ -1,7 +1,8 @@
+import type { BaseModalProps } from "../BaseModal";
 import { forwardRef, ForwardRefRenderFunction } from "react";
 
 import { Image } from "../../Image";
-import { BaseModal, BaseModalProps } from "../BaseModal";
+import { BaseModal } from "../BaseModal";
 
 import styles from "./styles.module.scss";
 

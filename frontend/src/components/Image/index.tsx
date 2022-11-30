@@ -1,5 +1,5 @@
+import type { ReactImgElement } from "@Types/elements";
 import { useState } from "react";
-import { ReactImgElement } from "@Types/elements";
 import { classNames } from "@/utils/styles";
 
 import styles from "./styles.module.scss";

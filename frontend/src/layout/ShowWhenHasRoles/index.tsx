@@ -1,4 +1,4 @@
-import { UserRoles } from "@Types/common";
+import type { UserRoles } from "@Types/common";
 import { useAuth } from "@/hooks/auth";
 
 interface ShowWhenHasRolesProps {

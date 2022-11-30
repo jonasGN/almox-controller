@@ -1,8 +1,8 @@
+import type { Icon } from "../../Icons";
 import { classNames } from "@/utils/styles";
 
 import { RawButtonProps } from "../RawButton";
 import { IconButton } from "../IconButton";
-import { Icon } from "../../Icons";
 
 import styles from "./styles.module.scss";
 

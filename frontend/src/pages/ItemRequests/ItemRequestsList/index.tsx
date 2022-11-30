@@ -1,4 +1,4 @@
-import { ItemRequestResponse } from "@Types/responses";
+import type { ItemRequestResponse } from "@Types/responses";
 import { useFetchData } from "@/hooks/common";
 import { convert } from "@/utils/converters";
 

@@ -1,5 +1,5 @@
+import type { AuthResponse, RefreshTokenResponse } from "@Types/responses";
 import { faker } from "@faker-js/faker";
-import { AuthResponse, RefreshTokenResponse } from "@Types/responses";
 import { generateTokens } from "../../cryptoJS";
 
 const roles = faker.helpers.arrayElements(

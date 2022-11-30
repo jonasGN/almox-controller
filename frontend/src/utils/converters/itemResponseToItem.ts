@@ -1,5 +1,5 @@
-import { ItemResponse } from "@Types/responses";
-import { Item } from "@Types/entities";
+import type { ItemResponse } from "@Types/responses";
+import type { Item } from "@Types/entities";
 
 import { formatter } from "../formatters";
 

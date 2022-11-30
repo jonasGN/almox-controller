@@ -1,5 +1,5 @@
+import type { ReactFileInputElement } from "@Types/elements";
 import { useRef, useState } from "react";
-import { ReactFileInputElement } from "@Types/elements";
 import { useOverlayElement } from "@/hooks/element";
 
 import { AddIcon, EditIcon } from "../../Icons";

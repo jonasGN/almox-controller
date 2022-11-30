@@ -1,5 +1,5 @@
+import type { ItemRequestResponse } from "@Types/responses";
 import { faker } from "@faker-js/faker";
-import { ItemRequestResponse } from "@Types/responses";
 
 const requests: ItemRequestResponse[] = [];
 

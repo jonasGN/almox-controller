@@ -1,7 +1,7 @@
+import type { MenuItem } from "../MenuItem";
 import { forwardRef, ForwardRefRenderFunction } from "react";
 
 import { ShowWhen } from "@/layout";
-import { MenuItem } from "../MenuItem";
 import { MenuLine } from "../MenuLine";
 
 import styles from "./styles.module.scss";

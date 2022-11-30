@@ -1,8 +1,9 @@
+import type { ReactChildrenElement } from "@Types/elements";
+import type { DefaultBaseModalProps } from "../DefaultModal";
 import { forwardRef, ForwardRefRenderFunction } from "react";
-import { ReactChildrenElement } from "@Types/elements";
 
 import { ShowWhen } from "@/layout";
-import { DefaultBaseModalProps, DefaultModal } from "../DefaultModal";
+import { DefaultModal } from "../DefaultModal";
 import { SplitButtonContainer, SplitButton } from "../../Buttons";
 
 import styles from "./styles.module.scss";

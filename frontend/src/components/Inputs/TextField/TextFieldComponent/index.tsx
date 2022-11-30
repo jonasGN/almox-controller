@@ -1,6 +1,6 @@
+import type { TextFieldForwardRef } from "../TextFieldProps";
 import React from "react";
 
-import { TextFieldForwardRef } from "../TextFieldProps";
 import { TextFieldBase } from "../TextFieldBase";
 
 const TextFieldComponent: TextFieldForwardRef = (props, ref): JSX.Element => {

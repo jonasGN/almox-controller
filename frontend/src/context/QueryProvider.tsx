@@ -1,4 +1,5 @@
-import { QueryClient, QueryClientProvider, QueryObserverOptions } from "react-query";
+import type { QueryObserverOptions } from "react-query";
+import { QueryClient, QueryClientProvider } from "react-query";
 import { ReactQueryDevtools } from "react-query/devtools";
 
 interface QueryProviderProps {

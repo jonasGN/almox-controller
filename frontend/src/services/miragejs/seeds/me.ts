@@ -1,5 +1,5 @@
+import type { MeResponse } from "@Types/responses";
 import { faker } from "@faker-js/faker";
-import { MeResponse } from "@Types/responses";
 
 export const me: MeResponse = {
   id: faker.datatype.number({ min: 1, max: 1000 }),
