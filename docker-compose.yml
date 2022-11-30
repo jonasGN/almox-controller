@@ -10,3 +10,21 @@ services:
       - 5173:5173
     volumes:
       - ./frontend:/app/
+
+  # backend:
+  #   container_name: almox-be
+  #   image: almox-be
+  #   build:
+  #     context: backend
+  #     target: development
+  #   ports:
+  #     - 8080:8080
+
+  # mobile:
+  #   container_name: almox-mb
+  #   image: almox-mb
+  #   build:
+  #     context: mobile
+  #     target: development
+  #   ports:
+  #     - 5353:5353
