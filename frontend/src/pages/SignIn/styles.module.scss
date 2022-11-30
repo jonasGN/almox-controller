@@ -16,3 +16,15 @@
     margin-top: var(--smdb-inset);
   }
 }
+
+.signup {
+  @include body-1;
+  display: flex;
+  justify-content: center;
+  margin-top: var(--big-inset);
+
+  p {
+    color: var(--body-color);
+    display: inline-block;
+  }
+}

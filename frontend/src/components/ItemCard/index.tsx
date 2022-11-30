@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link } from "@/wrappers/navigation";
 import { Paths } from "@/routes";
 import { classNames } from "@/utils/styles";
 

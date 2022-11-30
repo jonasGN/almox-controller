@@ -1,3 +1,6 @@
+import { Link } from "@/wrappers/navigation";
+import { Paths } from "@/routes";
+
 import { SignInForm } from "./SignInForm";
 import { ScreenSizeLayout } from "@/layout";
 import { Logo } from "@/components/Logo";
@@ -11,6 +14,12 @@ export const SignInPage = (): JSX.Element => {
       <h1>Login</h1>
 
       <SignInForm />
+
+      <div className={styles.signup}>
+        <p>
+          Não possui conta? <Link to={Paths.SIGN_UP}>Criar nova</Link>
+        </p>
+      </div>
     </ScreenSizeLayout>
   );
 };

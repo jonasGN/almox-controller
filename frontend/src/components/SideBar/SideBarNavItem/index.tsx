@@ -1,4 +1,4 @@
-import { Link, To } from "react-router-dom";
+import { Link, To } from "@/wrappers/navigation";
 
 import styles from "./styles.module.scss";
 

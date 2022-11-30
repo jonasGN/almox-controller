@@ -1,17 +1,5 @@
 @import "@/styles/fonts";
 
-@mixin link-dft {
-  color: var(--primary-color);
-  display: inline-block;
-
-  filter: none;
-  transition: var(--dft-transition);
-
-  &:hover {
-    filter: brightness(0.8);
-  }
-}
-
 .signInFormContainer {
   max-width: 320px;
   margin-top: var(--dftdb-inset);
@@ -29,22 +17,6 @@
 
 .forgotPassword {
   @include subtitle-2;
-  @include link-dft;
   margin-top: var(--dft-inset);
   padding-block: var(--sm-inset);
-}
-
-.signup {
-  display: flex;
-  justify-content: center;
-  margin-top: var(--big-inset);
-
-  p {
-    color: var(--body-color);
-    display: inline-block;
-  }
-
-  a {
-    @include link-dft;
-  }
 }

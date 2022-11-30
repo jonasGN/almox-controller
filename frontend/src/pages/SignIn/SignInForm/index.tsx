@@ -5,6 +5,7 @@ import { useNavigation } from "@/hooks/common";
 import { signIn } from "@/repositories/auth";
 import { Paths } from "@/routes";
 import { persistData } from "@/services/localStorage";
+import { Link } from "@/wrappers/navigation";
 
 import { MainButton } from "@/components/Buttons";
 import { WarningIcon } from "@/components/Icons";
@@ -13,24 +14,42 @@ import { AlertDialog } from "@/components/Modals";
 
 import styles from "./styles.module.scss";
 
+interface SigninCredentials {
+  internalCode: string;
+  password: string;
+}
+
 export const SignInForm = (): JSX.Element => {
   const { setUser } = useAuth();
   const { navigateTo } = useNavigation();
 
-  const [internalCode, setInternalCode] = useState("");
-  const [password, setPassword] = useState("");
+  const [credentials, setCredentials] = useState({
+    internalCode: "",
+    password: "",
+  } as SigninCredentials);
 
   const [errMessage, setErrMessage] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
   const { isVisible, elementRef, onOpenElement, onCloseElement } = useOverlayElement();
 
+  const setInternalCode = (internalCode: string) => {
+    setCredentials({ ...credentials, internalCode });
+  };
+
+  const setPassword = (password: string) => {
+    setCredentials({ ...credentials, password });
+  };
+
   const handleSignIn = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
 
     try {
-      const response = await signIn({ internalCode, password });
+      const response = await signIn({
+        internalCode: credentials.internalCode,
+        password: credentials.password,
+      });
       const user = response.user;
 
       setUser({
@@ -48,8 +67,7 @@ export const SignInForm = (): JSX.Element => {
       onOpenElement();
     } finally {
       setIsLoading(false);
-      setInternalCode("");
-      setPassword("");
+      setCredentials({ internalCode: "", password: "" });
     }
   };
 
@@ -60,34 +78,28 @@ export const SignInForm = (): JSX.Element => {
           autoFocus
           name="internalCode"
           label="Código interno"
-          value={internalCode}
+          value={credentials.internalCode}
           onChange={(e) => setInternalCode(e.target.value)}
           required
         />
         <HideTextField
           name="password"
           label="Senha"
-          value={password}
+          value={credentials.password}
           onChange={(e) => setPassword(e.target.value)}
           required
         />
 
-        <a href="/forgot" className={styles.forgotPassword}>
+        <Link to={Paths.FORGOT_PASSWORD} className={styles.forgotPassword}>
           Esqueci minha senha
-        </a>
+        </Link>
 
         <MainButton
           type="submit"
           title="entrar"
           isLoading={isLoading}
-          isDisabled={!internalCode || !password}
+          isDisabled={!credentials.internalCode || !credentials.password}
         />
-
-        <div className={styles.signup}>
-          <p>
-            Não possui conta? <a href="/signup">Criar nova</a>{" "}
-          </p>
-        </div>
       </form>
 
       <AlertDialog

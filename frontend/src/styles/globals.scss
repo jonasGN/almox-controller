@@ -48,7 +48,15 @@ img {
 
 a {
   text-decoration: none;
-  color: inherit;
+  color: var(--primary-color);
+  display: inline-block;
+
+  filter: none;
+  transition: var(--dft-transition);
+
+  &:hover {
+    filter: brightness(0.8);
+  }
 }
 
 ul,
