@@ -52,7 +52,7 @@ export const signIn = async (credentials: Credentials): Promise<AuthData> => {
       case 400:
         throw new BadRequestException("Código interno ou senha não informado.");
       case 401:
-        throw new UnauthorizedException("Código interno ou senha incorretos.");
+        throw new UnauthorizedException("Código interno e/ou senha incorretos.");
       default:
         throw new Error("Erro desconhecido durante o login.");
     }

@@ -13,6 +13,6 @@
 
   h1 {
     @include heading-4($bold-weight);
-    margin-top: var(--section-inset);
+    margin-top: var(--smdb-inset);
   }
 }

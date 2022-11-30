@@ -42,7 +42,9 @@ export const SignInForm = (): JSX.Element => {
       persistData("user", user);
       navigateTo(Paths.DASHBOARD, { useFrom: true, replace: true });
     } catch (e) {
-      setErrMessage((e as Error).message + " Por favor, tente novamente.");
+      setErrMessage(
+        (e as Error).message + " Verifique os dados informados e tente novamente. "
+      );
       onOpenElement();
     } finally {
       setIsLoading(false);
@@ -80,16 +82,23 @@ export const SignInForm = (): JSX.Element => {
           isLoading={isLoading}
           isDisabled={!internalCode || !password}
         />
+
+        <div className={styles.signup}>
+          <p>
+            Não possui conta? <a href="/signup">Criar nova</a>{" "}
+          </p>
+        </div>
       </form>
 
       <AlertDialog
         ref={elementRef}
         isOpen={isVisible}
         icon={<WarningIcon />}
-        title="Erro durante login"
+        title="Credenciais incorretas"
         description={errMessage}
         onCloseModal={onCloseElement}
         useSingleButton={true}
+        leftButtonStyle="confirm"
       />
     </>
   );
