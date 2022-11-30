@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Outlet } from "react-router-dom";
+import { Outlet } from "@/wrappers/navigation";
 import { useAuth, useRefreshToken } from "@/hooks/auth";
 
 export const PersistLogin = (): JSX.Element => {

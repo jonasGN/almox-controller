@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useParams } from "@/wrappers/navigation";
 import { ItemRequestResponse } from "@Types/responses";
 import { useOverlayElement } from "@/hooks/element";
 import { useFetchData } from "@/hooks/common";

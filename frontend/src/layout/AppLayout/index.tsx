@@ -1,4 +1,4 @@
-import { Outlet } from "react-router-dom";
+import { Outlet } from "@/wrappers/navigation";
 import { classNames } from "@/utils/styles";
 
 import { ScreenSizeLayout } from "../ScreenSizeLayout";

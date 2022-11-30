@@ -3,7 +3,7 @@ import {
   useLocation,
   NavigateOptions as ReactRouterDomNavOptions,
   Location as ReactRouterDomLocation,
-} from "react-router-dom";
+} from "@/wrappers/navigation";
 
 interface NavigateOptions extends ReactRouterDomNavOptions {
   useFrom?: boolean;

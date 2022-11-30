@@ -1,4 +1,4 @@
-import { Routes, Route, BrowserRouter } from "react-router-dom";
+import { Routes, Route, BrowserRouter } from "@/wrappers/navigation";
 
 import { Paths } from "./paths";
 import { ProtectedRoutes } from "./ProtectedRoutes";
