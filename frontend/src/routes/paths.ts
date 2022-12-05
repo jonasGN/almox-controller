@@ -1,12 +1,14 @@
-export enum Paths {
+const home = "/app";
+
+export const Paths = Object.freeze({
   // auth
-  SIGN_IN = "/signin",
-  SIGN_UP = "/signup",
-  FORGOT_PASSWORD = "/forgot",
+  SIGN_IN: "/signin",
+  SIGN_UP: "/signup",
+  FORGOT_PASSWORD: "/forgot",
 
   // app
-  DASHBOARD = "/dashboard",
-  ITEMS = "/dashboard/items",
-  ITEMS_REQUESTS = "/dashboard/items/requests",
-  ITEMS_ADD = "/dashboard/items/add",
-}
+  HOME: home,
+  ITEMS: `${home}/items`,
+  ITEMS_REQUESTS: `${home}/items/requests`,
+  ITEMS_ADD: `${home}/items/add`,
+});

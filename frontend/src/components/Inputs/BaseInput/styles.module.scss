@@ -39,6 +39,10 @@
     padding-inline: var(--dft-inset);
     border-radius: var(--dft-radius);
 
+    &::placeholder {
+      color: var(--placeholder-color);
+    }
+
     &:-webkit-autofill ~ .container,
     &:-webkit-autofill:focus ~ .container,
     &:-webkit-autofill:focus {

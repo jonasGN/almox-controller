@@ -3,9 +3,7 @@ services:
   frontend:
     container_name: almox-fe
     image: almox-fe
-    build:
-      context: frontend
-      target: development
+    build: frontend
     ports:
       - 5173:5173
     volumes:
@@ -14,17 +12,13 @@ services:
   # backend:
   #   container_name: almox-be
   #   image: almox-be
-  #   build:
-  #     context: backend
-  #     target: development
+  #   build: backend
   #   ports:
   #     - 8080:8080
 
   # mobile:
   #   container_name: almox-mb
   #   image: almox-mb
-  #   build:
-  #     context: mobile
-  #     target: development
+  #   build: mobile
   #   ports:
   #     - 5353:5353

@@ -1,1 +1,11 @@
+# exclude npm dependencies
 node_modules/
+
+# exlcude unnecessary files and folders
+docs/
+
+# exclude all markdown files
+*.md
+
+# exclude all env files
+*.local

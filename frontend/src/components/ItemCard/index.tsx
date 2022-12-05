@@ -23,21 +23,22 @@ interface ItemCardProps {
 export const ItemCard = (props: ItemCardProps): JSX.Element => {
   const { item } = props;
 
+  const itemUrlPath = `${Paths.ITEMS}/${item.id}`;
   const isUnavailable = item.status !== "AVAILABLE";
 
-  const itemDetailsContainerClasses = classNames(
-    styles.itemDetailsContainer,
-    isUnavailable ? styles.unvailable : ""
+  const itemCardContainerClasses = classNames(
+    styles.itemCardContainer,
+    isUnavailable ? styles.unavailable : ""
   );
 
   return (
-    <Link to={`${Paths.ITEMS}/${item.id}`} className={styles.itemCardContainer}>
+    <Link to={itemUrlPath} className={itemCardContainerClasses}>
       <div className={styles.itemImageContainer}>
         <Image src={item.image} alt={item.name} aspectRatio="standard" />
         <UnavailableChip isUnavailable={isUnavailable} />
       </div>
 
-      <div className={itemDetailsContainerClasses}>
+      <div className={styles.itemDetailsContainer}>
         <span>Código: {item.code}</span>
         <p>{item.name}</p>
         <strong>{item.priceFormatted}</strong>

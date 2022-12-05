@@ -59,7 +59,7 @@ export const SignInForm = (): JSX.Element => {
       });
 
       persistData("user", user);
-      navigateTo(Paths.DASHBOARD, { useFrom: true, replace: true });
+      navigateTo(Paths.HOME, { useFrom: true, replace: true });
     } catch (e) {
       setErrMessage(
         (e as Error).message + " Verifique os dados informados e tente novamente. "

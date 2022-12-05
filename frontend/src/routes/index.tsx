@@ -25,7 +25,7 @@ export const AppRoutes = (): JSX.Element => {
 
       <Route element={<PersistLogin />}>
         <Route element={<ProtectedRoutes />}>
-          <Route path={Paths.DASHBOARD} element={<AppLayout />}>
+          <Route path={Paths.HOME} element={<AppLayout />}>
             <Route path={Paths.ITEMS} element={<CatalogPage />} />
             <Route
               path={`${Paths.ITEMS_REQUESTS}/:requestId`}

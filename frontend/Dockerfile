@@ -1,14 +1,19 @@
-FROM node:18-alpine AS development
+FROM node:18.12.1 AS development
 
+# app work dir
 WORKDIR /app
 
-# install the front-end dependencies
-COPY package.json /app
-COPY yarn.lock /app
-RUN yarn
+# copy the project dependencies files
+COPY ["package.json", "yarn.lock", "./"]
 
+# install app dependencies
+RUN yarn install
+
+# copy the rest of the app to workdir
 COPY . /app
 
+# expose the app
 EXPOSE 5173
 
-CMD ["yarn", "dev"]
+# run the app as development
+ENTRYPOINT ["yarn", "dev"]

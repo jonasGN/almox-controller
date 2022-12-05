@@ -18,7 +18,7 @@ export const CatalogPage = (): JSX.Element => {
         <OptionButton icon={<AddIcon />} onClick={() => navigateTo(Paths.ITEMS_ADD)} />
         {/* </ShowWhenHasRoles> */}
 
-        <SearchBar name="searchItems" onSearch={(term) => {}} />
+        <SearchBar name="searchItems" placeholder="Buscar item" onSearch={(term) => {}} />
       </PageHeader>
 
       <CatalogItemList />

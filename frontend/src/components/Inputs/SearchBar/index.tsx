@@ -11,12 +11,13 @@ type SearchCallback = (searchTerm: string) => void;
 interface SearchBarProps {
   name: string;
   onSearch: SearchCallback;
+  placeholder?: string;
 }
 
 type ForwardRefFunction = ForwardRefRenderFunction<HTMLInputElement, SearchBarProps>;
 
 const SearchBarBase: ForwardRefFunction = (props, ref): JSX.Element => {
-  const { name, onSearch } = props;
+  const { name, onSearch, placeholder } = props;
 
   const [searchTerm, setSearchTerm] = useState("");
 
@@ -45,6 +46,7 @@ const SearchBarBase: ForwardRefFunction = (props, ref): JSX.Element => {
         value={searchTerm}
         onChange={onChangeSearchTerm}
         onKeyDown={handleSearch}
+        placeholder={placeholder ?? "Buscar"}
       />
     </BaseInput>
   );

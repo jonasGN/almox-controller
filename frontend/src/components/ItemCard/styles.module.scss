@@ -14,6 +14,22 @@
   &:hover {
     filter: brightness(0.9);
   }
+
+  &.unavailable {
+    .itemImageContainer {
+      img {
+        filter: grayscale(1);
+      }
+    }
+
+    .itemDetailsContainer {
+      span,
+      p,
+      strong {
+        color: var(--disabled-body-color);
+      }
+    }
+  }
 }
 
 .itemImageContainer {
@@ -50,18 +66,11 @@
 
     @include body-1;
     @include text-max-lines;
+    color: var(--body-color);
   }
 
   strong {
     @include subtitle-1($semiBold-weight);
     color: var(--primary-color);
-  }
-
-  &.unvailable {
-    span,
-    p,
-    strong {
-      color: var(--disabled-body-color);
-    }
   }
 }

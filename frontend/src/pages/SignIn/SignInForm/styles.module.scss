@@ -1,7 +1,7 @@
 @import "@/styles/fonts";
 
 .signInFormContainer {
-  max-width: 320px;
+  max-width: 328px; // same size as mobile
   margin-top: var(--dftdb-inset);
 
   & > label {

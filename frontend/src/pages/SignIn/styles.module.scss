@@ -19,6 +19,8 @@
 
 .signup {
   @include body-1;
+  text-align: center;
+
   display: flex;
   justify-content: center;
   margin-top: var(--big-inset);
