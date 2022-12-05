@@ -12,6 +12,7 @@ interface ImageProps extends ReactImgElement {
 }
 
 const errorImage = "/images/image-error.svg";
+const loadImage = "/images/image-placeholder.svg";
 
 export const Image = (props: ImageProps): JSX.Element => {
   const { src, aspectRatio, ...rest } = props;
@@ -19,6 +20,7 @@ export const Image = (props: ImageProps): JSX.Element => {
   const [image, setImage] = useState(src);
 
   const handleImageSrc = () => setImage(errorImage);
+  // const handleLoadImageSrc = () => setImage(src);
 
   const aspectRatioClass = (): string => {
     switch (aspectRatio) {
@@ -31,18 +33,23 @@ export const Image = (props: ImageProps): JSX.Element => {
     }
   };
 
+  const isPlaceholderImage = image === errorImage;
+
   const classes = classNames(
-    styles.image,
+    styles.wrapper,
     aspectRatioClass(),
-    image === errorImage ? styles.errorImage : ""
+    isPlaceholderImage ? styles.placeholder : ""
   );
 
   return (
-    <img
-      src={image}
-      className={classes}
-      onError={rest.onError ?? handleImageSrc}
-      {...rest}
-    />
+    <div className={classes}>
+      <img
+        src={image}
+        onError={rest.onError ?? handleImageSrc}
+        // onLoad={rest.onLoad ?? handleLoadImageSrc}
+        loading="lazy"
+        {...rest}
+      />
+    </div>
   );
 };

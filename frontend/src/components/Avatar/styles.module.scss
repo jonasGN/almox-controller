@@ -14,6 +14,7 @@ $small-size: 2.5rem;
   background-color: var(--card-color);
   border-radius: 50%;
   box-shadow: inset 0 0 0 var(--dft-border-size) var(--primary-light-color);
+  overflow: hidden;
 
   &[data-size="small"] {
     height: $small-size;
@@ -22,15 +23,15 @@ $small-size: 2.5rem;
 
   &[data-radius="square"] {
     border-radius: var(--dft-radius);
+
+    img {
+      border-radius: var(--dft-radius);
+    }
   }
 
   img {
     object-fit: cover;
-
-    border-radius: inherit;
-    height: inherit;
-    width: inherit;
-
+    border-radius: 50%;
     border: var(--dft-border-size) solid transparent;
   }
 

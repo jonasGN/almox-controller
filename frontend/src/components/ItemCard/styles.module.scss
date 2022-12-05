@@ -71,6 +71,6 @@
 
   strong {
     @include subtitle-1($semiBold-weight);
-    color: var(--primary-color);
+    color: var(--heading-color);
   }
 }

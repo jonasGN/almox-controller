@@ -28,7 +28,7 @@ export const Avatar = (props: AvatarProps): JSX.Element => {
   const initials = userName && formatter.initialsOf(userName);
 
   const content = image ? (
-    <Image src={image} alt={userName} onError={() => setImage("")} />
+    <Image src={image} alt={userName} aspectRatio="square" onError={() => setImage("")} />
   ) : (
     <span>{initials}</span>
   );

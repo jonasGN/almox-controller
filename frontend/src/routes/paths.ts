@@ -9,6 +9,6 @@ export const Paths = Object.freeze({
   // app
   HOME: home,
   ITEMS: `${home}/items`,
-  ITEMS_REQUESTS: `${home}/items/requests`,
+  ITEMS_REQUESTS: `${home}/requests`,
   ITEMS_ADD: `${home}/items/add`,
 });

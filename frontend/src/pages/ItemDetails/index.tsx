@@ -14,6 +14,7 @@ import { PageHeader } from "@/components/PageHeader";
 import { ContentHelper } from "@/components/ContentHelper";
 
 import styles from "./styles.module.scss";
+import { UnavailableChip } from "@/components/UnavailableChip";
 
 export const ItemDetailsPage = (): JSX.Element => {
   const params = useParams();
@@ -40,11 +41,12 @@ export const ItemDetailsPage = (): JSX.Element => {
       </PageHeader>
 
       <div className={styles.contentContainer}>
-        <ImageGalery image={""} className={styles.galery} />
+        <ImageGalery image={itemFormatted.image} className={styles.galery} />
 
         <section className={styles.details}>
-          <span>CÓDIGO: {itemFormatted.code}</span>
+          <span className={styles.code}>CÓDIGO: {itemFormatted.code}</span>
           <h2>{itemFormatted.name}</h2>
+          <UnavailableChip isUnavailable={!itemFormatted.isAvailable} type="huge" />
           <p>{itemFormatted.description}</p>
 
           <SimpleInformationTile
@@ -59,10 +61,6 @@ export const ItemDetailsPage = (): JSX.Element => {
               info={itemFormatted.amountFormatted}
             />
             <SimpleInformationTile title="Categoria" info={itemFormatted.category} />
-            <SimpleInformationTile
-              title="Disponibilidade"
-              info={itemFormatted.isAvailable ? "Disponível" : "Indisponível"}
-            />
           </InformationSection>
 
           <InformationSection title="Localização">

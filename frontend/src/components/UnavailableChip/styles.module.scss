@@ -1,6 +1,7 @@
 @import "@/styles/fonts";
 
 .unvailableChipContainer {
+  display: inline-block;
   background-color: var(--negative-color);
   color: var(--heading-color);
 
@@ -9,4 +10,8 @@
   border-radius: var(--dft-radius);
 
   @include caption-font;
+
+  &.huge {
+    @include subtitle-2;
+  }
 }

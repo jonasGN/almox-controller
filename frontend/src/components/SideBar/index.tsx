@@ -1,4 +1,4 @@
-import { Link } from "@/wrappers/navigation";
+import { Link, useLocation } from "@/wrappers/navigation";
 import { Paths } from "@/routes";
 import { config } from "@/config";
 
@@ -16,7 +16,7 @@ export const SideBar = (props: SideBarProps): JSX.Element => {
   return (
     <aside className={styles.sideBarContainer}>
       <header>
-        <Link to={Paths.DASHBOARD}>
+        <Link to={Paths.HOME}>
           <Logo />
         </Link>
       </header>
@@ -25,11 +25,6 @@ export const SideBar = (props: SideBarProps): JSX.Element => {
         <SideBarSection title="Itens">
           <SideBarNavItem title="Catálogo" navigateTo={Paths.ITEMS} />
           <SideBarNavItem title="Solicitações" navigateTo={Paths.ITEMS_REQUESTS} />
-        </SideBarSection>
-
-        <SideBarSection title="Usuários">
-          <SideBarNavItem title="Catálogo" />
-          <SideBarNavItem title="Solicitações" />
         </SideBarSection>
       </nav>
 

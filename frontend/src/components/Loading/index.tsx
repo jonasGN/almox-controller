@@ -7,7 +7,8 @@ export const Loading = (props: LoadingProps): JSX.Element => {
 
   return (
     <div className={styles.loading}>
-      <span>Carregando conteúdo...</span>
+      <img width={160} height={210} src="/illustrations/loading.svg" alt="Carregando" />
+      <p>Carregando...</p>
     </div>
   );
 };

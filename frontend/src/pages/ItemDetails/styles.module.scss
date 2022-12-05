@@ -13,22 +13,22 @@
 .details {
   grid-column: 4/ 7;
 
-  & > span {
+  .code {
     display: block;
-
     @include subtitle-1($medium-weight);
-    color: var(--primary-color);
+    color: var(--heading-2-color);
     margin-bottom: var(--dft-inset);
   }
 
   h2 {
     @include heading-5($semiBold-weight);
-    margin-bottom: var(--dft-inset);
+    margin-bottom: var(--smdb-inset);
   }
 
   p {
     @include body-1;
     color: var(--body-color);
+    margin-top: var(--dft-inset);
   }
 }
 

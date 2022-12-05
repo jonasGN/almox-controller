@@ -14,7 +14,7 @@ for (let i = 0; i < 20; i++) {
     amountAvailable: faker.datatype.number({ max: 100 }),
     description: faker.commerce.productDescription(),
     status: faker.helpers.arrayElement(["AVAILABLE", "UNAVAILABLE"]),
-    image: faker.image.imageUrl(520, 400, undefined, true),
+    image: faker.image.imageUrl(520 * 20, 400 * 20, undefined, true),
     category: faker.helpers.arrayElement(["Parafusos", "Roscas", "Diversos", "Máquinas"]),
     location: {
       column: faker.helpers.arrayElement(["COLU01", "COLU02", "COLU03", "COLU04"]),

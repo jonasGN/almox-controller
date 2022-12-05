@@ -1,19 +1,32 @@
-.image {
-  object-fit: cover;
-}
+.wrapper {
+  width: 100%;
+  height: auto;
 
-.standard {
-  aspect-ratio: var(--standard-aspect-ratio);
-}
+  img {
+    object-fit: cover;
+  }
 
-.square {
-  aspect-ratio: var(--square-aspect-ratio);
-}
+  &.standard {
+    img {
+      aspect-ratio: var(--standard-aspect-ratio);
+    }
+  }
 
-.widescreen {
-  aspect-ratio: var(--widescreen-aspect-ratio);
-}
+  &.square {
+    img {
+      aspect-ratio: var(--square-aspect-ratio);
+    }
+  }
 
-.errorImage {
-  object-fit: scale-down;
+  &.widescreen {
+    img {
+      aspect-ratio: var(--widescreen-aspect-ratio);
+    }
+  }
+
+  &.placeholder {
+    img {
+      object-fit: scale-down;
+    }
+  }
 }

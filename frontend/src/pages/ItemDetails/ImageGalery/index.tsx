@@ -27,7 +27,7 @@ export const ImageGalery = (props: ImageGaleryProps): JSX.Element => {
           <Image src={image} aspectRatio="standard" />
           <OptionButton
             icon={<ExpandImageIcon />}
-            styleType="no-bg-default"
+            styleType="default"
             onClick={onOpenElement}
           />
         </div>
