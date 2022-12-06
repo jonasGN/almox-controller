@@ -2,38 +2,41 @@ import React, { useEffect } from "react";
 
 type ElementRef = React.RefObject<HTMLElement>;
 
-// TODO: fix bug that prevents to focus on elements between first and last elements
+const focusableElements =
+  '[href], button:not([disabled]), textarea, input, select, [tabindex]:not([tabindex="-1"])';
+
 export const useTrapFocus = (elementRef: ElementRef) => {
   useEffect(() => {
-    const keyListener = (e: KeyboardEvent) => {
-      const isFocusKey = (e.shiftKey && e.key === "Tab") || e.key === "Tab";
-      if (!isFocusKey) return;
+    const element = elementRef.current;
 
-      const focusableElements = elementRef.current?.querySelectorAll<HTMLElement>(
-        "a[href], button:not([disabled]), textarea, input, select"
-      );
+    const focusableContent =
+      element?.querySelectorAll<HTMLElement>(focusableElements) ?? [];
+    const firstFocusableElement = focusableContent[0];
+    const lastFocusableElement = focusableContent[focusableContent.length - 1];
 
-      if (!focusableElements || focusableElements.length === 0) return;
+    // handle focus on the current element
+    const focusEventHandler = (e: KeyboardEvent) => {
+      const isTabPressed = e.key === "Tab";
+      if (!isTabPressed) return;
 
-      const firstFocusElement = focusableElements[0];
-      const lastFocusElement = focusableElements[focusableElements.length - 1];
-
-      if (isFocusKey && document.activeElement !== firstFocusElement) {
-        firstFocusElement.focus();
-        e.preventDefault();
+      // for shift key + tab combination
+      if (e.shiftKey) {
+        if (document.activeElement === firstFocusableElement) {
+          lastFocusableElement?.focus();
+          e.preventDefault();
+        }
         return;
       }
 
-      if (isFocusKey && document.activeElement !== lastFocusElement) {
-        lastFocusElement.focus();
+      if (document.activeElement === lastFocusableElement) {
+        firstFocusableElement?.focus();
         e.preventDefault();
       }
     };
 
-    document.addEventListener("keydown", keyListener);
-
+    element?.addEventListener("keydown", focusEventHandler);
     return () => {
-      document.removeEventListener("keydown", keyListener);
+      element?.removeEventListener("keydown", focusEventHandler);
     };
   });
 };

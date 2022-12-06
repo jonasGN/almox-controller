@@ -41,14 +41,16 @@ const BaseModalComponent: ForwardRefRender = (props, ref): JSX.Element | null =>
   const modalClasses = classNames(styles.modal, modalClassName!);
 
   return ReactDOM.createPortal(
-    <div className={styles.overlay} role="dialog" aria-modal>
-      <div ref={ref} className={modalClasses}>
+    <div className={styles.overlay} role="dialog" aria-modal aria-hidden>
+      <div ref={ref} tabIndex={-1} className={modalClasses}>
         <ShowWhen condition={hasOnCloseButton}>
           <div className={styles.closeButton}>
             <OptionButton
               icon={<CloseIcon />}
               styleType="no-bg-default"
               onClick={onCloseModal}
+              autoFocus
+              aria-label="Fechar"
             />
           </div>
         </ShowWhen>

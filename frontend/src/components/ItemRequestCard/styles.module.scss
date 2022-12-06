@@ -37,8 +37,8 @@
     strong {
       display: block;
       margin-bottom: var(--sm-inset);
-
       @include subtitle-1($medium-weight);
+      color: var(--heading-color);
     }
 
     span {
@@ -65,8 +65,7 @@
   strong {
     @include subtitle-1($semiBold-weight);
     display: block;
-    color: var(--primary-color);
-
+    color: var(--heading-color);
     margin-top: var(--sm-inset);
   }
 }

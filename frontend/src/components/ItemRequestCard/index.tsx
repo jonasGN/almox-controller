@@ -28,8 +28,10 @@ interface ItemRequestCardProps {
 export const ItemRequestCard = (props: ItemRequestCardProps): JSX.Element => {
   const { id, item, user, requestedAtFormatted } = props.itemRequest;
 
+  const requestPath = `${Paths.ITEMS_REQUESTS}/${id}`;
+
   return (
-    <Link to={`${Paths.ITEMS_REQUESTS}/${id}`} className={styles.itemRequestCard}>
+    <Link to={requestPath} className={styles.itemRequestCard}>
       <div className={styles.userContainer}>
         <Avatar size="small" userImage={user.avatar} userName={user.name} />
         <div className={styles.userInfo}>

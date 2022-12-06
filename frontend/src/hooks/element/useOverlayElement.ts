@@ -29,7 +29,7 @@ export const useOverlayElement = <
   });
 
   useOnPressKey(onCloseElement, { isMounted: isVisible });
-  // useTrapFocus(modalRef);
+  useTrapFocus(elementRef);
 
   return { isVisible, onOpenElement, onCloseElement, elementRef };
 };
