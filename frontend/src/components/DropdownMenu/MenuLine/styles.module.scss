@@ -1,24 +1,21 @@
 @import "@/styles/fonts";
 
 .menuLineContainer {
-  padding-block: var(--horizontal-inset);
-  padding-inline: var(--section-inset);
   background-color: var(--card-color);
+  padding-inline: var(--sm-inset);
 
   position: relative;
-  cursor: pointer;
   transition: var(--dft-transition);
 
-  & + li::after {
+  & + li::before {
     content: " ";
-    position: absolute;
-    top: 0;
-
-    display: block;
     height: 1px;
-    width: calc(100% - calc(var(--section-inset) * 2));
-
     background-color: var(--indiferent-color);
+
+    display: flex;
+    justify-content: center;
+    margin-block: var(--sm-inset);
+    margin-inline: var(--section-inset);
   }
 
   &.danger {
@@ -40,10 +37,13 @@
   a,
   button {
     @include subtitle-2($regular-weight);
-
     color: inherit;
+    border-radius: var(--dft-radius);
+
     display: flex;
     align-items: center;
+    padding-block: var(--horizontal-inset);
+    padding-inline: var(--section-inset);
 
     &:hover {
       filter: none;
