@@ -1,0 +1,9 @@
+.secondary {
+  &.danger {
+    background-color: var(--negative-color);
+  }
+
+  &.indiferent {
+    background-color: var(--indiferent-color);
+  }
+}

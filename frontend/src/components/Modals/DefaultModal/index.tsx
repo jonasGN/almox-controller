@@ -10,6 +10,7 @@ import styles from "./styles.module.scss";
 
 export interface DefaultBaseModalProps extends BaseModalProps {
   icon: Icons;
+  iconType?: "default" | "danger";
   title: string;
   description: string;
 }
@@ -26,6 +27,7 @@ type ForwardRefRender = ForwardRefRenderFunction<HTMLDivElement, DefaultModalPro
 export const DefaultModalBase: ForwardRefRender = (props, ref): JSX.Element => {
   const {
     icon,
+    iconType,
     title,
     description,
     hasOnCloseButton,
@@ -46,7 +48,11 @@ export const DefaultModalBase: ForwardRefRender = (props, ref): JSX.Element => {
       contentClassName={contentClasses}
       {...rest}
     >
-      <Icon name={icon} />
+      <Icon
+        name={icon}
+        size="big"
+        type={iconType === "danger" ? "danger" : "highlight"}
+      />
       <h3>{title}</h3>
       <p>{description}</p>
       {children}

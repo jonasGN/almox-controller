@@ -14,7 +14,7 @@ export const SplitButtonContainer = (props: SplitButtonContainerProps): JSX.Elem
   const buttonsCount = React.Children.count(children);
 
   if (buttonsCount === 0 || buttonsCount > 2) {
-    throw new ElementException("Must have at least one SplitButton element or two.");
+    throw new ElementException("Must have at least one SplitButton element and max two.");
   }
 
   const classes = classNames(styles.splitButton, className!);

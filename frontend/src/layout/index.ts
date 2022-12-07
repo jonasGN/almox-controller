@@ -2,5 +2,6 @@ import { AppLayout } from "./AppLayout";
 import { ScreenSizeLayout } from "./ScreenSizeLayout";
 import { ShowWhen } from "./ShowWhen";
 import { ShowWhenHasRoles } from "./ShowWhenHasRoles";
+import { SplitButtonContainer } from "./SplitButtonContainer";
 
-export { AppLayout, ScreenSizeLayout, ShowWhen, ShowWhenHasRoles };
+export { AppLayout, ScreenSizeLayout, ShowWhen, ShowWhenHasRoles, SplitButtonContainer };

@@ -8,7 +8,6 @@ import { ItemFormController } from "./ItemFormController";
 import { ItemFormImage } from "./ItemFormImage";
 import { ItemFormLocation } from "./ItemFormLocation";
 import { FixedModal } from "../Modals";
-import { SplitButton, SplitButtonContainer } from "../Buttons";
 
 import styles from "./styles.module.scss";
 
@@ -69,7 +68,7 @@ export const ItemForm = (props: ItemFormProps): JSX.Element => {
         icon="hourglass-top"
       >
         {/* <SplitButtonContainer>
-          <SplitButton onClick={onCloseElement} />
+          <SecondaryButton onClick={onCloseElement} />
         </SplitButtonContainer> */}
       </FixedModal>
     </>

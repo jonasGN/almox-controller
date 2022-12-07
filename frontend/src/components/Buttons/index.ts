@@ -3,14 +3,6 @@ import { TextButton } from "./TextButton";
 import { IconButton } from "./IconButton";
 import { RawButton } from "./RawButton";
 import { OptionButton } from "./OptionButton";
-import { SplitButton, SplitButtonContainer } from "./SplitButton";
+import { SecondaryButton } from "./SecondaryButton";
 
-export {
-  MainButton,
-  TextButton,
-  IconButton,
-  RawButton,
-  OptionButton,
-  SplitButton,
-  SplitButtonContainer,
-};
+export { MainButton, TextButton, IconButton, RawButton, OptionButton, SecondaryButton };

@@ -7,9 +7,10 @@ import { Paths } from "@/routes";
 import { persistData } from "@/services/localStorage";
 import { Link } from "@/wrappers/navigation";
 
-import { MainButton } from "@/components/Buttons";
+import { MainButton, SecondaryButton } from "@/components/Buttons";
 import { HideTextField, TextField } from "@/components/Inputs";
-import { AlertDialog } from "@/components/Modals";
+import { Dialog } from "@/components/Modals";
+import { SplitButtonContainer } from "@/layout";
 
 import styles from "./styles.module.scss";
 
@@ -101,16 +102,18 @@ export const SignInForm = (): JSX.Element => {
         />
       </form>
 
-      <AlertDialog
+      <Dialog
         ref={elementRef}
         isOpen={isVisible}
+        onCloseModal={onCloseElement}
         icon="warning"
         title="Credenciais incorretas"
         description={errMessage}
-        onCloseModal={onCloseElement}
-        useSingleButton={true}
-        leftButtonStyle="confirm"
-      />
+      >
+        <SplitButtonContainer>
+          <SecondaryButton title="ok" onClick={onCloseElement} />
+        </SplitButtonContainer>
+      </Dialog>
     </>
   );
 };

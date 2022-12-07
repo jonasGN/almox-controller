@@ -7,10 +7,11 @@ import { convert } from "@/utils/converters";
 import { InfoTile } from "./InfoTile";
 import { ItemRequestDetailsSection } from "./ItemRequestDetailsSection";
 import { Avatar } from "@/components/Avatar";
-import { SplitButton, SplitButtonContainer } from "@/components/Buttons";
-import { AlertDialog } from "@/components/Modals";
+import { SecondaryButton } from "@/components/Buttons";
+import { Dialog } from "@/components/Modals";
 import { PageHeader } from "@/components/PageHeader";
 import { ContentHelper } from "@/components/ContentHelper";
+import { SplitButtonContainer } from "@/layout";
 
 import styles from "./styles.module.scss";
 
@@ -46,8 +47,8 @@ export const ItemRequestDetailsPage = () => {
           </ul>
 
           <SplitButtonContainer className={styles.actionContainer}>
-            <SplitButton title="Recusar" buttonStyle="danger" onClick={onOpenElement} />
-            <SplitButton title="Aceitar" />
+            <SecondaryButton title="Recusar" type="danger" onClick={onOpenElement} />
+            <SecondaryButton title="Aceitar" />
           </SplitButtonContainer>
         </ItemRequestDetailsSection>
 
@@ -65,15 +66,19 @@ export const ItemRequestDetailsPage = () => {
         </ItemRequestDetailsSection>
       </div>
 
-      <AlertDialog
+      <Dialog
         ref={elementRef}
         isOpen={isVisible}
         onCloseModal={onCloseElement}
         icon="warning"
         title="Recusar solicitação"
         description="Ao recusar essa solicitação, a mesma não poderá ser visualizada novamente. Tem certeza que deseja recusá-la?"
-        leftTitle="Recusar"
-      />
+      >
+        <SplitButtonContainer>
+          <SecondaryButton title="Recusar" type="danger" />
+          <SecondaryButton title="Cancelar" type="indiferent" />
+        </SplitButtonContainer>
+      </Dialog>
     </>
   );
 };
