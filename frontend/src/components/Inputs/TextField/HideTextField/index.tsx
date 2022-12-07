@@ -4,7 +4,6 @@ import { forwardRef, useState } from "react";
 import { TextFieldBase } from "../TextFieldBase";
 import { ShowWhen } from "@/layout";
 import { IconButton } from "@/components/Buttons";
-import { VisibilityIcon, VisibilityOffIcon } from "@/components/Icons";
 
 const HideTextFieldBase: TextFieldForwardRef = (props, ref): JSX.Element => {
   const {
@@ -39,7 +38,7 @@ const HideTextFieldBase: TextFieldForwardRef = (props, ref): JSX.Element => {
   const togglePasswordElement = (
     <ShowWhen condition={rest.value !== ""}>
       <IconButton
-        icon={isPasswordVisible ? <VisibilityOffIcon /> : <VisibilityIcon />}
+        icon={isPasswordVisible ? "visibility-off" : "visibility"}
         onClick={() => setIsPasswordVisible((prev) => !prev)}
       />
     </ShowWhen>

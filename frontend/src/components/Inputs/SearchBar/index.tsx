@@ -1,8 +1,8 @@
 import React, { forwardRef, ForwardRefRenderFunction, useState } from "react";
 
-import { SearchIcon, CloseIcon } from "../../Icons";
 import { BaseInput } from "../BaseInput";
 import { IconButton } from "../../Buttons";
+import { Icon } from "@/components/Icon";
 
 type ChangeEvent = React.ChangeEvent<HTMLInputElement>;
 type KeyboardEvent = React.KeyboardEvent;
@@ -29,8 +29,8 @@ const SearchBarBase: ForwardRefFunction = (props, ref): JSX.Element => {
     onSearch(searchTerm);
   };
 
-  const leadingIcon = <SearchIcon styleType="primary" />;
-  const trailingIcon = <IconButton icon={<CloseIcon />} onClick={clearSearch} />;
+  const leadingIcon = <Icon name="search" type="highlight" />;
+  const trailingIcon = <IconButton icon="close" onClick={clearSearch} />;
 
   return (
     <BaseInput

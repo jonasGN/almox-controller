@@ -25,7 +25,6 @@
   },
   "devDependencies": {
     "@faker-js/faker": "^7.4.0",
-    "@svgr/cli": "^6.3.1",
     "@types/crypto-js": "^4.1.1",
     "@types/node": "^18.7.3",
     "@types/react": "^18.0.17",
@@ -35,6 +34,13 @@
     "miragejs": "^0.1.45",
     "sass": "^1.54.4",
     "typescript": "^4.6.4",
-    "vite": "^3.0.6"
-  }
+    "vite": "^3.0.6",
+    "vite-plugin-svgr": "^2.2.2"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
 }

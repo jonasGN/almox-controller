@@ -4,7 +4,6 @@ import { classNames } from "@/utils/styles";
 
 import { ShowWhen } from "@/layout";
 import { OptionButton } from "../../Buttons";
-import { CloseIcon } from "../../Icons";
 
 import styles from "./styles.module.scss";
 
@@ -46,7 +45,7 @@ const BaseModalComponent: ForwardRefRender = (props, ref): JSX.Element | null =>
         <ShowWhen condition={hasOnCloseButton}>
           <div className={styles.closeButton}>
             <OptionButton
-              icon={<CloseIcon />}
+              icon="close"
               styleType="no-bg-default"
               onClick={onCloseModal}
               autoFocus

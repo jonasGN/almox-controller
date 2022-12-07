@@ -61,6 +61,8 @@
         transition: var(--dft-transition);
       }
     }
+
+    transition: var(--dft-transition);
   }
 
   .container {
@@ -93,7 +95,7 @@
     padding-right: inherit;
   }
 
-  & > *:not(input) {
+  button {
     @include scale-animation;
   }
 }

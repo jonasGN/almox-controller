@@ -7,7 +7,6 @@ import { convert } from "@/utils/converters";
 import { ImageGalery } from "./ImageGalery";
 import { InformationSection } from "./InformationSection";
 import { OptionButton } from "@/components/Buttons";
-import { DeleteIcon, EditIcon } from "@/components/Icons";
 import { SimpleInformationTile } from "@/components/SimpleInformationTile";
 import { AlertDialog } from "@/components/Modals";
 import { PageHeader } from "@/components/PageHeader";
@@ -36,8 +35,8 @@ export const ItemDetailsPage = (): JSX.Element => {
   return (
     <>
       <PageHeader title="Detalhes do item">
-        <OptionButton icon={<DeleteIcon />} styleType="danger" onClick={onOpenElement} />
-        <OptionButton icon={<EditIcon />} />
+        <OptionButton icon="delete" styleType="danger" onClick={onOpenElement} />
+        <OptionButton icon="edit" />
       </PageHeader>
 
       <div className={styles.contentContainer}>
@@ -78,7 +77,7 @@ export const ItemDetailsPage = (): JSX.Element => {
         ref={elementRef}
         isOpen={isVisible}
         onCloseModal={onCloseElement}
-        icon={<DeleteIcon />}
+        icon="delete"
         title="Excluir item"
         description="Ao confirmar essa operação, o item será excluído da base de dados permanentemente. Tem certeza que deseja continuar?"
         leftTitle="Excluir"

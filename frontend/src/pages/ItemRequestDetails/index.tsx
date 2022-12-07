@@ -10,7 +10,6 @@ import { Avatar } from "@/components/Avatar";
 import { SplitButton, SplitButtonContainer } from "@/components/Buttons";
 import { AlertDialog } from "@/components/Modals";
 import { PageHeader } from "@/components/PageHeader";
-import { WarningIcon } from "@/components/Icons";
 import { ContentHelper } from "@/components/ContentHelper";
 
 import styles from "./styles.module.scss";
@@ -70,7 +69,7 @@ export const ItemRequestDetailsPage = () => {
         ref={elementRef}
         isOpen={isVisible}
         onCloseModal={onCloseElement}
-        icon={<WarningIcon />}
+        icon="warning"
         title="Recusar solicitação"
         description="Ao recusar essa solicitação, a mesma não poderá ser visualizada novamente. Tem certeza que deseja recusá-la?"
         leftTitle="Recusar"

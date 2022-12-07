@@ -1,4 +1,4 @@
-import type { Icon } from "../../Icons";
+import type { Icons } from "@Types/icons";
 import { classNames } from "@/utils/styles";
 
 import { RawButtonProps } from "../RawButton";
@@ -9,7 +9,7 @@ import styles from "./styles.module.scss";
 type ButtonStyle = "default" | "danger" | "no-bg-default" | "no-bg-danger";
 
 interface OptionButtonProps extends RawButtonProps {
-  icon: Icon;
+  icon: Icons;
   styleType?: ButtonStyle;
 }
 

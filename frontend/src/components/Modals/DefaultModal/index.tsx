@@ -1,14 +1,15 @@
-import type { Icon } from "../../Icons";
+import type { Icons } from "@Types/icons";
 import type { BaseModalProps } from "../BaseModal";
 import { forwardRef, ForwardRefRenderFunction } from "react";
 import { classNames } from "@/utils/styles";
 
+import { Icon } from "@/components/Icon";
 import { BaseModal } from "../BaseModal";
 
 import styles from "./styles.module.scss";
 
 export interface DefaultBaseModalProps extends BaseModalProps {
-  icon: Icon;
+  icon: Icons;
   title: string;
   description: string;
 }
@@ -45,8 +46,7 @@ export const DefaultModalBase: ForwardRefRender = (props, ref): JSX.Element => {
       contentClassName={contentClasses}
       {...rest}
     >
-      {/* {React.cloneElement(icon, )} */}
-      {icon}
+      <Icon name={icon} />
       <h3>{title}</h3>
       <p>{description}</p>
       {children}

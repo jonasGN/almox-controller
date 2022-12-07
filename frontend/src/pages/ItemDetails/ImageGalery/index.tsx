@@ -3,7 +3,6 @@ import { useOverlayElement } from "@/hooks/element";
 
 import { Image } from "@/components/Image";
 import { OptionButton } from "@/components/Buttons";
-import { ExpandImageIcon } from "@/components/Icons";
 import { ImageModal } from "@/components/Modals";
 
 import styles from "./styles.module.scss";
@@ -25,11 +24,7 @@ export const ImageGalery = (props: ImageGaleryProps): JSX.Element => {
       <section className={classes}>
         <div className={styles.focusedImage}>
           <Image src={image} aspectRatio="standard" />
-          <OptionButton
-            icon={<ExpandImageIcon />}
-            styleType="default"
-            onClick={onOpenElement}
-          />
+          <OptionButton icon="open-in-full" styleType="default" onClick={onOpenElement} />
         </div>
 
         <div className={styles.otherImages}>

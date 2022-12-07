@@ -1,4 +1,5 @@
-import type { Icon } from "../../Icons";
+import type { Icons } from "@Types/icons";
+import { Icon } from "@/components/Icon";
 import { classNames } from "@/utils/styles";
 
 import { RawButton, RawButtonProps } from "../RawButton";
@@ -6,7 +7,7 @@ import { RawButton, RawButtonProps } from "../RawButton";
 import styles from "./styles.module.scss";
 
 interface IconButtonProps extends RawButtonProps {
-  icon: Icon;
+  icon: Icons;
   size?: "icon" | "button";
   className?: string;
 }
@@ -18,7 +19,7 @@ export const IconButton = (props: IconButtonProps): JSX.Element => {
 
   return (
     <RawButton customClassName={classes} data-size={size} {...rest}>
-      {icon}
+      <Icon name={icon} />
     </RawButton>
   );
 };

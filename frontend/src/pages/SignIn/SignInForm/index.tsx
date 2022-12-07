@@ -8,14 +8,13 @@ import { persistData } from "@/services/localStorage";
 import { Link } from "@/wrappers/navigation";
 
 import { MainButton } from "@/components/Buttons";
-import { WarningIcon } from "@/components/Icons";
 import { HideTextField, TextField } from "@/components/Inputs";
 import { AlertDialog } from "@/components/Modals";
 
 import styles from "./styles.module.scss";
 
 interface SigninCredentials {
-  internalCode: string;
+  email: string;
   password: string;
 }
 
@@ -24,7 +23,7 @@ export const SignInForm = (): JSX.Element => {
   const { navigateTo } = useNavigation();
 
   const [credentials, setCredentials] = useState({
-    internalCode: "",
+    email: "",
     password: "",
   } as SigninCredentials);
 
@@ -33,8 +32,8 @@ export const SignInForm = (): JSX.Element => {
 
   const { isVisible, elementRef, onOpenElement, onCloseElement } = useOverlayElement();
 
-  const setInternalCode = (internalCode: string) => {
-    setCredentials({ ...credentials, internalCode });
+  const setEmail = (email: string) => {
+    setCredentials({ ...credentials, email });
   };
 
   const setPassword = (password: string) => {
@@ -47,7 +46,7 @@ export const SignInForm = (): JSX.Element => {
 
     try {
       const response = await signIn({
-        internalCode: credentials.internalCode,
+        internalCode: credentials.email,
         password: credentials.password,
       });
       const user = response.user;
@@ -67,7 +66,7 @@ export const SignInForm = (): JSX.Element => {
       onOpenElement();
     } finally {
       setIsLoading(false);
-      setCredentials({ internalCode: "", password: "" });
+      setCredentials({ email: "", password: "" });
     }
   };
 
@@ -77,9 +76,9 @@ export const SignInForm = (): JSX.Element => {
         <TextField
           autoFocus
           name="internalCode"
-          label="Código interno"
-          value={credentials.internalCode}
-          onChange={(e) => setInternalCode(e.target.value)}
+          label="E-mail"
+          value={credentials.email}
+          onChange={(e) => setEmail(e.target.value)}
           required
         />
         <HideTextField
@@ -98,14 +97,14 @@ export const SignInForm = (): JSX.Element => {
           type="submit"
           title="entrar"
           isLoading={isLoading}
-          isDisabled={!credentials.internalCode || !credentials.password}
+          isDisabled={!credentials.email || !credentials.password}
         />
       </form>
 
       <AlertDialog
         ref={elementRef}
         isOpen={isVisible}
-        icon={<WarningIcon />}
+        icon="warning"
         title="Credenciais incorretas"
         description={errMessage}
         onCloseModal={onCloseElement}

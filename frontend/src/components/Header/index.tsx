@@ -6,7 +6,6 @@ import { retriveData } from "@/services/localStorage";
 
 import { Avatar } from "../Avatar";
 import { DropdownMenu } from "../DropdownMenu";
-import { HourglassTopIcon, LogoutIcon, PersonIcon } from "../Icons";
 import { FixedModal } from "../Modals";
 
 import styles from "./styles.module.scss";
@@ -30,11 +29,11 @@ export const Header = (): JSX.Element => {
     {
       title: "Perfil",
       url: "#",
-      icon: <PersonIcon />,
+      icon: "person",
     },
     {
       title: "Sair",
-      icon: <LogoutIcon />,
+      icon: "logout",
       isDanger: true,
       onClick: handleSignOut,
     },
@@ -65,7 +64,7 @@ export const Header = (): JSX.Element => {
 
       <FixedModal
         isOpen={isLogoutModalOpen}
-        icon={<HourglassTopIcon />}
+        icon="hourglass-top"
         title="Saindo da aplicação"
         description="Aguarde enquanto a aplicação é encerrada. Após finalizada, você será redirecionado para a tela de login."
       />

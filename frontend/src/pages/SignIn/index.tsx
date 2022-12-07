@@ -11,7 +11,7 @@ export const SignInPage = (): JSX.Element => {
   return (
     <ScreenSizeLayout size="medium" className={styles.container}>
       <Logo type="vertical" />
-      <h1>Login</h1>
+      <h1>Entrar</h1>
 
       <SignInForm />
 

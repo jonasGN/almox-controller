@@ -1,5 +1,5 @@
 import { FormInputsContainer, FormSpliter } from "@/layout/FormLayout";
-import { SelectInput, SelectOption, TextArea, TextField } from "../../Inputs";
+import { TextArea, TextField } from "../../Inputs";
 import { ItemFormHeader } from "../ItemFormHeader";
 
 interface ItemFormBasicInformationProps {}
@@ -52,14 +52,6 @@ export const ItemFormBasicInformation = (
             defaultValue="9"
           />
         </FormSpliter>
-
-        <SelectInput name="category" label="Categoria" defaultValue={0}>
-          <SelectOption value="" title="Nenhuma" />
-          <SelectOption value={0} title="Categoria A" />
-          <SelectOption value={1} title="Categoria B" />
-          <SelectOption value={2} title="Categoria C" />
-          <SelectOption value={3} title="Categoria D" />
-        </SelectInput>
       </FormInputsContainer>
     </div>
   );

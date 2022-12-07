@@ -2,7 +2,7 @@ import type { ReactFileInputElement } from "@Types/elements";
 import { useRef, useState } from "react";
 import { useOverlayElement } from "@/hooks/element";
 
-import { AddIcon, EditIcon } from "../../Icons";
+import { Icon } from "@/components/Icon";
 import { OptionButton } from "../../Buttons";
 import { DropdownMenu } from "../../DropdownMenu";
 import { Image } from "../../Image";
@@ -56,12 +56,12 @@ export const ImageInput = (props: ImageInputProps): JSX.Element => {
           <Image src={image} />
 
           <DropdownMenu isVisible={isVisible} items={menuItems}>
-            <OptionButton icon={<EditIcon />} onClick={onOpenElement} />
+            <OptionButton icon="edit" onClick={onOpenElement} />
           </DropdownMenu>
         </>
       ) : (
         <label className={styles.imageInput}>
-          <AddIcon />
+          <Icon name="add" />
           <input
             {...rest}
             ref={inputRef}
