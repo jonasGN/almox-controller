@@ -1,28 +1,17 @@
-$danger-color: var(--negative-color);
-$dft-color: var(--primary-color);
-
 .optionButtonContainer {
-  background-color: $dft-color;
+  background-color: var(--card-color);
 
   svg {
-    fill: var(--heading-color);
-  }
-
-  &.danger {
-    background-color: $danger-color;
-  }
-}
-
-.noBg {
-  background-color: transparent;
-
-  svg {
-    fill: $dft-color;
+    fill: var(--primary-color);
   }
 
   &.danger {
     svg {
-      fill: $danger-color;
+      fill: var(--negative-color);
     }
+  }
+
+  &.noBg {
+    background-color: transparent;
   }
 }

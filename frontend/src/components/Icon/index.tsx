@@ -29,15 +29,14 @@ export const Icon = (props: IconProps): JSX.Element | null => {
 
   if (!iconModule) return null;
 
-  let iconSize: number;
+  let iconSize = 24;
   switch (size) {
     case "small":
       iconSize = 20;
       break;
     case "big":
       iconSize = 48;
-    default:
-      iconSize = 24;
+      break;
   }
 
   let typeClassName = "";
@@ -51,7 +50,7 @@ export const Icon = (props: IconProps): JSX.Element | null => {
   }
 
   // same as: import { ReactComponent as Icon } from "./path/to/icon.svg"
-  const IconComponent = iconModule.default;
+  const IconComponent = iconModule.ReactComponent;
 
-  return <IconComponent />;
+  return <IconComponent width={iconSize} height={iconSize} className={typeClassName} />;
 };

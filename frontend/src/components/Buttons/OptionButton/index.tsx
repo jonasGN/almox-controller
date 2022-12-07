@@ -6,33 +6,22 @@ import { IconButton } from "../IconButton";
 
 import styles from "./styles.module.scss";
 
-type ButtonStyle = "default" | "danger" | "no-bg-default" | "no-bg-danger";
+type StyleType = "default" | "danger";
 
 interface OptionButtonProps extends RawButtonProps {
   icon: Icons;
-  styleType?: ButtonStyle;
+  styleType?: StyleType;
+  hasBackground?: boolean;
 }
 
 export const OptionButton = (props: OptionButtonProps): JSX.Element => {
-  const { icon, styleType, ...rest } = props;
+  const { icon, styleType = "default", hasBackground = true, ...rest } = props;
 
-  const styleTypeClassName = (): string => {
-    const withBg = styles.optionButtonContainer;
-    const withoutBg = styles.noBg;
-
-    switch (styleType) {
-      case "danger":
-        return classNames(withBg, styles.danger);
-      case "no-bg-default":
-        return withoutBg;
-      case "no-bg-danger":
-        return classNames(withoutBg, styles.danger);
-      default:
-        return withBg;
-    }
-  };
-
-  const classes = classNames(styleTypeClassName());
+  const classes = classNames(
+    styles.optionButtonContainer,
+    styleType === "danger" ? styles.danger : "",
+    hasBackground ? "" : styles.noBg
+  );
 
   return <IconButton icon={icon} size="button" className={classes} {...rest} />;
 };

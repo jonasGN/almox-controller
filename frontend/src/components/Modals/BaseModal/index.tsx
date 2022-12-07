@@ -46,7 +46,6 @@ const BaseModalComponent: ForwardRefRender = (props, ref): JSX.Element | null =>
           <div className={styles.closeButton}>
             <OptionButton
               icon="close"
-              styleType="no-bg-default"
               onClick={onCloseModal}
               autoFocus
               aria-label="Fechar"

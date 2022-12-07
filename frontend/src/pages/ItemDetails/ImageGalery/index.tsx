@@ -24,7 +24,7 @@ export const ImageGalery = (props: ImageGaleryProps): JSX.Element => {
       <section className={classes}>
         <div className={styles.focusedImage}>
           <Image src={image} aspectRatio="standard" />
-          <OptionButton icon="open-in-full" styleType="default" onClick={onOpenElement} />
+          <OptionButton icon="open-in-full" onClick={onOpenElement} />
         </div>
 
         <div className={styles.otherImages}>

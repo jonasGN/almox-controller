@@ -12,12 +12,7 @@ export default defineConfig({
       },
     ],
   },
-  plugins: [
-    react(),
-    svgr({
-      exportAsDefault: true,
-    }),
-  ],
+  plugins: [react(), svgr()],
   server: {
     host: true, // needed for the Docker Container port mapping to work
     port: 5173, // default port
