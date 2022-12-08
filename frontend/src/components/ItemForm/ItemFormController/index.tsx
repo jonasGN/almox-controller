@@ -1,5 +1,6 @@
 import { FormSubjectContainer } from "@/layout/FormLayout";
 import { SplitButtonContainer } from "@/layout";
+import { SecondaryButton } from "@/components/Buttons";
 
 interface ItemFormControllerProps {
   onCancelForm: () => void;
@@ -14,13 +15,8 @@ export const ItemFormController = (props: ItemFormControllerProps): JSX.Element 
       {children}
 
       <SplitButtonContainer>
-        {/* use secondary button instead 
-        <SplitButton
-          predefinedTitles="cancelar"
-          buttonStyle="cancel"
-          onClick={onCancelForm}
-        />
-        <SplitButton type="submit" title="Salvar" /> */}
+        <SecondaryButton title="cancelar" type="indiferent" onClick={onCancelForm} />
+        <SecondaryButton title="Salvar" behaviorType="submit" />
       </SplitButtonContainer>
     </FormSubjectContainer>
   );

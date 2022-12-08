@@ -1,5 +1,5 @@
 import type { ButtonCallback } from "@Types/aliases";
-import type { ButtonType } from "@Types/components";
+import type { ButtonBehaviorType, ButtonType } from "@Types/components";
 import { BaseButton } from "../BaseButton";
 import { classNames } from "@/utils/styles";
 
@@ -9,11 +9,12 @@ interface SecondaryButtonProps {
   title: string;
   type?: ButtonType;
   disabled?: boolean;
+  behaviorType?: ButtonBehaviorType;
   onClick?: ButtonCallback;
 }
 
 export const SecondaryButton = (props: SecondaryButtonProps): JSX.Element => {
-  const { title, type, disabled = false, onClick } = props;
+  const { title, type, disabled = false, behaviorType, onClick } = props;
 
   let typeClassName = "";
   switch (type) {
@@ -32,6 +33,7 @@ export const SecondaryButton = (props: SecondaryButtonProps): JSX.Element => {
       title={title}
       size="medium"
       disabled={disabled}
+      type={behaviorType}
       onClick={onClick}
       customClassName={buttonClassName}
     />

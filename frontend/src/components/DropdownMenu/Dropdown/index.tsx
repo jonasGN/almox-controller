@@ -1,12 +1,15 @@
-import type { MenuItem } from "../MenuItem";
-import { forwardRef, ForwardRefRenderFunction } from "react";
+import type { MenuItem } from "../MenuLine";
+import React from "react";
 
 import { ShowWhen } from "@/layout";
 import { MenuLine } from "../MenuLine";
 
 import styles from "./styles.module.scss";
 
-type ForwardRefRender = ForwardRefRenderFunction<HTMLMenuElement, DropdownMenuProps>;
+type ForwardRefRender = React.ForwardRefRenderFunction<
+  HTMLMenuElement,
+  DropdownMenuProps
+>;
 
 interface DropdownMenuProps {
   isVisible: boolean;
@@ -32,4 +35,4 @@ export const DropdownMenuBase: ForwardRefRender = (props, ref): JSX.Element => {
   );
 };
 
-export const DropdownMenu = forwardRef(DropdownMenuBase);
+export const DropdownMenu = React.forwardRef(DropdownMenuBase);

@@ -7,7 +7,6 @@ import { ItemFormBasicInformation } from "./ItemFormBasicInformation";
 import { ItemFormController } from "./ItemFormController";
 import { ItemFormImage } from "./ItemFormImage";
 import { ItemFormLocation } from "./ItemFormLocation";
-import { FixedModal } from "../Modals";
 
 import styles from "./styles.module.scss";
 
@@ -60,17 +59,6 @@ export const ItemForm = (props: ItemFormProps): JSX.Element => {
           <ItemFormImage />
         </ItemFormController>
       </form>
-
-      <FixedModal
-        isOpen={isVisible}
-        title="Adicionando item"
-        description="Aguarde enquanto o item está sendo salvo"
-        icon="hourglass-top"
-      >
-        {/* <SplitButtonContainer>
-          <SecondaryButton onClick={onCloseElement} />
-        </SplitButtonContainer> */}
-      </FixedModal>
     </>
   );
 };

@@ -6,7 +6,7 @@ import { retriveData } from "@/services/localStorage";
 
 import { Avatar } from "../Avatar";
 import { DropdownMenu } from "../DropdownMenu";
-import { FixedModal } from "../Modals";
+import { Dialog } from "../Modals";
 
 import styles from "./styles.module.scss";
 
@@ -62,7 +62,7 @@ export const Header = (): JSX.Element => {
         </div>
       </header>
 
-      <FixedModal
+      <Dialog
         isOpen={isLogoutModalOpen}
         icon="hourglass-top"
         title="Saindo da aplicação"

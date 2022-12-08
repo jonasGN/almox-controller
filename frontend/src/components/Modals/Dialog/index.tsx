@@ -12,15 +12,18 @@ interface ReactElementTypeObj {
 }
 
 interface DialogProps extends DefaultBaseModalProps {
+  isFixed?: boolean;
   children?: ReactChildrenElement;
 }
 
 type ForwardRefRender = React.ForwardRefRenderFunction<HTMLDivElement, DialogProps>;
 
 const DialogBase: ForwardRefRender = (props, ref): JSX.Element | null => {
-  const { icon, title, description, children, ...rest } = props;
+  const { icon, title, description, isFixed = false, children, ...rest } = props;
 
-  const elements = React.Children.toArray(children) as React.ReactElement[];
+  // const ref = createRef<HTMLDivElement>();
+
+  let elements = React.Children.toArray(children) as React.ReactElement[];
 
   // find the SplitButtonContainer element from children props
   const splitButtonContainerElement = elements.find((element) => {
@@ -39,8 +42,18 @@ const DialogBase: ForwardRefRender = (props, ref): JSX.Element | null => {
       })
     : null;
 
+  // clean unnecessary stuff
+  elements = [];
+
   return (
-    <DefaultModal ref={ref} icon={icon} title={title} description={description} {...rest}>
+    <DefaultModal
+      ref={ref}
+      icon={icon}
+      title={title}
+      description={description}
+      hasOnCloseButton={isFixed}
+      {...rest}
+    >
       <ShowWhen condition={extraContent.length > 0}>
         <div className={styles.extraContent}>{extraContent}</div>
       </ShowWhen>
