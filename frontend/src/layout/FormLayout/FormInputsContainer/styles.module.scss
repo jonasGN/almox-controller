@@ -1,9 +1,0 @@
-.inputs {
-  margin-top: var(--dft-inset);
-
-  & > * {
-    & + * {
-      margin-top: var(--section-inset);
-    }
-  }
-}

@@ -1,3 +1,3 @@
-import type { ItemAddForm } from "./item";
+import type { NewItemFormData } from "./item";
 
-export type { ItemAddForm };
+export type { NewItemFormData };

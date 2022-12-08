@@ -14,7 +14,7 @@ interface SecondaryButtonProps {
 }
 
 export const SecondaryButton = (props: SecondaryButtonProps): JSX.Element => {
-  const { title, type, disabled = false, behaviorType, onClick } = props;
+  const { title, type, disabled = false, behaviorType = "button", onClick } = props;
 
   let typeClassName = "";
   switch (type) {

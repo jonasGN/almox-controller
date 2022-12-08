@@ -1,4 +1,4 @@
-export interface ItemAddForm {
+export interface NewItemFormData {
   name: string;
   description: string;
   price: string;

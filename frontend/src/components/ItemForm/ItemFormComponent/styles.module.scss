@@ -3,7 +3,7 @@
 .form {
   @include form-grid;
 
-  & > div {
+  section {
     &:first-child {
       grid-column: 1 / 4;
     }
@@ -12,4 +12,8 @@
       grid-column: 4 / 7;
     }
   }
+}
+
+.actions {
+  margin-top: var(--big-inset);
 }

@@ -42,7 +42,7 @@ const DialogBase: ForwardRefRender = (props, ref): JSX.Element | null => {
       })
     : null;
 
-  // clean unnecessary stuff
+  // clean elements array because is not more necessary at this stage
   elements = [];
 
   return (
