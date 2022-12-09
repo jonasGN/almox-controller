@@ -1,0 +1,12 @@
+@import "@/styles/fonts";
+
+.selectionModal {
+  max-width: 488px;
+  width: 100%;
+
+  h3 {
+    @include heading-6;
+    text-align: center;
+    margin-bottom: var(--section-inset);
+  }
+}

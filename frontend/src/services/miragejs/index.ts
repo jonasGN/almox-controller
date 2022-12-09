@@ -1,7 +1,7 @@
 import type { ItemResponse } from "@Types/responses";
 import { createServer, Model, Response } from "miragejs";
 
-import { auth, refreshToken, items, itemsRequests } from "./seeds";
+import { seed } from "./seeds";
 import { hasNoTokenError, unauthorizedError } from "./errors";
 
 // TODO: review this service
@@ -10,12 +10,14 @@ const createFakeServer = function () {
     models: {
       item: Model.extend<Partial<ItemResponse>>({}),
       itemRequest: Model,
+      category: Model,
     },
 
     seeds(server) {
       server.db.loadData({
-        items: items.content,
-        itemRequests: itemsRequests,
+        items: seed.items.content,
+        itemRequests: seed.itemsRequests,
+        categories: seed.categories,
       });
     },
 
@@ -28,11 +30,11 @@ const createFakeServer = function () {
         if (body.internalCode !== "12345678" || body.password !== "12345678") {
           return unauthorizedError;
         }
-        return new Response(200, undefined, auth);
+        return new Response(200, undefined, seed.auth);
       });
 
       this.get("/refresh", (_, __) => {
-        return new Response(200, undefined, refreshToken);
+        return new Response(200, undefined, seed.refreshToken);
       });
 
       this.get("/signout", (schema, __) => {
@@ -49,7 +51,7 @@ const createFakeServer = function () {
       this.post("/items", (schema, req) => {
         const id = schema.all("item").length + 1;
 
-        const item = items.create(id, req.requestBody);
+        const item = seed.items.create(id, req.requestBody);
         schema.create("item", item);
 
         return item;
@@ -77,6 +79,12 @@ const createFakeServer = function () {
         const params = req.params;
         const itemRequest = schema.findBy("itemRequest", { id: params.id });
         return itemRequest;
+      });
+
+      this.get("/categories", (schema, req) => {
+        const { Authorization } = req.requestHeaders;
+        if (!Authorization) return hasNoTokenError;
+        return schema.all("categories");
       });
     },
   });

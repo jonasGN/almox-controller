@@ -14,6 +14,13 @@ interface FetchData<T> {
   isLoading: boolean;
 }
 
+/**
+ * Used to fetch data from internet
+ * @param params the hook options
+ * @param params.url the API path to make the GET request
+ * @param params.queryKey the key to be used by react-query to identify when to controll the data flow
+ * @returns an Promise with the data `T` type
+ */
 export const useFetchData = <T>(params: FetchDataParams): FetchData<T> => {
   const { url, queryKey } = params;
 

@@ -11,4 +11,5 @@ export const Paths = Object.freeze({
   ITEMS: `${home}/items`,
   ITEMS_REQUESTS: `${home}/requests`,
   ITEMS_ADD: `${home}/items/add`,
+  PROFILE: "/profile",
 });

@@ -1,0 +1,19 @@
+// used to give input base components the same design
+@mixin base-input-styles {
+  @include body-1;
+  color: var(--body-color);
+
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline: none;
+
+  padding-inline: var(--dft-inset);
+  border-radius: var(--dft-radius);
+  transition: var(--dft-transition);
+
+  &:focus ~ span.container {
+    background-color: transparent;
+    box-shadow: inset 0 0 0 var(--dft-border-size) var(--primary-color);
+  }
+}

@@ -9,6 +9,7 @@ import { DropdownMenu } from "../DropdownMenu";
 import { Dialog } from "../Modals";
 
 import styles from "./styles.module.scss";
+import { Paths } from "@/routes";
 
 export const Header = (): JSX.Element => {
   const [isLogoutModalOpen, setIsLogoutModalOpen] = useState(false);
@@ -28,7 +29,7 @@ export const Header = (): JSX.Element => {
   const options: MenuItem[] = [
     {
       title: "Perfil",
-      url: "#",
+      url: Paths.PROFILE,
       icon: "person",
     },
     {

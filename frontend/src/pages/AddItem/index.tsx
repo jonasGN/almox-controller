@@ -1,13 +1,40 @@
+import type { Category } from "@Types/entities";
+
 import { apiClient } from "@/services/apiClient";
 import { apiConvert } from "@/utils/converters/api";
 import { useNavigate } from "@/wrappers/navigation";
+import { formatter } from "@/utils/formatters";
 
+import { ElementSpliter } from "@/layout";
 import { PageHeader } from "@/components/PageHeader";
 import { ItemForm, FormGroup } from "@/components/ItemForm";
-import { ImageInput, TextArea, TextField } from "@/components/Inputs";
-import { ElementSpliter } from "@/layout";
+import { SelectionItem } from "@/components/Inputs/MultiSelectionInput";
+import {
+  ImageInput,
+  MultiSelectionInput,
+  TextArea,
+  TextField,
+} from "@/components/Inputs";
 
 import styles from "./styles.module.scss";
+
+const categoryToSelectionItem = (cat: Category): SelectionItem => {
+  const itemSubtitle = cat.itemsAmount > 1 ? "itens" : "item";
+  const item: SelectionItem = {
+    id: cat.id.toString(),
+    title: cat.name,
+    subtitle: `${formatter.leadingZeroOn(cat.itemsAmount)} ${itemSubtitle}`,
+    value: cat.name,
+  };
+  return item;
+};
+
+const categories: SelectionItem[] = [...Array<SelectionItem>(4)].map((_, index) => ({
+  id: (index + 1).toString(),
+  title: `Categoria ${index + 1}`,
+  subtitle: "99 items",
+  value: `Categoria valor ${index + 1}`,
+}));
 
 export const AddItemPage = (): JSX.Element => {
   const navigate = useNavigate();
@@ -68,6 +95,14 @@ export const AddItemPage = (): JSX.Element => {
               // pattern="^[0-9]"
             />
           </ElementSpliter>
+
+          <MultiSelectionInput
+            name="category"
+            label="Categoria"
+            required
+            items={categories}
+            isLoading={false}
+          />
         </FormGroup>
 
         <FormGroup

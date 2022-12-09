@@ -1,5 +1,4 @@
 import React from "react";
-import type { ReactChildrenElement } from "@Types/elements";
 import type { DefaultBaseModalProps } from "../DefaultModal";
 
 import { ShowWhen } from "@/layout";
@@ -13,13 +12,13 @@ interface ReactElementTypeObj {
 
 interface DialogProps extends DefaultBaseModalProps {
   isFixed?: boolean;
-  children?: ReactChildrenElement;
+  children?: React.ReactNode;
 }
 
 type ForwardRefRender = React.ForwardRefRenderFunction<HTMLDivElement, DialogProps>;
 
-const DialogBase: ForwardRefRender = (props, ref): JSX.Element | null => {
-  const { icon, title, description, isFixed = false, children, ...rest } = props;
+const DialogBase: ForwardRefRender = (props, ref): JSX.Element => {
+  const { isFixed = false, children, ...rest } = props;
 
   // const ref = createRef<HTMLDivElement>();
 
@@ -46,14 +45,7 @@ const DialogBase: ForwardRefRender = (props, ref): JSX.Element | null => {
   elements = [];
 
   return (
-    <DefaultModal
-      ref={ref}
-      icon={icon}
-      title={title}
-      description={description}
-      hasOnCloseButton={isFixed}
-      {...rest}
-    >
+    <DefaultModal ref={ref} hasOnCloseButton={isFixed} {...rest}>
       <ShowWhen condition={extraContent.length > 0}>
         <div className={styles.extraContent}>{extraContent}</div>
       </ShowWhen>
