@@ -2,7 +2,7 @@ import type { AuthData } from "@Types/entities";
 import type { AuthResponse } from "@Types/api";
 import { AxiosError } from "axios";
 import { apiClient } from "@/services/apiClient";
-import { convert } from "@/utils/converters";
+import { apiConvert } from "@/utils/converters";
 import { formatter } from "@/utils/formatters";
 import {
   BadRequestException,
@@ -49,7 +49,7 @@ export const signIn = async (credentials: Credentials): Promise<AuthData> => {
     return {
       accessToken: data.accessToken,
       refreshToken: data.refreshToken,
-      roles: convert.rolesToUserRoles(data.roles),
+      roles: apiConvert.rolesToUserRoles(data.roles),
       user: {
         name: formatter.toShortName(data.user.name),
         internalCode: data.user.internalCode,

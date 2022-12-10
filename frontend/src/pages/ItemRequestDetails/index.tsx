@@ -2,7 +2,7 @@ import type { ItemRequestResponse } from "@Types/api";
 import { useParams } from "@/wrappers/navigation";
 import { useOverlayElement } from "@/hooks/element";
 import { useFetchData } from "@/hooks/common";
-import { convert } from "@/utils/converters";
+import { apiConvert } from "@/utils/converters";
 
 import { InfoTile } from "./InfoTile";
 import { ItemRequestDetailsSection } from "./ItemRequestDetailsSection";
@@ -28,7 +28,7 @@ export const ItemRequestDetailsPage = () => {
     return <ContentHelper isLoading={isLoading} hasError={hasError} />;
   }
 
-  const request = convert.itemRequestResponseToItemRequest(content!, {
+  const request = apiConvert.itemRequestResponseToItemRequest(content!, {
     dateFormat: "long",
   });
 

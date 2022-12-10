@@ -1,7 +1,7 @@
 import type { Category } from "@Types/entities";
 
 import { apiClient } from "@/services/apiClient";
-import { apiConvert } from "@/utils/converters/api";
+import { apiConvert } from "@/utils/converters";
 import { useNavigate } from "@/wrappers/navigation";
 import { formatter } from "@/utils/formatters";
 

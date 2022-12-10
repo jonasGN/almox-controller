@@ -1,5 +1,8 @@
 import type { UserRoles } from "@Types/common";
 
+/**
+ * Converts a string array into a `UserRoles` to be used on application
+ */
 export const rolesToUserRoles = (roles: string[]): Array<UserRoles> => {
   const formattedRoles: UserRoles[] = roles.map((role) => {
     if (role === "ADMIN") return "admin";

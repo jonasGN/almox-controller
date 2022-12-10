@@ -1,5 +1,5 @@
 import type { ButtonCallback } from "@Types/aliases";
-import type { ButtonBehaviorType, ButtonType } from "@Types/components";
+import type { ButtonBehaviorType, ButtonType } from "@Types/common";
 import { BaseButton } from "../BaseButton";
 import { classNames } from "@/utils/styles";
 

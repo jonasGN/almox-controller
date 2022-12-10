@@ -1,6 +1,6 @@
 import type { ItemRequestResponse } from "@Types/api";
 import { useFetchData } from "@/hooks/common";
-import { convert } from "@/utils/converters";
+import { apiConvert } from "@/utils/converters";
 
 import { ItemRequestCard } from "@/components/ItemRequestCard";
 import { ContentHelper } from "@/components/ContentHelper";
@@ -16,7 +16,7 @@ export const ItemRequestsList = (): JSX.Element => {
   }
 
   const requests = content?.map((request) =>
-    convert.itemRequestResponseToItemRequest(request)
+    apiConvert.itemRequestResponseToItemRequest(request)
   );
 
   return (

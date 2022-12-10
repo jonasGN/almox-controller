@@ -2,7 +2,7 @@ import type { ItemResponse } from "@Types/api";
 import { useParams } from "@/wrappers/navigation";
 import { useOverlayElement } from "@/hooks/element";
 import { useFetchData } from "@/hooks/common";
-import { convert } from "@/utils/converters";
+import { apiConvert } from "@/utils/converters";
 
 import { ImageGalery } from "./ImageGalery";
 import { InformationSection } from "./InformationSection";
@@ -30,7 +30,7 @@ export const ItemDetailsPage = (): JSX.Element => {
     return <ContentHelper isLoading={isLoading} hasError={hasError} />;
   }
 
-  const itemFormatted = convert.itemResponseToItem(content!);
+  const itemFormatted = apiConvert.itemResponseToItem(content!);
 
   return (
     <>

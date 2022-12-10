@@ -1,7 +1,7 @@
 import type { UserRoles } from "@Types/common";
 import { useLocation, Outlet, Navigate } from "@/wrappers/navigation";
 import { useAuth } from "@/hooks/auth";
-import { isObjectEmpty } from "@/utils/common";
+import { utils } from "@/utils";
 import { Paths } from "./paths";
 
 interface ProtectedRoutesProps {
@@ -12,7 +12,7 @@ export const ProtectedRoutes = ({ allowedRoutes }: ProtectedRoutesProps): JSX.El
   const location = useLocation();
   const { user } = useAuth();
 
-  return isObjectEmpty(user) ? (
+  return utils.isObjectEmpty(user) ? (
     <Navigate to={Paths.SIGN_IN} state={{ from: location }} replace />
   ) : (
     <Outlet />
