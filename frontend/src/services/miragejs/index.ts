@@ -2,7 +2,7 @@ import type { ItemResponse } from "@Types/responses";
 import { createServer, Model, Response } from "miragejs";
 
 import { seed } from "./seeds";
-import { hasNoTokenError, unauthorizedError } from "./errors";
+import { errors } from "./errors";
 
 // TODO: review this service
 const createFakeServer = function () {
@@ -16,8 +16,8 @@ const createFakeServer = function () {
     seeds(server) {
       server.db.loadData({
         items: seed.items.content,
-        itemRequests: seed.itemsRequests,
-        categories: seed.categories,
+        itemRequests: seed.itemsRequests.content,
+        categories: seed.categories.content,
       });
     },
 
@@ -25,10 +25,11 @@ const createFakeServer = function () {
       this.namespace = "api";
       this.timing = 800;
 
+      // AUTH
       this.post("/signin", (_, req) => {
         const body = JSON.parse(req.requestBody);
         if (body.internalCode !== "12345678" || body.password !== "12345678") {
-          return unauthorizedError;
+          return errors.unauthorizedError;
         }
         return new Response(200, undefined, seed.auth);
       });
@@ -42,9 +43,10 @@ const createFakeServer = function () {
         return new Response(204);
       });
 
+      // ITEMS
       this.get("/items", (schema, req) => {
         const { Authorization } = req.requestHeaders;
-        if (!Authorization) return hasNoTokenError;
+        if (!Authorization) return errors.hasNoTokenError;
         return schema.all("item");
       });
 
@@ -59,31 +61,33 @@ const createFakeServer = function () {
 
       this.get("/items/:id", (schema, req) => {
         const { Authorization } = req.requestHeaders;
-        if (!Authorization) return hasNoTokenError;
+        if (!Authorization) return errors.hasNoTokenError;
 
         const params = req.params;
         const item = schema.findBy("item", { id: params.id });
         return item;
       });
 
+      // ITEMS REQUESTS
       this.get("/items/requests", (schema, req) => {
         const { Authorization } = req.requestHeaders;
-        if (!Authorization) return hasNoTokenError;
+        if (!Authorization) return errors.hasNoTokenError;
         return schema.all("itemRequest");
       });
 
       this.get("/items/requests/:id", (schema, req) => {
         const { Authorization } = req.requestHeaders;
-        if (!Authorization) return hasNoTokenError;
+        if (!Authorization) return errors.hasNoTokenError;
 
         const params = req.params;
         const itemRequest = schema.findBy("itemRequest", { id: params.id });
         return itemRequest;
       });
 
+      // CATEGORIES
       this.get("/categories", (schema, req) => {
         const { Authorization } = req.requestHeaders;
-        if (!Authorization) return hasNoTokenError;
+        if (!Authorization) return errors.hasNoTokenError;
         return schema.all("categories");
       });
     },

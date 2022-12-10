@@ -1,26 +1,26 @@
 import type { ItemRequestResponse } from "@Types/responses";
 import { faker } from "@faker-js/faker";
 
-const requests: ItemRequestResponse[] = [];
-
-Array.from({ length: 20 }).forEach((item, index) => {
-  requests.push({
+const data: ItemRequestResponse[] = [...Array(20)].map((_, index) => {
+  return {
     id: index + 1,
+    requestedAt: faker.date.future().toISOString(),
     item: {
-      name: faker.commerce.productName(),
-      code: faker.random.numeric(12),
+      code: faker.random.numeric(faker.datatype.boolean() ? 12 : 8),
       message: faker.commerce.productDescription(),
+      name: faker.commerce.productName(),
     },
     user: {
-      id: index + 1,
+      id: faker.datatype.number({ min: 1, max: 9999 }),
       name: faker.name.fullName(),
-      companyCode: faker.random.numeric(12),
+      companyCode: faker.random.numeric(faker.datatype.boolean() ? 12 : 8),
       email: faker.internet.email(),
       avatar: faker.internet.avatar(),
       permissions: [""],
     },
-    requestedAt: faker.date.future().toISOString(),
-  });
+  };
 });
 
-export const itemsRequests = requests;
+export const itemsRequests = {
+  content: data,
+};
