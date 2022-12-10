@@ -1,8 +1,6 @@
-import type { ReactChildrenElement } from "@Types/elements";
-
 interface ShowWhenProps {
   condition: boolean;
-  children: ReactChildrenElement;
+  children: React.ReactNode;
 }
 
 /**

@@ -7,8 +7,6 @@ export type ReactButtonElement = React.DetailedHTMLProps<
   HTMLButtonElement
 >;
 
-export type ReactChildrenElement = React.ReactNode;
-
 export type ReactInputElement = React.DetailedHTMLProps<
   React.InputHTMLAttributes<HTMLInputElement>,
   HTMLInputElement

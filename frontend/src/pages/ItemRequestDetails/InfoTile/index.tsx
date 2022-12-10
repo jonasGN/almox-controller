@@ -1,6 +1,4 @@
-import type { ReactChildrenElement } from "@Types/elements";
 import { classNames } from "@/utils/styles";
-
 import { ShowWhen } from "@/layout";
 
 import styles from "./styles.module.scss";
@@ -9,7 +7,7 @@ interface InfoTileProps {
   title: string;
   info: string;
   highlightInfo?: boolean;
-  children?: ReactChildrenElement;
+  children?: React.ReactNode;
 }
 
 export const InfoTile = (props: InfoTileProps): JSX.Element => {

@@ -1,4 +1,4 @@
-import type { ReactButtonElement, ReactChildrenElement } from "@Types/elements";
+import type { ReactButtonElement } from "@Types/elements";
 import { ElementException } from "@/exceptions";
 import { classNames } from "@/utils/styles";
 
@@ -10,7 +10,7 @@ export interface BaseButtonProps extends ReactButtonElement {
   title?: string;
   size?: "default" | "medium";
   customClassName?: string;
-  children?: ReactChildrenElement;
+  children?: React.ReactNode;
 }
 
 export const BaseButton = (props: BaseButtonProps): JSX.Element => {

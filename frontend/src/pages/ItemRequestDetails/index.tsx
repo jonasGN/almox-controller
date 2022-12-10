@@ -1,4 +1,4 @@
-import type { ItemRequestResponse } from "@Types/responses";
+import type { ItemRequestResponse } from "@Types/api";
 import { useParams } from "@/wrappers/navigation";
 import { useOverlayElement } from "@/hooks/element";
 import { useFetchData } from "@/hooks/common";

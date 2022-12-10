@@ -1,10 +1,8 @@
-import type { ReactChildrenElement } from "@Types/elements";
-
 import styles from "./styles.module.scss";
 
 interface PageHeaderProps {
   title: string;
-  children?: ReactChildrenElement;
+  children?: React.ReactNode;
 }
 
 export const PageHeader = (props: PageHeaderProps): JSX.Element => {

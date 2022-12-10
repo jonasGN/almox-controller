@@ -1,4 +1,3 @@
-import type { ReactChildrenElement } from "@Types/elements";
 import { classNames } from "@/utils/styles";
 
 import styles from "./styles.module.scss";
@@ -6,7 +5,7 @@ import styles from "./styles.module.scss";
 interface ItemRequestDetailsSectionProps {
   title: string;
   className?: string;
-  children?: ReactChildrenElement;
+  children?: React.ReactNode;
 }
 
 export const ItemRequestDetailsSection = (

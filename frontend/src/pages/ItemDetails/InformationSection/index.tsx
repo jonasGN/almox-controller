@@ -1,10 +1,8 @@
-import type { ReactChildrenElement } from "@Types/elements";
-
 import styles from "./styles.module.scss";
 
 interface InformationSectionProps {
   title: string;
-  children: ReactChildrenElement;
+  children: React.ReactNode;
 }
 
 export const InformationSection = (props: InformationSectionProps): JSX.Element => {

@@ -1,4 +1,4 @@
-import type { MeResponse } from "@Types/responses";
+import type { MeResponse } from "@Types/api";
 import { faker } from "@faker-js/faker";
 
 export const me: MeResponse = {

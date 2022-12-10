@@ -16,3 +16,13 @@ export interface ItemResponse {
   category: string;
   location: Location;
 }
+
+export interface ItemPost {
+  name: string;
+  description: string;
+  price: number;
+  initialQuantity: number;
+  category: string;
+  image: string;
+  location: Location;
+}

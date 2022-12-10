@@ -1,5 +1,5 @@
 import type { AuthData } from "@Types/entities";
-import type { AuthResponse } from "@Types/responses";
+import type { AuthResponse } from "@Types/api";
 import { AxiosError } from "axios";
 import { apiClient } from "@/services/apiClient";
 import { convert } from "@/utils/converters";

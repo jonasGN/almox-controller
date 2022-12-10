@@ -1,4 +1,4 @@
-import type { AuthResponse, RefreshTokenResponse } from "@Types/responses";
+import type { AuthResponse, RefreshTokenResponse } from "@Types/api";
 import { faker } from "@faker-js/faker";
 import { generateTokens } from "../../cryptoJS";
 

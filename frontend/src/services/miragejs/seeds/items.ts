@@ -1,6 +1,4 @@
-import type { ItemResponse } from "@Types/responses";
-import type { ItemPost } from "@Types/post";
-
+import type { ItemPost, ItemResponse } from "@Types/api";
 import { faker } from "@faker-js/faker";
 
 const data: ItemResponse[] = [...Array(20)].map((_, index) => {

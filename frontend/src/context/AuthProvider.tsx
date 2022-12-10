@@ -1,6 +1,5 @@
 import type { ReactState } from "@Types/aliases";
 import type { UserRoles } from "@Types/common";
-import type { ReactChildrenElement } from "@Types/elements";
 import { createContext, useState } from "react";
 
 export interface UserContextData {
@@ -17,7 +16,7 @@ interface AuthContextData {
 }
 
 interface AuthProviderProps {
-  children: ReactChildrenElement;
+  children: React.ReactNode;
 }
 
 export const AuthContext = createContext<AuthContextData>({} as AuthContextData);

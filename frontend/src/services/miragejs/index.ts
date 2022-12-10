@@ -1,4 +1,4 @@
-import type { ItemResponse } from "@Types/responses";
+import type { ItemResponse } from "@Types/api";
 import { createServer, Model, Response } from "miragejs";
 
 import { seed } from "./seeds";

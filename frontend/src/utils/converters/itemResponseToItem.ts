@@ -1,4 +1,4 @@
-import type { ItemResponse } from "@Types/responses";
+import type { ItemResponse } from "@Types/api";
 import type { Item } from "@Types/entities";
 
 import { formatter } from "../formatters";

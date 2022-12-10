@@ -1,4 +1,4 @@
-import type { CategoryResponse } from "@Types/responses";
+import type { CategoryResponse } from "@Types/api";
 import { faker } from "@faker-js/faker";
 
 const data: CategoryResponse[] = [...Array(20)].map((_, index) => {

@@ -1,4 +1,4 @@
-import { ItemPost } from "@Types/post";
+import type { ItemPost } from "@Types/api";
 
 /**
  * Convert a `FormData` object into a POST object that matches

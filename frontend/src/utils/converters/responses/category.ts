@@ -1,5 +1,5 @@
 import type { Category } from "@Types/entities";
-import type { CategoryResponse } from "@Types/responses";
+import type { CategoryResponse } from "@Types/api";
 
 /**
  * Converts the category API response to `Category` entity

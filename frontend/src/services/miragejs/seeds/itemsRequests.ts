@@ -1,4 +1,4 @@
-import type { ItemRequestResponse } from "@Types/responses";
+import type { ItemRequestResponse } from "@Types/api";
 import { faker } from "@faker-js/faker";
 
 const data: ItemRequestResponse[] = [...Array(20)].map((_, index) => {
