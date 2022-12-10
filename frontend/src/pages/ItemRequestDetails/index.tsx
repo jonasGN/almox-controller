@@ -20,10 +20,9 @@ export const ItemRequestDetailsPage = () => {
   const { isVisible, elementRef, onOpenElement, onCloseElement } = useOverlayElement();
 
   const requestId = params.requestId!;
-  const { content, hasError, isLoading } = useFetchData<ItemRequestResponse>({
-    url: `/api/items/requests/${requestId}`,
-    queryKey: ["itemRequest", requestId],
-  });
+  const { content, hasError, isLoading } = useFetchData<ItemRequestResponse>(
+    `/api/items/requests/${requestId}`
+  );
 
   if (isLoading || hasError) {
     return <ContentHelper isLoading={isLoading} hasError={hasError} />;

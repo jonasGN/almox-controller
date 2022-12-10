@@ -22,10 +22,9 @@ export const ItemDetailsPage = (): JSX.Element => {
 
   const itemId = params.itemId!;
 
-  const { content, hasError, isLoading } = useFetchData<ItemResponse>({
-    url: `/api/items/${itemId}`,
-    queryKey: ["item", itemId],
-  });
+  const { content, hasError, isLoading } = useFetchData<ItemResponse>(
+    `/api/items/${itemId}`
+  );
 
   if (isLoading || hasError) {
     return <ContentHelper isLoading={isLoading} hasError={hasError} />;

@@ -8,10 +8,8 @@ import { ContentHelper } from "@/components/ContentHelper";
 import styles from "./styles.module.scss";
 
 export const ItemRequestsList = (): JSX.Element => {
-  const { content, hasError, isLoading } = useFetchData<ItemRequestResponse[]>({
-    url: "/api/items/requests",
-    queryKey: ["itemRequests"],
-  });
+  const { content, hasError, isLoading } =
+    useFetchData<ItemRequestResponse[]>("/api/items/requests");
 
   if (isLoading || hasError) {
     return <ContentHelper isLoading={isLoading} hasError={hasError} />;

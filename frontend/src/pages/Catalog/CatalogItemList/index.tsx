@@ -8,10 +8,7 @@ import { ContentHelper } from "@/components/ContentHelper";
 import styles from "./styles.module.scss";
 
 export const CatalogItemList = (): JSX.Element => {
-  const { content, hasError, isLoading } = useFetchData<ItemResponse[]>({
-    queryKey: ["items"],
-    url: "/api/items",
-  });
+  const { content, hasError, isLoading } = useFetchData<ItemResponse[]>("/api/items");
 
   if (isLoading || hasError) {
     return <ContentHelper isLoading={isLoading} hasError={hasError} />;

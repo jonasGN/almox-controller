@@ -3,9 +3,15 @@ import { useQuery } from "react-query";
 import { usePrivateApi } from "../auth";
 import { useNavigation } from "./useNavigation";
 
-interface FetchDataParams {
-  url: string;
-  queryKey: Array<string | number>;
+interface QueryOptions {
+  key: Array<string | number>;
+}
+
+interface FetchDataOptions {
+  /**
+   Options used by react-query to identify how to controll the data flow
+   */
+  queryOptions?: QueryOptions;
 }
 
 interface FetchData<T> {
@@ -16,21 +22,23 @@ interface FetchData<T> {
 
 /**
  * Used to fetch data from internet
- * @param params the hook options
- * @param params.url the API path to make the GET request
- * @param params.queryKey the key to be used by react-query to identify when to controll the data flow
+ * @param url the API path to make the GET request
  * @returns an Promise with the data `T` type
  */
-export const useFetchData = <T>(params: FetchDataParams): FetchData<T> => {
-  const { url, queryKey } = params;
-
+export const useFetchData = <T>(
+  url: string,
+  options?: FetchDataOptions
+): FetchData<T> => {
   const api = usePrivateApi();
   const { navigateTo, location } = useNavigation();
+
+  const queryKeys = url.replace("/api/", "").split("/");
 
   const fetchData = async () => {
     try {
       const response = await api.get(url);
-      const data = response.data[queryKey[0]] as T;
+      const dataKey = Object.keys(response.data)[0];
+      const data = response.data[dataKey] as T;
       return data;
     } catch (e) {
       console.error("FETCH DATA ERROR:", e);
@@ -39,7 +47,10 @@ export const useFetchData = <T>(params: FetchDataParams): FetchData<T> => {
     }
   };
 
-  const { data, isLoading, isError } = useQuery(queryKey, fetchData);
+  const { data, isLoading, isError } = useQuery(
+    options?.queryOptions?.key ?? queryKeys,
+    fetchData
+  );
 
   return { content: data, hasError: isError, isLoading };
 };
