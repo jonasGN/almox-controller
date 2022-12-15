@@ -6,7 +6,7 @@ Essa versão da aplicação conta com diversas melhorias (design, funcionalidade
 
 ## Status
 
-Esta plataforma é um projeto pessoal, baseado em uma aplicação real desenvolvida por **[**mim**]([jonasGN (Jonas Gonçalves) · GitHub](https://github.com/jonasGN))** (front-end) e por [**Matheus Faria**]([quantux (Matheus Faria) · GitHub](https://github.com/quantux)) (back-end). 
+Esta plataforma é um projeto pessoal, baseado em uma aplicação real desenvolvida por **[**mim**](https://github.com/jonasGN)** (front-end) e por [**Matheus Faria**](https://github.com/quantux) (back-end). 
 
 Contudo, essa versão é apenas voltada para material de estudo e de testes com o objetivo de melhorar minhas habilidades pessoais, tendo toda a aplicação desenvolvida por mim (**design das telas**, **web**, **mobile** e **back-end**). 
 
@@ -40,7 +40,7 @@ Antes de executar o projeto, é necessário instalar as dependências do mesmo e
 
 A aplicação web fora desenvolvida em ReactJS, portanto, é necessário realizar a instalação das seguintes dependências:
 
-- [Node]([Download | Node.js](https://nodejs.org/en/download/))
+- [Node](https://nodejs.org/en/download/)
 
 - [Yarn](https://yarnpkg.com/getting-started/install)
 
@@ -60,11 +60,9 @@ Esse é um Monorepo contendo a aplicação **web**, o **back-end** e também o *
 
 - [Web](./frontend/README.md)
 
-- [Mobile](./backend/README.md)
+- [Mobile](./mobile/README.md)
 
-- [Back-end](./mobile/README.md)
-  
-  
+- [Back-end](./backend/README.md)
 
 ---
 

@@ -1,4 +1,4 @@
-# Almox Controller (Front-end)
+# Almox Controller (web)
 
 ## Como utilizar
 
