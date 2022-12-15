@@ -2,75 +2,69 @@
 
 Esse é um projeto baseado em uma aplicação real desenvolvida para uma grande empresa cervejeira do Brasil, com o objetivo de controlar o almoxarifado da mesma.
 
-Essa versão da aplicação conta com diversas melhorias (design, funcionalidades e etc) que não foram possíveis serem adicionadas ao projeto original devido as especificações do projeto e seus detalhes de implementação que dependia de um sistema utilizado internamente pela empresa.
+Essa versão da aplicação conta com diversas melhorias (design, funcionalidades e etc.) que não foram possíveis serem adicionadas ao projeto original devido as suas especificações e seus detalhes de implementação que dependiam de um sistema utilizado internamente pela empresa.
+
+## Status
+
+Esta plataforma é um projeto pessoal, baseado em uma aplicação real desenvolvida por **[**mim**]([jonasGN (Jonas Gonçalves) · GitHub](https://github.com/jonasGN))** (front-end) e por [**Matheus Faria**]([quantux (Matheus Faria) · GitHub](https://github.com/quantux)) (back-end). 
+
+Contudo, essa versão é apenas voltada para material de estudo e de testes com o objetivo de melhorar minhas habilidades pessoais, tendo toda a aplicação desenvolvida por mim (**design das telas**, **web**, **mobile** e **back-end**). 
+
+Dessa forma, seu desenvolvimento é feito durante o tempo livre que tenho para dedicar ao projeto.
+
+A aplicação se encontra com os seguintes status para cada escopo:
+
+- **Web**: aplicação web do painel administrativo [**código em andamento**]
+
+- **Mobile**: aplicação para dispositivos móveis [**design completo**]
+
+- **Back-end**: back-end da aplicação para servir a web e mobile [**pendente**]  
+
+---
 
 ## Preview
 
-Preview do front-end da aplicação finalizada 
+![](./images/web/sign-in.png)
 
----
+![](./images/web/Items-catalag.png)
+
+![](./images/web/items-edit.png)
+
+![](./images/web/requests.png)
 
 ## Dependências
 
 Antes de executar o projeto, é necessário instalar as dependências do mesmo em seu ambiente de trabalho. 
 
-> Os comandos utilizados neste guia correspondem ao sistema operacional Linux, para sistemas baseados em Debian e Ubuntu. Para realizar a instalação das dependências em outro SO, acesse a página oficial da ferramenta e siga as instruções para o SO dejesado.
+### Web
 
-É recomendado a utilização do **Docker** para evitar possíveis erros de dependências do projeto devido a seu escopo. 
+A aplicação web fora desenvolvida em ReactJS, portanto, é necessário realizar a instalação das seguintes dependências:
 
-Realize a instalação do Docker para seu sistema operacional de acordo com as instruções na página oficial da ferramenta. Feito a instalação, basta executar o comando abaixo na pasta raíz do projeto:
+- [Node]([Download | Node.js](https://nodejs.org/en/download/))
 
-```bash
-$ sudo docker compose up
-```
-
-Contudo, caso seja necessário a utilização do mesmo fora do ambiente Docker, será necessário realizar a instalação das dependências de cada contexto, conforme citado abaixo. 
-
-### Front-end
-
-A aplicação front-end fora desenvolvida em ReactJS, portanto, é necessário realizar a instalação das seguintes dependências:
-
-**NodeJS**
-
-```bash
-$ curl -fsSL https://deb.nodesource.com/setup_lts.x \
-    | sudo -E bash - && \
-    sudo apt install -y nodejs
-```
-
-**Yarn**
-
-```bash
-$ npm install --global yarn
-```
-
-> OBS: Utilize somente o yarn para este projeto e não npm
+- [Yarn](https://yarnpkg.com/getting-started/install)
 
 ### Back-end
 
-Adicionar dependências aqui
+Sem dependências devido à seu estágio de desenvolvimento. 
 
 ### Mobile
 
-Adicionar dependências aqui
+Sem dependências devido à seu estágio de desenvolvimento.
 
 ---
 
 ## Como utilizar
 
-Esse é um Monorepo contendo o front-end web da aplicação, o back-end e também o mobile da plataforma, por esse motivo as especificidades de cada um fora separado e alocado em suas respectivas documentações. 
+Esse é um Monorepo contendo a aplicação **web**, o **back-end** e também o **mobile** da plataforma, por esse motivo as especificidades de cada um fora separado e alocado em suas respectivas documentações, que podem ser acessadas através dos links abaixo:
 
-### Front-end
+- [Web](./frontend/README.md)
 
-[Front-end page](./frontend/README.md)
+- [Mobile](./backend/README.md)
 
-### Back-end
-
-[Front-end page](./backend/README.md)
-
-### Mobile
-
-[Front-end page](./mobile/README.md)
+- [Back-end](./mobile/README.md)
+  
+  
 
 ---
 
@@ -78,7 +72,7 @@ Esse é um Monorepo contendo o front-end web da aplicação, o back-end e també
 
 Durante o desenvolvimento dessa plataforma, fora observado a possibilidade de realizar algumas melhorias no projeto em geral. São elas:
 
-- Adicionar prefixos automáticos aos commits de acordo com o contexto do projeto (frontend, backend e mobile)
-- Criar um container contendo todas as dependências do projeto, devido a sua complexidade de configuração do ambiente.
-- Adicionar tradução para o inglês da documentação.
-- Não permitir importações em determinadas pastas do projeto (front-end) 
+- [ ] Adicionar prefixos automáticos aos commits de acordo com o contexto do projeto (web, back-end e mobile);
+- [ ] Criar um container contendo todas as dependências do projeto;
+- [ ] Traduzir documentação para o inglês;
+- [ ] Não permitir importações em determinadas pastas do projeto (web) 
